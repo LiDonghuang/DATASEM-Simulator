@@ -1,0 +1,105 @@
+FATAL [Thread-5] 2014-11-18 09:38:32,844 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (19.0)
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
+	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.reflect.InvocationTargetException
+	at kanbanSimulator.TeamAgent$$FastClassByCGLIB$$ae2f0c67.invoke(<generated>)
+	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
+	... 7 more
+Caused by: java.util.ConcurrentModificationException
+	at java.util.LinkedList$ListItr.checkForComodification(LinkedList.java:953)
+	at java.util.LinkedList$ListItr.next(LinkedList.java:886)
+	at kanbanSimulator.TeamAgent.step(TeamAgent.java:78)
+	... 10 more
+FATAL [Thread-5] 2014-11-18 10:02:42,256 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (18.0)
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
+	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.reflect.InvocationTargetException
+	at kanbanSimulator.TeamAgent$$FastClassByCGLIB$$ae2f0c67.invoke(<generated>)
+	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
+	... 7 more
+Caused by: java.util.ConcurrentModificationException
+	at java.util.LinkedList$ListItr.checkForComodification(LinkedList.java:953)
+	at java.util.LinkedList$ListItr.next(LinkedList.java:886)
+	at kanbanSimulator.TeamAgent.step(TeamAgent.java:78)
+	... 10 more
+FATAL [Thread-6] 2014-11-18 10:05:46,284 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (19.0)
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
+	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.reflect.InvocationTargetException
+	at kanbanSimulator.TeamAgent$$FastClassByCGLIB$$ae2f0c67.invoke(<generated>)
+	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
+	... 7 more
+Caused by: java.util.ConcurrentModificationException
+	at java.util.LinkedList$ListItr.checkForComodification(LinkedList.java:953)
+	at java.util.LinkedList$ListItr.next(LinkedList.java:886)
+	at kanbanSimulator.TeamAgent.step(TeamAgent.java:78)
+	... 10 more
+FATAL [Thread-5] 2014-11-18 10:14:57,258 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (13.0)
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
+	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.reflect.InvocationTargetException
+	at kanbanSimulator.TeamAgent$$FastClassByCGLIB$$ae2f0c67.invoke(<generated>)
+	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
+	... 7 more
+Caused by: java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at kanbanSimulator.TeamAgent.step(TeamAgent.java:78)
+	... 10 more
+FATAL [Thread-5] 2014-11-18 10:19:54,612 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (16.0)
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
+	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.reflect.InvocationTargetException
+	at kanbanSimulator.TeamAgent$$FastClassByCGLIB$$ae2f0c67.invoke(<generated>)
+	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
+	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
+	... 7 more
+Caused by: java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at kanbanSimulator.TeamAgent.step(TeamAgent.java:79)
+	... 10 more
