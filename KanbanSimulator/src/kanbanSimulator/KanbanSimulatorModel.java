@@ -38,6 +38,7 @@ public class KanbanSimulatorModel implements ContextBuilder<Object>{
 		Grid<Object> grid = (Grid)context.getProjection("Grid");*/
 		
 		ContextBuilderTest cbTest=new ContextBuilderTest("0");
+		System.out.println("This is test");
 		cbTest.XMLParseTest();
 		cbTest.DirectoryRegistrationTest();
 		cbTest.WorkFlowGenerationTest(context);
