@@ -13,6 +13,7 @@ import ausim.xtext.kanban.domainmodel.kanbanmodel.Task;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl;
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ISchedule;
+import repast.simphony.engine.schedule.ScheduledMethod;
 
 public class KSSTask extends TaskImpl {
 	private int taskID;
@@ -44,12 +45,7 @@ public class KSSTask extends TaskImpl {
 		this.completedList=new LinkedList<KSSTask>();
 		this.topologicalList=new LinkedList<KSSTask>();
 		int size=this.requirement.getSubtasks().size();
-		System.out.println("Topological order is as follows: ");
-		for(int i=0;i<size;i++) {
-			this.topologicalList.add(this.requirement.getSubtasks().get(i));
-			System.out.println("Task "+this.topologicalList.get(i).getTaskId());
-		}
-		
+				
 
 	}
 	
@@ -61,6 +57,11 @@ public class KSSTask extends TaskImpl {
 		this.complexTask=false;
 		this.assigned=false;
 	
+	}
+	
+	@ScheduledMethod(start=0,interval=1)
+	public void step() {
+		
 	}
 	
 	public int getTaskId() {

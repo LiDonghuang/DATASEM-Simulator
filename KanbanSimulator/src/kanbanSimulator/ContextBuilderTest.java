@@ -153,7 +153,7 @@ public class ContextBuilderTest {
 	}
 	
 	
-	public void DirectoryRegistrationTest() {
+	public void DirectoryRegistrationTest(Context<Object> context) {
 		DirectoryFacilitatorAgent dfa=new DirectoryFacilitatorAgent();
 		
 		for(int i=0;i<3;i++) {
@@ -204,6 +204,7 @@ public class ContextBuilderTest {
 			Task sTask = KanbanmodelFactory.eINSTANCE.createTask(); 
 			sTask.setName("Task");
 			KSSTask mySourceTask=new KSSTask(taskIdentifier,sTask);
+			context.add(mySourceTask);
 			myTaskFlow.getSubtasks().add(mySourceTask);
 			myTaskFlow.initAdjacencyList(mySourceTask);
 			myRequirement.getRTasks().add(mySourceTask);
@@ -211,6 +212,7 @@ public class ContextBuilderTest {
 			Task tTask = KanbanmodelFactory.eINSTANCE.createTask();
 			tTask.setName("Task");
 			KSSTask myTargetTask=new KSSTask(taskIdentifier, tTask);
+			context.add(myTargetTask);
 			myRequirement.getRTasks().add(myTargetTask);
 			myTaskFlow.getSubtasks().add(myTargetTask);
 			myTaskFlow.initAdjacencyList(myTargetTask);

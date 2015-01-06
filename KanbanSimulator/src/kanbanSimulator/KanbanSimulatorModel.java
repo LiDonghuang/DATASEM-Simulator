@@ -27,7 +27,7 @@ public class KanbanSimulatorModel implements ContextBuilder<Object>{
 		//root.setOrgName("test");
 		//System.out.println(root.getOrgName());
 		
-		/*GridFactoryFinder.createGridFactory(null).createGrid("Grid", context, 
+		GridFactoryFinder.createGridFactory(null).createGrid("Grid", context, 
 				new GridBuilderParameters<Object>(new WrapAroundBorders(), 
 						new RandomGridAdder<Object>(), true, width, height));
 		
@@ -35,12 +35,12 @@ public class KanbanSimulatorModel implements ContextBuilder<Object>{
 				"organization network", context, true);
 		netBuilder.buildNetwork();
 		Network<Object> net = (Network<Object>)context.getProjection("organization network");
-		Grid<Object> grid = (Grid)context.getProjection("Grid");*/
+		Grid<Object> grid = (Grid)context.getProjection("Grid");
 		
 		ContextBuilderTest cbTest=new ContextBuilderTest("0");
 		System.out.println("This is test");
 		cbTest.XMLParseTest();
-		cbTest.DirectoryRegistrationTest();
+		cbTest.DirectoryRegistrationTest(context);
 		cbTest.WorkFlowGenerationTest(context);
 		
 		return context;
