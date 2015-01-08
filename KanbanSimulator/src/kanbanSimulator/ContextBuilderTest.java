@@ -7,6 +7,7 @@ import java.util.LinkedList;
 
 import repast.simphony.context.Context;
 import repast.simphony.random.RandomHelper;
+import repast.simphony.space.grid.Grid;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -194,17 +195,20 @@ public class ContextBuilderTest {
 	}	
 		
 	public void WorkFlowGenerationTest(Context<Object> context) {
-		
+		Grid<Object> grid = (Grid)context.getProjection("Grid");
 		KanbanWorkFlow kwf = KanbanmodelFactory.eINSTANCE.createKanbanWorkFlow();
 		Capability myCapability = KanbanmodelFactory.eINSTANCE.createCapability();
 		Requirement myRequirement=KanbanmodelFactory.eINSTANCE.createRequirement();
 		TaskFlow myTaskFlow=new TaskFlow();
 		int taskIdentifier=0;
-		for (int i=0; i<15; i++) {
+		int taskCount=0;
+		for (int i=0; i<10; i++) {
 			Task sTask = KanbanmodelFactory.eINSTANCE.createTask(); 
 			sTask.setName("Task");
 			KSSTask mySourceTask=new KSSTask(taskIdentifier,sTask);
 			context.add(mySourceTask);
+			grid.moveTo(mySourceTask,25-taskCount,40); 
+			taskCount++;
 			myTaskFlow.getSubtasks().add(mySourceTask);
 			myTaskFlow.initAdjacencyList(mySourceTask);
 			myRequirement.getRTasks().add(mySourceTask);
@@ -213,6 +217,8 @@ public class ContextBuilderTest {
 			tTask.setName("Task");
 			KSSTask myTargetTask=new KSSTask(taskIdentifier, tTask);
 			context.add(myTargetTask);
+			grid.moveTo(myTargetTask, 25-taskCount,40);
+			taskCount++;
 			myRequirement.getRTasks().add(myTargetTask);
 			myTaskFlow.getSubtasks().add(myTargetTask);
 			myTaskFlow.initAdjacencyList(myTargetTask);
@@ -232,7 +238,9 @@ public class ContextBuilderTest {
 	}
 	
 	public void WorkFLowCoordination(TaskFlow req, Context<Object> context) {
+		Grid<Object> grid = (Grid)context.getProjection("Grid");
 		DirectoryFacilitatorAgent dfa=new DirectoryFacilitatorAgent();
+		int teamCount=0;
 		for(int i=0;i<10;i++) {
 			Service myService = KanbanmodelFactory.eINSTANCE.createService();
 			myService.setName("Engineering");		
@@ -244,6 +252,8 @@ public class ContextBuilderTest {
 			dfa.register(adescription);
 			newTeam.setDirectoryFacilitator(dfa);
 			context.add(newTeam);
+			grid.moveTo(newTeam,35, 40-teamCount);
+			teamCount++;
 		}
 		
 		
@@ -255,9 +265,20 @@ public class ContextBuilderTest {
 		newTask.TaskTraversal();
 		sysEng.requestService(newTask);
 		context.add(sysEng);
+		grid.moveTo(sysEng,40,30);
 
 	}
 	
 
+	
+	public void RandomContextGeneration(Context<Object> context) {
+		ArrayList taskFlowSet = new ArrayList(20);
+		for(int i=0;i<20;i++) {
+			TaskFlow myTaskFlow=new TaskFlow();
+		}
+		
+		
+	}
+	
 
 }

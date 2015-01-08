@@ -30,11 +30,13 @@ public class TeamAgent extends TeamImpl {
 	private int RQueueLimit;
 	private int workInprogressLimit;
 	private static final int DEFAULT_INITIAL_CAPACITY = 100;
+	public int state;
 
 	
 	public TeamAgent(String id,DirectoryFacilitatorAgent inDfa) {
 
 		this.id = id;
+		this.state=0;
 		this.dfa=inDfa;
 		this.coordinator=false;
 		this.RQueueLimit=6;
@@ -75,6 +77,8 @@ public class TeamAgent extends TeamImpl {
 		}
 		
 		int activeQSize=this.activeQ.size();
+		if (activeQSize>0) {this.state=1;} else {this.state=0;}
+		
 		for(int i=0;i<activeQSize;i++) {
 			KSSTask nextTask=this.activeQ.get(i); 
 			if (schedule.getTickCount()>=nextTask.getCompletionTime()) {
@@ -106,7 +110,7 @@ public class TeamAgent extends TeamImpl {
 				}			
 			}*/
 			
-			KSSTask complexTask=this.coordinateQ.peek();
+			KSSTask complexTask=this.coordinateQ.peek();  
 			if (complexTask!=null) {
 				KSSTask cTask=complexTask.pollCompletedTask();
 				if (cTask!=null) {complexTask.updateReadyTasks(cTask);}
