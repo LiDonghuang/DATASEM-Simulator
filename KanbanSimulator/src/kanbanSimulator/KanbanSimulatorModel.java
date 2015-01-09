@@ -43,6 +43,8 @@ public class KanbanSimulatorModel implements ContextBuilder<Object>{
 		//cbTest.DirectoryRegistrationTest(context);
 		//cbTest.WorkFlowGenerationTest(context);
 		
+		cbTest.RandomContextGeneration(context);
+		
 		return context;
 	}
 }

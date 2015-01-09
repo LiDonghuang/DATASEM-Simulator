@@ -12,6 +12,6 @@
     <string>SettingsRegistryId</string>
     <string>Repast.registry</string>
     <string>LastLoadedScenario</string>
-    <string>/Users/yilmaz/Desktop/AUSIM/git/LocalKanbanSimulatorRepository/KanbanSimulator/KanbanSimulator.rs</string>
+    <string>/Users/yilmaz/git/KanbanSimulator/KanbanSimulator/KanbanSimulator.rs</string>
   </hashtable>
 </simphony.settings.SettingsRegistry>

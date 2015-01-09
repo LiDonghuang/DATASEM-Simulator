@@ -272,13 +272,54 @@ public class ContextBuilderTest {
 
 	
 	public void RandomContextGeneration(Context<Object> context) {
-		ArrayList taskFlowSet = new ArrayList(20);
+		Grid<Object> grid = (Grid)context.getProjection("Grid");
+		ArrayList<TaskFlow> taskFlowSet = new ArrayList<TaskFlow>(20);
+		int taskIdentifier=0;
 		for(int i=0;i<20;i++) {
 			TaskFlow myTaskFlow=new TaskFlow();
+			for(int j=0;j<20;j++) {
+				Task sTask = KanbanmodelFactory.eINSTANCE.createTask(); 
+				sTask.setName("Task");
+				KSSTask myTask=new KSSTask(taskIdentifier,sTask);
+				taskIdentifier++;
+				context.add(myTask);
+				grid.moveTo(myTask,25-j,40-i); 
+				myTaskFlow.getSubtasks().add(myTask);
+				myTaskFlow.initAdjacencyList(myTask);
+			}
+			taskFlowSet.add(myTaskFlow);
+		}
+		
+		DirectoryFacilitatorAgent dfa=new DirectoryFacilitatorAgent();
+		int teamCount=0;
+		for(int i=0;i<20;i++) {
+			Service myService = KanbanmodelFactory.eINSTANCE.createService();
+			myService.setName("Engineering");		
+			TeamAgent newTeam = new TeamAgent("AUSIM-"+i,dfa);
+			newTeam.addService(myService);
+			ServiceDescription sdescription=new ServiceDescription(myService.getName(), "Software Engineering");
+			DFAgentDescription adescription=new DFAgentDescription(newTeam);
+			adescription.addServiceDescription(sdescription);	
+			dfa.register(adescription);
+			newTeam.setDirectoryFacilitator(dfa);
+			context.add(newTeam);
+			grid.moveTo(newTeam,35, 40-teamCount);
+			teamCount++;
 		}
 		
 		
+		TeamAgent sysEng = new TeamAgent("AUSIM-coordinator",dfa);
+		sysEng.setCoordinator(true);
+		Task myTask = KanbanmodelFactory.eINSTANCE.createTask();
+		myTask.setName("RequirementTask");
+		KSSTask newTask=new KSSTask(99,myTask,taskFlowSet.get(0));
+		newTask.TaskTraversal();
+		sysEng.requestService(newTask);
+		context.add(sysEng);
+		grid.moveTo(sysEng,40,30);
+
 	}
-	
+		
+
 
 }
