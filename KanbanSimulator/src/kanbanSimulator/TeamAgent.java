@@ -95,8 +95,7 @@ public class TeamAgent extends TeamImpl {
 		
 		this.completeQ.clear();
 		
-		
-		
+	
 		if (this.coordinator==true) {
 			KSSTask complexTask=this.coordinateQ.peek();  
 			if (complexTask!=null) {
