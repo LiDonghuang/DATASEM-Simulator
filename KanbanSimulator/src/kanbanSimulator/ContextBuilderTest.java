@@ -7,6 +7,7 @@ import java.util.LinkedList;
 
 import repast.simphony.context.Context;
 import repast.simphony.random.RandomHelper;
+import repast.simphony.space.graph.Network;
 import repast.simphony.space.grid.Grid;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -239,7 +240,10 @@ public class ContextBuilderTest {
 	
 	public void WorkFLowCoordination(TaskFlow req, Context<Object> context) {
 		Grid<Object> grid = (Grid)context.getProjection("Grid");
+		Network<Object> net = (Network<Object>)context.getProjection("organization network");
+		
 		DirectoryFacilitatorAgent dfa=new DirectoryFacilitatorAgent();
+		
 		int teamCount=0;
 		for(int i=0;i<10;i++) {
 			Service myService = KanbanmodelFactory.eINSTANCE.createService();
@@ -273,14 +277,32 @@ public class ContextBuilderTest {
 	
 	public void RandomContextGeneration(Context<Object> context) {
 		Grid<Object> grid = (Grid)context.getProjection("Grid");
+		Network<Object> net = (Network<Object>)context.getProjection("organization network");
+		
+		ArrayList<KSSTask> myCapabilities=new ArrayList<KSSTask>(5);
+		int capabilityIdentifier=0;
+		for(int k=0;k<5;k++) {
+			Task capTask = KanbanmodelFactory.eINSTANCE.createTask(); 
+			capTask.setName("Capability");
+			KSSTask myCap=new KSSTask(capabilityIdentifier,capTask);
+			context.add(myCap);
+			grid.moveTo(myCap,1,40-(4*k)); 
+			myCapabilities.add(myCap);
+			capabilityIdentifier++;	
+		}
+		
+		
 		ArrayList<TaskFlow> taskFlowSet = new ArrayList<TaskFlow>(20);
 		int taskIdentifier=0;
+		int numOfReqs=0;
 		for(int i=0;i<20;i++) {
 			TaskFlow myTaskFlow=new TaskFlow();
-			for(int j=0;j<20;j++) {
+			KSSTask myTask=null;
+			numOfReqs=RandomHelper.nextIntFromTo(5, 20);
+			for(int j=0;j<numOfReqs;j++) {
 				Task sTask = KanbanmodelFactory.eINSTANCE.createTask(); 
-				sTask.setName("Task");
-				KSSTask myTask=new KSSTask(taskIdentifier,sTask);
+				sTask.setName("Requirements Task");
+				myTask=new KSSTask(taskIdentifier,sTask);
 				taskIdentifier++;
 				context.add(myTask);
 				grid.moveTo(myTask,25-j,40-i); 
@@ -288,10 +310,28 @@ public class ContextBuilderTest {
 				myTaskFlow.initAdjacencyList(myTask);
 			}
 			taskFlowSet.add(myTaskFlow);
+			net.addEdge(myCapabilities.get(RandomHelper.nextIntFromTo(0, 4)),myTask);
 		}
 		
 		DirectoryFacilitatorAgent dfa=new DirectoryFacilitatorAgent();
+		ArrayList<TeamAgent> SEGroups = new ArrayList<TeamAgent>(3);
+		for(int j=0;j<3;j++) {
+			TeamAgent sysEng = new TeamAgent("AUSIM-coordinator",dfa);
+			sysEng.setCoordinator(true);
+			/*Task myTask = KanbanmodelFactory.eINSTANCE.createTask();
+			myTask.setName("RequirementTask");
+			KSSTask newTask=new KSSTask(99,myTask,taskFlowSet.get(0));
+			newTask.TaskTraversal();
+			sysEng.requestService(newTask);*/
+			SEGroups.add(sysEng);
+			context.add(sysEng);
+			grid.moveTo(sysEng,40,40-(5*(j+1)));
+		}
+		
+		
+		
 		int teamCount=0;
+		int myGroup=0;
 		for(int i=0;i<20;i++) {
 			Service myService = KanbanmodelFactory.eINSTANCE.createService();
 			myService.setName("Engineering");		
@@ -303,20 +343,28 @@ public class ContextBuilderTest {
 			dfa.register(adescription);
 			newTeam.setDirectoryFacilitator(dfa);
 			context.add(newTeam);
-			grid.moveTo(newTeam,35, 40-teamCount);
+			myGroup=RandomHelper.nextIntFromTo(0, 2);
+			grid.moveTo(newTeam,50, 40-teamCount);
+			net.addEdge(SEGroups.get(myGroup),newTeam);
 			teamCount++;
 		}
 		
-		
-		TeamAgent sysEng = new TeamAgent("AUSIM-coordinator",dfa);
-		sysEng.setCoordinator(true);
-		Task myTask = KanbanmodelFactory.eINSTANCE.createTask();
+		/*Task myTask = KanbanmodelFactory.eINSTANCE.createTask();
 		myTask.setName("RequirementTask");
 		KSSTask newTask=new KSSTask(99,myTask,taskFlowSet.get(0));
 		newTask.TaskTraversal();
-		sysEng.requestService(newTask);
-		context.add(sysEng);
-		grid.moveTo(sysEng,40,30);
+		SEGroups.get(0).requestService(newTask);*/
+		
+		int mySEGroup=0;
+		for(int i=0; i<20; i++) {
+			Task myTask = KanbanmodelFactory.eINSTANCE.createTask();
+			myTask.setName("RequirementTask");
+			KSSTask newTask=new KSSTask(99,myTask,taskFlowSet.get(i));
+			mySEGroup=RandomHelper.nextIntFromTo(0, 2);
+			SEGroups.get(mySEGroup).requestService(newTask);
+			net.addEdge(taskFlowSet.get(i).getSubtasks().get(0),SEGroups.get(mySEGroup));
+		}
+		
 
 	}
 		

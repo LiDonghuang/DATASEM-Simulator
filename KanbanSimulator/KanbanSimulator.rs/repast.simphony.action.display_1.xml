@@ -3,26 +3,36 @@
   <type>2D</type>
   <styles>
     <entry>
-      <string>kanbanSimulator.TeamAgent</string>
+      <string>kanbanSimulator.KSSTask</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
     <entry>
-      <string>ausim.xtext.kanban.domainmodel.kanbanmodel.Task</string>
+      <string>kanbanSimulator.TeamAgent</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
   </styles>
   <editedStyles>
     <entry>
-      <string>kanbanSimulator.TeamAgent</string>
-      <string>kanbanSimulator.TeamAgent.style_3.xml</string>
+      <string>kanbanSimulator.KSSTask</string>
+      <string>kanbanSimulator.KSSTask.style_0.xml</string>
     </entry>
     <entry>
-      <string>ausim.xtext.kanban.domainmodel.kanbanmodel.Task</string>
-      <string>ausim.xtext.kanban.domainmodel.kanbanmodel.Task.style_0.xml</string>
+      <string>kanbanSimulator.TeamAgent</string>
+      <string>kanbanSimulator.TeamAgent.style_4.xml</string>
     </entry>
   </editedStyles>
-  <netStyles/>
-  <editedNetStyles/>
+  <netStyles>
+    <entry>
+      <string>organization network</string>
+      <string>repast.simphony.visualization.editedStyle.EditedEdgeStyle2D</string>
+    </entry>
+  </netStyles>
+  <editedNetStyles>
+    <entry>
+      <string>organization network</string>
+      <string>organizationnetwork.style_1.xml</string>
+    </entry>
+  </editedNetStyles>
   <frequency>ON_MOVE</frequency>
   <schedParams>
     <start>1.0</start>
@@ -31,19 +41,19 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>581260057</hashCode>
+    <hashCode>-1202367543</hashCode>
   </schedParams>
   <layoutClassName>foo.bar.baz</layoutClassName>
   <layoutProjection>Grid</layoutProjection>
   <layoutInterval>0</layoutInterval>
   <layerOrder>
     <entry>
-      <string>kanbanSimulator.TeamAgent</string>
-      <int>1</int>
+      <string>kanbanSimulator.KSSTask</string>
+      <int>0</int>
     </entry>
     <entry>
-      <string>ausim.xtext.kanban.domainmodel.kanbanmodel.Task</string>
-      <int>0</int>
+      <string>kanbanSimulator.TeamAgent</string>
+      <int>1</int>
     </entry>
   </layerOrder>
   <projections>
@@ -51,6 +61,11 @@
       <id>Grid</id>
       <attributes/>
       <type>grid</type>
+    </repast.simphony.scenario.data.ProjectionData>
+    <repast.simphony.scenario.data.ProjectionData>
+      <id>organization network</id>
+      <attributes/>
+      <type>network</type>
     </repast.simphony.scenario.data.ProjectionData>
   </projections>
   <visualizationProperties class="repast.simphony.visualization.UnitSizeLayoutProperties">
@@ -81,6 +96,13 @@
           </entry>
         </props>
       </repast.simphony.visualization.grid.GridProjectionDescriptor>
+    </entry>
+    <entry>
+      <string>organization network</string>
+      <repast.simphony.visualization.engine.DefaultProjectionDescriptor>
+        <proj reference="../../../../projections/repast.simphony.scenario.data.ProjectionData[2]"/>
+        <props/>
+      </repast.simphony.visualization.engine.DefaultProjectionDescriptor>
     </entry>
   </projectionDescriptors>
   <props/>

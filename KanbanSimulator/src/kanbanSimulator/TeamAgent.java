@@ -98,18 +98,6 @@ public class TeamAgent extends TeamImpl {
 		
 		
 		if (this.coordinator==true) {
-			System.out.println("System Engineering Group is active");
-			
-			/*KSSTask complexTask=this.coordinateQ.peek();
-			if (complexTask!=null) {
-				int size=complexTask.getTopologicalTasks().size();
-				if (size>0) {
-					KSSTask newTask=complexTask.getTopologicalTasks().get(0);
-					assignTask(newTask);
-					complexTask.getTopologicalTasks().remove(newTask);
-				}			
-			}*/
-			
 			KSSTask complexTask=this.coordinateQ.peek();  
 			if (complexTask!=null) {
 				KSSTask cTask=complexTask.pollCompletedTask();
