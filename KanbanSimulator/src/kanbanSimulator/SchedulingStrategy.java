@@ -9,7 +9,7 @@ public class SchedulingStrategy {
 		this.scheduleType=strategyType;
 	}
 	
-	public void asssignResource(KSSTask newTask) {
+	public void assignResource(KSSTask newTask) {
 		
 	}
 }
