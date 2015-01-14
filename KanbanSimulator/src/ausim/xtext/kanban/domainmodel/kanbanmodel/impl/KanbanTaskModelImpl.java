@@ -3,7 +3,7 @@
 package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Capability;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanWorkFlow;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 
 import java.util.Collection;
@@ -24,19 +24,19 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Kanban Work Flow</b></em>'.
+ * An implementation of the model object '<em><b>Kanban Task Model</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanWorkFlowImpl#getName <em>Name</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanWorkFlowImpl#getCaps <em>Caps</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanTaskModelImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanTaskModelImpl#getCaps <em>Caps</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class KanbanWorkFlowImpl extends MinimalEObjectImpl.Container implements KanbanWorkFlow
+public class KanbanTaskModelImpl extends MinimalEObjectImpl.Container implements KanbanTaskModel
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -73,7 +73,7 @@ public class KanbanWorkFlowImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  protected KanbanWorkFlowImpl()
+  protected KanbanTaskModelImpl()
   {
     super();
   }
@@ -86,7 +86,7 @@ public class KanbanWorkFlowImpl extends MinimalEObjectImpl.Container implements 
   @Override
   protected EClass eStaticClass()
   {
-    return KanbanmodelPackage.Literals.KANBAN_WORK_FLOW;
+    return KanbanmodelPackage.Literals.KANBAN_TASK_MODEL;
   }
 
   /**
@@ -109,7 +109,7 @@ public class KanbanWorkFlowImpl extends MinimalEObjectImpl.Container implements 
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.KANBAN_WORK_FLOW__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.KANBAN_TASK_MODEL__NAME, oldName, name));
   }
 
   /**
@@ -121,7 +121,7 @@ public class KanbanWorkFlowImpl extends MinimalEObjectImpl.Container implements 
   {
     if (caps == null)
     {
-      caps = new EObjectContainmentEList<Capability>(Capability.class, this, KanbanmodelPackage.KANBAN_WORK_FLOW__CAPS);
+      caps = new EObjectContainmentEList<Capability>(Capability.class, this, KanbanmodelPackage.KANBAN_TASK_MODEL__CAPS);
     }
     return caps;
   }
@@ -136,7 +136,7 @@ public class KanbanWorkFlowImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.KANBAN_WORK_FLOW__CAPS:
+      case KanbanmodelPackage.KANBAN_TASK_MODEL__CAPS:
         return ((InternalEList<?>)getCaps()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -152,9 +152,9 @@ public class KanbanWorkFlowImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.KANBAN_WORK_FLOW__NAME:
+      case KanbanmodelPackage.KANBAN_TASK_MODEL__NAME:
         return getName();
-      case KanbanmodelPackage.KANBAN_WORK_FLOW__CAPS:
+      case KanbanmodelPackage.KANBAN_TASK_MODEL__CAPS:
         return getCaps();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -171,10 +171,10 @@ public class KanbanWorkFlowImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.KANBAN_WORK_FLOW__NAME:
+      case KanbanmodelPackage.KANBAN_TASK_MODEL__NAME:
         setName((String)newValue);
         return;
-      case KanbanmodelPackage.KANBAN_WORK_FLOW__CAPS:
+      case KanbanmodelPackage.KANBAN_TASK_MODEL__CAPS:
         getCaps().clear();
         getCaps().addAll((Collection<? extends Capability>)newValue);
         return;
@@ -192,10 +192,10 @@ public class KanbanWorkFlowImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.KANBAN_WORK_FLOW__NAME:
+      case KanbanmodelPackage.KANBAN_TASK_MODEL__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case KanbanmodelPackage.KANBAN_WORK_FLOW__CAPS:
+      case KanbanmodelPackage.KANBAN_TASK_MODEL__CAPS:
         getCaps().clear();
         return;
     }
@@ -212,9 +212,9 @@ public class KanbanWorkFlowImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.KANBAN_WORK_FLOW__NAME:
+      case KanbanmodelPackage.KANBAN_TASK_MODEL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case KanbanmodelPackage.KANBAN_WORK_FLOW__CAPS:
+      case KanbanmodelPackage.KANBAN_TASK_MODEL__CAPS:
         return caps != null && !caps.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -237,4 +237,4 @@ public class KanbanWorkFlowImpl extends MinimalEObjectImpl.Container implements 
     return result.toString();
   }
 
-} //KanbanWorkFlowImpl
+} //KanbanTaskModelImpl

@@ -59,22 +59,22 @@ public interface KanbanmodelFactory extends EFactory
   Asset createAsset();
 
   /**
-   * Returns a new object of class '<em>KSS Block</em>'.
+   * Returns a new object of class '<em>Skill</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>KSS Block</em>'.
+   * @return a new object of class '<em>Skill</em>'.
    * @generated
    */
-  KSSBlock createKSSBlock();
+  Skill createSkill();
 
   /**
-   * Returns a new object of class '<em>Mechanism</em>'.
+   * Returns a new object of class '<em>Dependency</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mechanism</em>'.
+   * @return a new object of class '<em>Dependency</em>'.
    * @generated
    */
-  Mechanism createMechanism();
+  Dependency createDependency();
 
   /**
    * Returns a new object of class '<em>Requirement</em>'.
@@ -95,13 +95,13 @@ public interface KanbanmodelFactory extends EFactory
   Task createTask();
 
   /**
-   * Returns a new object of class '<em>Kanban Work Flow</em>'.
+   * Returns a new object of class '<em>Kanban Task Model</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Kanban Work Flow</em>'.
+   * @return a new object of class '<em>Kanban Task Model</em>'.
    * @generated
    */
-  KanbanWorkFlow createKanbanWorkFlow();
+  KanbanTaskModel createKanbanTaskModel();
 
   /**
    * Returns a new object of class '<em>Capability</em>'.

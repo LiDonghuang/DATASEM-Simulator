@@ -4,7 +4,6 @@ package ausim.xtext.kanban.domainmodel.kanbanmodel;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -132,13 +131,31 @@ public interface KanbanmodelPackage extends EPackage
   int TEAM__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Demand Units</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEAM__DEMAND_UNITS = 1;
+
+  /**
+   * The feature id for the '<em><b>Sourced Units</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEAM__SOURCED_UNITS = 2;
+
+  /**
    * The feature id for the '<em><b>Groupmembers</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TEAM__GROUPMEMBERS = 1;
+  int TEAM__GROUPMEMBERS = 3;
 
   /**
    * The feature id for the '<em><b>Resources</b></em>' containment reference list.
@@ -147,16 +164,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TEAM__RESOURCES = 2;
-
-  /**
-   * The feature id for the '<em><b>Team Profile</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEAM__TEAM_PROFILE = 3;
+  int TEAM__RESOURCES = 4;
 
   /**
    * The feature id for the '<em><b>Services</b></em>' containment reference list.
@@ -165,16 +173,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TEAM__SERVICES = 4;
-
-  /**
-   * The feature id for the '<em><b>Kss Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEAM__KSS_BLOCK = 5;
+  int TEAM__SERVICES = 5;
 
   /**
    * The number of structural features of the '<em>Team</em>' class.
@@ -233,13 +232,13 @@ public interface KanbanmodelPackage extends EPackage
   int ASSET__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Employed At</b></em>' reference.
+   * The feature id for the '<em><b>Has Skills</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSET__EMPLOYED_AT = 1;
+  int ASSET__HAS_SKILLS = 1;
 
   /**
    * The number of structural features of the '<em>Asset</em>' class.
@@ -251,14 +250,14 @@ public interface KanbanmodelPackage extends EPackage
   int ASSET_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KSSBlockImpl <em>KSS Block</em>}' class.
+   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.SkillImpl <em>Skill</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KSSBlockImpl
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getKSSBlock()
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.SkillImpl
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getSkill()
    * @generated
    */
-  int KSS_BLOCK = 4;
+  int SKILL = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -267,71 +266,26 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int KSS_BLOCK__NAME = 0;
+  int SKILL__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Assigned Unit</b></em>' reference.
+   * The number of structural features of the '<em>Skill</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int KSS_BLOCK__ASSIGNED_UNIT = 1;
+  int SKILL_FEATURE_COUNT = 1;
 
   /**
-   * The feature id for the '<em><b>Demand Units</b></em>' reference list.
+   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.DependencyImpl <em>Dependency</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int KSS_BLOCK__DEMAND_UNITS = 2;
-
-  /**
-   * The feature id for the '<em><b>Sourced Units</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int KSS_BLOCK__SOURCED_UNITS = 3;
-
-  /**
-   * The feature id for the '<em><b>RQueue Limit</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int KSS_BLOCK__RQUEUE_LIMIT = 4;
-
-  /**
-   * The feature id for the '<em><b>Wip Limit</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int KSS_BLOCK__WIP_LIMIT = 5;
-
-  /**
-   * The number of structural features of the '<em>KSS Block</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int KSS_BLOCK_FEATURE_COUNT = 6;
-
-  /**
-   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl <em>Mechanism</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getMechanism()
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.DependencyImpl
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getDependency()
    * @generated
    */
-  int MECHANISM = 5;
+  int DEPENDENCY = 5;
 
   /**
    * The feature id for the '<em><b>Source Task</b></em>' reference.
@@ -340,7 +294,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MECHANISM__SOURCE_TASK = 0;
+  int DEPENDENCY__SOURCE_TASK = 0;
 
   /**
    * The feature id for the '<em><b>Target Task</b></em>' reference.
@@ -349,16 +303,16 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MECHANISM__TARGET_TASK = 1;
+  int DEPENDENCY__TARGET_TASK = 1;
 
   /**
-   * The number of structural features of the '<em>Mechanism</em>' class.
+   * The number of structural features of the '<em>Dependency</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MECHANISM_FEATURE_COUNT = 2;
+  int DEPENDENCY_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.RequirementImpl <em>Requirement</em>}' class.
@@ -389,13 +343,13 @@ public interface KanbanmodelPackage extends EPackage
   int REQUIREMENT__RTASKS = 1;
 
   /**
-   * The feature id for the '<em><b>Mechanisms</b></em>' containment reference list.
+   * The feature id for the '<em><b>Dependencies</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REQUIREMENT__MECHANISMS = 2;
+  int REQUIREMENT__DEPENDENCIES = 2;
 
   /**
    * The number of structural features of the '<em>Requirement</em>' class.
@@ -435,13 +389,13 @@ public interface KanbanmodelPackage extends EPackage
   int TASK__STASKS = 1;
 
   /**
-   * The feature id for the '<em><b>Task Mechanims</b></em>' containment reference list.
+   * The feature id for the '<em><b>Task Dependencies</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TASK__TASK_MECHANIMS = 2;
+  int TASK__TASK_DEPENDENCIES = 2;
 
   /**
    * The feature id for the '<em><b>Req Specialties</b></em>' reference list.
@@ -480,14 +434,14 @@ public interface KanbanmodelPackage extends EPackage
   int TASK_FEATURE_COUNT = 6;
 
   /**
-   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanWorkFlowImpl <em>Kanban Work Flow</em>}' class.
+   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanTaskModelImpl <em>Kanban Task Model</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanWorkFlowImpl
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getKanbanWorkFlow()
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanTaskModelImpl
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getKanbanTaskModel()
    * @generated
    */
-  int KANBAN_WORK_FLOW = 8;
+  int KANBAN_TASK_MODEL = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -496,7 +450,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int KANBAN_WORK_FLOW__NAME = 0;
+  int KANBAN_TASK_MODEL__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Caps</b></em>' containment reference list.
@@ -505,16 +459,16 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int KANBAN_WORK_FLOW__CAPS = 1;
+  int KANBAN_TASK_MODEL__CAPS = 1;
 
   /**
-   * The number of structural features of the '<em>Kanban Work Flow</em>' class.
+   * The number of structural features of the '<em>Kanban Task Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int KANBAN_WORK_FLOW_FEATURE_COUNT = 2;
+  int KANBAN_TASK_MODEL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.CapabilityImpl <em>Capability</em>}' class.
@@ -552,16 +506,6 @@ public interface KanbanmodelPackage extends EPackage
    * @ordered
    */
   int CAPABILITY_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ProfileType <em>Profile Type</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.ProfileType
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getProfileType()
-   * @generated
-   */
-  int PROFILE_TYPE = 10;
 
 
   /**
@@ -640,6 +584,28 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getTeam_Name();
 
   /**
+   * Returns the meta object for the reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getDemandUnits <em>Demand Units</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Demand Units</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getDemandUnits()
+   * @see #getTeam()
+   * @generated
+   */
+  EReference getTeam_DemandUnits();
+
+  /**
+   * Returns the meta object for the reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getSourcedUnits <em>Sourced Units</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Sourced Units</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getSourcedUnits()
+   * @see #getTeam()
+   * @generated
+   */
+  EReference getTeam_SourcedUnits();
+
+  /**
    * Returns the meta object for the reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getGroupmembers <em>Groupmembers</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -662,17 +628,6 @@ public interface KanbanmodelPackage extends EPackage
   EReference getTeam_Resources();
 
   /**
-   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getTeamProfile <em>Team Profile</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Team Profile</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getTeamProfile()
-   * @see #getTeam()
-   * @generated
-   */
-  EAttribute getTeam_TeamProfile();
-
-  /**
    * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getServices <em>Services</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -682,17 +637,6 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EReference getTeam_Services();
-
-  /**
-   * Returns the meta object for the containment reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getKssBlock <em>Kss Block</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Kss Block</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getKssBlock()
-   * @see #getTeam()
-   * @generated
-   */
-  EReference getTeam_KssBlock();
 
   /**
    * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Service <em>Service</em>}'.
@@ -737,123 +681,68 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getAsset_Name();
 
   /**
-   * Returns the meta object for the reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Asset#getEmployedAt <em>Employed At</em>}'.
+   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Asset#getHasSkills <em>Has Skills</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Employed At</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Asset#getEmployedAt()
+   * @return the meta object for the containment reference list '<em>Has Skills</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Asset#getHasSkills()
    * @see #getAsset()
    * @generated
    */
-  EReference getAsset_EmployedAt();
+  EReference getAsset_HasSkills();
 
   /**
-   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KSSBlock <em>KSS Block</em>}'.
+   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Skill <em>Skill</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>KSS Block</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KSSBlock
+   * @return the meta object for class '<em>Skill</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Skill
    * @generated
    */
-  EClass getKSSBlock();
+  EClass getSkill();
 
   /**
-   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KSSBlock#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Skill#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KSSBlock#getName()
-   * @see #getKSSBlock()
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Skill#getName()
+   * @see #getSkill()
    * @generated
    */
-  EAttribute getKSSBlock_Name();
+  EAttribute getSkill_Name();
 
   /**
-   * Returns the meta object for the reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KSSBlock#getAssignedUnit <em>Assigned Unit</em>}'.
+   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency <em>Dependency</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Assigned Unit</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KSSBlock#getAssignedUnit()
-   * @see #getKSSBlock()
+   * @return the meta object for class '<em>Dependency</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency
    * @generated
    */
-  EReference getKSSBlock_AssignedUnit();
+  EClass getDependency();
 
   /**
-   * Returns the meta object for the reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KSSBlock#getDemandUnits <em>Demand Units</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Demand Units</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KSSBlock#getDemandUnits()
-   * @see #getKSSBlock()
-   * @generated
-   */
-  EReference getKSSBlock_DemandUnits();
-
-  /**
-   * Returns the meta object for the reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KSSBlock#getSourcedUnits <em>Sourced Units</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Sourced Units</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KSSBlock#getSourcedUnits()
-   * @see #getKSSBlock()
-   * @generated
-   */
-  EReference getKSSBlock_SourcedUnits();
-
-  /**
-   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KSSBlock#getRQueueLimit <em>RQueue Limit</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>RQueue Limit</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KSSBlock#getRQueueLimit()
-   * @see #getKSSBlock()
-   * @generated
-   */
-  EAttribute getKSSBlock_RQueueLimit();
-
-  /**
-   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KSSBlock#getWipLimit <em>Wip Limit</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Wip Limit</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KSSBlock#getWipLimit()
-   * @see #getKSSBlock()
-   * @generated
-   */
-  EAttribute getKSSBlock_WipLimit();
-
-  /**
-   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism <em>Mechanism</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Mechanism</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism
-   * @generated
-   */
-  EClass getMechanism();
-
-  /**
-   * Returns the meta object for the reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getSourceTask <em>Source Task</em>}'.
+   * Returns the meta object for the reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency#getSourceTask <em>Source Task</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Source Task</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getSourceTask()
-   * @see #getMechanism()
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency#getSourceTask()
+   * @see #getDependency()
    * @generated
    */
-  EReference getMechanism_SourceTask();
+  EReference getDependency_SourceTask();
 
   /**
-   * Returns the meta object for the reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getTargetTask <em>Target Task</em>}'.
+   * Returns the meta object for the reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency#getTargetTask <em>Target Task</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Target Task</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism#getTargetTask()
-   * @see #getMechanism()
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency#getTargetTask()
+   * @see #getDependency()
    * @generated
    */
-  EReference getMechanism_TargetTask();
+  EReference getDependency_TargetTask();
 
   /**
    * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Requirement <em>Requirement</em>}'.
@@ -888,15 +777,15 @@ public interface KanbanmodelPackage extends EPackage
   EReference getRequirement_RTasks();
 
   /**
-   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Requirement#getMechanisms <em>Mechanisms</em>}'.
+   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Requirement#getDependencies <em>Dependencies</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Mechanisms</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Requirement#getMechanisms()
+   * @return the meta object for the containment reference list '<em>Dependencies</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Requirement#getDependencies()
    * @see #getRequirement()
    * @generated
    */
-  EReference getRequirement_Mechanisms();
+  EReference getRequirement_Dependencies();
 
   /**
    * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task <em>Task</em>}'.
@@ -931,15 +820,15 @@ public interface KanbanmodelPackage extends EPackage
   EReference getTask_STasks();
 
   /**
-   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getTaskMechanims <em>Task Mechanims</em>}'.
+   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getTaskDependencies <em>Task Dependencies</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Task Mechanims</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getTaskMechanims()
+   * @return the meta object for the containment reference list '<em>Task Dependencies</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getTaskDependencies()
    * @see #getTask()
    * @generated
    */
-  EReference getTask_TaskMechanims();
+  EReference getTask_TaskDependencies();
 
   /**
    * Returns the meta object for the reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getReqSpecialties <em>Req Specialties</em>}'.
@@ -975,36 +864,36 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getTask_COS();
 
   /**
-   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanWorkFlow <em>Kanban Work Flow</em>}'.
+   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel <em>Kanban Task Model</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Kanban Work Flow</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanWorkFlow
+   * @return the meta object for class '<em>Kanban Task Model</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel
    * @generated
    */
-  EClass getKanbanWorkFlow();
+  EClass getKanbanTaskModel();
 
   /**
-   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanWorkFlow#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanWorkFlow#getName()
-   * @see #getKanbanWorkFlow()
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel#getName()
+   * @see #getKanbanTaskModel()
    * @generated
    */
-  EAttribute getKanbanWorkFlow_Name();
+  EAttribute getKanbanTaskModel_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanWorkFlow#getCaps <em>Caps</em>}'.
+   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel#getCaps <em>Caps</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Caps</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanWorkFlow#getCaps()
-   * @see #getKanbanWorkFlow()
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel#getCaps()
+   * @see #getKanbanTaskModel()
    * @generated
    */
-  EReference getKanbanWorkFlow_Caps();
+  EReference getKanbanTaskModel_Caps();
 
   /**
    * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Capability <em>Capability</em>}'.
@@ -1037,16 +926,6 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EReference getCapability_Reqs();
-
-  /**
-   * Returns the meta object for enum '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ProfileType <em>Profile Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Profile Type</em>'.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.ProfileType
-   * @generated
-   */
-  EEnum getProfileType();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1132,6 +1011,22 @@ public interface KanbanmodelPackage extends EPackage
     EAttribute TEAM__NAME = eINSTANCE.getTeam_Name();
 
     /**
+     * The meta object literal for the '<em><b>Demand Units</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TEAM__DEMAND_UNITS = eINSTANCE.getTeam_DemandUnits();
+
+    /**
+     * The meta object literal for the '<em><b>Sourced Units</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TEAM__SOURCED_UNITS = eINSTANCE.getTeam_SourcedUnits();
+
+    /**
      * The meta object literal for the '<em><b>Groupmembers</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1148,28 +1043,12 @@ public interface KanbanmodelPackage extends EPackage
     EReference TEAM__RESOURCES = eINSTANCE.getTeam_Resources();
 
     /**
-     * The meta object literal for the '<em><b>Team Profile</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TEAM__TEAM_PROFILE = eINSTANCE.getTeam_TeamProfile();
-
-    /**
      * The meta object literal for the '<em><b>Services</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference TEAM__SERVICES = eINSTANCE.getTeam_Services();
-
-    /**
-     * The meta object literal for the '<em><b>Kss Block</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference TEAM__KSS_BLOCK = eINSTANCE.getTeam_KssBlock();
 
     /**
      * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceImpl <em>Service</em>}' class.
@@ -1208,22 +1087,22 @@ public interface KanbanmodelPackage extends EPackage
     EAttribute ASSET__NAME = eINSTANCE.getAsset_Name();
 
     /**
-     * The meta object literal for the '<em><b>Employed At</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Has Skills</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ASSET__EMPLOYED_AT = eINSTANCE.getAsset_EmployedAt();
+    EReference ASSET__HAS_SKILLS = eINSTANCE.getAsset_HasSkills();
 
     /**
-     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KSSBlockImpl <em>KSS Block</em>}' class.
+     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.SkillImpl <em>Skill</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KSSBlockImpl
-     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getKSSBlock()
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.SkillImpl
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getSkill()
      * @generated
      */
-    EClass KSS_BLOCK = eINSTANCE.getKSSBlock();
+    EClass SKILL = eINSTANCE.getSkill();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1231,57 +1110,17 @@ public interface KanbanmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute KSS_BLOCK__NAME = eINSTANCE.getKSSBlock_Name();
+    EAttribute SKILL__NAME = eINSTANCE.getSkill_Name();
 
     /**
-     * The meta object literal for the '<em><b>Assigned Unit</b></em>' reference feature.
+     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.DependencyImpl <em>Dependency</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.DependencyImpl
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getDependency()
      * @generated
      */
-    EReference KSS_BLOCK__ASSIGNED_UNIT = eINSTANCE.getKSSBlock_AssignedUnit();
-
-    /**
-     * The meta object literal for the '<em><b>Demand Units</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference KSS_BLOCK__DEMAND_UNITS = eINSTANCE.getKSSBlock_DemandUnits();
-
-    /**
-     * The meta object literal for the '<em><b>Sourced Units</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference KSS_BLOCK__SOURCED_UNITS = eINSTANCE.getKSSBlock_SourcedUnits();
-
-    /**
-     * The meta object literal for the '<em><b>RQueue Limit</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute KSS_BLOCK__RQUEUE_LIMIT = eINSTANCE.getKSSBlock_RQueueLimit();
-
-    /**
-     * The meta object literal for the '<em><b>Wip Limit</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute KSS_BLOCK__WIP_LIMIT = eINSTANCE.getKSSBlock_WipLimit();
-
-    /**
-     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl <em>Mechanism</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl
-     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getMechanism()
-     * @generated
-     */
-    EClass MECHANISM = eINSTANCE.getMechanism();
+    EClass DEPENDENCY = eINSTANCE.getDependency();
 
     /**
      * The meta object literal for the '<em><b>Source Task</b></em>' reference feature.
@@ -1289,7 +1128,7 @@ public interface KanbanmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MECHANISM__SOURCE_TASK = eINSTANCE.getMechanism_SourceTask();
+    EReference DEPENDENCY__SOURCE_TASK = eINSTANCE.getDependency_SourceTask();
 
     /**
      * The meta object literal for the '<em><b>Target Task</b></em>' reference feature.
@@ -1297,7 +1136,7 @@ public interface KanbanmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MECHANISM__TARGET_TASK = eINSTANCE.getMechanism_TargetTask();
+    EReference DEPENDENCY__TARGET_TASK = eINSTANCE.getDependency_TargetTask();
 
     /**
      * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.RequirementImpl <em>Requirement</em>}' class.
@@ -1326,12 +1165,12 @@ public interface KanbanmodelPackage extends EPackage
     EReference REQUIREMENT__RTASKS = eINSTANCE.getRequirement_RTasks();
 
     /**
-     * The meta object literal for the '<em><b>Mechanisms</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Dependencies</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REQUIREMENT__MECHANISMS = eINSTANCE.getRequirement_Mechanisms();
+    EReference REQUIREMENT__DEPENDENCIES = eINSTANCE.getRequirement_Dependencies();
 
     /**
      * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl <em>Task</em>}' class.
@@ -1360,12 +1199,12 @@ public interface KanbanmodelPackage extends EPackage
     EReference TASK__STASKS = eINSTANCE.getTask_STasks();
 
     /**
-     * The meta object literal for the '<em><b>Task Mechanims</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Task Dependencies</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TASK__TASK_MECHANIMS = eINSTANCE.getTask_TaskMechanims();
+    EReference TASK__TASK_DEPENDENCIES = eINSTANCE.getTask_TaskDependencies();
 
     /**
      * The meta object literal for the '<em><b>Req Specialties</b></em>' reference list feature.
@@ -1392,14 +1231,14 @@ public interface KanbanmodelPackage extends EPackage
     EAttribute TASK__COS = eINSTANCE.getTask_COS();
 
     /**
-     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanWorkFlowImpl <em>Kanban Work Flow</em>}' class.
+     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanTaskModelImpl <em>Kanban Task Model</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanWorkFlowImpl
-     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getKanbanWorkFlow()
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanTaskModelImpl
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getKanbanTaskModel()
      * @generated
      */
-    EClass KANBAN_WORK_FLOW = eINSTANCE.getKanbanWorkFlow();
+    EClass KANBAN_TASK_MODEL = eINSTANCE.getKanbanTaskModel();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1407,7 +1246,7 @@ public interface KanbanmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute KANBAN_WORK_FLOW__NAME = eINSTANCE.getKanbanWorkFlow_Name();
+    EAttribute KANBAN_TASK_MODEL__NAME = eINSTANCE.getKanbanTaskModel_Name();
 
     /**
      * The meta object literal for the '<em><b>Caps</b></em>' containment reference list feature.
@@ -1415,7 +1254,7 @@ public interface KanbanmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference KANBAN_WORK_FLOW__CAPS = eINSTANCE.getKanbanWorkFlow_Caps();
+    EReference KANBAN_TASK_MODEL__CAPS = eINSTANCE.getKanbanTaskModel_Caps();
 
     /**
      * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.CapabilityImpl <em>Capability</em>}' class.
@@ -1442,16 +1281,6 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EReference CAPABILITY__REQS = eINSTANCE.getCapability_Reqs();
-
-    /**
-     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ProfileType <em>Profile Type</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.ProfileType
-     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getProfileType()
-     * @generated
-     */
-    EEnum PROFILE_TYPE = eINSTANCE.getProfileType();
 
   }
 

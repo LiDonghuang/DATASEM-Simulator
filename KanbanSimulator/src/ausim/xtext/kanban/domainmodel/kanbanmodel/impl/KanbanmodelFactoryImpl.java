@@ -5,7 +5,6 @@ package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -69,48 +68,14 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.TEAM: return createTeam();
       case KanbanmodelPackage.SERVICE: return createService();
       case KanbanmodelPackage.ASSET: return createAsset();
-      case KanbanmodelPackage.KSS_BLOCK: return createKSSBlock();
-      case KanbanmodelPackage.MECHANISM: return createMechanism();
+      case KanbanmodelPackage.SKILL: return createSkill();
+      case KanbanmodelPackage.DEPENDENCY: return createDependency();
       case KanbanmodelPackage.REQUIREMENT: return createRequirement();
       case KanbanmodelPackage.TASK: return createTask();
-      case KanbanmodelPackage.KANBAN_WORK_FLOW: return createKanbanWorkFlow();
+      case KanbanmodelPackage.KANBAN_TASK_MODEL: return createKanbanTaskModel();
       case KanbanmodelPackage.CAPABILITY: return createCapability();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-    }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object createFromString(EDataType eDataType, String initialValue)
-  {
-    switch (eDataType.getClassifierID())
-    {
-      case KanbanmodelPackage.PROFILE_TYPE:
-        return createProfileTypeFromString(eDataType, initialValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-    }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String convertToString(EDataType eDataType, Object instanceValue)
-  {
-    switch (eDataType.getClassifierID())
-    {
-      case KanbanmodelPackage.PROFILE_TYPE:
-        return convertProfileTypeToString(eDataType, instanceValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -163,10 +128,10 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  public KSSBlock createKSSBlock()
+  public Skill createSkill()
   {
-    KSSBlockImpl kssBlock = new KSSBlockImpl();
-    return kssBlock;
+    SkillImpl skill = new SkillImpl();
+    return skill;
   }
 
   /**
@@ -174,10 +139,10 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Mechanism createMechanism()
+  public Dependency createDependency()
   {
-    MechanismImpl mechanism = new MechanismImpl();
-    return mechanism;
+    DependencyImpl dependency = new DependencyImpl();
+    return dependency;
   }
 
   /**
@@ -207,10 +172,10 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  public KanbanWorkFlow createKanbanWorkFlow()
+  public KanbanTaskModel createKanbanTaskModel()
   {
-    KanbanWorkFlowImpl kanbanWorkFlow = new KanbanWorkFlowImpl();
-    return kanbanWorkFlow;
+    KanbanTaskModelImpl kanbanTaskModel = new KanbanTaskModelImpl();
+    return kanbanTaskModel;
   }
 
   /**
@@ -222,28 +187,6 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     CapabilityImpl capability = new CapabilityImpl();
     return capability;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ProfileType createProfileTypeFromString(EDataType eDataType, String initialValue)
-  {
-    ProfileType result = ProfileType.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertProfileTypeToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

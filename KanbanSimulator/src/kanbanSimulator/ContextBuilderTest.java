@@ -19,9 +19,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Capability;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanWorkFlow;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelFactory;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Requirement;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Service;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Task;
@@ -197,7 +197,7 @@ public class ContextBuilderTest {
 		
 	public void WorkFlowGenerationTest(Context<Object> context) {
 		Grid<Object> grid = (Grid)context.getProjection("Grid");
-		KanbanWorkFlow kwf = KanbanmodelFactory.eINSTANCE.createKanbanWorkFlow();
+		KanbanTaskModel kwf = KanbanmodelFactory.eINSTANCE.createKanbanTaskModel();
 		Capability myCapability = KanbanmodelFactory.eINSTANCE.createCapability();
 		Requirement myRequirement=KanbanmodelFactory.eINSTANCE.createRequirement();
 		TaskFlow myTaskFlow=new TaskFlow();
@@ -224,11 +224,11 @@ public class ContextBuilderTest {
 			myTaskFlow.getSubtasks().add(myTargetTask);
 			myTaskFlow.initAdjacencyList(myTargetTask);
 			taskIdentifier++;
-			Mechanism myMechanism = KanbanmodelFactory.eINSTANCE.createMechanism(); 
+			Dependency myMechanism = KanbanmodelFactory.eINSTANCE.createDependency(); 
 			myMechanism.setSourceTask(mySourceTask);
 			myMechanism.setTargetTask(myTargetTask);
 			myTaskFlow.setAdjacencyList(mySourceTask, myTargetTask);
-			myRequirement.getMechanisms().add(myMechanism);		
+			myRequirement.getDependencies().add(myMechanism);		
 		}
 		myCapability.getReqs().add(myRequirement);
 		kwf.getCaps().add(myCapability);

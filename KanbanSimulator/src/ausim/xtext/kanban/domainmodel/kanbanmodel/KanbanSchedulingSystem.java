@@ -94,12 +94,12 @@ public interface KanbanSchedulingSystem extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Kss Work Flow</em>' containment reference.
-   * @see #setKssWorkFlow(KanbanWorkFlow)
+   * @see #setKssWorkFlow(KanbanTaskModel)
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_KssWorkFlow()
    * @model containment="true"
    * @generated
    */
-  KanbanWorkFlow getKssWorkFlow();
+  KanbanTaskModel getKssWorkFlow();
 
   /**
    * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssWorkFlow <em>Kss Work Flow</em>}' containment reference.
@@ -109,6 +109,6 @@ public interface KanbanSchedulingSystem extends EObject
    * @see #getKssWorkFlow()
    * @generated
    */
-  void setKssWorkFlow(KanbanWorkFlow value);
+  void setKssWorkFlow(KanbanTaskModel value);
 
 } // KanbanSchedulingSystem

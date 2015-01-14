@@ -2,8 +2,8 @@
  */
 package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 
+import ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Requirement;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Task;
 
@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.RequirementImpl#getName <em>Name</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.RequirementImpl#getRTasks <em>RTasks</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.RequirementImpl#getMechanisms <em>Mechanisms</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.RequirementImpl#getDependencies <em>Dependencies</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,14 +72,14 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
   protected EList<Task> rTasks;
 
   /**
-   * The cached value of the '{@link #getMechanisms() <em>Mechanisms</em>}' containment reference list.
+   * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMechanisms()
+   * @see #getDependencies()
    * @generated
    * @ordered
    */
-  protected EList<Mechanism> mechanisms;
+  protected EList<Dependency> dependencies;
 
   /**
    * <!-- begin-user-doc -->
@@ -144,13 +144,13 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Mechanism> getMechanisms()
+  public EList<Dependency> getDependencies()
   {
-    if (mechanisms == null)
+    if (dependencies == null)
     {
-      mechanisms = new EObjectContainmentEList<Mechanism>(Mechanism.class, this, KanbanmodelPackage.REQUIREMENT__MECHANISMS);
+      dependencies = new EObjectContainmentEList<Dependency>(Dependency.class, this, KanbanmodelPackage.REQUIREMENT__DEPENDENCIES);
     }
-    return mechanisms;
+    return dependencies;
   }
 
   /**
@@ -163,8 +163,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.REQUIREMENT__MECHANISMS:
-        return ((InternalEList<?>)getMechanisms()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.REQUIREMENT__DEPENDENCIES:
+        return ((InternalEList<?>)getDependencies()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -183,8 +183,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
         return getName();
       case KanbanmodelPackage.REQUIREMENT__RTASKS:
         return getRTasks();
-      case KanbanmodelPackage.REQUIREMENT__MECHANISMS:
-        return getMechanisms();
+      case KanbanmodelPackage.REQUIREMENT__DEPENDENCIES:
+        return getDependencies();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -207,9 +207,9 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
         getRTasks().clear();
         getRTasks().addAll((Collection<? extends Task>)newValue);
         return;
-      case KanbanmodelPackage.REQUIREMENT__MECHANISMS:
-        getMechanisms().clear();
-        getMechanisms().addAll((Collection<? extends Mechanism>)newValue);
+      case KanbanmodelPackage.REQUIREMENT__DEPENDENCIES:
+        getDependencies().clear();
+        getDependencies().addAll((Collection<? extends Dependency>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -231,8 +231,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
       case KanbanmodelPackage.REQUIREMENT__RTASKS:
         getRTasks().clear();
         return;
-      case KanbanmodelPackage.REQUIREMENT__MECHANISMS:
-        getMechanisms().clear();
+      case KanbanmodelPackage.REQUIREMENT__DEPENDENCIES:
+        getDependencies().clear();
         return;
     }
     super.eUnset(featureID);
@@ -252,8 +252,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.REQUIREMENT__RTASKS:
         return rTasks != null && !rTasks.isEmpty();
-      case KanbanmodelPackage.REQUIREMENT__MECHANISMS:
-        return mechanisms != null && !mechanisms.isEmpty();
+      case KanbanmodelPackage.REQUIREMENT__DEPENDENCIES:
+        return dependencies != null && !dependencies.isEmpty();
     }
     return super.eIsSet(featureID);
   }

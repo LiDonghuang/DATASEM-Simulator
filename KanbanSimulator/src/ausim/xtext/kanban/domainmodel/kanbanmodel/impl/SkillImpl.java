@@ -2,41 +2,30 @@
  */
 package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Asset;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Skill;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Asset</b></em>'.
+ * An implementation of the model object '<em><b>Skill</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl#getName <em>Name</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl#getHasSkills <em>Has Skills</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.SkillImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
+public class SkillImpl extends MinimalEObjectImpl.Container implements Skill
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -59,21 +48,11 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getHasSkills() <em>Has Skills</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getHasSkills()
-   * @generated
-   * @ordered
-   */
-  protected EList<Skill> hasSkills;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AssetImpl()
+  protected SkillImpl()
   {
     super();
   }
@@ -86,7 +65,7 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
   @Override
   protected EClass eStaticClass()
   {
-    return KanbanmodelPackage.Literals.ASSET;
+    return KanbanmodelPackage.Literals.SKILL;
   }
 
   /**
@@ -109,37 +88,7 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.ASSET__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Skill> getHasSkills()
-  {
-    if (hasSkills == null)
-    {
-      hasSkills = new EObjectContainmentEList<Skill>(Skill.class, this, KanbanmodelPackage.ASSET__HAS_SKILLS);
-    }
-    return hasSkills;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case KanbanmodelPackage.ASSET__HAS_SKILLS:
-        return ((InternalEList<?>)getHasSkills()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.SKILL__NAME, oldName, name));
   }
 
   /**
@@ -152,10 +101,8 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.ASSET__NAME:
+      case KanbanmodelPackage.SKILL__NAME:
         return getName();
-      case KanbanmodelPackage.ASSET__HAS_SKILLS:
-        return getHasSkills();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -165,18 +112,13 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.ASSET__NAME:
+      case KanbanmodelPackage.SKILL__NAME:
         setName((String)newValue);
-        return;
-      case KanbanmodelPackage.ASSET__HAS_SKILLS:
-        getHasSkills().clear();
-        getHasSkills().addAll((Collection<? extends Skill>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -192,11 +134,8 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.ASSET__NAME:
+      case KanbanmodelPackage.SKILL__NAME:
         setName(NAME_EDEFAULT);
-        return;
-      case KanbanmodelPackage.ASSET__HAS_SKILLS:
-        getHasSkills().clear();
         return;
     }
     super.eUnset(featureID);
@@ -212,10 +151,8 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.ASSET__NAME:
+      case KanbanmodelPackage.SKILL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case KanbanmodelPackage.ASSET__HAS_SKILLS:
-        return hasSkills != null && !hasSkills.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -237,4 +174,4 @@ public class AssetImpl extends MinimalEObjectImpl.Container implements Asset
     return result.toString();
   }
 
-} //AssetImpl
+} //SkillImpl

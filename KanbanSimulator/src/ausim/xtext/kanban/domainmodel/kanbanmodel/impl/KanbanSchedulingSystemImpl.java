@@ -3,7 +3,7 @@
 package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanWorkFlow;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Task;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Team;
@@ -90,7 +90,7 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * @generated
    * @ordered
    */
-  protected KanbanWorkFlow kssWorkFlow;
+  protected KanbanTaskModel kssWorkFlow;
 
   /**
    * <!-- begin-user-doc -->
@@ -169,7 +169,7 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public KanbanWorkFlow getKssWorkFlow()
+  public KanbanTaskModel getKssWorkFlow()
   {
     return kssWorkFlow;
   }
@@ -179,9 +179,9 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetKssWorkFlow(KanbanWorkFlow newKssWorkFlow, NotificationChain msgs)
+  public NotificationChain basicSetKssWorkFlow(KanbanTaskModel newKssWorkFlow, NotificationChain msgs)
   {
-    KanbanWorkFlow oldKssWorkFlow = kssWorkFlow;
+    KanbanTaskModel oldKssWorkFlow = kssWorkFlow;
     kssWorkFlow = newKssWorkFlow;
     if (eNotificationRequired())
     {
@@ -196,7 +196,7 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setKssWorkFlow(KanbanWorkFlow newKssWorkFlow)
+  public void setKssWorkFlow(KanbanTaskModel newKssWorkFlow)
   {
     if (newKssWorkFlow != kssWorkFlow)
     {
@@ -277,7 +277,7 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         getKssTasks().addAll((Collection<? extends Task>)newValue);
         return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW:
-        setKssWorkFlow((KanbanWorkFlow)newValue);
+        setKssWorkFlow((KanbanTaskModel)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -303,7 +303,7 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         getKssTasks().clear();
         return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW:
-        setKssWorkFlow((KanbanWorkFlow)null);
+        setKssWorkFlow((KanbanTaskModel)null);
         return;
     }
     super.eUnset(featureID);

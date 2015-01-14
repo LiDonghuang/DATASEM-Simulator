@@ -2,8 +2,8 @@
  */
 package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 
+import ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Service;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Task;
 
@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getName <em>Name</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getSTasks <em>STasks</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getTaskMechanims <em>Task Mechanims</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getTaskDependencies <em>Task Dependencies</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getReqSpecialties <em>Req Specialties</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getBvalue <em>Bvalue</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getCOS <em>COS</em>}</li>
@@ -75,14 +75,14 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
   protected EList<Task> sTasks;
 
   /**
-   * The cached value of the '{@link #getTaskMechanims() <em>Task Mechanims</em>}' containment reference list.
+   * The cached value of the '{@link #getTaskDependencies() <em>Task Dependencies</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTaskMechanims()
+   * @see #getTaskDependencies()
    * @generated
    * @ordered
    */
-  protected EList<Mechanism> taskMechanims;
+  protected EList<Dependency> taskDependencies;
 
   /**
    * The cached value of the '{@link #getReqSpecialties() <em>Req Specialties</em>}' reference list.
@@ -197,13 +197,13 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Mechanism> getTaskMechanims()
+  public EList<Dependency> getTaskDependencies()
   {
-    if (taskMechanims == null)
+    if (taskDependencies == null)
     {
-      taskMechanims = new EObjectContainmentEList<Mechanism>(Mechanism.class, this, KanbanmodelPackage.TASK__TASK_MECHANIMS);
+      taskDependencies = new EObjectContainmentEList<Dependency>(Dependency.class, this, KanbanmodelPackage.TASK__TASK_DEPENDENCIES);
     }
-    return taskMechanims;
+    return taskDependencies;
   }
 
   /**
@@ -276,8 +276,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.TASK__TASK_MECHANIMS:
-        return ((InternalEList<?>)getTaskMechanims()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.TASK__TASK_DEPENDENCIES:
+        return ((InternalEList<?>)getTaskDependencies()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -296,8 +296,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
         return getName();
       case KanbanmodelPackage.TASK__STASKS:
         return getSTasks();
-      case KanbanmodelPackage.TASK__TASK_MECHANIMS:
-        return getTaskMechanims();
+      case KanbanmodelPackage.TASK__TASK_DEPENDENCIES:
+        return getTaskDependencies();
       case KanbanmodelPackage.TASK__REQ_SPECIALTIES:
         return getReqSpecialties();
       case KanbanmodelPackage.TASK__BVALUE:
@@ -326,9 +326,9 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
         getSTasks().clear();
         getSTasks().addAll((Collection<? extends Task>)newValue);
         return;
-      case KanbanmodelPackage.TASK__TASK_MECHANIMS:
-        getTaskMechanims().clear();
-        getTaskMechanims().addAll((Collection<? extends Mechanism>)newValue);
+      case KanbanmodelPackage.TASK__TASK_DEPENDENCIES:
+        getTaskDependencies().clear();
+        getTaskDependencies().addAll((Collection<? extends Dependency>)newValue);
         return;
       case KanbanmodelPackage.TASK__REQ_SPECIALTIES:
         getReqSpecialties().clear();
@@ -360,8 +360,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
       case KanbanmodelPackage.TASK__STASKS:
         getSTasks().clear();
         return;
-      case KanbanmodelPackage.TASK__TASK_MECHANIMS:
-        getTaskMechanims().clear();
+      case KanbanmodelPackage.TASK__TASK_DEPENDENCIES:
+        getTaskDependencies().clear();
         return;
       case KanbanmodelPackage.TASK__REQ_SPECIALTIES:
         getReqSpecialties().clear();
@@ -390,8 +390,8 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.TASK__STASKS:
         return sTasks != null && !sTasks.isEmpty();
-      case KanbanmodelPackage.TASK__TASK_MECHANIMS:
-        return taskMechanims != null && !taskMechanims.isEmpty();
+      case KanbanmodelPackage.TASK__TASK_DEPENDENCIES:
+        return taskDependencies != null && !taskDependencies.isEmpty();
       case KanbanmodelPackage.TASK__REQ_SPECIALTIES:
         return reqSpecialties != null && !reqSpecialties.isEmpty();
       case KanbanmodelPackage.TASK__BVALUE:

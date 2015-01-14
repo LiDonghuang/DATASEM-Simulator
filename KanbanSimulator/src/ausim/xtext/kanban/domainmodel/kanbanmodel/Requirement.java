@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Requirement#getName <em>Name</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Requirement#getRTasks <em>RTasks</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Requirement#getMechanisms <em>Mechanisms</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Requirement#getDependencies <em>Dependencies</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,19 +69,19 @@ public interface Requirement extends EObject
   EList<Task> getRTasks();
 
   /**
-   * Returns the value of the '<em><b>Mechanisms</b></em>' containment reference list.
-   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism}.
+   * Returns the value of the '<em><b>Dependencies</b></em>' containment reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Mechanisms</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Dependencies</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Mechanisms</em>' containment reference list.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getRequirement_Mechanisms()
+   * @return the value of the '<em>Dependencies</em>' containment reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getRequirement_Dependencies()
    * @model containment="true"
    * @generated
    */
-  EList<Mechanism> getMechanisms();
+  EList<Dependency> getDependencies();
 
 } // Requirement

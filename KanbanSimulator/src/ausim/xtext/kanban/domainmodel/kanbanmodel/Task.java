@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getName <em>Name</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getSTasks <em>STasks</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getTaskMechanims <em>Task Mechanims</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getTaskDependencies <em>Task Dependencies</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getReqSpecialties <em>Req Specialties</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getBvalue <em>Bvalue</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getCOS <em>COS</em>}</li>
@@ -72,20 +72,20 @@ public interface Task extends EObject
   EList<Task> getSTasks();
 
   /**
-   * Returns the value of the '<em><b>Task Mechanims</b></em>' containment reference list.
-   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism}.
+   * Returns the value of the '<em><b>Task Dependencies</b></em>' containment reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Task Mechanims</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Task Dependencies</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Task Mechanims</em>' containment reference list.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getTask_TaskMechanims()
+   * @return the value of the '<em>Task Dependencies</em>' containment reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getTask_TaskDependencies()
    * @model containment="true"
    * @generated
    */
-  EList<Mechanism> getTaskMechanims();
+  EList<Dependency> getTaskDependencies();
 
   /**
    * Returns the value of the '<em><b>Req Specialties</b></em>' reference list.

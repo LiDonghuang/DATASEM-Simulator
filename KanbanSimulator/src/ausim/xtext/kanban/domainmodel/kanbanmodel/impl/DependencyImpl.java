@@ -2,8 +2,8 @@
  */
 package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 
+import ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Task;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -16,19 +16,19 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Mechanism</b></em>'.
+ * An implementation of the model object '<em><b>Dependency</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl#getSourceTask <em>Source Task</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.MechanismImpl#getTargetTask <em>Target Task</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.DependencyImpl#getSourceTask <em>Source Task</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.DependencyImpl#getTargetTask <em>Target Task</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class MechanismImpl extends MinimalEObjectImpl.Container implements Mechanism
+public class DependencyImpl extends MinimalEObjectImpl.Container implements Dependency
 {
   /**
    * The cached value of the '{@link #getSourceTask() <em>Source Task</em>}' reference.
@@ -55,7 +55,7 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MechanismImpl()
+  protected DependencyImpl()
   {
     super();
   }
@@ -68,7 +68,7 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
   @Override
   protected EClass eStaticClass()
   {
-    return KanbanmodelPackage.Literals.MECHANISM;
+    return KanbanmodelPackage.Literals.DEPENDENCY;
   }
 
   /**
@@ -85,7 +85,7 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
       if (sourceTask != oldSourceTask)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.MECHANISM__SOURCE_TASK, oldSourceTask, sourceTask));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.DEPENDENCY__SOURCE_TASK, oldSourceTask, sourceTask));
       }
     }
     return sourceTask;
@@ -111,7 +111,7 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
     Task oldSourceTask = sourceTask;
     sourceTask = newSourceTask;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.MECHANISM__SOURCE_TASK, oldSourceTask, sourceTask));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.DEPENDENCY__SOURCE_TASK, oldSourceTask, sourceTask));
   }
 
   /**
@@ -128,7 +128,7 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
       if (targetTask != oldTargetTask)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.MECHANISM__TARGET_TASK, oldTargetTask, targetTask));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.DEPENDENCY__TARGET_TASK, oldTargetTask, targetTask));
       }
     }
     return targetTask;
@@ -154,7 +154,7 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
     Task oldTargetTask = targetTask;
     targetTask = newTargetTask;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.MECHANISM__TARGET_TASK, oldTargetTask, targetTask));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.DEPENDENCY__TARGET_TASK, oldTargetTask, targetTask));
   }
 
   /**
@@ -167,10 +167,10 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.MECHANISM__SOURCE_TASK:
+      case KanbanmodelPackage.DEPENDENCY__SOURCE_TASK:
         if (resolve) return getSourceTask();
         return basicGetSourceTask();
-      case KanbanmodelPackage.MECHANISM__TARGET_TASK:
+      case KanbanmodelPackage.DEPENDENCY__TARGET_TASK:
         if (resolve) return getTargetTask();
         return basicGetTargetTask();
     }
@@ -187,10 +187,10 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.MECHANISM__SOURCE_TASK:
+      case KanbanmodelPackage.DEPENDENCY__SOURCE_TASK:
         setSourceTask((Task)newValue);
         return;
-      case KanbanmodelPackage.MECHANISM__TARGET_TASK:
+      case KanbanmodelPackage.DEPENDENCY__TARGET_TASK:
         setTargetTask((Task)newValue);
         return;
     }
@@ -207,10 +207,10 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.MECHANISM__SOURCE_TASK:
+      case KanbanmodelPackage.DEPENDENCY__SOURCE_TASK:
         setSourceTask((Task)null);
         return;
-      case KanbanmodelPackage.MECHANISM__TARGET_TASK:
+      case KanbanmodelPackage.DEPENDENCY__TARGET_TASK:
         setTargetTask((Task)null);
         return;
     }
@@ -227,12 +227,12 @@ public class MechanismImpl extends MinimalEObjectImpl.Container implements Mecha
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.MECHANISM__SOURCE_TASK:
+      case KanbanmodelPackage.DEPENDENCY__SOURCE_TASK:
         return sourceTask != null;
-      case KanbanmodelPackage.MECHANISM__TARGET_TASK:
+      case KanbanmodelPackage.DEPENDENCY__TARGET_TASK:
         return targetTask != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //MechanismImpl
+} //DependencyImpl

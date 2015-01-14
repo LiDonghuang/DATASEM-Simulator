@@ -15,11 +15,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getName <em>Name</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getDemandUnits <em>Demand Units</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getSourcedUnits <em>Sourced Units</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getGroupmembers <em>Groupmembers</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getResources <em>Resources</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getTeamProfile <em>Team Profile</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getServices <em>Services</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getKssBlock <em>Kss Block</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,6 +56,38 @@ public interface Team extends EObject
   void setName(String value);
 
   /**
+   * Returns the value of the '<em><b>Demand Units</b></em>' reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Demand Units</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Demand Units</em>' reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getTeam_DemandUnits()
+   * @model
+   * @generated
+   */
+  EList<Team> getDemandUnits();
+
+  /**
+   * Returns the value of the '<em><b>Sourced Units</b></em>' reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Sourced Units</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Sourced Units</em>' reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getTeam_SourcedUnits()
+   * @model
+   * @generated
+   */
+  EList<Team> getSourcedUnits();
+
+  /**
    * Returns the value of the '<em><b>Groupmembers</b></em>' reference list.
    * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team}.
    * <!-- begin-user-doc -->
@@ -88,35 +120,6 @@ public interface Team extends EObject
   EList<Asset> getResources();
 
   /**
-   * Returns the value of the '<em><b>Team Profile</b></em>' attribute.
-   * The literals are from the enumeration {@link ausim.xtext.kanban.domainmodel.kanbanmodel.ProfileType}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Team Profile</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Team Profile</em>' attribute.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.ProfileType
-   * @see #setTeamProfile(ProfileType)
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getTeam_TeamProfile()
-   * @model
-   * @generated
-   */
-  ProfileType getTeamProfile();
-
-  /**
-   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getTeamProfile <em>Team Profile</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Team Profile</em>' attribute.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.ProfileType
-   * @see #getTeamProfile()
-   * @generated
-   */
-  void setTeamProfile(ProfileType value);
-
-  /**
    * Returns the value of the '<em><b>Services</b></em>' containment reference list.
    * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Service}.
    * <!-- begin-user-doc -->
@@ -131,31 +134,5 @@ public interface Team extends EObject
    * @generated
    */
   EList<Service> getServices();
-
-  /**
-   * Returns the value of the '<em><b>Kss Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Kss Block</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Kss Block</em>' containment reference.
-   * @see #setKssBlock(KSSBlock)
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getTeam_KssBlock()
-   * @model containment="true"
-   * @generated
-   */
-  KSSBlock getKssBlock();
-
-  /**
-   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team#getKssBlock <em>Kss Block</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Kss Block</em>' containment reference.
-   * @see #getKssBlock()
-   * @generated
-   */
-  void setKssBlock(KSSBlock value);
 
 } // Team
