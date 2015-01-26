@@ -103,13 +103,22 @@ public interface KanbanmodelPackage extends EPackage
   int KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW = 3;
 
   /**
+   * The feature id for the '<em><b>Kss Gov Model</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL = 4;
+
+  /**
    * The number of structural features of the '<em>Kanban Scheduling System</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int KANBAN_SCHEDULING_SYSTEM_FEATURE_COUNT = 4;
+  int KANBAN_SCHEDULING_SYSTEM_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TeamImpl <em>Team</em>}' class.
@@ -507,6 +516,375 @@ public interface KanbanmodelPackage extends EPackage
    */
   int CAPABILITY_FEATURE_COUNT = 2;
 
+  /**
+   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanGovModelImpl <em>Kanban Gov Model</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanGovModelImpl
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getKanbanGovModel()
+   * @generated
+   */
+  int KANBAN_GOV_MODEL = 10;
+
+  /**
+   * The feature id for the '<em><b>Strategy</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int KANBAN_GOV_MODEL__STRATEGY = 0;
+
+  /**
+   * The number of structural features of the '<em>Kanban Gov Model</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int KANBAN_GOV_MODEL_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StrategyImpl <em>Strategy</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StrategyImpl
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getStrategy()
+   * @generated
+   */
+  int STRATEGY = 11;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRATEGY__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Entities</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRATEGY__ENTITIES = 1;
+
+  /**
+   * The number of structural features of the '<em>Strategy</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRATEGY_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.EntityImpl <em>Entity</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.EntityImpl
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getEntity()
+   * @generated
+   */
+  int ENTITY = 12;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Sdname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY__SDNAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Service Provisions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY__SERVICE_PROVISIONS = 2;
+
+  /**
+   * The feature id for the '<em><b>Entity Behavior</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY__ENTITY_BEHAVIOR = 3;
+
+  /**
+   * The number of structural features of the '<em>Entity</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ProvisionImpl <em>Provision</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ProvisionImpl
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getProvision()
+   * @generated
+   */
+  int PROVISION = 13;
+
+  /**
+   * The feature id for the '<em><b>Service Name</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROVISION__SERVICE_NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Providers</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROVISION__PROVIDERS = 1;
+
+  /**
+   * The number of structural features of the '<em>Provision</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROVISION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StatemachineImpl <em>Statemachine</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StatemachineImpl
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getStatemachine()
+   * @generated
+   */
+  int STATEMACHINE = 14;
+
+  /**
+   * The feature id for the '<em><b>Events</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMACHINE__EVENTS = 0;
+
+  /**
+   * The feature id for the '<em><b>Commands</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMACHINE__COMMANDS = 1;
+
+  /**
+   * The feature id for the '<em><b>States</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMACHINE__STATES = 2;
+
+  /**
+   * The number of structural features of the '<em>Statemachine</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMACHINE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.EventImpl <em>Event</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.EventImpl
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getEvent()
+   * @generated
+   */
+  int EVENT = 15;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVENT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVENT__CODE = 1;
+
+  /**
+   * The number of structural features of the '<em>Event</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVENT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.CommandImpl <em>Command</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.CommandImpl
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getCommand()
+   * @generated
+   */
+  int COMMAND = 16;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMAND__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMAND__CODE = 1;
+
+  /**
+   * The number of structural features of the '<em>Command</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMAND_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StateImpl <em>State</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StateImpl
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getState()
+   * @generated
+   */
+  int STATE = 17;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Actions</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__ACTIONS = 1;
+
+  /**
+   * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__TRANSITIONS = 2;
+
+  /**
+   * The number of structural features of the '<em>State</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TransitionImpl <em>Transition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TransitionImpl
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getTransition()
+   * @generated
+   */
+  int TRANSITION = 18;
+
+  /**
+   * The feature id for the '<em><b>Event</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION__EVENT = 0;
+
+  /**
+   * The feature id for the '<em><b>State</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION__STATE = 1;
+
+  /**
+   * The feature id for the '<em><b>Eventactions</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION__EVENTACTIONS = 2;
+
+  /**
+   * The number of structural features of the '<em>Transition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION_FEATURE_COUNT = 3;
+
 
   /**
    * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem <em>Kanban Scheduling System</em>}'.
@@ -561,6 +939,17 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EReference getKanbanSchedulingSystem_KssWorkFlow();
+
+  /**
+   * Returns the meta object for the containment reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssGovModel <em>Kss Gov Model</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Kss Gov Model</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssGovModel()
+   * @see #getKanbanSchedulingSystem()
+   * @generated
+   */
+  EReference getKanbanSchedulingSystem_KssGovModel();
 
   /**
    * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team <em>Team</em>}'.
@@ -928,6 +1317,338 @@ public interface KanbanmodelPackage extends EPackage
   EReference getCapability_Reqs();
 
   /**
+   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanGovModel <em>Kanban Gov Model</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Kanban Gov Model</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanGovModel
+   * @generated
+   */
+  EClass getKanbanGovModel();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanGovModel#getStrategy <em>Strategy</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Strategy</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanGovModel#getStrategy()
+   * @see #getKanbanGovModel()
+   * @generated
+   */
+  EReference getKanbanGovModel_Strategy();
+
+  /**
+   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy <em>Strategy</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Strategy</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy
+   * @generated
+   */
+  EClass getStrategy();
+
+  /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getName()
+   * @see #getStrategy()
+   * @generated
+   */
+  EAttribute getStrategy_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getEntities <em>Entities</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Entities</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getEntities()
+   * @see #getStrategy()
+   * @generated
+   */
+  EReference getStrategy_Entities();
+
+  /**
+   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Entity <em>Entity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Entity</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Entity
+   * @generated
+   */
+  EClass getEntity();
+
+  /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Entity#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Entity#getName()
+   * @see #getEntity()
+   * @generated
+   */
+  EAttribute getEntity_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Entity#getSdname <em>Sdname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Sdname</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Entity#getSdname()
+   * @see #getEntity()
+   * @generated
+   */
+  EAttribute getEntity_Sdname();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Entity#getServiceProvisions <em>Service Provisions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Service Provisions</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Entity#getServiceProvisions()
+   * @see #getEntity()
+   * @generated
+   */
+  EReference getEntity_ServiceProvisions();
+
+  /**
+   * Returns the meta object for the containment reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Entity#getEntityBehavior <em>Entity Behavior</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Entity Behavior</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Entity#getEntityBehavior()
+   * @see #getEntity()
+   * @generated
+   */
+  EReference getEntity_EntityBehavior();
+
+  /**
+   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Provision <em>Provision</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Provision</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Provision
+   * @generated
+   */
+  EClass getProvision();
+
+  /**
+   * Returns the meta object for the reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Provision#getServiceName <em>Service Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Service Name</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Provision#getServiceName()
+   * @see #getProvision()
+   * @generated
+   */
+  EReference getProvision_ServiceName();
+
+  /**
+   * Returns the meta object for the reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Provision#getProviders <em>Providers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Providers</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Provision#getProviders()
+   * @see #getProvision()
+   * @generated
+   */
+  EReference getProvision_Providers();
+
+  /**
+   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Statemachine <em>Statemachine</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Statemachine</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Statemachine
+   * @generated
+   */
+  EClass getStatemachine();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Statemachine#getEvents <em>Events</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Events</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Statemachine#getEvents()
+   * @see #getStatemachine()
+   * @generated
+   */
+  EReference getStatemachine_Events();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Statemachine#getCommands <em>Commands</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Commands</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Statemachine#getCommands()
+   * @see #getStatemachine()
+   * @generated
+   */
+  EReference getStatemachine_Commands();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Statemachine#getStates <em>States</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>States</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Statemachine#getStates()
+   * @see #getStatemachine()
+   * @generated
+   */
+  EReference getStatemachine_States();
+
+  /**
+   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Event <em>Event</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Event</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Event
+   * @generated
+   */
+  EClass getEvent();
+
+  /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Event#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Event#getName()
+   * @see #getEvent()
+   * @generated
+   */
+  EAttribute getEvent_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Event#getCode <em>Code</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Code</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Event#getCode()
+   * @see #getEvent()
+   * @generated
+   */
+  EAttribute getEvent_Code();
+
+  /**
+   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Command <em>Command</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Command</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Command
+   * @generated
+   */
+  EClass getCommand();
+
+  /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Command#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Command#getName()
+   * @see #getCommand()
+   * @generated
+   */
+  EAttribute getCommand_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Command#getCode <em>Code</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Code</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Command#getCode()
+   * @see #getCommand()
+   * @generated
+   */
+  EAttribute getCommand_Code();
+
+  /**
+   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.State <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>State</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.State
+   * @generated
+   */
+  EClass getState();
+
+  /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.State#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.State#getName()
+   * @see #getState()
+   * @generated
+   */
+  EAttribute getState_Name();
+
+  /**
+   * Returns the meta object for the reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.State#getActions <em>Actions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Actions</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.State#getActions()
+   * @see #getState()
+   * @generated
+   */
+  EReference getState_Actions();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.State#getTransitions <em>Transitions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Transitions</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.State#getTransitions()
+   * @see #getState()
+   * @generated
+   */
+  EReference getState_Transitions();
+
+  /**
+   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Transition <em>Transition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Transition</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Transition
+   * @generated
+   */
+  EClass getTransition();
+
+  /**
+   * Returns the meta object for the reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Transition#getEvent <em>Event</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Event</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Transition#getEvent()
+   * @see #getTransition()
+   * @generated
+   */
+  EReference getTransition_Event();
+
+  /**
+   * Returns the meta object for the reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Transition#getState <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>State</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Transition#getState()
+   * @see #getTransition()
+   * @generated
+   */
+  EReference getTransition_State();
+
+  /**
+   * Returns the meta object for the reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Transition#getEventactions <em>Eventactions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Eventactions</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Transition#getEventactions()
+   * @see #getTransition()
+   * @generated
+   */
+  EReference getTransition_Eventactions();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -991,6 +1712,14 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EReference KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW = eINSTANCE.getKanbanSchedulingSystem_KssWorkFlow();
+
+    /**
+     * The meta object literal for the '<em><b>Kss Gov Model</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL = eINSTANCE.getKanbanSchedulingSystem_KssGovModel();
 
     /**
      * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TeamImpl <em>Team</em>}' class.
@@ -1281,6 +2010,272 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EReference CAPABILITY__REQS = eINSTANCE.getCapability_Reqs();
+
+    /**
+     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanGovModelImpl <em>Kanban Gov Model</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanGovModelImpl
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getKanbanGovModel()
+     * @generated
+     */
+    EClass KANBAN_GOV_MODEL = eINSTANCE.getKanbanGovModel();
+
+    /**
+     * The meta object literal for the '<em><b>Strategy</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference KANBAN_GOV_MODEL__STRATEGY = eINSTANCE.getKanbanGovModel_Strategy();
+
+    /**
+     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StrategyImpl <em>Strategy</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StrategyImpl
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getStrategy()
+     * @generated
+     */
+    EClass STRATEGY = eINSTANCE.getStrategy();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRATEGY__NAME = eINSTANCE.getStrategy_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Entities</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STRATEGY__ENTITIES = eINSTANCE.getStrategy_Entities();
+
+    /**
+     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.EntityImpl <em>Entity</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.EntityImpl
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getEntity()
+     * @generated
+     */
+    EClass ENTITY = eINSTANCE.getEntity();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENTITY__NAME = eINSTANCE.getEntity_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Sdname</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENTITY__SDNAME = eINSTANCE.getEntity_Sdname();
+
+    /**
+     * The meta object literal for the '<em><b>Service Provisions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENTITY__SERVICE_PROVISIONS = eINSTANCE.getEntity_ServiceProvisions();
+
+    /**
+     * The meta object literal for the '<em><b>Entity Behavior</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENTITY__ENTITY_BEHAVIOR = eINSTANCE.getEntity_EntityBehavior();
+
+    /**
+     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ProvisionImpl <em>Provision</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ProvisionImpl
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getProvision()
+     * @generated
+     */
+    EClass PROVISION = eINSTANCE.getProvision();
+
+    /**
+     * The meta object literal for the '<em><b>Service Name</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROVISION__SERVICE_NAME = eINSTANCE.getProvision_ServiceName();
+
+    /**
+     * The meta object literal for the '<em><b>Providers</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROVISION__PROVIDERS = eINSTANCE.getProvision_Providers();
+
+    /**
+     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StatemachineImpl <em>Statemachine</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StatemachineImpl
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getStatemachine()
+     * @generated
+     */
+    EClass STATEMACHINE = eINSTANCE.getStatemachine();
+
+    /**
+     * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMACHINE__EVENTS = eINSTANCE.getStatemachine_Events();
+
+    /**
+     * The meta object literal for the '<em><b>Commands</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMACHINE__COMMANDS = eINSTANCE.getStatemachine_Commands();
+
+    /**
+     * The meta object literal for the '<em><b>States</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMACHINE__STATES = eINSTANCE.getStatemachine_States();
+
+    /**
+     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.EventImpl <em>Event</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.EventImpl
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getEvent()
+     * @generated
+     */
+    EClass EVENT = eINSTANCE.getEvent();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EVENT__NAME = eINSTANCE.getEvent_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EVENT__CODE = eINSTANCE.getEvent_Code();
+
+    /**
+     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.CommandImpl <em>Command</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.CommandImpl
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getCommand()
+     * @generated
+     */
+    EClass COMMAND = eINSTANCE.getCommand();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMMAND__NAME = eINSTANCE.getCommand_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMMAND__CODE = eINSTANCE.getCommand_Code();
+
+    /**
+     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StateImpl <em>State</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.StateImpl
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getState()
+     * @generated
+     */
+    EClass STATE = eINSTANCE.getState();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATE__NAME = eINSTANCE.getState_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Actions</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATE__ACTIONS = eINSTANCE.getState_Actions();
+
+    /**
+     * The meta object literal for the '<em><b>Transitions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATE__TRANSITIONS = eINSTANCE.getState_Transitions();
+
+    /**
+     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TransitionImpl <em>Transition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TransitionImpl
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getTransition()
+     * @generated
+     */
+    EClass TRANSITION = eINSTANCE.getTransition();
+
+    /**
+     * The meta object literal for the '<em><b>Event</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSITION__EVENT = eINSTANCE.getTransition_Event();
+
+    /**
+     * The meta object literal for the '<em><b>State</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSITION__STATE = eINSTANCE.getTransition_State();
+
+    /**
+     * The meta object literal for the '<em><b>Eventactions</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSITION__EVENTACTIONS = eINSTANCE.getTransition_Eventactions();
 
   }
 

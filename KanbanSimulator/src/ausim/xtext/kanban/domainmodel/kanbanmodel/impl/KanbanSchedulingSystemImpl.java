@@ -2,6 +2,7 @@
  */
 package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 
+import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanGovModel;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getOrgUnits <em>Org Units</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKssTasks <em>Kss Tasks</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKssWorkFlow <em>Kss Work Flow</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKssGovModel <em>Kss Gov Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -91,6 +93,16 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * @ordered
    */
   protected KanbanTaskModel kssWorkFlow;
+
+  /**
+   * The cached value of the '{@link #getKssGovModel() <em>Kss Gov Model</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKssGovModel()
+   * @generated
+   * @ordered
+   */
+  protected KanbanGovModel kssGovModel;
 
   /**
    * <!-- begin-user-doc -->
@@ -217,6 +229,54 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
+  public KanbanGovModel getKssGovModel()
+  {
+    return kssGovModel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetKssGovModel(KanbanGovModel newKssGovModel, NotificationChain msgs)
+  {
+    KanbanGovModel oldKssGovModel = kssGovModel;
+    kssGovModel = newKssGovModel;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL, oldKssGovModel, newKssGovModel);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setKssGovModel(KanbanGovModel newKssGovModel)
+  {
+    if (newKssGovModel != kssGovModel)
+    {
+      NotificationChain msgs = null;
+      if (kssGovModel != null)
+        msgs = ((InternalEObject)kssGovModel).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL, null, msgs);
+      if (newKssGovModel != null)
+        msgs = ((InternalEObject)newKssGovModel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL, null, msgs);
+      msgs = basicSetKssGovModel(newKssGovModel, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL, newKssGovModel, newKssGovModel));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -228,6 +288,8 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         return ((InternalEList<?>)getKssTasks()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW:
         return basicSetKssWorkFlow(null, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL:
+        return basicSetKssGovModel(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -250,6 +312,8 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         return getKssTasks();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW:
         return getKssWorkFlow();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL:
+        return getKssGovModel();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -279,6 +343,9 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW:
         setKssWorkFlow((KanbanTaskModel)newValue);
         return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL:
+        setKssGovModel((KanbanGovModel)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -305,6 +372,9 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW:
         setKssWorkFlow((KanbanTaskModel)null);
         return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL:
+        setKssGovModel((KanbanGovModel)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -327,6 +397,8 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         return kssTasks != null && !kssTasks.isEmpty();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW:
         return kssWorkFlow != null;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL:
+        return kssGovModel != null;
     }
     return super.eIsSet(featureID);
   }

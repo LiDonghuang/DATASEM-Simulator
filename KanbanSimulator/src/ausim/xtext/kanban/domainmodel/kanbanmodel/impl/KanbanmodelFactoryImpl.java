@@ -74,6 +74,15 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.TASK: return createTask();
       case KanbanmodelPackage.KANBAN_TASK_MODEL: return createKanbanTaskModel();
       case KanbanmodelPackage.CAPABILITY: return createCapability();
+      case KanbanmodelPackage.KANBAN_GOV_MODEL: return createKanbanGovModel();
+      case KanbanmodelPackage.STRATEGY: return createStrategy();
+      case KanbanmodelPackage.ENTITY: return createEntity();
+      case KanbanmodelPackage.PROVISION: return createProvision();
+      case KanbanmodelPackage.STATEMACHINE: return createStatemachine();
+      case KanbanmodelPackage.EVENT: return createEvent();
+      case KanbanmodelPackage.COMMAND: return createCommand();
+      case KanbanmodelPackage.STATE: return createState();
+      case KanbanmodelPackage.TRANSITION: return createTransition();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -187,6 +196,105 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     CapabilityImpl capability = new CapabilityImpl();
     return capability;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public KanbanGovModel createKanbanGovModel()
+  {
+    KanbanGovModelImpl kanbanGovModel = new KanbanGovModelImpl();
+    return kanbanGovModel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Strategy createStrategy()
+  {
+    StrategyImpl strategy = new StrategyImpl();
+    return strategy;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Entity createEntity()
+  {
+    EntityImpl entity = new EntityImpl();
+    return entity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Provision createProvision()
+  {
+    ProvisionImpl provision = new ProvisionImpl();
+    return provision;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Statemachine createStatemachine()
+  {
+    StatemachineImpl statemachine = new StatemachineImpl();
+    return statemachine;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Event createEvent()
+  {
+    EventImpl event = new EventImpl();
+    return event;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Command createCommand()
+  {
+    CommandImpl command = new CommandImpl();
+    return command;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public State createState()
+  {
+    StateImpl state = new StateImpl();
+    return state;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Transition createTransition()
+  {
+    TransitionImpl transition = new TransitionImpl();
+    return transition;
   }
 
   /**

@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getOrgUnits <em>Org Units</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssTasks <em>Kss Tasks</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssWorkFlow <em>Kss Work Flow</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssGovModel <em>Kss Gov Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -110,5 +111,31 @@ public interface KanbanSchedulingSystem extends EObject
    * @generated
    */
   void setKssWorkFlow(KanbanTaskModel value);
+
+  /**
+   * Returns the value of the '<em><b>Kss Gov Model</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Kss Gov Model</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Kss Gov Model</em>' containment reference.
+   * @see #setKssGovModel(KanbanGovModel)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_KssGovModel()
+   * @model containment="true"
+   * @generated
+   */
+  KanbanGovModel getKssGovModel();
+
+  /**
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssGovModel <em>Kss Gov Model</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Kss Gov Model</em>' containment reference.
+   * @see #getKssGovModel()
+   * @generated
+   */
+  void setKssGovModel(KanbanGovModel value);
 
 } // KanbanSchedulingSystem

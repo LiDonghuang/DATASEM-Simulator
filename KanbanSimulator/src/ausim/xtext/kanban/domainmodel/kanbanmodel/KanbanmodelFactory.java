@@ -113,6 +113,87 @@ public interface KanbanmodelFactory extends EFactory
   Capability createCapability();
 
   /**
+   * Returns a new object of class '<em>Kanban Gov Model</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Kanban Gov Model</em>'.
+   * @generated
+   */
+  KanbanGovModel createKanbanGovModel();
+
+  /**
+   * Returns a new object of class '<em>Strategy</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Strategy</em>'.
+   * @generated
+   */
+  Strategy createStrategy();
+
+  /**
+   * Returns a new object of class '<em>Entity</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Entity</em>'.
+   * @generated
+   */
+  Entity createEntity();
+
+  /**
+   * Returns a new object of class '<em>Provision</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Provision</em>'.
+   * @generated
+   */
+  Provision createProvision();
+
+  /**
+   * Returns a new object of class '<em>Statemachine</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Statemachine</em>'.
+   * @generated
+   */
+  Statemachine createStatemachine();
+
+  /**
+   * Returns a new object of class '<em>Event</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Event</em>'.
+   * @generated
+   */
+  Event createEvent();
+
+  /**
+   * Returns a new object of class '<em>Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Command</em>'.
+   * @generated
+   */
+  Command createCommand();
+
+  /**
+   * Returns a new object of class '<em>State</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>State</em>'.
+   * @generated
+   */
+  State createState();
+
+  /**
+   * Returns a new object of class '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Transition</em>'.
+   * @generated
+   */
+  Transition createTransition();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
