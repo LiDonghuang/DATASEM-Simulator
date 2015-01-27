@@ -6,7 +6,7 @@ import java.util.Queue;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.*;
 
-public class KanbanBoard extends KSSBlockImpl {
+public class KanbanBoard  {
 	private Queue<KSSTask> incomingQ;
 	private Queue<KSSTask> demandBackLogQ;
 	private Queue<KSSTask> readyQ;
