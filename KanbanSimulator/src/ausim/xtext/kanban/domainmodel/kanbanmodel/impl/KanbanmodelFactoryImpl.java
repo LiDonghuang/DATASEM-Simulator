@@ -65,13 +65,15 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
     switch (eClass.getClassifierID())
     {
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM: return createKanbanSchedulingSystem();
-      case KanbanmodelPackage.TEAM: return createTeam();
+      case KanbanmodelPackage.TASK_PATTERN: return createTaskPattern();
+      case KanbanmodelPackage.TASK_TYPE: return createTaskType();
       case KanbanmodelPackage.SERVICE: return createService();
+      case KanbanmodelPackage.TASK: return createTask();
+      case KanbanmodelPackage.DEPENDENCY: return createDependency();
+      case KanbanmodelPackage.TEAM: return createTeam();
       case KanbanmodelPackage.ASSET: return createAsset();
       case KanbanmodelPackage.SKILL: return createSkill();
-      case KanbanmodelPackage.DEPENDENCY: return createDependency();
       case KanbanmodelPackage.REQUIREMENT: return createRequirement();
-      case KanbanmodelPackage.TASK: return createTask();
       case KanbanmodelPackage.KANBAN_TASK_MODEL: return createKanbanTaskModel();
       case KanbanmodelPackage.CAPABILITY: return createCapability();
       case KanbanmodelPackage.KANBAN_GOV_MODEL: return createKanbanGovModel();
@@ -104,10 +106,21 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Team createTeam()
+  public TaskPattern createTaskPattern()
   {
-    TeamImpl team = new TeamImpl();
-    return team;
+    TaskPatternImpl taskPattern = new TaskPatternImpl();
+    return taskPattern;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TaskType createTaskType()
+  {
+    TaskTypeImpl taskType = new TaskTypeImpl();
+    return taskType;
   }
 
   /**
@@ -119,6 +132,39 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     ServiceImpl service = new ServiceImpl();
     return service;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Task createTask()
+  {
+    TaskImpl task = new TaskImpl();
+    return task;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Dependency createDependency()
+  {
+    DependencyImpl dependency = new DependencyImpl();
+    return dependency;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Team createTeam()
+  {
+    TeamImpl team = new TeamImpl();
+    return team;
   }
 
   /**
@@ -148,32 +194,10 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Dependency createDependency()
-  {
-    DependencyImpl dependency = new DependencyImpl();
-    return dependency;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Requirement createRequirement()
   {
     RequirementImpl requirement = new RequirementImpl();
     return requirement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Task createTask()
-  {
-    TaskImpl task = new TaskImpl();
-    return task;
   }
 
   /**

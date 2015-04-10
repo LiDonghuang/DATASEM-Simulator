@@ -31,20 +31,54 @@ public class KanbanSimulatorModel implements ContextBuilder<Object>{
 				new GridBuilderParameters<Object>(new WrapAroundBorders(), 
 						new RandomGridAdder<Object>(), true, width, height));
 		
-		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>(
-				"organization network", context, true);
+		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>("organization network", context, true);
 		netBuilder.buildNetwork();
 		Network<Object> net = (Network<Object>)context.getProjection("organization network");
 		Grid<Object> grid = (Grid)context.getProjection("Grid");
 		
-		ContextBuilderTest cbTest=new ContextBuilderTest("0");
+		SimulationContextBuilder cb = new SimulationContextBuilder("0");
 
-		//cbTest.XMLParseTest();
-		//cbTest.DirectoryRegistrationTest(context);
-		//cbTest.WorkFlowGenerationTest(context);
-		
-		cbTest.RandomContextGeneration(context);
+		cb.XMLtoEObjects ();
+        cb.ContextImplementation(context);
 		
 		return context;
 	}
 }
+
+
+//----------------------------- TEST --------------------------------------
+//public class KanbanSimulatorModel implements ContextBuilder<Object>{
+//
+//	public Context<Object> build(Context<Object> context) {
+//		
+//		Parameters p = RunEnvironment.getInstance().getParameters();
+//		int numAgents = (Integer)p.getValue("initialNumAgents");
+//		int height = (Integer)p.getValue("worldHeight");
+//		int width = (Integer)p.getValue("worldWidth");
+//		
+//		//Organization root = WorkFlowSimFactory.eINSTANCE.createOrganization();
+//		//root.setOrgName("test");
+//		//System.out.println(root.getOrgName());
+//		
+//		GridFactoryFinder.createGridFactory(null).createGrid("Grid", context, 
+//				new GridBuilderParameters<Object>(new WrapAroundBorders(), 
+//						new RandomGridAdder<Object>(), true, width, height));
+//		
+//		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>(
+//				"organization network", context, true);
+//		netBuilder.buildNetwork();
+//		Network<Object> net = (Network<Object>)context.getProjection("organization network");
+//		Grid<Object> grid = (Grid)context.getProjection("Grid");
+//		
+//		ContextBuilderTest cbTest=new ContextBuilderTest("0");
+////		ContextBuilder cb= new ContextBuilder("0");
+//		cbTest.XMLParseTest();
+//		//cbTest.DirectoryRegistrationTest(context);
+//		//cbTest.WorkFlowGenerationTest(context);
+////		cb.XMLContextBuilder (context);
+//		cbTest.RandomContextGeneration(context);
+//		
+//		return context;
+//	}
+//}
+//----------------------------- TEST --------------------------------------

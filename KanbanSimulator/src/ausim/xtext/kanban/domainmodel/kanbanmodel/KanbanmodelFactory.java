@@ -32,13 +32,22 @@ public interface KanbanmodelFactory extends EFactory
   KanbanSchedulingSystem createKanbanSchedulingSystem();
 
   /**
-   * Returns a new object of class '<em>Team</em>'.
+   * Returns a new object of class '<em>Task Pattern</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Team</em>'.
+   * @return a new object of class '<em>Task Pattern</em>'.
    * @generated
    */
-  Team createTeam();
+  TaskPattern createTaskPattern();
+
+  /**
+   * Returns a new object of class '<em>Task Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Task Type</em>'.
+   * @generated
+   */
+  TaskType createTaskType();
 
   /**
    * Returns a new object of class '<em>Service</em>'.
@@ -48,6 +57,33 @@ public interface KanbanmodelFactory extends EFactory
    * @generated
    */
   Service createService();
+
+  /**
+   * Returns a new object of class '<em>Task</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Task</em>'.
+   * @generated
+   */
+  Task createTask();
+
+  /**
+   * Returns a new object of class '<em>Dependency</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dependency</em>'.
+   * @generated
+   */
+  Dependency createDependency();
+
+  /**
+   * Returns a new object of class '<em>Team</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Team</em>'.
+   * @generated
+   */
+  Team createTeam();
 
   /**
    * Returns a new object of class '<em>Asset</em>'.
@@ -68,15 +104,6 @@ public interface KanbanmodelFactory extends EFactory
   Skill createSkill();
 
   /**
-   * Returns a new object of class '<em>Dependency</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Dependency</em>'.
-   * @generated
-   */
-  Dependency createDependency();
-
-  /**
    * Returns a new object of class '<em>Requirement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -84,15 +111,6 @@ public interface KanbanmodelFactory extends EFactory
    * @generated
    */
   Requirement createRequirement();
-
-  /**
-   * Returns a new object of class '<em>Task</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Task</em>'.
-   * @generated
-   */
-  Task createTask();
 
   /**
    * Returns a new object of class '<em>Kanban Task Model</em>'.

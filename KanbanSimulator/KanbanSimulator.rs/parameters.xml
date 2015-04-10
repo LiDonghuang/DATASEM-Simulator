@@ -29,14 +29,14 @@
 		/>
 	
 		<parameter name="worldHeight" displayName="World Height" type="int" 
-						defaultValue="60"
+						defaultValue="100"
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
 	
 		<parameter name="worldWidth" displayName="World Width" type="int" 
-						defaultValue="60"
+						defaultValue="50"
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									

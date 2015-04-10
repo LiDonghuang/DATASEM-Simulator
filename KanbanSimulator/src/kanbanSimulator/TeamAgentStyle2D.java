@@ -1,8 +1,8 @@
 package kanbanSimulator;
 
 import java.awt.Color;
-
 import repast.simphony.visualizationOGL2D.DefaultStyleOGL2D;
+import saf.v3d.ShapeFactory2D;
 
 /**
  * The 2D style for Schelling Model Agents.  
@@ -12,6 +12,7 @@ import repast.simphony.visualizationOGL2D.DefaultStyleOGL2D;
 
 public class TeamAgentStyle2D extends DefaultStyleOGL2D {
 	
+	private ShapeFactory2D shapeFactory;
 
 	@Override
 	public Color getColor(Object o) {

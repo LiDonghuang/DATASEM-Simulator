@@ -6,7 +6,10 @@ import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanGovModel;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.Service;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Task;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Team;
 
 import java.util.Collection;
@@ -33,6 +36,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKSSTaskPatterns <em>KSS Task Patterns</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKSStaskPatternTypes <em>KS Stask Pattern Types</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getSoSServices <em>So SServices</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getOrgUnits <em>Org Units</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKssTasks <em>Kss Tasks</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKssWorkFlow <em>Kss Work Flow</em>}</li>
@@ -63,6 +69,36 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getKSSTaskPatterns() <em>KSS Task Patterns</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKSSTaskPatterns()
+   * @generated
+   * @ordered
+   */
+  protected EList<TaskPattern> kssTaskPatterns;
+
+  /**
+   * The cached value of the '{@link #getKSStaskPatternTypes() <em>KS Stask Pattern Types</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKSStaskPatternTypes()
+   * @generated
+   * @ordered
+   */
+  protected EList<TaskType> ksStaskPatternTypes;
+
+  /**
+   * The cached value of the '{@link #getSoSServices() <em>So SServices</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSoSServices()
+   * @generated
+   * @ordered
+   */
+  protected EList<Service> soSServices;
 
   /**
    * The cached value of the '{@link #getOrgUnits() <em>Org Units</em>}' containment reference list.
@@ -146,6 +182,48 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<TaskPattern> getKSSTaskPatterns()
+  {
+    if (kssTaskPatterns == null)
+    {
+      kssTaskPatterns = new EObjectContainmentEList<TaskPattern>(TaskPattern.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS);
+    }
+    return kssTaskPatterns;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<TaskType> getKSStaskPatternTypes()
+  {
+    if (ksStaskPatternTypes == null)
+    {
+      ksStaskPatternTypes = new EObjectContainmentEList<TaskType>(TaskType.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES);
+    }
+    return ksStaskPatternTypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Service> getSoSServices()
+  {
+    if (soSServices == null)
+    {
+      soSServices = new EObjectContainmentEList<Service>(Service.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES);
+    }
+    return soSServices;
   }
 
   /**
@@ -282,6 +360,12 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS:
+        return ((InternalEList<?>)getKSSTaskPatterns()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES:
+        return ((InternalEList<?>)getKSStaskPatternTypes()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES:
+        return ((InternalEList<?>)getSoSServices()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS:
         return ((InternalEList<?>)getOrgUnits()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASKS:
@@ -306,6 +390,12 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
     {
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__NAME:
         return getName();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS:
+        return getKSSTaskPatterns();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES:
+        return getKSStaskPatternTypes();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES:
+        return getSoSServices();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS:
         return getOrgUnits();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASKS:
@@ -331,6 +421,18 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
     {
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__NAME:
         setName((String)newValue);
+        return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS:
+        getKSSTaskPatterns().clear();
+        getKSSTaskPatterns().addAll((Collection<? extends TaskPattern>)newValue);
+        return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES:
+        getKSStaskPatternTypes().clear();
+        getKSStaskPatternTypes().addAll((Collection<? extends TaskType>)newValue);
+        return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES:
+        getSoSServices().clear();
+        getSoSServices().addAll((Collection<? extends Service>)newValue);
         return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS:
         getOrgUnits().clear();
@@ -363,6 +465,15 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS:
+        getKSSTaskPatterns().clear();
+        return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES:
+        getKSStaskPatternTypes().clear();
+        return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES:
+        getSoSServices().clear();
+        return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS:
         getOrgUnits().clear();
         return;
@@ -391,6 +502,12 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
     {
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS:
+        return kssTaskPatterns != null && !kssTaskPatterns.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES:
+        return ksStaskPatternTypes != null && !ksStaskPatternTypes.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES:
+        return soSServices != null && !soSServices.isEmpty();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS:
         return orgUnits != null && !orgUnits.isEmpty();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASKS:

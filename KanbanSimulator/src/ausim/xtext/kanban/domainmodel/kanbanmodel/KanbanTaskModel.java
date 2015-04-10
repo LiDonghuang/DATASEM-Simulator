@@ -3,7 +3,6 @@
 package ausim.xtext.kanban.domainmodel.kanbanmodel;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -65,6 +64,8 @@ public interface KanbanTaskModel extends EObject
    * @model containment="true"
    * @generated
    */
+  
+  
   EList<Capability> getCaps();
 
 } // KanbanTaskModel

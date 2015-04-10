@@ -7,22 +7,38 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 
+import bsh.This;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Requirement;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.Service;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Task;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl;
+import repast.simphony.context.Context;
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ISchedule;
 import repast.simphony.engine.schedule.ScheduledMethod;
+import repast.simphony.space.grid.Grid;
+import repast.simphony.util.ContextUtils;
 
-public class KSSTask extends TaskImpl {
-	private int taskID;
-	private Task kssTask;
+
+public class KSSTask extends TaskImpl {	
+	
+	private int id;
+	private Task workItem;	
+	
 	private boolean completed;
 	private boolean complexTask;
 	private boolean assigned;
+	private double requiredEfforts;
 	private double startTime;
 	private double endTime;
+	
+	private LinkedList<KSSTask> subTasks;
+	private LinkedList<KSSTask> predececcorTasks;
+	private LinkedList<KSSTask> triggerTasks;
 	
 	private static final int DEFAULT_INITIAL_CAPACITY = 100;
 	
@@ -31,14 +47,14 @@ public class KSSTask extends TaskImpl {
 	private LinkedList<KSSTask> readyList;
 	private LinkedList<KSSTask> completedList;
 	private LinkedList<KSSTask> topologicalList;
+	private TeamAgent assignedTo;
 	
-	public KSSTask(int tID, Task task, TaskFlow rq) {
-		this.taskID=tID;
-		this.kssTask=task;
+	public KSSTask(int id, Task wi, TaskFlow rq){
+		this.id=id;		
+		this.workItem=wi;
 		this.completed=false;
 		this.complexTask=true;
-		this.assigned=false;
-		
+		this.assigned=false;		
 		this.requirement=rq;
 		this.inDegree=new HashMap(DEFAULT_INITIAL_CAPACITY);
 		this.readyList=new LinkedList<KSSTask>();
@@ -50,28 +66,55 @@ public class KSSTask extends TaskImpl {
 	}
 	
 	
-	public KSSTask(int tID, Task task) {
-		this.taskID=tID;
-		this.kssTask=task;
+	public KSSTask(int id, Task wi) {
+		this.name = wi.getName();
+		this.description = wi.getDescription();
+		this.befforts = wi.getBefforts();
+		this.bvalue = wi.getBvalue();
+		this.cos = wi.getCOS();
+		this.subTasks = new LinkedList<KSSTask>();
+		this.id=id;		
+		this.workItem=wi;
 		this.completed=false;
 		this.complexTask=false;
 		this.assigned=false;
-	
 	}
 	
 	@ScheduledMethod(start=0,interval=1)
 	public void step() {
+		Context context = ContextUtils.getContext(this);
+		Grid grid = (Grid)context.getProjection("Grid");
+		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
 		
+		String wItype = this.getPatternType().get(0).getName();
+		if (wItype.matches("Capability")||wItype.matches("Requirement")) {
+			boolean cpl = true;
+			for (int st = 0; st < this.subTasks.size(); st++) {				
+				if (this.subTasks.get(st).isComplete() == false) {
+					cpl = false;
+					}
+			}
+			if (cpl == true) {
+				this.setCompleted(true);
+			}
+		}
+		
+		// ------ Remove Completed WI from context
+		if (this.isComplete() == true) {
+			context.remove(this);
+		}
 	}
 	
+	
+	
 	public int getTaskId() {
-		return this.taskID;
+		return this.id;
 	}
 	
 	public void setStartTime() {
 		 ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
 		 this.startTime=schedule.getTickCount();	
-		 System.out.println("Task "+this.taskID+ " is started");
+		 System.out.println("WorkItem "+this.workItem.getName()+" is started");
 	}
 	
 	public void setCompletionTime(double endTime) {
@@ -82,13 +125,51 @@ public class KSSTask extends TaskImpl {
 		return this.endTime;
 	}
 	
+	///////////////////////////////////////////////////
 	public String getName() {
-		return this.kssTask.getName();
+		return this.workItem.getName();
+	}
+	public String getDescription() {
+		return this.workItem.getDescription();
+	}	
+	public int getBvalue() {
+		return this.workItem.getBvalue();
+	}
+	public int getBefforts() {
+		return this.workItem.getBefforts();
+	}
+	public String getCOS() {
+		return this.workItem.getCOS();
+	}
+    public EList<TaskPattern> getPattern() {
+    	return this.workItem.getPattern();
+    }
+    public EList<TaskType> getPatternType() {
+    	return this.workItem.getPatternType();
+    }
+    public EList<Service> getReqSpecialties() {
+    	return this.workItem.getReqSpecialties();
+    }
+	public void addPattern(TaskPattern e) {	
+		this.getPattern().add(e);
+	}
+	public void addPatternType(TaskType e) {	
+		this.getPatternType().add(e);
 	}
 	
+    public LinkedList<KSSTask> getKSSsTasks() {
+    	return this.subTasks;
+    }
+	public void addKSSsTasks(KSSTask e) {	
+		this.getKSSsTasks().add(e);
+	}
+	public void addReqSpecialties(Service e) {	
+		this.getReqSpecialties().add(e);
+	}
+	/////////////////////////////////////////////////
 	public void setCompleted(boolean isCompleted) {
 		this.completed=true;
-		System.out.println("Task "+this.taskID+ " is completed");
+		System.out.print("*** WorkItem "+this.workItem.getName()+" is Completed ***\n");
 		/*if (this.complexTask==true) {
 			Iterator<KSSTask> completedTasks=this.completedList.iterator();
 			while (completedTasks.hasNext()) {
@@ -193,6 +274,10 @@ public class KSSTask extends TaskImpl {
 		}
 	}
 	
+	
+	public void assignTo(TeamAgent sp){
+		this.assignedTo = sp;
+	}
 	
 	
 	public LinkedList<KSSTask> getTopologicalTasks() {

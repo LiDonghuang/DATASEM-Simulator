@@ -111,7 +111,7 @@ public class KanbanTaskModelImpl extends MinimalEObjectImpl.Container implements
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.KANBAN_TASK_MODEL__NAME, oldName, name));
   }
-
+  
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

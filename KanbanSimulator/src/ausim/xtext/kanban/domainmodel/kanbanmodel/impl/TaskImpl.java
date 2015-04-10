@@ -6,6 +6,8 @@ import ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Service;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Task;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType;
 
 import java.util.Collection;
 
@@ -32,9 +34,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getPatternType <em>Pattern Type</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getSTasks <em>STasks</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getTaskDependencies <em>Task Dependencies</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getReqSpecialties <em>Req Specialties</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getBefforts <em>Befforts</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getBvalue <em>Bvalue</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl#getCOS <em>COS</em>}</li>
  * </ul>
@@ -65,6 +71,46 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected static final String DESCRIPTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getPattern() <em>Pattern</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPattern()
+   * @generated
+   * @ordered
+   */
+  protected EList<TaskPattern> pattern;
+
+  /**
+   * The cached value of the '{@link #getPatternType() <em>Pattern Type</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPatternType()
+   * @generated
+   * @ordered
+   */
+  protected EList<TaskType> patternType;
+
+  /**
    * The cached value of the '{@link #getSTasks() <em>STasks</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -93,6 +139,26 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
    * @ordered
    */
   protected EList<Service> reqSpecialties;
+
+  /**
+   * The default value of the '{@link #getBefforts() <em>Befforts</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBefforts()
+   * @generated
+   * @ordered
+   */
+  protected static final int BEFFORTS_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getBefforts() <em>Befforts</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBefforts()
+   * @generated
+   * @ordered
+   */
+  protected int befforts = BEFFORTS_EDEFAULT;
 
   /**
    * The default value of the '{@link #getBvalue() <em>Bvalue</em>}' attribute.
@@ -183,6 +249,57 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getDescription()
+  {
+    return description;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDescription(String newDescription)
+  {
+    String oldDescription = description;
+    description = newDescription;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.TASK__DESCRIPTION, oldDescription, description));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<TaskPattern> getPattern()
+  {
+    if (pattern == null)
+    {
+      pattern = new EObjectResolvingEList<TaskPattern>(TaskPattern.class, this, KanbanmodelPackage.TASK__PATTERN);
+    }
+    return pattern;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<TaskType> getPatternType()
+  {
+    if (patternType == null)
+    {
+      patternType = new EObjectResolvingEList<TaskType>(TaskType.class, this, KanbanmodelPackage.TASK__PATTERN_TYPE);
+    }
+    return patternType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Task> getSTasks()
   {
     if (sTasks == null)
@@ -218,6 +335,29 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
       reqSpecialties = new EObjectResolvingEList<Service>(Service.class, this, KanbanmodelPackage.TASK__REQ_SPECIALTIES);
     }
     return reqSpecialties;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getBefforts()
+  {
+    return befforts;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBefforts(int newBefforts)
+  {
+    int oldBefforts = befforts;
+    befforts = newBefforts;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.TASK__BEFFORTS, oldBefforts, befforts));
   }
 
   /**
@@ -294,12 +434,20 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
     {
       case KanbanmodelPackage.TASK__NAME:
         return getName();
+      case KanbanmodelPackage.TASK__DESCRIPTION:
+        return getDescription();
+      case KanbanmodelPackage.TASK__PATTERN:
+        return getPattern();
+      case KanbanmodelPackage.TASK__PATTERN_TYPE:
+        return getPatternType();
       case KanbanmodelPackage.TASK__STASKS:
         return getSTasks();
       case KanbanmodelPackage.TASK__TASK_DEPENDENCIES:
         return getTaskDependencies();
       case KanbanmodelPackage.TASK__REQ_SPECIALTIES:
         return getReqSpecialties();
+      case KanbanmodelPackage.TASK__BEFFORTS:
+        return getBefforts();
       case KanbanmodelPackage.TASK__BVALUE:
         return getBvalue();
       case KanbanmodelPackage.TASK__COS:
@@ -322,6 +470,17 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
       case KanbanmodelPackage.TASK__NAME:
         setName((String)newValue);
         return;
+      case KanbanmodelPackage.TASK__DESCRIPTION:
+        setDescription((String)newValue);
+        return;
+      case KanbanmodelPackage.TASK__PATTERN:
+        getPattern().clear();
+        getPattern().addAll((Collection<? extends TaskPattern>)newValue);
+        return;
+      case KanbanmodelPackage.TASK__PATTERN_TYPE:
+        getPatternType().clear();
+        getPatternType().addAll((Collection<? extends TaskType>)newValue);
+        return;
       case KanbanmodelPackage.TASK__STASKS:
         getSTasks().clear();
         getSTasks().addAll((Collection<? extends Task>)newValue);
@@ -333,6 +492,9 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
       case KanbanmodelPackage.TASK__REQ_SPECIALTIES:
         getReqSpecialties().clear();
         getReqSpecialties().addAll((Collection<? extends Service>)newValue);
+        return;
+      case KanbanmodelPackage.TASK__BEFFORTS:
+        setBefforts((Integer)newValue);
         return;
       case KanbanmodelPackage.TASK__BVALUE:
         setBvalue((Integer)newValue);
@@ -357,6 +519,15 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
       case KanbanmodelPackage.TASK__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case KanbanmodelPackage.TASK__DESCRIPTION:
+        setDescription(DESCRIPTION_EDEFAULT);
+        return;
+      case KanbanmodelPackage.TASK__PATTERN:
+        getPattern().clear();
+        return;
+      case KanbanmodelPackage.TASK__PATTERN_TYPE:
+        getPatternType().clear();
+        return;
       case KanbanmodelPackage.TASK__STASKS:
         getSTasks().clear();
         return;
@@ -365,6 +536,9 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
         return;
       case KanbanmodelPackage.TASK__REQ_SPECIALTIES:
         getReqSpecialties().clear();
+        return;
+      case KanbanmodelPackage.TASK__BEFFORTS:
+        setBefforts(BEFFORTS_EDEFAULT);
         return;
       case KanbanmodelPackage.TASK__BVALUE:
         setBvalue(BVALUE_EDEFAULT);
@@ -388,12 +562,20 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
     {
       case KanbanmodelPackage.TASK__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case KanbanmodelPackage.TASK__DESCRIPTION:
+        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case KanbanmodelPackage.TASK__PATTERN:
+        return pattern != null && !pattern.isEmpty();
+      case KanbanmodelPackage.TASK__PATTERN_TYPE:
+        return patternType != null && !patternType.isEmpty();
       case KanbanmodelPackage.TASK__STASKS:
         return sTasks != null && !sTasks.isEmpty();
       case KanbanmodelPackage.TASK__TASK_DEPENDENCIES:
         return taskDependencies != null && !taskDependencies.isEmpty();
       case KanbanmodelPackage.TASK__REQ_SPECIALTIES:
         return reqSpecialties != null && !reqSpecialties.isEmpty();
+      case KanbanmodelPackage.TASK__BEFFORTS:
+        return befforts != BEFFORTS_EDEFAULT;
       case KanbanmodelPackage.TASK__BVALUE:
         return bvalue != BVALUE_EDEFAULT;
       case KanbanmodelPackage.TASK__COS:
@@ -415,6 +597,10 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", description: ");
+    result.append(description);
+    result.append(", befforts: ");
+    result.append(befforts);
     result.append(", bvalue: ");
     result.append(bvalue);
     result.append(", COS: ");

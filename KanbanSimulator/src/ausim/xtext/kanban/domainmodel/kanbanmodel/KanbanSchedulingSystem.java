@@ -15,6 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getName <em>Name</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKSSTaskPatterns <em>KSS Task Patterns</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKSStaskPatternTypes <em>KS Stask Pattern Types</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getSoSServices <em>So SServices</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getOrgUnits <em>Org Units</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssTasks <em>Kss Tasks</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssWorkFlow <em>Kss Work Flow</em>}</li>
@@ -53,6 +56,54 @@ public interface KanbanSchedulingSystem extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>KSS Task Patterns</b></em>' containment reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>KSS Task Patterns</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>KSS Task Patterns</em>' containment reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_KSSTaskPatterns()
+   * @model containment="true"
+   * @generated
+   */
+  EList<TaskPattern> getKSSTaskPatterns();
+
+  /**
+   * Returns the value of the '<em><b>KS Stask Pattern Types</b></em>' containment reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>KS Stask Pattern Types</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>KS Stask Pattern Types</em>' containment reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_KSStaskPatternTypes()
+   * @model containment="true"
+   * @generated
+   */
+  EList<TaskType> getKSStaskPatternTypes();
+
+  /**
+   * Returns the value of the '<em><b>So SServices</b></em>' containment reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Service}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>So SServices</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>So SServices</em>' containment reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_SoSServices()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Service> getSoSServices();
 
   /**
    * Returns the value of the '<em><b>Org Units</b></em>' containment reference list.

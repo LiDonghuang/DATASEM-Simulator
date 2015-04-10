@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.CapabilityImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.CapabilityImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.CapabilityImpl#getReqs <em>Reqs</em>}</li>
  * </ul>
  * </p>
@@ -57,6 +58,26 @@ public class CapabilityImpl extends MinimalEObjectImpl.Container implements Capa
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected static final String DESCRIPTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected String description = DESCRIPTION_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getReqs() <em>Reqs</em>}' containment reference list.
@@ -117,6 +138,29 @@ public class CapabilityImpl extends MinimalEObjectImpl.Container implements Capa
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getDescription()
+  {
+    return description;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDescription(String newDescription)
+  {
+    String oldDescription = description;
+    description = newDescription;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.CAPABILITY__DESCRIPTION, oldDescription, description));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Requirement> getReqs()
   {
     if (reqs == null)
@@ -154,6 +198,8 @@ public class CapabilityImpl extends MinimalEObjectImpl.Container implements Capa
     {
       case KanbanmodelPackage.CAPABILITY__NAME:
         return getName();
+      case KanbanmodelPackage.CAPABILITY__DESCRIPTION:
+        return getDescription();
       case KanbanmodelPackage.CAPABILITY__REQS:
         return getReqs();
     }
@@ -173,6 +219,9 @@ public class CapabilityImpl extends MinimalEObjectImpl.Container implements Capa
     {
       case KanbanmodelPackage.CAPABILITY__NAME:
         setName((String)newValue);
+        return;
+      case KanbanmodelPackage.CAPABILITY__DESCRIPTION:
+        setDescription((String)newValue);
         return;
       case KanbanmodelPackage.CAPABILITY__REQS:
         getReqs().clear();
@@ -195,6 +244,9 @@ public class CapabilityImpl extends MinimalEObjectImpl.Container implements Capa
       case KanbanmodelPackage.CAPABILITY__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case KanbanmodelPackage.CAPABILITY__DESCRIPTION:
+        setDescription(DESCRIPTION_EDEFAULT);
+        return;
       case KanbanmodelPackage.CAPABILITY__REQS:
         getReqs().clear();
         return;
@@ -214,6 +266,8 @@ public class CapabilityImpl extends MinimalEObjectImpl.Container implements Capa
     {
       case KanbanmodelPackage.CAPABILITY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case KanbanmodelPackage.CAPABILITY__DESCRIPTION:
+        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case KanbanmodelPackage.CAPABILITY__REQS:
         return reqs != null && !reqs.isEmpty();
     }
@@ -233,6 +287,8 @@ public class CapabilityImpl extends MinimalEObjectImpl.Container implements Capa
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", description: ");
+    result.append(description);
     result.append(')');
     return result.toString();
   }

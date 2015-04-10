@@ -15,9 +15,13 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getName <em>Name</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getDescription <em>Description</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getPatternType <em>Pattern Type</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getSTasks <em>STasks</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getTaskDependencies <em>Task Dependencies</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getReqSpecialties <em>Req Specialties</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getBefforts <em>Befforts</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getBvalue <em>Bvalue</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getCOS <em>COS</em>}</li>
  * </ul>
@@ -54,6 +58,64 @@ public interface Task extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Description</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Description</em>' attribute.
+   * @see #setDescription(String)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getTask_Description()
+   * @model
+   * @generated
+   */
+  String getDescription();
+
+  /**
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getDescription <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Description</em>' attribute.
+   * @see #getDescription()
+   * @generated
+   */
+  void setDescription(String value);
+
+  /**
+   * Returns the value of the '<em><b>Pattern</b></em>' reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Pattern</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Pattern</em>' reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getTask_Pattern()
+   * @model
+   * @generated
+   */
+  EList<TaskPattern> getPattern();
+
+  /**
+   * Returns the value of the '<em><b>Pattern Type</b></em>' reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Pattern Type</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Pattern Type</em>' reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getTask_PatternType()
+   * @model
+   * @generated
+   */
+  EList<TaskType> getPatternType();
 
   /**
    * Returns the value of the '<em><b>STasks</b></em>' reference list.
@@ -102,6 +164,32 @@ public interface Task extends EObject
    * @generated
    */
   EList<Service> getReqSpecialties();
+
+  /**
+   * Returns the value of the '<em><b>Befforts</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Befforts</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Befforts</em>' attribute.
+   * @see #setBefforts(int)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getTask_Befforts()
+   * @model
+   * @generated
+   */
+  int getBefforts();
+
+  /**
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task#getBefforts <em>Befforts</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Befforts</em>' attribute.
+   * @see #getBefforts()
+   * @generated
+   */
+  void setBefforts(int value);
 
   /**
    * Returns the value of the '<em><b>Bvalue</b></em>' attribute.
