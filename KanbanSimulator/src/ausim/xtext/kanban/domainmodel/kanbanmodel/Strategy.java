@@ -2,8 +2,6 @@
  */
 package ausim.xtext.kanban.domainmodel.kanbanmodel;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,7 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getName <em>Name</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getEntities <em>Entities</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getDescription <em>Description</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAcceptanceRule <em>WI Acceptance Rule</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWISelectionRule <em>WI Selection Rule</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAssignmentRule <em>WI Assignment Rule</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceAllocationRule <em>Resource Allocation Rule</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceOutsourcingRule <em>Resource Outsourcing Rule</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,19 +55,159 @@ public interface Strategy extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Entities</b></em>' containment reference list.
-   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Entity}.
+   * Returns the value of the '<em><b>Description</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Entities</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Description</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Entities</em>' containment reference list.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_Entities()
+   * @return the value of the '<em>Description</em>' attribute.
+   * @see #setDescription(String)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_Description()
+   * @model
+   * @generated
+   */
+  String getDescription();
+
+  /**
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getDescription <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Description</em>' attribute.
+   * @see #getDescription()
+   * @generated
+   */
+  void setDescription(String value);
+
+  /**
+   * Returns the value of the '<em><b>WI Acceptance Rule</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>WI Acceptance Rule</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>WI Acceptance Rule</em>' containment reference.
+   * @see #setWIAcceptanceRule(WIAcceptance)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_WIAcceptanceRule()
    * @model containment="true"
    * @generated
    */
-  EList<Entity> getEntities();
+  WIAcceptance getWIAcceptanceRule();
+
+  /**
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAcceptanceRule <em>WI Acceptance Rule</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>WI Acceptance Rule</em>' containment reference.
+   * @see #getWIAcceptanceRule()
+   * @generated
+   */
+  void setWIAcceptanceRule(WIAcceptance value);
+
+  /**
+   * Returns the value of the '<em><b>WI Selection Rule</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>WI Selection Rule</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>WI Selection Rule</em>' containment reference.
+   * @see #setWISelectionRule(WISelection)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_WISelectionRule()
+   * @model containment="true"
+   * @generated
+   */
+  WISelection getWISelectionRule();
+
+  /**
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWISelectionRule <em>WI Selection Rule</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>WI Selection Rule</em>' containment reference.
+   * @see #getWISelectionRule()
+   * @generated
+   */
+  void setWISelectionRule(WISelection value);
+
+  /**
+   * Returns the value of the '<em><b>WI Assignment Rule</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>WI Assignment Rule</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>WI Assignment Rule</em>' containment reference.
+   * @see #setWIAssignmentRule(WIAssignment)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_WIAssignmentRule()
+   * @model containment="true"
+   * @generated
+   */
+  WIAssignment getWIAssignmentRule();
+
+  /**
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getWIAssignmentRule <em>WI Assignment Rule</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>WI Assignment Rule</em>' containment reference.
+   * @see #getWIAssignmentRule()
+   * @generated
+   */
+  void setWIAssignmentRule(WIAssignment value);
+
+  /**
+   * Returns the value of the '<em><b>Resource Allocation Rule</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Resource Allocation Rule</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Resource Allocation Rule</em>' containment reference.
+   * @see #setResourceAllocationRule(ResourceAllocation)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_ResourceAllocationRule()
+   * @model containment="true"
+   * @generated
+   */
+  ResourceAllocation getResourceAllocationRule();
+
+  /**
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceAllocationRule <em>Resource Allocation Rule</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Resource Allocation Rule</em>' containment reference.
+   * @see #getResourceAllocationRule()
+   * @generated
+   */
+  void setResourceAllocationRule(ResourceAllocation value);
+
+  /**
+   * Returns the value of the '<em><b>Resource Outsourcing Rule</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Resource Outsourcing Rule</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Resource Outsourcing Rule</em>' containment reference.
+   * @see #setResourceOutsourcingRule(ResourceOutsourcing)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getStrategy_ResourceOutsourcingRule()
+   * @model containment="true"
+   * @generated
+   */
+  ResourceOutsourcing getResourceOutsourcingRule();
+
+  /**
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy#getResourceOutsourcingRule <em>Resource Outsourcing Rule</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Resource Outsourcing Rule</em>' containment reference.
+   * @see #getResourceOutsourcingRule()
+   * @generated
+   */
+  void setResourceOutsourcingRule(ResourceOutsourcing value);
 
 } // Strategy

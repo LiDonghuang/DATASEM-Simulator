@@ -2,10 +2,10 @@
  */
 package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.Causality;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Requirement;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Task;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
 
 import java.util.Collection;
 
@@ -90,7 +90,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
    * @generated
    * @ordered
    */
-  protected EList<Task> rTasks;
+  protected EList<WorkItem> rTasks;
 
   /**
    * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference list.
@@ -100,7 +100,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
    * @generated
    * @ordered
    */
-  protected EList<Dependency> dependencies;
+  protected EList<Causality> dependencies;
 
   /**
    * <!-- begin-user-doc -->
@@ -174,11 +174,11 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Task> getRTasks()
+  public EList<WorkItem> getRTasks()
   {
     if (rTasks == null)
     {
-      rTasks = new EObjectResolvingEList<Task>(Task.class, this, KanbanmodelPackage.REQUIREMENT__RTASKS);
+      rTasks = new EObjectResolvingEList<WorkItem>(WorkItem.class, this, KanbanmodelPackage.REQUIREMENT__RTASKS);
     }
     return rTasks;
   }
@@ -188,11 +188,11 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Dependency> getDependencies()
+  public EList<Causality> getDependencies()
   {
     if (dependencies == null)
     {
-      dependencies = new EObjectContainmentEList<Dependency>(Dependency.class, this, KanbanmodelPackage.REQUIREMENT__DEPENDENCIES);
+      dependencies = new EObjectContainmentEList<Causality>(Causality.class, this, KanbanmodelPackage.REQUIREMENT__DEPENDENCIES);
     }
     return dependencies;
   }
@@ -254,11 +254,11 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
         return;
       case KanbanmodelPackage.REQUIREMENT__RTASKS:
         getRTasks().clear();
-        getRTasks().addAll((Collection<? extends Task>)newValue);
+        getRTasks().addAll((Collection<? extends WorkItem>)newValue);
         return;
       case KanbanmodelPackage.REQUIREMENT__DEPENDENCIES:
         getDependencies().clear();
-        getDependencies().addAll((Collection<? extends Dependency>)newValue);
+        getDependencies().addAll((Collection<? extends Causality>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

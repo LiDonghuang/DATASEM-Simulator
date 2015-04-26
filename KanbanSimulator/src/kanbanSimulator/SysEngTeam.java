@@ -10,16 +10,16 @@ import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.random.RandomHelper;
 import repast.simphony.space.graph.Network;
 import repast.simphony.space.grid.Grid;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TeamImpl;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl;
 
-public class SysEngTeam extends TeamImpl {
+public class SysEngTeam extends ServiceProviderImpl {
 
 	private String id;
 	private SchedulingStrategy strategy;
 	private Network<Object> net;
 	private boolean coordinator;
 	private KanbanBoard myKanbanBoard;
-	private LinkedList<TeamAgent> myServiceProviders;
+	private LinkedList<ServiceProviderAgent> myServiceProviders;
 	private DirectoryFacilitatorAgent dfa=null;
 	private Queue<KSSTask> incomingQ;
 	private Queue<KSSTask> demandBackLogQ;
@@ -64,11 +64,11 @@ public class SysEngTeam extends TeamImpl {
 		
 		if ((this.readyQ.size()!=0) && (this.activeQ.size()<this.workInprogressLimit)) {
 			KSSTask newTask=this.readyQ.remove();
-			newTask.setStartTime();
+			newTask.setStarted(schedule.getTickCount());
 			schedule = RunEnvironment.getInstance().getCurrentSchedule();
 			double cTime=RandomHelper.nextDoubleFromTo(10, 20)+schedule.getTickCount();
 			System.out.println("Task "+newTask.getTaskId()+" is sceduled to finish at"+cTime);
-			newTask.setCompletionTime(cTime);
+			newTask.setEstimatedCompletion(cTime);
 			this.activeQ.add(newTask);
 		}
 		
@@ -77,7 +77,7 @@ public class SysEngTeam extends TeamImpl {
 		
 		for(int i=0;i<activeQSize;i++) {
 			KSSTask nextTask=this.activeQ.get(i); 
-			if (schedule.getTickCount()>=nextTask.getCompletionTime()) {
+			if (schedule.getTickCount()>=nextTask.getEndTime()) {
 				nextTask.setCompleted(true);
 				this.completeQ.add(nextTask);
 			}
@@ -97,7 +97,7 @@ public class SysEngTeam extends TeamImpl {
 			if (complexTask!=null) {
 				KSSTask cTask=complexTask.pollCompletedTask();
 				if (cTask!=null) {complexTask.updateReadyTasks(cTask);}
-				if ((complexTask.getReadyTasks().size()==0) && (complexTask.isComplete()!=true))
+				if ((complexTask.getReadyTasks().size()==0) && (complexTask.isCompleted()!=true))
 					{complexTask.setCompleted(true);this.coordinateQ.remove(complexTask);}
 				else this.strategy.assignResource(complexTask);
 			}

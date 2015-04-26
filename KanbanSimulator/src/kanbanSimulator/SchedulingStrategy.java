@@ -1,6 +1,6 @@
 package kanbanSimulator;
 
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Task;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem;;
 
 public class SchedulingStrategy {
 

@@ -3,7 +3,7 @@
   <size>1.0</size>
   <sizeMax>1.0</sizeMax>
   <sizeMin>0.0</sizeMin>
-  <sizeScale>1.0</sizeScale>
+  <sizeScale>0.5</sizeScale>
   <color>
     <float>0.0</float>
     <float>0.0</float>

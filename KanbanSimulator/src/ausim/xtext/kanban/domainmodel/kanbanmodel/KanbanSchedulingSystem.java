@@ -15,13 +15,17 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getName <em>Name</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getMechanisms <em>Mechanisms</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKSSSearchStrategies <em>KSS Search Strategies</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKSSTaskPatterns <em>KSS Task Patterns</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKSStaskPatternTypes <em>KS Stask Pattern Types</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKSSValueFunctions <em>KSS Value Functions</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getSoSServices <em>So SServices</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getOrgUnits <em>Org Units</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssTasks <em>Kss Tasks</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssWorkFlow <em>Kss Work Flow</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssGovModel <em>Kss Gov Model</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssSources <em>Kss Sources</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssWItems <em>Kss WItems</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getReplications <em>Replications</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getInterArrivalTime <em>Inter Arrival Time</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,6 +62,38 @@ public interface KanbanSchedulingSystem extends EObject
   void setName(String value);
 
   /**
+   * Returns the value of the '<em><b>Mechanisms</b></em>' containment reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Mechanisms</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Mechanisms</em>' containment reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_Mechanisms()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Mechanism> getMechanisms();
+
+  /**
+   * Returns the value of the '<em><b>KSS Search Strategies</b></em>' containment reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>KSS Search Strategies</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>KSS Search Strategies</em>' containment reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_KSSSearchStrategies()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Strategy> getKSSSearchStrategies();
+
+  /**
    * Returns the value of the '<em><b>KSS Task Patterns</b></em>' containment reference list.
    * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern}.
    * <!-- begin-user-doc -->
@@ -90,8 +126,24 @@ public interface KanbanSchedulingSystem extends EObject
   EList<TaskType> getKSStaskPatternTypes();
 
   /**
+   * Returns the value of the '<em><b>KSS Value Functions</b></em>' containment reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.ValueFunction}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>KSS Value Functions</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>KSS Value Functions</em>' containment reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_KSSValueFunctions()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ValueFunction> getKSSValueFunctions();
+
+  /**
    * Returns the value of the '<em><b>So SServices</b></em>' containment reference list.
-   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Service}.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceType}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>So SServices</em>' containment reference list isn't clear,
@@ -103,11 +155,11 @@ public interface KanbanSchedulingSystem extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Service> getSoSServices();
+  EList<ServiceType> getSoSServices();
 
   /**
    * Returns the value of the '<em><b>Org Units</b></em>' containment reference list.
-   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Team}.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Org Units</em>' containment reference list isn't clear,
@@ -119,74 +171,90 @@ public interface KanbanSchedulingSystem extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Team> getOrgUnits();
+  EList<ServiceProvider> getOrgUnits();
 
   /**
-   * Returns the value of the '<em><b>Kss Tasks</b></em>' containment reference list.
-   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task}.
+   * Returns the value of the '<em><b>Kss Sources</b></em>' containment reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkSource}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Kss Tasks</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Kss Sources</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Kss Tasks</em>' containment reference list.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_KssTasks()
+   * @return the value of the '<em>Kss Sources</em>' containment reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_KssSources()
    * @model containment="true"
    * @generated
    */
-  EList<Task> getKssTasks();
+  EList<WorkSource> getKssSources();
 
   /**
-   * Returns the value of the '<em><b>Kss Work Flow</b></em>' containment reference.
+   * Returns the value of the '<em><b>Kss WItems</b></em>' containment reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Kss Work Flow</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Kss WItems</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Kss Work Flow</em>' containment reference.
-   * @see #setKssWorkFlow(KanbanTaskModel)
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_KssWorkFlow()
+   * @return the value of the '<em>Kss WItems</em>' containment reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_KssWItems()
    * @model containment="true"
    * @generated
    */
-  KanbanTaskModel getKssWorkFlow();
+  EList<WorkItem> getKssWItems();
 
   /**
-   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssWorkFlow <em>Kss Work Flow</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Kss Work Flow</em>' containment reference.
-   * @see #getKssWorkFlow()
-   * @generated
-   */
-  void setKssWorkFlow(KanbanTaskModel value);
-
-  /**
-   * Returns the value of the '<em><b>Kss Gov Model</b></em>' containment reference.
+   * Returns the value of the '<em><b>Replications</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Kss Gov Model</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Replications</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Kss Gov Model</em>' containment reference.
-   * @see #setKssGovModel(KanbanGovModel)
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_KssGovModel()
-   * @model containment="true"
+   * @return the value of the '<em>Replications</em>' attribute.
+   * @see #setReplications(int)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_Replications()
+   * @model
    * @generated
    */
-  KanbanGovModel getKssGovModel();
+  int getReplications();
 
   /**
-   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getKssGovModel <em>Kss Gov Model</em>}' containment reference.
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getReplications <em>Replications</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Kss Gov Model</em>' containment reference.
-   * @see #getKssGovModel()
+   * @param value the new value of the '<em>Replications</em>' attribute.
+   * @see #getReplications()
    * @generated
    */
-  void setKssGovModel(KanbanGovModel value);
+  void setReplications(int value);
+
+  /**
+   * Returns the value of the '<em><b>Inter Arrival Time</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Inter Arrival Time</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Inter Arrival Time</em>' attribute.
+   * @see #setInterArrivalTime(int)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getKanbanSchedulingSystem_InterArrivalTime()
+   * @model
+   * @generated
+   */
+  int getInterArrivalTime();
+
+  /**
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem#getInterArrivalTime <em>Inter Arrival Time</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Inter Arrival Time</em>' attribute.
+   * @see #getInterArrivalTime()
+   * @generated
+   */
+  void setInterArrivalTime(int value);
 
 } // KanbanSchedulingSystem

@@ -8,14 +8,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
-
 import bsh.This;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Requirement;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Service;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Task;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.TaskImpl;
+
+import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.*;
+
 import repast.simphony.context.Context;
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ISchedule;
@@ -24,85 +21,150 @@ import repast.simphony.space.grid.Grid;
 import repast.simphony.util.ContextUtils;
 
 
-public class KSSTask extends TaskImpl {	
+public class KSSTask extends WorkItemImpl {	
 	
 	private int id;
-	private Task workItem;	
+	private WorkItem workItem;	
+	private double value;
 	
-	private boolean completed;
-	private boolean complexTask;
-	private boolean assigned;
-	private double requiredEfforts;
-	private double startTime;
-	private double endTime;
-	
+	private boolean aggregationNode;
 	private LinkedList<KSSTask> subTasks;
-	private LinkedList<KSSTask> predececcorTasks;
-	private LinkedList<KSSTask> triggerTasks;
+	private boolean successor;
+	private LinkedList<KSSTask> predecessors;
+	private boolean causer;
+	private LinkedList<Causality> causalTriggers;
 	
-	private static final int DEFAULT_INITIAL_CAPACITY = 100;
+	private int status; // 0: Not Created; 1: Not Started; 2: In Progress; 3: Suspended; 4: Completed
 	
+	public ServiceProviderAgent assignedTo;	
+	public double progress;	
+	public double arrTime; // Infinite if not triggered
+	public double dueDate; // Infinite if not defined
+	
+	public double requiredEfforts;
+	public double createdTime; // True Creation Time
+	public double startTime; // Time Started Processing
+	public double estimatedCompletion; 
+	public double endTime; // Time Actually End Processing, either Completed or Abandoned
+	public double cycleTime;
+	
+	public double timeNow;
+	
+	private boolean created;
+	private boolean assigned;		
+	private boolean started;
+	private boolean completed;
+	
+	private boolean complexTask;	
 	private TaskFlow requirement;
 	private Map<KSSTask,Integer> inDegree;
 	private LinkedList<KSSTask> readyList;
 	private LinkedList<KSSTask> completedList;
 	private LinkedList<KSSTask> topologicalList;
-	private TeamAgent assignedTo;
-	
-	public KSSTask(int id, Task wi, TaskFlow rq){
-		this.id=id;		
-		this.workItem=wi;
-		this.completed=false;
-		this.complexTask=true;
-		this.assigned=false;		
-		this.requirement=rq;
-		this.inDegree=new HashMap(DEFAULT_INITIAL_CAPACITY);
-		this.readyList=new LinkedList<KSSTask>();
-		this.completedList=new LinkedList<KSSTask>();
-		this.topologicalList=new LinkedList<KSSTask>();
-		int size=this.requirement.getSubtasks().size();
-				
 
-	}
+	private static final int DEFAULT_INITIAL_CAPACITY = 100;
+	
+
+	
+//	public KSSTask(int id, Task wi, TaskFlow rq){
+//		this.id=id;		
+//		this.workItem=wi;
+//		this.completed=false;
+//		this.complexTask=true;
+//		this.assigned=false;		
+//		this.requirement=rq;
+//		this.inDegree=new HashMap(DEFAULT_INITIAL_CAPACITY);
+//		this.readyList=new LinkedList<KSSTask>();
+//		this.completedList=new LinkedList<KSSTask>();
+//		this.topologicalList=new LinkedList<KSSTask>();
+//		int size=this.requirement.getSubtasks().size();
+//				
+//
+//	}
 	
 	
-	public KSSTask(int id, Task wi) {
+	public KSSTask(int id, WorkItem wi) {
 		this.name = wi.getName();
 		this.description = wi.getDescription();
+		this.pattern = wi.getPattern();
+		this.patternType = wi.getPatternType();
+		this.reqSpecialties = wi.getReqSpecialties();
 		this.befforts = wi.getBefforts();
 		this.bvalue = wi.getBvalue();
+		this.value = this.bvalue;
 		this.cos = wi.getCOS();
+		
+		if (!(wi.getArrtime()>0)) {this.arrTime = Float.POSITIVE_INFINITY;}
+		else {this.arrTime = wi.getArrtime();}
+		
+		if (!(wi.getDuedate()>0)) {this.dueDate = Float.POSITIVE_INFINITY;}
+		else {this.dueDate = wi.getDuedate();}
+//		this.arrTime = wi.getArrtime();
+//		this.dueDate = wi.getDuedate();
+		
+		this.aggregationNode = false;
 		this.subTasks = new LinkedList<KSSTask>();
+		this.successor = false;
+		this.predecessors = new LinkedList<KSSTask>();
+		this.causer = false;
+		this.causalTriggers = new LinkedList<Causality>();
 		this.id=id;		
 		this.workItem=wi;
-		this.completed=false;
-		this.complexTask=false;
+		this.created=false;
 		this.assigned=false;
+		this.completed=false;
+		
 	}
 	
-	@ScheduledMethod(start=0,interval=1)
+	@ScheduledMethod(start=1,interval=1)
 	public void step() {
 		Context context = ContextUtils.getContext(this);
 		Grid grid = (Grid)context.getProjection("Grid");
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
+		timeNow = schedule.getTickCount();
 		
-		String wItype = this.getPatternType().get(0).getName();
-		if (wItype.matches("Capability")||wItype.matches("Requirement")) {
-			boolean cpl = true;
-			for (int st = 0; st < this.subTasks.size(); st++) {				
-				if (this.subTasks.get(st).isComplete() == false) {
-					cpl = false;
-					}
-			}
-			if (cpl == true) {
-				this.setCompleted(true);
+		// ******************* Value Function: Update WI Value ***********************
+		double oldValue = this.value;
+		double newValue = oldValue;
+		if (this.cos.matches("Standard")) {
+			newValue = this.value*0.995;}
+		else if (this.cos.matches("Important")) {
+			newValue = this.value*0.975;}
+		else if (this.cos.matches("Expedite")) {
+			newValue = this.value*0.9;}
+		else if (this.cos.matches("DateCertain")) {
+			if (timeNow>this.dueDate){
+			newValue = 0;}}
+		this.value = newValue;
+//		System.out.println(this.cos+": Value of "+this.getName()+" Diminished From "+oldValue+" to "+ newValue);
+		
+
+		// ***************************************************************************
+		
+		
+		
+		// ------------ Compute WI Progress (percentage) -----------						
+		if (this.isStarted()) {
+			if (!this.isAggregationNode()) {
+				this.progress = (timeNow - this.startTime)/(this.getBefforts());
 			}
 		}
 		
-		// ------ Remove Completed WI from context
-		if (this.isComplete() == true) {
-			context.remove(this);
+		// ------------ Aggregation WI Progress Check -------------
+		for (int i=0; i<3; i++) {			
+			if (this.isAggregationNode()) {
+				boolean cpl = true;
+				for (int st = 0; st < this.subTasks.size(); st++) {				
+					if (this.subTasks.get(st).isCompleted() == false) {
+						cpl = false;
+						}
+				}
+				if (cpl == true) {
+					this.setCompleted(timeNow);
+				}
+			}			
 		}
+		
 	}
 	
 	
@@ -110,52 +172,25 @@ public class KSSTask extends TaskImpl {
 	public int getTaskId() {
 		return this.id;
 	}
-	
-	public void setStartTime() {
-		 ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
-		 this.startTime=schedule.getTickCount();	
-		 System.out.println("WorkItem "+this.workItem.getName()+" is started");
+	public boolean isAggregationNode () {
+		return this.aggregationNode;
 	}
-	
-	public void setCompletionTime(double endTime) {
-		this.endTime=endTime;
+	public void setAggregationNode (boolean a) {
+		this.aggregationNode = a;
 	}
-	
-	public double getCompletionTime() {
-		return this.endTime;
+	public boolean isSuccessor () {
+		return this.successor;
 	}
-	
+	public void setSuccessor (boolean a) {
+		this.successor = a;
+	}
+	public boolean isCauser () {
+		return this.causer;
+	}
+	public void setCauser (boolean a) {
+		this.causer = a;
+	}
 	///////////////////////////////////////////////////
-	public String getName() {
-		return this.workItem.getName();
-	}
-	public String getDescription() {
-		return this.workItem.getDescription();
-	}	
-	public int getBvalue() {
-		return this.workItem.getBvalue();
-	}
-	public int getBefforts() {
-		return this.workItem.getBefforts();
-	}
-	public String getCOS() {
-		return this.workItem.getCOS();
-	}
-    public EList<TaskPattern> getPattern() {
-    	return this.workItem.getPattern();
-    }
-    public EList<TaskType> getPatternType() {
-    	return this.workItem.getPatternType();
-    }
-    public EList<Service> getReqSpecialties() {
-    	return this.workItem.getReqSpecialties();
-    }
-	public void addPattern(TaskPattern e) {	
-		this.getPattern().add(e);
-	}
-	public void addPatternType(TaskType e) {	
-		this.getPatternType().add(e);
-	}
 	
     public LinkedList<KSSTask> getKSSsTasks() {
     	return this.subTasks;
@@ -163,13 +198,22 @@ public class KSSTask extends TaskImpl {
 	public void addKSSsTasks(KSSTask e) {	
 		this.getKSSsTasks().add(e);
 	}
-	public void addReqSpecialties(Service e) {	
-		this.getReqSpecialties().add(e);
+    public LinkedList<KSSTask> getKSSpredecessors() {
+    	return this.predecessors;
+    }
+	public void addKSSpredecessors(KSSTask e) {	
+		this.getKSSpredecessors().add(e);
+	}
+    public LinkedList<Causality> getKSSCausalities() {
+    	return this.causalTriggers;
+    }
+	public void addKSSCausalities(Causality e) {	
+		this.getKSSCausalities().add(e);
 	}
 	/////////////////////////////////////////////////
 	public void setCompleted(boolean isCompleted) {
 		this.completed=true;
-		System.out.print("*** WorkItem "+this.workItem.getName()+" is Completed ***\n");
+		System.out.print("*** WorkItem "+this.getName()+"(id:"+this.getTaskId()+")"+" is Completed ***\n");
 		/*if (this.complexTask==true) {
 			Iterator<KSSTask> completedTasks=this.completedList.iterator();
 			while (completedTasks.hasNext()) {
@@ -183,17 +227,63 @@ public class KSSTask extends TaskImpl {
 		return this.complexTask;
 	}
 	
-	public boolean isComplete()  {
-		return this.completed;
+
+	public void setStarted(double sTime) {
+		this.started = true;
+		 this.startTime = sTime;	
+		 System.out.println("WorkItem "+this.getName()+"(id:"+this.getTaskId()+")"+" is started");
+	}
+	public boolean isStarted() {
+		return this.started;
 	}
 	
+	public void setEstimatedCompletion(double eCompletion) {
+		this.estimatedCompletion= eCompletion;
+	}
+	public double getEstimatedCompletion() {
+		return this.estimatedCompletion;
+	}
+	
+	public void setEndTime(double eTime) {
+		this.endTime = eTime;
+	}
+	public double getEndTime() {
+		return this.endTime;
+	}
+	
+	public boolean isCompleted()  {
+		return this.completed;
+	}
+	public void setCompleted(double tNow) {
+		this.completed=true;
+		this.endTime = tNow;
+		this.cycleTime = this.endTime - this.createdTime;
+	}
 	public boolean isAssigned() {
 		return this.assigned;
 	}
-	
 	public void setAssigned() {
 		this.assigned=true;
 	}
+	public boolean isCreated() {
+		return this.created;
+	}	
+	public void setCreated(double tNow) {
+		this.created=true;
+		this.createdTime=tNow;
+	}
+	//////////////////////////////////////////////////////////////////////////
+//	public void setProgress(double tNow) {
+//		this.progress = 
+//	}
+	
+	public double getCurrentValue() {
+		return this.value;
+	}
+	public void setCurrentValue(double v) {
+		this.value = v;
+	}
+	/////////////////////////////////////////////////////////////////////////
 	
 	public void TaskTraversal() {
 		for(int i=0;i<this.requirement.getSubtasks().size();i++) {
@@ -249,7 +339,7 @@ public class KSSTask extends TaskImpl {
 		KSSTask rTask=null;
 		for(int i=0;i<this.readyList.size();i++) {
 			rTask=this.readyList.get(i);
-			if (rTask.isComplete()==true) {cTask=rTask; break;}
+			if (rTask.isCompleted()==true) {cTask=rTask; break;}
 		}	
 		return cTask;
 		
@@ -266,7 +356,7 @@ public class KSSTask extends TaskImpl {
 			if (currentInDegree>0) {
 				currentInDegree=currentInDegree-1;	
 				this.inDegree.put(tempTask, currentInDegree);
-				if ((currentInDegree==0) && (tempTask.isComplete()==false)) {
+				if ((currentInDegree==0) && (tempTask.isCompleted()==false)) {
 					this.readyList.add(tempTask);
 					System.out.println("Task "+tempTask.getTaskId()+" is now in the ready list");
 				}
@@ -275,7 +365,7 @@ public class KSSTask extends TaskImpl {
 	}
 	
 	
-	public void assignTo(TeamAgent sp){
+	public void assignTo(ServiceProviderAgent sp){
 		this.assignedTo = sp;
 	}
 	

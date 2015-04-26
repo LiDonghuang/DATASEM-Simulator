@@ -5,17 +5,17 @@ import java.util.LinkedList;
 
 public class ServiceProvision {
 	
-	private LinkedList<TeamAgent> serviceProviders;
+	private LinkedList<ServiceProviderAgent> serviceProviders;
 	private String serviceName;
 	private String serviceType;
 	
 	public ServiceProvision(String sName, String sType) {
-		this.serviceProviders=new LinkedList<TeamAgent>();
+		this.serviceProviders=new LinkedList<ServiceProviderAgent>();
 		this.serviceName=new String(sName);
 		this.serviceType=new String(sType);
 	}
 	
-	public void addServiceProvider(TeamAgent t) {
+	public void addServiceProvider(ServiceProviderAgent t) {
 		this.serviceProviders.add(t);
 	}
 	
@@ -27,7 +27,7 @@ public class ServiceProvision {
 		return this.serviceName;
 	}
 	
-	public LinkedList<TeamAgent> getServiceProviders() {
+	public LinkedList<ServiceProviderAgent> getServiceProviders() {
 		return this.serviceProviders;
 	}
 	

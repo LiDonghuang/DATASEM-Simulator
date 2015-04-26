@@ -5,9 +5,9 @@ import java.util.LinkedList;
 
 public class DFAgentDescription {
 	private LinkedList<ServiceDescription> serviceDescriptions;
-	private TeamAgent serviceProvider;
+	private ServiceProviderAgent serviceProvider;
 	
-	public DFAgentDescription(TeamAgent sProvider) {
+	public DFAgentDescription(ServiceProviderAgent sProvider) {
 		serviceDescriptions = new  LinkedList<ServiceDescription>();
 		serviceProvider=sProvider;
 	}
@@ -16,11 +16,11 @@ public class DFAgentDescription {
 		serviceDescriptions.add(sd);
 	}
 	
-	public void setServiceProvider(TeamAgent sProvider) {
+	public void setServiceProvider(ServiceProviderAgent sProvider) {
 		this.serviceProvider=sProvider;
 	}
 	
-	public TeamAgent getServiceProvider() {
+	public ServiceProviderAgent getServiceProvider() {
 		return this.serviceProvider;
 	}
 	

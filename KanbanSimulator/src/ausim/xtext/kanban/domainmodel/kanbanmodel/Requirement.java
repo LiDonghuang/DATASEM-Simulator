@@ -81,7 +81,7 @@ public interface Requirement extends EObject
 
   /**
    * Returns the value of the '<em><b>RTasks</b></em>' reference list.
-   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Task}.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>RTasks</em>' reference list isn't clear,
@@ -93,11 +93,11 @@ public interface Requirement extends EObject
    * @model
    * @generated
    */
-  EList<Task> getRTasks();
+  EList<WorkItem> getRTasks();
 
   /**
    * Returns the value of the '<em><b>Dependencies</b></em>' containment reference list.
-   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Dependency}.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Causality}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Dependencies</em>' containment reference list isn't clear,
@@ -109,6 +109,6 @@ public interface Requirement extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Dependency> getDependencies();
+  EList<Causality> getDependencies();
 
 } // Requirement

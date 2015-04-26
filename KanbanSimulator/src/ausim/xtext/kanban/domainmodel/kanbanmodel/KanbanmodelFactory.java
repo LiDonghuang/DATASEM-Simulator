@@ -50,6 +50,114 @@ public interface KanbanmodelFactory extends EFactory
   TaskType createTaskType();
 
   /**
+   * Returns a new object of class '<em>Value Function</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Value Function</em>'.
+   * @generated
+   */
+  ValueFunction createValueFunction();
+
+  /**
+   * Returns a new object of class '<em>Mechanism</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mechanism</em>'.
+   * @generated
+   */
+  Mechanism createMechanism();
+
+  /**
+   * Returns a new object of class '<em>Strategy</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Strategy</em>'.
+   * @generated
+   */
+  Strategy createStrategy();
+
+  /**
+   * Returns a new object of class '<em>WI Acceptance</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>WI Acceptance</em>'.
+   * @generated
+   */
+  WIAcceptance createWIAcceptance();
+
+  /**
+   * Returns a new object of class '<em>WI Selection</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>WI Selection</em>'.
+   * @generated
+   */
+  WISelection createWISelection();
+
+  /**
+   * Returns a new object of class '<em>WI Assignment</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>WI Assignment</em>'.
+   * @generated
+   */
+  WIAssignment createWIAssignment();
+
+  /**
+   * Returns a new object of class '<em>Resource Allocation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Resource Allocation</em>'.
+   * @generated
+   */
+  ResourceAllocation createResourceAllocation();
+
+  /**
+   * Returns a new object of class '<em>Resource Outsourcing</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Resource Outsourcing</em>'.
+   * @generated
+   */
+  ResourceOutsourcing createResourceOutsourcing();
+
+  /**
+   * Returns a new object of class '<em>Work Source</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Work Source</em>'.
+   * @generated
+   */
+  WorkSource createWorkSource();
+
+  /**
+   * Returns a new object of class '<em>Work Item</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Work Item</em>'.
+   * @generated
+   */
+  WorkItem createWorkItem();
+
+  /**
+   * Returns a new object of class '<em>Causality</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Causality</em>'.
+   * @generated
+   */
+  Causality createCausality();
+
+  /**
+   * Returns a new object of class '<em>Service Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Service Type</em>'.
+   * @generated
+   */
+  ServiceType createServiceType();
+
+  /**
    * Returns a new object of class '<em>Service</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -59,31 +167,13 @@ public interface KanbanmodelFactory extends EFactory
   Service createService();
 
   /**
-   * Returns a new object of class '<em>Task</em>'.
+   * Returns a new object of class '<em>Service Provider</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Task</em>'.
+   * @return a new object of class '<em>Service Provider</em>'.
    * @generated
    */
-  Task createTask();
-
-  /**
-   * Returns a new object of class '<em>Dependency</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Dependency</em>'.
-   * @generated
-   */
-  Dependency createDependency();
-
-  /**
-   * Returns a new object of class '<em>Team</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Team</em>'.
-   * @generated
-   */
-  Team createTeam();
+  ServiceProvider createServiceProvider();
 
   /**
    * Returns a new object of class '<em>Asset</em>'.
@@ -104,15 +194,6 @@ public interface KanbanmodelFactory extends EFactory
   Skill createSkill();
 
   /**
-   * Returns a new object of class '<em>Requirement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Requirement</em>'.
-   * @generated
-   */
-  Requirement createRequirement();
-
-  /**
    * Returns a new object of class '<em>Kanban Task Model</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -131,22 +212,13 @@ public interface KanbanmodelFactory extends EFactory
   Capability createCapability();
 
   /**
-   * Returns a new object of class '<em>Kanban Gov Model</em>'.
+   * Returns a new object of class '<em>Requirement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Kanban Gov Model</em>'.
+   * @return a new object of class '<em>Requirement</em>'.
    * @generated
    */
-  KanbanGovModel createKanbanGovModel();
-
-  /**
-   * Returns a new object of class '<em>Strategy</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Strategy</em>'.
-   * @generated
-   */
-  Strategy createStrategy();
+  Requirement createRequirement();
 
   /**
    * Returns a new object of class '<em>Entity</em>'.

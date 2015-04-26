@@ -4,10 +4,12 @@ package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Service;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceType;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -21,6 +23,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceImpl#getServiceType <em>Service Type</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceImpl#getEfficiency <em>Efficiency</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,6 +71,36 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
    * @ordered
    */
   protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getServiceType() <em>Service Type</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getServiceType()
+   * @generated
+   * @ordered
+   */
+  protected ServiceType serviceType;
+
+  /**
+   * The default value of the '{@link #getEfficiency() <em>Efficiency</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEfficiency()
+   * @generated
+   * @ordered
+   */
+  protected static final int EFFICIENCY_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getEfficiency() <em>Efficiency</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEfficiency()
+   * @generated
+   * @ordered
+   */
+  protected int efficiency = EFFICIENCY_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -140,6 +174,72 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
    * <!-- end-user-doc -->
    * @generated
    */
+  public ServiceType getServiceType()
+  {
+    if (serviceType != null && serviceType.eIsProxy())
+    {
+      InternalEObject oldServiceType = (InternalEObject)serviceType;
+      serviceType = (ServiceType)eResolveProxy(oldServiceType);
+      if (serviceType != oldServiceType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.SERVICE__SERVICE_TYPE, oldServiceType, serviceType));
+      }
+    }
+    return serviceType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ServiceType basicGetServiceType()
+  {
+    return serviceType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setServiceType(ServiceType newServiceType)
+  {
+    ServiceType oldServiceType = serviceType;
+    serviceType = newServiceType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.SERVICE__SERVICE_TYPE, oldServiceType, serviceType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getEfficiency()
+  {
+    return efficiency;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEfficiency(int newEfficiency)
+  {
+    int oldEfficiency = efficiency;
+    efficiency = newEfficiency;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.SERVICE__EFFICIENCY, oldEfficiency, efficiency));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -149,6 +249,11 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
         return getName();
       case KanbanmodelPackage.SERVICE__DESCRIPTION:
         return getDescription();
+      case KanbanmodelPackage.SERVICE__SERVICE_TYPE:
+        if (resolve) return getServiceType();
+        return basicGetServiceType();
+      case KanbanmodelPackage.SERVICE__EFFICIENCY:
+        return getEfficiency();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -168,6 +273,12 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
         return;
       case KanbanmodelPackage.SERVICE__DESCRIPTION:
         setDescription((String)newValue);
+        return;
+      case KanbanmodelPackage.SERVICE__SERVICE_TYPE:
+        setServiceType((ServiceType)newValue);
+        return;
+      case KanbanmodelPackage.SERVICE__EFFICIENCY:
+        setEfficiency((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -189,6 +300,12 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
       case KanbanmodelPackage.SERVICE__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
+      case KanbanmodelPackage.SERVICE__SERVICE_TYPE:
+        setServiceType((ServiceType)null);
+        return;
+      case KanbanmodelPackage.SERVICE__EFFICIENCY:
+        setEfficiency(EFFICIENCY_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -207,6 +324,10 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.SERVICE__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case KanbanmodelPackage.SERVICE__SERVICE_TYPE:
+        return serviceType != null;
+      case KanbanmodelPackage.SERVICE__EFFICIENCY:
+        return efficiency != EFFICIENCY_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -226,6 +347,8 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
     result.append(name);
     result.append(", description: ");
     result.append(description);
+    result.append(", efficiency: ");
+    result.append(efficiency);
     result.append(')');
     return result.toString();
   }

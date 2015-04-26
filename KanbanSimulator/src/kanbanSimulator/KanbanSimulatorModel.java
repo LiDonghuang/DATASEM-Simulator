@@ -29,7 +29,7 @@ public class KanbanSimulatorModel implements ContextBuilder<Object>{
 		
 		GridFactoryFinder.createGridFactory(null).createGrid("Grid", context, 
 				new GridBuilderParameters<Object>(new WrapAroundBorders(), 
-						new RandomGridAdder<Object>(), true, width, height));
+						new RandomGridAdder<Object>(), true, width, height, 30));
 		
 		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>("organization network", context, true);
 		netBuilder.buildNetwork();

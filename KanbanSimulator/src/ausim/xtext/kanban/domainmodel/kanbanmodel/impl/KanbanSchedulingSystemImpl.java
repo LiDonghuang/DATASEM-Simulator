@@ -2,15 +2,17 @@
  */
 package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 
-import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanGovModel;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanTaskModel;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Service;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Task;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceType;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Team;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.ValueFunction;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.WorkSource;
 
 import java.util.Collection;
 
@@ -36,13 +38,17 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getMechanisms <em>Mechanisms</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKSSSearchStrategies <em>KSS Search Strategies</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKSSTaskPatterns <em>KSS Task Patterns</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKSStaskPatternTypes <em>KS Stask Pattern Types</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKSSValueFunctions <em>KSS Value Functions</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getSoSServices <em>So SServices</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getOrgUnits <em>Org Units</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKssTasks <em>Kss Tasks</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKssWorkFlow <em>Kss Work Flow</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKssGovModel <em>Kss Gov Model</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKssSources <em>Kss Sources</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKssWItems <em>Kss WItems</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getReplications <em>Replications</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getInterArrivalTime <em>Inter Arrival Time</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,6 +77,26 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getMechanisms() <em>Mechanisms</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMechanisms()
+   * @generated
+   * @ordered
+   */
+  protected EList<Mechanism> mechanisms;
+
+  /**
+   * The cached value of the '{@link #getKSSSearchStrategies() <em>KSS Search Strategies</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKSSSearchStrategies()
+   * @generated
+   * @ordered
+   */
+  protected EList<Strategy> kssSearchStrategies;
+
+  /**
    * The cached value of the '{@link #getKSSTaskPatterns() <em>KSS Task Patterns</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -91,6 +117,16 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
   protected EList<TaskType> ksStaskPatternTypes;
 
   /**
+   * The cached value of the '{@link #getKSSValueFunctions() <em>KSS Value Functions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKSSValueFunctions()
+   * @generated
+   * @ordered
+   */
+  protected EList<ValueFunction> kssValueFunctions;
+
+  /**
    * The cached value of the '{@link #getSoSServices() <em>So SServices</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -98,7 +134,7 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * @generated
    * @ordered
    */
-  protected EList<Service> soSServices;
+  protected EList<ServiceType> soSServices;
 
   /**
    * The cached value of the '{@link #getOrgUnits() <em>Org Units</em>}' containment reference list.
@@ -108,37 +144,67 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * @generated
    * @ordered
    */
-  protected EList<Team> orgUnits;
+  protected EList<ServiceProvider> orgUnits;
 
   /**
-   * The cached value of the '{@link #getKssTasks() <em>Kss Tasks</em>}' containment reference list.
+   * The cached value of the '{@link #getKssSources() <em>Kss Sources</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKssTasks()
+   * @see #getKssSources()
    * @generated
    * @ordered
    */
-  protected EList<Task> kssTasks;
+  protected EList<WorkSource> kssSources;
 
   /**
-   * The cached value of the '{@link #getKssWorkFlow() <em>Kss Work Flow</em>}' containment reference.
+   * The cached value of the '{@link #getKssWItems() <em>Kss WItems</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKssWorkFlow()
+   * @see #getKssWItems()
    * @generated
    * @ordered
    */
-  protected KanbanTaskModel kssWorkFlow;
+  protected EList<WorkItem> kssWItems;
 
   /**
-   * The cached value of the '{@link #getKssGovModel() <em>Kss Gov Model</em>}' containment reference.
+   * The default value of the '{@link #getReplications() <em>Replications</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKssGovModel()
+   * @see #getReplications()
    * @generated
    * @ordered
    */
-  protected KanbanGovModel kssGovModel;
+  protected static final int REPLICATIONS_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getReplications() <em>Replications</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReplications()
+   * @generated
+   * @ordered
+   */
+  protected int replications = REPLICATIONS_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getInterArrivalTime() <em>Inter Arrival Time</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInterArrivalTime()
+   * @generated
+   * @ordered
+   */
+  protected static final int INTER_ARRIVAL_TIME_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getInterArrivalTime() <em>Inter Arrival Time</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInterArrivalTime()
+   * @generated
+   * @ordered
+   */
+  protected int interArrivalTime = INTER_ARRIVAL_TIME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -189,6 +255,34 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Mechanism> getMechanisms()
+  {
+    if (mechanisms == null)
+    {
+      mechanisms = new EObjectContainmentEList<Mechanism>(Mechanism.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS);
+    }
+    return mechanisms;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Strategy> getKSSSearchStrategies()
+  {
+    if (kssSearchStrategies == null)
+    {
+      kssSearchStrategies = new EObjectContainmentEList<Strategy>(Strategy.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES);
+    }
+    return kssSearchStrategies;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<TaskPattern> getKSSTaskPatterns()
   {
     if (kssTaskPatterns == null)
@@ -217,11 +311,25 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Service> getSoSServices()
+  public EList<ValueFunction> getKSSValueFunctions()
+  {
+    if (kssValueFunctions == null)
+    {
+      kssValueFunctions = new EObjectContainmentEList<ValueFunction>(ValueFunction.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_VALUE_FUNCTIONS);
+    }
+    return kssValueFunctions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ServiceType> getSoSServices()
   {
     if (soSServices == null)
     {
-      soSServices = new EObjectContainmentEList<Service>(Service.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES);
+      soSServices = new EObjectContainmentEList<ServiceType>(ServiceType.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES);
     }
     return soSServices;
   }
@@ -231,11 +339,11 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Team> getOrgUnits()
+  public EList<ServiceProvider> getOrgUnits()
   {
     if (orgUnits == null)
     {
-      orgUnits = new EObjectContainmentEList<Team>(Team.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS);
+      orgUnits = new EObjectContainmentEList<ServiceProvider>(ServiceProvider.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS);
     }
     return orgUnits;
   }
@@ -245,13 +353,13 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Task> getKssTasks()
+  public EList<WorkSource> getKssSources()
   {
-    if (kssTasks == null)
+    if (kssSources == null)
     {
-      kssTasks = new EObjectContainmentEList<Task>(Task.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASKS);
+      kssSources = new EObjectContainmentEList<WorkSource>(WorkSource.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SOURCES);
     }
-    return kssTasks;
+    return kssSources;
   }
 
   /**
@@ -259,9 +367,13 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public KanbanTaskModel getKssWorkFlow()
+  public EList<WorkItem> getKssWItems()
   {
-    return kssWorkFlow;
+    if (kssWItems == null)
+    {
+      kssWItems = new EObjectContainmentEList<WorkItem>(WorkItem.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WITEMS);
+    }
+    return kssWItems;
   }
 
   /**
@@ -269,16 +381,22 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetKssWorkFlow(KanbanTaskModel newKssWorkFlow, NotificationChain msgs)
+  public int getReplications()
   {
-    KanbanTaskModel oldKssWorkFlow = kssWorkFlow;
-    kssWorkFlow = newKssWorkFlow;
+    return replications;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setReplications(int newReplications)
+  {
+    int oldReplications = replications;
+    replications = newReplications;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW, oldKssWorkFlow, newKssWorkFlow);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPLICATIONS, oldReplications, replications));
   }
 
   /**
@@ -286,20 +404,9 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setKssWorkFlow(KanbanTaskModel newKssWorkFlow)
+  public int getInterArrivalTime()
   {
-    if (newKssWorkFlow != kssWorkFlow)
-    {
-      NotificationChain msgs = null;
-      if (kssWorkFlow != null)
-        msgs = ((InternalEObject)kssWorkFlow).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW, null, msgs);
-      if (newKssWorkFlow != null)
-        msgs = ((InternalEObject)newKssWorkFlow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW, null, msgs);
-      msgs = basicSetKssWorkFlow(newKssWorkFlow, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW, newKssWorkFlow, newKssWorkFlow));
+    return interArrivalTime;
   }
 
   /**
@@ -307,47 +414,12 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public KanbanGovModel getKssGovModel()
+  public void setInterArrivalTime(int newInterArrivalTime)
   {
-    return kssGovModel;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetKssGovModel(KanbanGovModel newKssGovModel, NotificationChain msgs)
-  {
-    KanbanGovModel oldKssGovModel = kssGovModel;
-    kssGovModel = newKssGovModel;
+    int oldInterArrivalTime = interArrivalTime;
+    interArrivalTime = newInterArrivalTime;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL, oldKssGovModel, newKssGovModel);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setKssGovModel(KanbanGovModel newKssGovModel)
-  {
-    if (newKssGovModel != kssGovModel)
-    {
-      NotificationChain msgs = null;
-      if (kssGovModel != null)
-        msgs = ((InternalEObject)kssGovModel).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL, null, msgs);
-      if (newKssGovModel != null)
-        msgs = ((InternalEObject)newKssGovModel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL, null, msgs);
-      msgs = basicSetKssGovModel(newKssGovModel, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL, newKssGovModel, newKssGovModel));
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__INTER_ARRIVAL_TIME, oldInterArrivalTime, interArrivalTime));
   }
 
   /**
@@ -360,20 +432,24 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS:
+        return ((InternalEList<?>)getMechanisms()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES:
+        return ((InternalEList<?>)getKSSSearchStrategies()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS:
         return ((InternalEList<?>)getKSSTaskPatterns()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES:
         return ((InternalEList<?>)getKSStaskPatternTypes()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_VALUE_FUNCTIONS:
+        return ((InternalEList<?>)getKSSValueFunctions()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES:
         return ((InternalEList<?>)getSoSServices()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS:
         return ((InternalEList<?>)getOrgUnits()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASKS:
-        return ((InternalEList<?>)getKssTasks()).basicRemove(otherEnd, msgs);
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW:
-        return basicSetKssWorkFlow(null, msgs);
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL:
-        return basicSetKssGovModel(null, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SOURCES:
+        return ((InternalEList<?>)getKssSources()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WITEMS:
+        return ((InternalEList<?>)getKssWItems()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -390,20 +466,28 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
     {
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__NAME:
         return getName();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS:
+        return getMechanisms();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES:
+        return getKSSSearchStrategies();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS:
         return getKSSTaskPatterns();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES:
         return getKSStaskPatternTypes();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_VALUE_FUNCTIONS:
+        return getKSSValueFunctions();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES:
         return getSoSServices();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS:
         return getOrgUnits();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASKS:
-        return getKssTasks();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW:
-        return getKssWorkFlow();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL:
-        return getKssGovModel();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SOURCES:
+        return getKssSources();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WITEMS:
+        return getKssWItems();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPLICATIONS:
+        return getReplications();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__INTER_ARRIVAL_TIME:
+        return getInterArrivalTime();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -422,6 +506,14 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__NAME:
         setName((String)newValue);
         return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS:
+        getMechanisms().clear();
+        getMechanisms().addAll((Collection<? extends Mechanism>)newValue);
+        return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES:
+        getKSSSearchStrategies().clear();
+        getKSSSearchStrategies().addAll((Collection<? extends Strategy>)newValue);
+        return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS:
         getKSSTaskPatterns().clear();
         getKSSTaskPatterns().addAll((Collection<? extends TaskPattern>)newValue);
@@ -430,23 +522,31 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
         getKSStaskPatternTypes().clear();
         getKSStaskPatternTypes().addAll((Collection<? extends TaskType>)newValue);
         return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_VALUE_FUNCTIONS:
+        getKSSValueFunctions().clear();
+        getKSSValueFunctions().addAll((Collection<? extends ValueFunction>)newValue);
+        return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES:
         getSoSServices().clear();
-        getSoSServices().addAll((Collection<? extends Service>)newValue);
+        getSoSServices().addAll((Collection<? extends ServiceType>)newValue);
         return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS:
         getOrgUnits().clear();
-        getOrgUnits().addAll((Collection<? extends Team>)newValue);
+        getOrgUnits().addAll((Collection<? extends ServiceProvider>)newValue);
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASKS:
-        getKssTasks().clear();
-        getKssTasks().addAll((Collection<? extends Task>)newValue);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SOURCES:
+        getKssSources().clear();
+        getKssSources().addAll((Collection<? extends WorkSource>)newValue);
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW:
-        setKssWorkFlow((KanbanTaskModel)newValue);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WITEMS:
+        getKssWItems().clear();
+        getKssWItems().addAll((Collection<? extends WorkItem>)newValue);
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL:
-        setKssGovModel((KanbanGovModel)newValue);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPLICATIONS:
+        setReplications((Integer)newValue);
+        return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__INTER_ARRIVAL_TIME:
+        setInterArrivalTime((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -465,11 +565,20 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS:
+        getMechanisms().clear();
+        return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES:
+        getKSSSearchStrategies().clear();
+        return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS:
         getKSSTaskPatterns().clear();
         return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES:
         getKSStaskPatternTypes().clear();
+        return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_VALUE_FUNCTIONS:
+        getKSSValueFunctions().clear();
         return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES:
         getSoSServices().clear();
@@ -477,14 +586,17 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS:
         getOrgUnits().clear();
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASKS:
-        getKssTasks().clear();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SOURCES:
+        getKssSources().clear();
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW:
-        setKssWorkFlow((KanbanTaskModel)null);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WITEMS:
+        getKssWItems().clear();
         return;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL:
-        setKssGovModel((KanbanGovModel)null);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPLICATIONS:
+        setReplications(REPLICATIONS_EDEFAULT);
+        return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__INTER_ARRIVAL_TIME:
+        setInterArrivalTime(INTER_ARRIVAL_TIME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -502,20 +614,28 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
     {
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS:
+        return mechanisms != null && !mechanisms.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES:
+        return kssSearchStrategies != null && !kssSearchStrategies.isEmpty();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASK_PATTERNS:
         return kssTaskPatterns != null && !kssTaskPatterns.isEmpty();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KS_STASK_PATTERN_TYPES:
         return ksStaskPatternTypes != null && !ksStaskPatternTypes.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_VALUE_FUNCTIONS:
+        return kssValueFunctions != null && !kssValueFunctions.isEmpty();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__SO_SSERVICES:
         return soSServices != null && !soSServices.isEmpty();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__ORG_UNITS:
         return orgUnits != null && !orgUnits.isEmpty();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_TASKS:
-        return kssTasks != null && !kssTasks.isEmpty();
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WORK_FLOW:
-        return kssWorkFlow != null;
-      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_GOV_MODEL:
-        return kssGovModel != null;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SOURCES:
+        return kssSources != null && !kssSources.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_WITEMS:
+        return kssWItems != null && !kssWItems.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__REPLICATIONS:
+        return replications != REPLICATIONS_EDEFAULT;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__INTER_ARRIVAL_TIME:
+        return interArrivalTime != INTER_ARRIVAL_TIME_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -533,6 +653,10 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", replications: ");
+    result.append(replications);
+    result.append(", interArrivalTime: ");
+    result.append(interArrivalTime);
     result.append(')');
     return result.toString();
   }

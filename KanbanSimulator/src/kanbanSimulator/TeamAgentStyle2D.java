@@ -16,7 +16,7 @@ public class TeamAgentStyle2D extends DefaultStyleOGL2D {
 
 	@Override
 	public Color getColor(Object o) {
-		TeamAgent agent = (TeamAgent)o;
+		ServiceProviderAgent agent = (ServiceProviderAgent)o;
 		if (agent.getType() == 0)	
 			return Color.RED;
 		else if ((agent.getType() == 1))

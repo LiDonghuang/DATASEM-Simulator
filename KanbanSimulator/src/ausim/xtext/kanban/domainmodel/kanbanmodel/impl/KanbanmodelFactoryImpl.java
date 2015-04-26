@@ -67,17 +67,25 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM: return createKanbanSchedulingSystem();
       case KanbanmodelPackage.TASK_PATTERN: return createTaskPattern();
       case KanbanmodelPackage.TASK_TYPE: return createTaskType();
+      case KanbanmodelPackage.VALUE_FUNCTION: return createValueFunction();
+      case KanbanmodelPackage.MECHANISM: return createMechanism();
+      case KanbanmodelPackage.STRATEGY: return createStrategy();
+      case KanbanmodelPackage.WI_ACCEPTANCE: return createWIAcceptance();
+      case KanbanmodelPackage.WI_SELECTION: return createWISelection();
+      case KanbanmodelPackage.WI_ASSIGNMENT: return createWIAssignment();
+      case KanbanmodelPackage.RESOURCE_ALLOCATION: return createResourceAllocation();
+      case KanbanmodelPackage.RESOURCE_OUTSOURCING: return createResourceOutsourcing();
+      case KanbanmodelPackage.WORK_SOURCE: return createWorkSource();
+      case KanbanmodelPackage.WORK_ITEM: return createWorkItem();
+      case KanbanmodelPackage.CAUSALITY: return createCausality();
+      case KanbanmodelPackage.SERVICE_TYPE: return createServiceType();
       case KanbanmodelPackage.SERVICE: return createService();
-      case KanbanmodelPackage.TASK: return createTask();
-      case KanbanmodelPackage.DEPENDENCY: return createDependency();
-      case KanbanmodelPackage.TEAM: return createTeam();
+      case KanbanmodelPackage.SERVICE_PROVIDER: return createServiceProvider();
       case KanbanmodelPackage.ASSET: return createAsset();
       case KanbanmodelPackage.SKILL: return createSkill();
-      case KanbanmodelPackage.REQUIREMENT: return createRequirement();
       case KanbanmodelPackage.KANBAN_TASK_MODEL: return createKanbanTaskModel();
       case KanbanmodelPackage.CAPABILITY: return createCapability();
-      case KanbanmodelPackage.KANBAN_GOV_MODEL: return createKanbanGovModel();
-      case KanbanmodelPackage.STRATEGY: return createStrategy();
+      case KanbanmodelPackage.REQUIREMENT: return createRequirement();
       case KanbanmodelPackage.ENTITY: return createEntity();
       case KanbanmodelPackage.PROVISION: return createProvision();
       case KanbanmodelPackage.STATEMACHINE: return createStatemachine();
@@ -128,6 +136,138 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
+  public ValueFunction createValueFunction()
+  {
+    ValueFunctionImpl valueFunction = new ValueFunctionImpl();
+    return valueFunction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Mechanism createMechanism()
+  {
+    MechanismImpl mechanism = new MechanismImpl();
+    return mechanism;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Strategy createStrategy()
+  {
+    StrategyImpl strategy = new StrategyImpl();
+    return strategy;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WIAcceptance createWIAcceptance()
+  {
+    WIAcceptanceImpl wiAcceptance = new WIAcceptanceImpl();
+    return wiAcceptance;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WISelection createWISelection()
+  {
+    WISelectionImpl wiSelection = new WISelectionImpl();
+    return wiSelection;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WIAssignment createWIAssignment()
+  {
+    WIAssignmentImpl wiAssignment = new WIAssignmentImpl();
+    return wiAssignment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ResourceAllocation createResourceAllocation()
+  {
+    ResourceAllocationImpl resourceAllocation = new ResourceAllocationImpl();
+    return resourceAllocation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ResourceOutsourcing createResourceOutsourcing()
+  {
+    ResourceOutsourcingImpl resourceOutsourcing = new ResourceOutsourcingImpl();
+    return resourceOutsourcing;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WorkSource createWorkSource()
+  {
+    WorkSourceImpl workSource = new WorkSourceImpl();
+    return workSource;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WorkItem createWorkItem()
+  {
+    WorkItemImpl workItem = new WorkItemImpl();
+    return workItem;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Causality createCausality()
+  {
+    CausalityImpl causality = new CausalityImpl();
+    return causality;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ServiceType createServiceType()
+  {
+    ServiceTypeImpl serviceType = new ServiceTypeImpl();
+    return serviceType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Service createService()
   {
     ServiceImpl service = new ServiceImpl();
@@ -139,32 +279,10 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Task createTask()
+  public ServiceProvider createServiceProvider()
   {
-    TaskImpl task = new TaskImpl();
-    return task;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Dependency createDependency()
-  {
-    DependencyImpl dependency = new DependencyImpl();
-    return dependency;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Team createTeam()
-  {
-    TeamImpl team = new TeamImpl();
-    return team;
+    ServiceProviderImpl serviceProvider = new ServiceProviderImpl();
+    return serviceProvider;
   }
 
   /**
@@ -194,17 +312,6 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Requirement createRequirement()
-  {
-    RequirementImpl requirement = new RequirementImpl();
-    return requirement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public KanbanTaskModel createKanbanTaskModel()
   {
     KanbanTaskModelImpl kanbanTaskModel = new KanbanTaskModelImpl();
@@ -227,21 +334,10 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  public KanbanGovModel createKanbanGovModel()
+  public Requirement createRequirement()
   {
-    KanbanGovModelImpl kanbanGovModel = new KanbanGovModelImpl();
-    return kanbanGovModel;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Strategy createStrategy()
-  {
-    StrategyImpl strategy = new StrategyImpl();
-    return strategy;
+    RequirementImpl requirement = new RequirementImpl();
+    return requirement;
   }
 
   /**

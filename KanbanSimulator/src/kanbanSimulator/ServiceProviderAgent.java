@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.awt.Color;
 
 import org.eclipse.emf.common.util.EList;
 import org.geotools.filter.expression.ThisPropertyAccessorFactory;
@@ -16,28 +17,35 @@ import repast.simphony.engine.schedule.ISchedule;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.random.RandomHelper;
 import repast.simphony.space.grid.Grid;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.*;
-
-import java.awt.Color;
-
 import repast.simphony.util.ContextUtils;
 import repast.simphony.visualization.visualization3D.ShapeFactory;
 import repast.simphony.visualizationOGL2D.DefaultStyleOGL2D;
 import saf.v3d.ShapeFactory2D;
 
-public class TeamAgent extends TeamImpl {
+import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.*;
+import governanceModels.governanceSearchStrategy;
+
+public class ServiceProviderAgent extends ServiceProviderImpl {
 	
 	private int id;
 	private int type;	
-	private Team serviceProvider;
+	private ServiceProvider serviceProvider;
+	
+	private boolean group;
 	private boolean coordinator;
+	private LinkedList<ServiceProviderAgent> subordinates;
+	private LinkedList<ServiceProviderAgent> sourceFrom;
+	private LinkedList<ServiceProviderAgent> targetTo;
+	
 	private KanbanBoard myKanbanBoard;
-	private LinkedList<TeamAgent> myServiceProviders;
+	private LinkedList<ServiceProviderAgent> myServiceProviders;
 	private DirectoryFacilitatorAgent dfa=null;
 	
-	private LinkedList<KSSTask> incomingQ;
-	private LinkedList<KSSTask> demandBackLogQ;
+	private governanceSearchStrategy mySearchStrategy;
+	
+	private LinkedList<KSSTask> requestedQ;
+	private LinkedList<KSSTask> backlogQ;
 	private LinkedList<KSSTask> readyQ;
 	private LinkedList<KSSTask> coordinateQ;
 	private LinkedList<KSSTask> activeQ;
@@ -48,22 +56,8 @@ public class TeamAgent extends TeamImpl {
 	public int state;
 
 	
-	public TeamAgent(int id, DirectoryFacilitatorAgent inDfa) {
-		this.id = id;
-		this.state=0;
-		this.dfa=inDfa;
-		this.coordinator=false;
-		this.readyQLimit=2;
-		this.activeQLimit=2;
-		this.demandBackLogQ=new LinkedList<KSSTask>();
-		this.readyQ=new LinkedList<KSSTask>();
-		this.activeQ=new LinkedList<KSSTask>();
-		this.coordinateQ=new LinkedList<KSSTask>();
-		this.incomingQ=new LinkedList<KSSTask>();
-		this.completeQ=new LinkedList<KSSTask>();	
-	}
 	
-	public TeamAgent(int id, Team sp, DirectoryFacilitatorAgent inDfa) {	
+	public ServiceProviderAgent(int id, ServiceProvider sp, DirectoryFacilitatorAgent inDfa) {	
 		this.name = sp.getName();
 		this.description = sp.getDescription();
 		this.services = sp.getServices();
@@ -72,15 +66,19 @@ public class TeamAgent extends TeamImpl {
 		this.serviceProvider = sp;
 		this.state=0;
 		this.dfa=inDfa;
-		this.coordinator=true;
-		this.readyQLimit=2;
-		this.activeQLimit=2;
-		this.demandBackLogQ=new LinkedList<KSSTask>();
+		this.coordinator=true;		
+				
+		this.mySearchStrategy=strategyImplementation(sp);
+		
+		this.readyQLimit=5;
+		this.activeQLimit=1;
+		this.backlogQ=new LinkedList<KSSTask>();
 		this.readyQ=new LinkedList<KSSTask>();
 		this.activeQ=new LinkedList<KSSTask>();
 		this.coordinateQ=new LinkedList<KSSTask>();
-		this.incomingQ=new LinkedList<KSSTask>();
+		this.requestedQ=new LinkedList<KSSTask>();
 		this.completeQ=new LinkedList<KSSTask>();	
+		
 	}
 	
 	// *** Visualization Parameters ***
@@ -92,28 +90,31 @@ public class TeamAgent extends TeamImpl {
   //Schedule the step method for agents.  The method is scheduled starting at 
 	// tick one with an interval of 1 tick.  Specifically, the step starts at 0, and
 	// and recurs at 1,2,3,...etc
-	@ScheduledMethod(start=0,interval=1)
+	@ScheduledMethod(start=1,interval=1)
 	public void step() {		
 		Context context = ContextUtils.getContext(this);
 		Grid grid = (Grid)context.getProjection("Grid");		
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
+		double timeNow = schedule.getTickCount();
 		
-		System.out.println("Time Now: "+schedule.getTickCount());
-		System.out.println("Agent "+this.name+" is now active");
+//		System.out.println("Time Now: "+timeNow());
+		System.out.println("-- Agent "+this.name+" is now active --");
 		
 		boolean end_loop = false;
 		while (end_loop == false) {
 			// ------------ 1. Select WIs to Accept
-			while (this.incomingQ.size()!=0) {
-				KSSTask acceptedWI = this.incomingQ.remove();
-				this.demandBackLogQ.add(acceptedWI);								
+			while (this.requestedQ.size()!=0) {
+				// =========== Apply WI Acceptance Rule ====================
+				KSSTask acceptedWI = this.requestedQ.remove();
+				// ========================================================
+				this.backlogQ.add(acceptedWI);								
 				//(perform negotiation and decline if necessary)
 			}
 			// -----------------------------------
 						
 			// ------------ 2. Select WIs Ready to Go
-			while ((this.demandBackLogQ.size()!=0) && (this.readyQ.size()<this.readyQLimit)) {
-				KSSTask readyWI=this.demandBackLogQ.remove();
+			while ((this.backlogQ.size()!=0) && (this.readyQ.size()<this.readyQLimit)) {
+				KSSTask readyWI=this.backlogQ.remove();
 				if (readyWI.isComplex()) {
 					readyWI.InitializeReadyTaskList();
 					this.coordinateQ.add(readyWI);
@@ -127,16 +128,22 @@ public class TeamAgent extends TeamImpl {
 			
 			// ------------ 3. Select WIs to Start
 			while ((this.readyQ.size()!=0) && (this.activeQ.size()<this.activeQLimit)) {			
-				KSSTask startedWI=this.readyQ.remove();
-				startedWI.setStartTime();		
-	//			double estimationError = RandomHelper.nextIntFromTo(-1, 1);
-				double cTime= startedWI.getBefforts()+schedule.getTickCount();
-	//			double e_cTime = cTime+estimationError;
-				System.out.println("WorkItem "+startedWI.getName()+
-						" is expected to finish at "+cTime);
-	//			System.out.println("WorkItem "+newTask.getName()+" is expected to finish at "+e_cTime+"\n(Estimation Error: "+estimationError+")");
-				startedWI.setCompletionTime(cTime);
-				this.activeQ.add(startedWI);			
+				// =========== Apply WI Selection Rule ====================
+//				KSSTask startedWI = this.readyQ.getFirst();
+				KSSTask startedWI = this.mySearchStrategy.selectWI(readyQ);				
+				// ========================================================
+				startedWI.setStarted(timeNow);		
+				// =========== Estimate Efforts ====================
+				double estimatedEfforts = startedWI.getBefforts();
+//				double estimationError = RandomHelper.nextIntFromTo(-1, 1);
+				// ========================================================					
+				double eCompletion= estimatedEfforts + timeNow;
+				System.out.println("WorkItem "+startedWI.getName()+"(id:"+startedWI.getTaskId()+")"+
+						" is expected to finish at "+eCompletion);
+				startedWI.setEstimatedCompletion(eCompletion);
+				
+				this.readyQ.remove(startedWI);
+				this.activeQ.add(startedWI);						
 			}		
 			// -----------------------------------		
 			
@@ -144,8 +151,9 @@ public class TeamAgent extends TeamImpl {
 			// ------------ 4. Select Completed WIs
 			for(int i=0;i<activeQ.size();i++) {
 				KSSTask completedWI=this.activeQ.get(i); 
-				if (schedule.getTickCount()>=completedWI.getCompletionTime()) {
-					completedWI.setCompleted(true);
+				if (timeNow>=completedWI.estimatedCompletion) {
+					completedWI.setCompleted(timeNow);
+					this.activeQ.remove(completedWI);
 					this.completeQ.add(completedWI);
 				}
 			}
@@ -155,8 +163,7 @@ public class TeamAgent extends TeamImpl {
 			// ------------ 5. Disburse Completed WIs
 			Iterator<KSSTask> completeIterator=this.completeQ.iterator();
 			while (completeIterator.hasNext()) {
-				KSSTask completedWI=completeIterator.next();
-				this.activeQ.remove(completedWI);					
+				KSSTask completedWI=completeIterator.next();				
 			}		
 			this.completeQ.clear();
 			// -----------------------------------
@@ -168,14 +175,14 @@ public class TeamAgent extends TeamImpl {
 				if (complexTask!=null) {
 					KSSTask cTask=complexTask.pollCompletedTask();
 					if (cTask!=null) {complexTask.updateReadyTasks(cTask);}
-					if ((complexTask.getReadyTasks().size()==0) && (complexTask.isComplete()!=true))
+					if ((complexTask.getReadyTasks().size()==0) && (complexTask.isCompleted()!=true))
 						{complexTask.setCompleted(true);this.coordinateQ.remove(complexTask);}
 					else makeAssignment(complexTask);
 				}
 			}
 			// ---------------------------------
-			if (!  (incomingQ.size()!=0 
-				|| (readyQ.size()<readyQLimit && demandBackLogQ.size()>0)	
+			if (!  (requestedQ.size()!=0 
+				|| (readyQ.size()<readyQLimit && backlogQ.size()>0)	
 				|| (activeQ.size()<activeQLimit && readyQ.size()>0)		
 				||  completeQ.size()!=0 
 				)) {
@@ -197,18 +204,18 @@ public class TeamAgent extends TeamImpl {
 //		System.out.println("demandBackLogQ: "+this.demandBackLogQ);
 //		System.out.println("readyQ: "+this.readyQ);			
 //		System.out.println("activeQ: "+this.activeQ);
-		System.out.println("Agent "+this.name+" has completed its activity");	
+		System.out.println("-- Agent "+this.name+" has completed its activity --");	
 
 	
-	// *** Visualization ***
-	for (int i=0;i<demandBackLogQ.size();i++){
-		grid.moveTo(this.demandBackLogQ.get(i), 11+i, 48-this.id*5);
+//	 *** Visualization ***
+	for (int i=0;i<backlogQ.size();i++){
+		grid.moveTo(this.backlogQ.get(i), 11+i, 18-this.id*4, 0);
 	}
 	for (int i=0;i<readyQ.size();i++){
-		grid.moveTo(this.readyQ.get(i), 11+i, 49-this.id*5);
+		grid.moveTo(this.readyQ.get(i), 11+i, 19-this.id*4, 0);
 	}
 	for (int i=0;i<activeQ.size();i++){
-		grid.moveTo(this.activeQ.get(i), 11+i, 50-this.id*5);
+		grid.moveTo(this.activeQ.get(i), 11+i, 20-this.id*4, 0);
 	}
 
 //	grid.moveTo(this.demandBackLogQ.element(), 10+this.demandBackLogQ.size(), 48-this.id*5);	
@@ -228,10 +235,9 @@ public class TeamAgent extends TeamImpl {
 			KSSTask nextTask=readyTasks.get(i);
 			if (nextTask.isAssigned()==false) {
 				DFAgentDescription aDescription=availableTeams.get(RandomHelper.nextIntFromTo(0, availableTeams.size()-1));
-				TeamAgent SProvider=aDescription.getServiceProvider();
+				ServiceProviderAgent SProvider=aDescription.getServiceProvider();
 				SProvider.requestService(nextTask);
 				nextTask.setAssigned();
-				System.out.println("WorkItem "+nextTask.getName()+" is assigned");
 				break;
 			}
 		}
@@ -244,11 +250,11 @@ public class TeamAgent extends TeamImpl {
 		this.requestService(newWI);
 		newWI.setAssigned();
 		newWI.assignTo(this);
-		System.out.println("WorkItem "+newWI.getName()+" is assigned to Agent "+this.name);
+		System.out.println("WorkItem "+newWI.getName()+"(id:"+newWI.getTaskId()+")"+" is assigned to Agent "+this.name);
 	}
 	
 	public void requestService(KSSTask newWI) {
-		this.incomingQ.add(newWI);
+		this.requestedQ.add(newWI);
 	}
 	
 	
@@ -258,7 +264,7 @@ public class TeamAgent extends TeamImpl {
 	
 	public void setCoordinator(boolean coordinationStatus) {
 		this.coordinator=true;
-		this.myServiceProviders=new LinkedList<TeamAgent>();
+		this.myServiceProviders=new LinkedList<ServiceProviderAgent>();
 	}
 	
 	
@@ -275,6 +281,21 @@ public class TeamAgent extends TeamImpl {
 		return id;
 	}
 
+	
+	public governanceSearchStrategy strategyImplementation(ServiceProvider sp) {
+		this.mySearchStrategy = new governanceSearchStrategy(this.id,(this.getName()+"SearchStrategy"));
+		
+		String acceptanceRule=sp.getDefaultStrategy().getWIAcceptanceRule().getName();			
+		mySearchStrategy.setWItemAcceptanceRule(acceptanceRule);
+		
+		String selectionRule=sp.getDefaultStrategy().getWISelectionRule().getName();			
+		mySearchStrategy.setWItemSelectionRule(selectionRule);
+		
+		String assignmentRule=sp.getDefaultStrategy().getWIAssignmentRule().getName();			
+		mySearchStrategy.setWItemAssignmentRule(assignmentRule);
+		
+		return this.mySearchStrategy;
+	}
 	
 	
 }
