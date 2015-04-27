@@ -81,11 +81,6 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 		
 	}
 	
-	// *** Visualization Parameters ***
-    int demandBackLogQ_shift = 0;
-    int readyQ_shift = 0;
-    int activeQ_shift = 0;
-    // ********************************
     
   //Schedule the step method for agents.  The method is scheduled starting at 
 	// tick one with an interval of 1 tick.  Specifically, the step starts at 0, and
@@ -150,9 +145,8 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 			
 			// ------------ 4. Select Completed WIs
 			for(int i=0;i<activeQ.size();i++) {
-				KSSTask completedWI=this.activeQ.get(i); 
-				if (timeNow>=completedWI.estimatedCompletion) {
-					completedWI.setCompleted(timeNow);
+				if (activeQ.get(i).isCompleted()) {
+					KSSTask completedWI=this.activeQ.get(i); 
 					this.activeQ.remove(completedWI);
 					this.completeQ.add(completedWI);
 				}
@@ -170,16 +164,16 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 			
 			
 			// -------------- 6. Coordinate WIs
-			if (this.coordinator==true) {
-				KSSTask complexTask=this.coordinateQ.peek();  
-				if (complexTask!=null) {
-					KSSTask cTask=complexTask.pollCompletedTask();
-					if (cTask!=null) {complexTask.updateReadyTasks(cTask);}
-					if ((complexTask.getReadyTasks().size()==0) && (complexTask.isCompleted()!=true))
-						{complexTask.setCompleted(true);this.coordinateQ.remove(complexTask);}
-					else makeAssignment(complexTask);
-				}
-			}
+//			if (this.coordinator==true) {
+//				KSSTask complexTask=this.coordinateQ.peek();  
+//				if (complexTask!=null) {
+//					KSSTask cTask=complexTask.pollCompletedTask();
+//					if (cTask!=null) {complexTask.updateReadyTasks(cTask);}
+//					if ((complexTask.getReadyTasks().size()==0) && (complexTask.isCompleted()!=true))
+//						{complexTask.setCompleted(true);this.coordinateQ.remove(complexTask);}
+//					else makeAssignment(complexTask);
+//				}
+//			}
 			// ---------------------------------
 			if (!  (requestedQ.size()!=0 
 				|| (readyQ.size()<readyQLimit && backlogQ.size()>0)	
@@ -201,32 +195,29 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 			this.state=0;
 			System.out.println("Agent "+this.name+" is Idle");}		
 		// --------------------------------------
-//		System.out.println("demandBackLogQ: "+this.demandBackLogQ);
-//		System.out.println("readyQ: "+this.readyQ);			
-//		System.out.println("activeQ: "+this.activeQ);
+
 		System.out.println("-- Agent "+this.name+" has completed its activity --");	
 
 	
-//	 *** Visualization ***
-	for (int i=0;i<backlogQ.size();i++){
-		grid.moveTo(this.backlogQ.get(i), 11+i, 18-this.id*4, 0);
-	}
-	for (int i=0;i<readyQ.size();i++){
-		grid.moveTo(this.readyQ.get(i), 11+i, 19-this.id*4, 0);
-	}
-	for (int i=0;i<activeQ.size();i++){
-		grid.moveTo(this.activeQ.get(i), 11+i, 20-this.id*4, 0);
-	}
 
-//	grid.moveTo(this.demandBackLogQ.element(), 10+this.demandBackLogQ.size(), 48-this.id*5);	
-//	grid.moveTo(this.readyQ.element(), 10+this.readyQ.size(), 49-this.id*5);
-//	grid.moveTo(this.activeQ.element(), this.activeQ.size(), 50-this.id*5);
-	// *********************
 	
 	}
 // ----------------------- END Step() -----------------------------	
-
-	
+	public LinkedList<KSSTask> getRequestedQ() {
+		return this.requestedQ;
+	}
+	public LinkedList<KSSTask> getBacklogQ() {
+		return this.backlogQ;
+	}	
+	public LinkedList<KSSTask> getReadyQ() {
+		return this.readyQ;
+	}	
+	public LinkedList<KSSTask> getActiveQ() {
+		return this.activeQ;
+	}	
+	public LinkedList<KSSTask> getCoordinateQ() {
+		return this.coordinateQ;
+	}
 	
 	public void makeAssignment(KSSTask cTask) {
 		LinkedList<DFAgentDescription> availableTeams=this.dfa.getSubscribers();

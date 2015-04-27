@@ -6,13 +6,13 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.lang.Math;
 
 import org.eclipse.emf.common.util.EList;
-import bsh.This;
 
+import bsh.This;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.*;
-
 import repast.simphony.context.Context;
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ISchedule;
@@ -32,7 +32,7 @@ public class KSSTask extends WorkItemImpl {
 	private boolean successor;
 	private LinkedList<KSSTask> predecessors;
 	private boolean causer;
-	private LinkedList<Causality> causalTriggers;
+	private LinkedList<KSSTrigger> causalTriggers;
 	
 	private int status; // 0: Not Created; 1: Not Started; 2: In Progress; 3: Suspended; 4: Completed
 	
@@ -99,15 +99,15 @@ public class KSSTask extends WorkItemImpl {
 		
 		if (!(wi.getDuedate()>0)) {this.dueDate = Float.POSITIVE_INFINITY;}
 		else {this.dueDate = wi.getDuedate();}
-//		this.arrTime = wi.getArrtime();
-//		this.dueDate = wi.getDuedate();
+		
+		this.progress = 0;
 		
 		this.aggregationNode = false;
 		this.subTasks = new LinkedList<KSSTask>();
 		this.successor = false;
 		this.predecessors = new LinkedList<KSSTask>();
 		this.causer = false;
-		this.causalTriggers = new LinkedList<Causality>();
+		this.causalTriggers = new LinkedList<KSSTrigger>();
 		this.id=id;		
 		this.workItem=wi;
 		this.created=false;
@@ -139,17 +139,20 @@ public class KSSTask extends WorkItemImpl {
 //		System.out.println(this.cos+": Value of "+this.getName()+" Diminished From "+oldValue+" to "+ newValue);
 		
 
-		// ***************************************************************************
+		// ********************* STEP *******************************
 		
 		
 		
 		// ------------ Compute WI Progress (percentage) -----------						
-		if (this.isStarted()) {
+		if (this.isStarted() && !this.isCompleted()) {
 			if (!this.isAggregationNode()) {
-				this.progress = (timeNow - this.startTime)/(this.getBefforts());
+				this.setProgress( (timeNow - this.startTime)/(this.getBefforts()) );
+			}
+			if (this.getProgress() >= 1) {
+				this.setCompleted(timeNow);
+				this.setProgress(1.00);
 			}
 		}
-		
 		// ------------ Aggregation WI Progress Check -------------
 		for (int i=0; i<3; i++) {			
 			if (this.isAggregationNode()) {
@@ -165,6 +168,30 @@ public class KSSTask extends WorkItemImpl {
 			}			
 		}
 		
+		// ------------ Trigger Casuality --------------------------
+		if (this.isCauser()){
+			for (int c=0;c<this.getKSSTriggers().size();c++) {
+				KSSTrigger trigger = this.getKSSTriggers().get(c);
+				if (this.progress >= trigger.getAtProgress()) {
+					double rand = Math.random();
+					if (trigger.getOnProbability() >= rand) {
+						for (int t=0;t<trigger.getTriggered().size();t++) {
+							KSSTask triggeredWI = trigger.getTriggered().get(t);
+							if (!trigger.isRepetitive() && !triggeredWI.isCreated()){
+								triggeredWI.setCreated(timeNow);
+								System.out.println("triggered: "+triggeredWI.getName());
+							}
+						}
+					}
+					if (!trigger.isRepetitive()) {
+						this.getKSSTriggers().remove(trigger);
+					}
+				}
+			}
+		}
+		
+
+	// ************************* END STEP ********************************
 	}
 	
 	
@@ -204,11 +231,11 @@ public class KSSTask extends WorkItemImpl {
 	public void addKSSpredecessors(KSSTask e) {	
 		this.getKSSpredecessors().add(e);
 	}
-    public LinkedList<Causality> getKSSCausalities() {
+    public LinkedList<KSSTrigger> getKSSTriggers() {
     	return this.causalTriggers;
     }
-	public void addKSSCausalities(Causality e) {	
-		this.getKSSCausalities().add(e);
+	public void addKSSTriggers(KSSTrigger e) {	
+		this.getKSSTriggers().add(e);
 	}
 	/////////////////////////////////////////////////
 	public void setCompleted(boolean isCompleted) {
@@ -236,6 +263,9 @@ public class KSSTask extends WorkItemImpl {
 	public boolean isStarted() {
 		return this.started;
 	}
+	public double getStartTime() {
+		return this.startTime;
+	}
 	
 	public void setEstimatedCompletion(double eCompletion) {
 		this.estimatedCompletion= eCompletion;
@@ -259,6 +289,10 @@ public class KSSTask extends WorkItemImpl {
 		this.endTime = tNow;
 		this.cycleTime = this.endTime - this.createdTime;
 	}
+	
+	public double getCycleTime() {
+		return this.cycleTime;
+	}
 	public boolean isAssigned() {
 		return this.assigned;
 	}
@@ -271,6 +305,13 @@ public class KSSTask extends WorkItemImpl {
 	public void setCreated(double tNow) {
 		this.created=true;
 		this.createdTime=tNow;
+//		this.arrTime = this.createdTime;
+	}
+	public double getProgress() {
+		return this.progress;
+	}
+	public void setProgress(double p) {
+		this.progress = p;
 	}
 	//////////////////////////////////////////////////////////////////////////
 //	public void setProgress(double tNow) {
