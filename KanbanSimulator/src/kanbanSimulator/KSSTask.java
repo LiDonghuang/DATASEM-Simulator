@@ -48,12 +48,11 @@ public class KSSTask extends WorkItemImpl {
 	public double endTime; // Time Actually End Processing, either Completed or Abandoned
 	public double cycleTime;
 	
-	public double timeNow;
-	
 	private boolean created;
 	private boolean assigned;		
 	private boolean started;
 	private boolean completed;
+	private boolean ended;
 	
 	private boolean complexTask;	
 	private TaskFlow requirement;
@@ -121,7 +120,7 @@ public class KSSTask extends WorkItemImpl {
 		Context context = ContextUtils.getContext(this);
 		Grid grid = (Grid)context.getProjection("Grid");
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
-		timeNow = schedule.getTickCount();
+		double timeNow = schedule.getTickCount();
 		
 		// ******************* Value Function: Update WI Value ***********************
 		double oldValue = this.value;
@@ -164,6 +163,7 @@ public class KSSTask extends WorkItemImpl {
 				}
 				if (cpl == true) {
 					this.setCompleted(timeNow);
+					this.setEnded(timeNow);
 				}
 			}			
 		}
@@ -274,22 +274,24 @@ public class KSSTask extends WorkItemImpl {
 		return this.estimatedCompletion;
 	}
 	
-	public void setEndTime(double eTime) {
-		this.endTime = eTime;
-	}
-	public double getEndTime() {
-		return this.endTime;
-	}
-	
 	public boolean isCompleted()  {
 		return this.completed;
 	}
 	public void setCompleted(double tNow) {
 		this.completed=true;
+	}
+	
+	public boolean isEnded()  {
+		return this.completed;
+	}
+	public void setEnded(double tNow) {
+		this.ended=true;
 		this.endTime = tNow;
 		this.cycleTime = this.endTime - this.createdTime;
 	}
-	
+	public double getEndTime() {
+		return this.endTime;
+	}
 	public double getCycleTime() {
 		return this.cycleTime;
 	}

@@ -157,7 +157,8 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 			// ------------ 5. Disburse Completed WIs
 			Iterator<KSSTask> completeIterator=this.completeQ.iterator();
 			while (completeIterator.hasNext()) {
-				KSSTask completedWI=completeIterator.next();				
+				KSSTask completedWI=completeIterator.next();	
+				completedWI.setEnded(timeNow);
 			}		
 			this.completeQ.clear();
 			// -----------------------------------
