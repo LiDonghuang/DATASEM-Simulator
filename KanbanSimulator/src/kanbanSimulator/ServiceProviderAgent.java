@@ -21,7 +21,6 @@ import repast.simphony.util.ContextUtils;
 import repast.simphony.visualization.visualization3D.ShapeFactory;
 import repast.simphony.visualizationOGL2D.DefaultStyleOGL2D;
 import saf.v3d.ShapeFactory2D;
-
 import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.*;
 import governanceModels.governanceSearchStrategy;
@@ -70,7 +69,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 				
 		this.mySearchStrategy=strategyImplementation(sp);
 		
-		this.readyQLimit=5;
+		this.readyQLimit=999999999;
 		this.activeQLimit=1;
 		this.backlogQ=new LinkedList<KSSTask>();
 		this.readyQ=new LinkedList<KSSTask>();
@@ -87,9 +86,8 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 	// and recurs at 1,2,3,...etc
 	@ScheduledMethod(start=1,interval=1)
 	public void step() {		
-		Context context = ContextUtils.getContext(this);
-		Grid grid = (Grid)context.getProjection("Grid");		
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
+//		ScheduleParameters.
 		double timeNow = schedule.getTickCount();
 		
 //		System.out.println("Time Now: "+timeNow());
@@ -107,17 +105,29 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 			}
 			// -----------------------------------
 						
+			
 			// ------------ 2. Select WIs Ready to Go
-			while ((this.backlogQ.size()!=0) && (this.readyQ.size()<this.readyQLimit)) {
-				KSSTask readyWI=this.backlogQ.remove();
-				if (readyWI.isComplex()) {
-					readyWI.InitializeReadyTaskList();
-					this.coordinateQ.add(readyWI);
-					}
-				else {
-					this.readyQ.add(readyWI);			
-				}			
+//			while ((this.backlogQ.size()!=0) && (this.readyQ.size()<this.readyQLimit)) {
+//				KSSTask readyWI=this.backlogQ.remove();
+////				if (readyWI.isComplex()) {
+////					readyWI.InitializeReadyTaskList();
+////					this.coordinateQ.add(readyWI);
+////					}
+//				if (readyWI.isSuccessor()) {					
+//					}
+//				else {
+//					this.readyQ.add(readyWI);			
+//					}			
+//			}			
+			// -------------- WI Precedency Check ----------------------
+			for (int w=0;w<this.backlogQ.size();w++) {
+				if (this.backlogQ.get(w).precedencyCleared()) {
+					KSSTask readyWI=this.backlogQ.remove();
+					this.readyQ.add(readyWI);
+				}
 			}
+			// ---------------------------------------------------------
+			
 			// ---------------------------------
 			
 			
@@ -177,7 +187,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 //			}
 			// ---------------------------------
 			if (!  (requestedQ.size()!=0 
-				|| (readyQ.size()<readyQLimit && backlogQ.size()>0)	
+//				|| (readyQ.size()<readyQLimit && backlogQ.size()>0)	
 				|| (activeQ.size()<activeQLimit && readyQ.size()>0)		
 				||  completeQ.size()!=0 
 				)) {

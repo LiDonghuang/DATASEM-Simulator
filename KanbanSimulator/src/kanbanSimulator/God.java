@@ -32,6 +32,7 @@ public class God {
 	private LinkedList<KSSTask> arrivedList;
 	private LinkedList<KSSTask> endedList;
 	
+	public int completedWIs;
 	public int totalValueAdded;
 	
 
@@ -50,9 +51,9 @@ public God() {
 	// and recurs at 1,2,3,...etc
 	@ScheduledMethod(start=0,interval=1)
 	public void step() {		
-		Context context = ContextUtils.getContext(this);
-		Grid grid = (Grid)context.getProjection("Grid");	
-		Network<Object> net = (Network<Object>) context.getProjection("organization network");		
+		Context<Object> context = ContextUtils.getContext(this);
+		Grid<Object> grid = (Grid<Object>)context.getProjection("3DGrid");	
+		Network<Object> net = (Network<Object>) context.getProjection("WI_Hierarchy");		
 		
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
 		
@@ -64,13 +65,14 @@ public God() {
 			KSSTask wItem = this.getEndedList().get(w);				
 			// Completed WI: Add Value to Total Value
 			if (wItem.isCompleted()){
+				this.completedWIs ++;
 				this.totalValueAdded += wItem.getCurrentValue(); 				
 			}
 			this.getEndedList().remove(wItem);
 			// Remove WI from Context
-			context.remove(wItem);
-			
+			context.remove(wItem);			
 		}
+		System.out.println("Completed WIs: "+this.completedWIs);
 		
 		// ---------------- Check WIs to be Created ------------------------------
 		for (int w=0; w<this.getWaitingList().size(); w++) {
@@ -114,7 +116,7 @@ public God() {
 				this.getArrivedList().remove(wItem);
 			}
 		}
-					
+							
 		
 		// ---------------- Graphical Control ------------------------------
 //		net.removeEdges();

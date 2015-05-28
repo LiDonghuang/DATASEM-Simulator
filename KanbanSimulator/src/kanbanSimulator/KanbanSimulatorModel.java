@@ -2,6 +2,7 @@ package kanbanSimulator;
 
 import repast.simphony.context.Context;
 import repast.simphony.context.space.graph.NetworkBuilder;
+import repast.simphony.context.space.grid.GridFactory;
 import repast.simphony.context.space.grid.GridFactoryFinder;
 import repast.simphony.dataLoader.ContextBuilder;
 import repast.simphony.engine.environment.RunEnvironment;
@@ -10,33 +11,38 @@ import repast.simphony.space.graph.Network;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridBuilderParameters;
 import repast.simphony.space.grid.RandomGridAdder;
+import repast.simphony.space.grid.SimpleGridAdder;
 import repast.simphony.space.grid.WrapAroundBorders;
-import repast.simphony.random.RandomHelper;
+import repast.simphony.space.grid.StrictBorders;
 
 
 public class KanbanSimulatorModel implements ContextBuilder<Object>{
 
 	public Context<Object> build(Context<Object> context) {
 		
+		context.setId("KanbanSimulator");
+		
 		Parameters p = RunEnvironment.getInstance().getParameters();
-		int numAgents = (Integer)p.getValue("initialNumAgents");
 		int height = (Integer)p.getValue("worldHeight");
 		int width = (Integer)p.getValue("worldWidth");
 		
 		//Organization root = WorkFlowSimFactory.eINSTANCE.createOrganization();
 		//root.setOrgName("test");
 		//System.out.println(root.getOrgName());
-		
-		GridFactoryFinder.createGridFactory(null).createGrid("Grid", context, 
+		GridFactory gridFactory = GridFactoryFinder.createGridFactory(null);
+		Grid<Object> grid = gridFactory.createGrid("3DGrid", context, 
 				new GridBuilderParameters<Object>(new WrapAroundBorders(), 
-						new RandomGridAdder<Object>(), true, width, height, 30));
+						new SimpleGridAdder<Object>(), true, width, height, 50));
+//		GridFactoryFinder.createGridFactory(null).createGrid("Grid", context, 
+//				new GridBuilderParameters<Object>(new WrapAroundBorders(), 
+//						new SimpleGridAdder<Object>(), true, width, height, 50));
 		
-		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>("organization network", context, true);
+		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>("WI_Hierarchy", context, true);
 		netBuilder.buildNetwork();
-		Network<Object> net = (Network<Object>)context.getProjection("organization network");
-		Grid<Object> grid = (Grid)context.getProjection("Grid");
+//		Network<Object> net = (Network<Object>)context.getProjection("organization network");
+//		Grid<Object> grid = (Grid)context.getProjection("Grid");
 		
-		SimulationContextBuilder cb = new SimulationContextBuilder("0");
+		SimulationContextBuilder cb = new SimulationContextBuilder("KanbanSimulatorContextBuilder");
 
 		cb.XMLtoEObjects ();
         cb.ContextImplementation(context);

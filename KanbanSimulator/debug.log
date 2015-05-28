@@ -1,225 +1,210 @@
-FATAL [Thread-8] 2015-04-27 12:40:55,911 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (3.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.God$$FastClassByCGLIB$$ba54957b.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@369b0b39 (name: AC1, description: Analysis Capability: New Database Software Deployment, befforts: 3, bvalue: 5, COS: , arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.God.step(God.java:154)
-	... 10 more
-FATAL [Thread-8] 2015-04-27 12:48:31,079 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (2.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.God$$FastClassByCGLIB$$ba54957b.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@bc05a1c (name: AC1, description: Analysis Capability: New Database Software Deployment, befforts: 3, bvalue: 5, COS: , arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.God.step(God.java:154)
-	... 10 more
-FATAL [Thread-8] 2015-04-27 12:51:20,018 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (2.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.God$$FastClassByCGLIB$$ba54957b.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@302aa00f (name: AC1, description: Analysis Capability: New Database Software Deployment, befforts: 3, bvalue: 5, COS: , arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.God.step(God.java:154)
-	... 10 more
-FATAL [Thread-8] 2015-04-27 12:56:23,986 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (2.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.God$$FastClassByCGLIB$$ba54957b.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@3f87323 (name: AC1, description: Analysis Capability: New Database Software Deployment, befforts: 3, bvalue: 5, COS: , arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.God.step(God.java:152)
-	... 10 more
-FATAL [Thread-8] 2015-04-27 13:01:53,934 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (3.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.God$$FastClassByCGLIB$$ba54957b.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@758aa23e (name: AC1, description: Analysis Capability: New Database Software Deployment, befforts: 3, bvalue: 5, COS: , arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.God.step(God.java:150)
-	... 10 more
-FATAL [Thread-8] 2015-04-27 13:04:22,765 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (2.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.God$$FastClassByCGLIB$$ba54957b.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@6f58b28a (name: AC1, description: Analysis Capability: New Database Software Deployment, befforts: 3, bvalue: 5, COS: , arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.God.step(God.java:151)
-	... 10 more
-FATAL [Thread-8] 2015-04-27 21:37:34,909 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (13.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.God$$FastClassByCGLIB$$ba54957b.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@601cc787 (name: AR1, description: Analysis Requirement: Integration mdl., befforts: 2, bvalue: 5, COS: , arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.God.step(God.java:175)
-	... 10 more
-FATAL [Thread-8] 2015-04-27 21:45:47,350 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (17.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.God$$FastClassByCGLIB$$ba54957b.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@54cdb594 (name: PMT1, description: PM Task, befforts: 10, bvalue: 50, COS: DateCertain, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.God.step(God.java:177)
-	... 10 more
-FATAL [Thread-8] 2015-04-27 21:53:09,028 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (49.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.God$$FastClassByCGLIB$$ba54957b.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@7990c71c (name: T5, description: PM Task, befforts: 5, bvalue: 10, COS: , arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.God.step(God.java:176)
-	... 10 more
-FATAL [Thread-8] 2015-04-27 21:56:19,623 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (32.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.God$$FastClassByCGLIB$$ba54957b.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@379b8cc2 (name: AR6, description: Analysis Requirement: Data migration, befforts: 2, bvalue: 6, COS: , arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.God.step(God.java:176)
-	... 10 more
-FATAL [Thread-8] 2015-04-27 22:00:00,924 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (27.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.God$$FastClassByCGLIB$$ba54957b.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@363e3c61 (name: PMT3, description: PM Task, befforts: 10, bvalue: 300, COS: Expedite, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.God.step(God.java:141)
-	... 10 more
-INFO  [AWT-EventQueue-0] 2015-04-29 13:38:46,223 repast.simphony.ui.widget.MovieMaker - Movie capture has started metaData=[STATUS]
-INFO  [AWT-EventQueue-0] 2015-04-29 13:39:31,571 repast.simphony.ui.widget.MovieMaker - Movie capture has finished metaData=[STATUS]
-INFO  [AWT-EventQueue-0] 2015-04-29 13:41:38,819 repast.simphony.ui.widget.MovieMaker - Movie capture has started metaData=[STATUS]
-INFO  [AWT-EventQueue-0] 2015-04-29 13:42:40,929 repast.simphony.ui.widget.MovieMaker - Movie capture has finished metaData=[STATUS]
-INFO  [AWT-EventQueue-0] 2015-04-29 13:47:17,859 repast.simphony.ui.widget.MovieMaker - Movie capture has started metaData=[STATUS]
+INFO  [Thread-5] 2015-05-28 04:04:42,644 repast.simphony.batch.ssh.LocalSession - 	at java.security.AccessController.doPrivileged(Native Method)
+INFO  [Thread-5] 2015-05-28 04:04:42,645 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.findClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:04:42,645 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:04:42,646 repast.simphony.batch.ssh.LocalSession - 	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:04:42,647 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:04:42,647 repast.simphony.batch.ssh.LocalSession - 	at java.lang.Class.getDeclaredMethods0(Native Method)
+INFO  [Thread-5] 2015-05-28 04:04:42,648 repast.simphony.batch.ssh.LocalSession - 	at java.lang.Class.privateGetDeclaredMethods(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:04:42,648 repast.simphony.batch.ssh.LocalSession - 	at java.lang.Class.privateGetPublicMethods(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:04:42,648 repast.simphony.batch.ssh.LocalSession - 	at java.lang.Class.getMethods(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:04:42,648 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.watcher.WatchAnnotationReader.findWatchAnnotation(WatchAnnotationReader.java:41)
+INFO  [Thread-5] 2015-05-28 04:04:42,648 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.watcher.WatchAnnotationReader.processClass(WatchAnnotationReader.java:30)
+INFO  [Thread-5] 2015-05-28 04:04:42,649 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.watcher.WatchAnnotationReader.processClasses(WatchAnnotationReader.java:36)
+INFO  [Thread-5] 2015-05-28 04:04:42,649 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.scenario.ScenarioLoader.load(ScenarioLoader.java:149)
+INFO  [Thread-5] 2015-05-28 04:04:42,649 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.OneRunBatchRunner.init(OneRunBatchRunner.java:53)
+INFO  [Thread-5] 2015-05-28 04:04:42,649 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.OneRunBatchRunner.<init>(OneRunBatchRunner.java:47)
+INFO  [Thread-5] 2015-05-28 04:04:42,650 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.configure(InstanceRunner.java:159)
+INFO  [Thread-5] 2015-05-28 04:04:42,650 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.main(InstanceRunner.java:216)
+INFO  [Thread-5] 2015-05-28 04:04:42,650 repast.simphony.batch.ssh.LocalSession - Caused by: java.lang.ClassNotFoundException: org.eclipse.emf.ecore.EObject
+INFO  [Thread-5] 2015-05-28 04:04:42,650 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:04:42,650 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:04:42,651 repast.simphony.batch.ssh.LocalSession - 	at java.security.AccessController.doPrivileged(Native Method)
+INFO  [Thread-5] 2015-05-28 04:04:42,651 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.findClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:04:42,651 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:04:42,651 repast.simphony.batch.ssh.LocalSession - 	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:04:42,652 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:04:42,652 repast.simphony.batch.ssh.LocalSession - 	... 48 more
+INFO  [Thread-4] 2015-05-28 04:05:22,420 repast.simphony.batch.ssh.LocalSession - ERROR [main] 04:05:22,206 repast.simphony.batch.InstanceRunner - Error while running model
+INFO  [Thread-4] 2015-05-28 04:05:22,421 repast.simphony.batch.ssh.LocalSession - java.lang.NoClassDefFoundError: org/eclipse/emf/ecore/EObject
+INFO  [Thread-4] 2015-05-28 04:05:22,421 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass1(Native Method)
+INFO  [Thread-4] 2015-05-28 04:05:22,421 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,421 repast.simphony.batch.ssh.LocalSession - 	at java.security.SecureClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,421 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,421 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.access$100(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,421 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,422 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,422 repast.simphony.batch.ssh.LocalSession - 	at java.security.AccessController.doPrivileged(Native Method)
+INFO  [Thread-4] 2015-05-28 04:05:22,422 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.findClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,422 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,422 repast.simphony.batch.ssh.LocalSession - 	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,422 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,422 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass1(Native Method)
+INFO  [Thread-4] 2015-05-28 04:05:22,422 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,422 repast.simphony.batch.ssh.LocalSession - 	at java.security.SecureClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,422 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,422 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.access$100(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,423 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,423 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,423 repast.simphony.batch.ssh.LocalSession - 	at java.security.AccessController.doPrivileged(Native Method)
+INFO  [Thread-4] 2015-05-28 04:05:22,423 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.findClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,423 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,424 repast.simphony.batch.ssh.LocalSession - 	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,424 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,424 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass1(Native Method)
+INFO  [Thread-4] 2015-05-28 04:05:22,424 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,424 repast.simphony.batch.ssh.LocalSession - 	at java.security.SecureClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,424 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,424 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.access$100(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,424 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,424 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,425 repast.simphony.batch.ssh.LocalSession - 	at java.security.AccessController.doPrivileged(Native Method)
+INFO  [Thread-4] 2015-05-28 04:05:22,425 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.findClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,425 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,425 repast.simphony.batch.ssh.LocalSession - 	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,425 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,425 repast.simphony.batch.ssh.LocalSession - 	at java.lang.Class.getDeclaredMethods0(Native Method)
+INFO  [Thread-4] 2015-05-28 04:05:22,425 repast.simphony.batch.ssh.LocalSession - 	at java.lang.Class.privateGetDeclaredMethods(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,425 repast.simphony.batch.ssh.LocalSession - 	at java.lang.Class.privateGetPublicMethods(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,425 repast.simphony.batch.ssh.LocalSession - 	at java.lang.Class.getMethods(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,425 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.watcher.WatchAnnotationReader.findWatchAnnotation(WatchAnnotationReader.java:41)
+INFO  [Thread-4] 2015-05-28 04:05:22,425 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.watcher.WatchAnnotationReader.processClass(WatchAnnotationReader.java:30)
+INFO  [Thread-4] 2015-05-28 04:05:22,425 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.watcher.WatchAnnotationReader.processClasses(WatchAnnotationReader.java:36)
+INFO  [Thread-4] 2015-05-28 04:05:22,426 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.scenario.ScenarioLoader.load(ScenarioLoader.java:149)
+INFO  [Thread-4] 2015-05-28 04:05:22,426 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.OneRunBatchRunner.init(OneRunBatchRunner.java:53)
+INFO  [Thread-4] 2015-05-28 04:05:22,426 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.OneRunBatchRunner.<init>(OneRunBatchRunner.java:47)
+INFO  [Thread-4] 2015-05-28 04:05:22,426 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.configure(InstanceRunner.java:159)
+INFO  [Thread-4] 2015-05-28 04:05:22,426 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.main(InstanceRunner.java:216)
+INFO  [Thread-4] 2015-05-28 04:05:22,426 repast.simphony.batch.ssh.LocalSession - Caused by: java.lang.ClassNotFoundException: org.eclipse.emf.ecore.EObject
+INFO  [Thread-4] 2015-05-28 04:05:22,426 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,426 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,426 repast.simphony.batch.ssh.LocalSession - 	at java.security.AccessController.doPrivileged(Native Method)
+INFO  [Thread-4] 2015-05-28 04:05:22,426 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.findClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,426 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,427 repast.simphony.batch.ssh.LocalSession - 	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,427 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:22,427 repast.simphony.batch.ssh.LocalSession - 	... 48 more
+INFO  [pool-3-thread-1] 2015-05-28 04:05:24,817 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\DONBGH~1\AppData\Local\Temp\simphony_model_1432803796432 for DONE:  no
+INFO  [Thread-5] 2015-05-28 04:05:37,247 repast.simphony.batch.ssh.LocalSession - ERROR [main] 04:05:37,241 repast.simphony.batch.InstanceRunner - Error while running model
+INFO  [Thread-5] 2015-05-28 04:05:37,247 repast.simphony.batch.ssh.LocalSession - java.lang.NoClassDefFoundError: org/eclipse/emf/ecore/EObject
+INFO  [Thread-5] 2015-05-28 04:05:37,247 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass1(Native Method)
+INFO  [Thread-5] 2015-05-28 04:05:37,247 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,247 repast.simphony.batch.ssh.LocalSession - 	at java.security.SecureClassLoader.defineClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,248 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.defineClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,248 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.access$100(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,248 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,248 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,248 repast.simphony.batch.ssh.LocalSession - 	at java.security.AccessController.doPrivileged(Native Method)
+INFO  [Thread-5] 2015-05-28 04:05:37,248 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.findClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,249 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,249 repast.simphony.batch.ssh.LocalSession - 	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,249 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,249 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass1(Native Method)
+INFO  [Thread-5] 2015-05-28 04:05:37,249 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,249 repast.simphony.batch.ssh.LocalSession - 	at java.security.SecureClassLoader.defineClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,249 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.defineClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,249 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.access$100(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,249 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,249 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,250 repast.simphony.batch.ssh.LocalSession - 	at java.security.AccessController.doPrivileged(Native Method)
+INFO  [Thread-5] 2015-05-28 04:05:37,250 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.findClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,250 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,250 repast.simphony.batch.ssh.LocalSession - 	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,250 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,250 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass1(Native Method)
+INFO  [Thread-5] 2015-05-28 04:05:37,250 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,250 repast.simphony.batch.ssh.LocalSession - 	at java.security.SecureClassLoader.defineClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,250 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.defineClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,250 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.access$100(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,251 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,251 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,251 repast.simphony.batch.ssh.LocalSession - 	at java.security.AccessController.doPrivileged(Native Method)
+INFO  [Thread-5] 2015-05-28 04:05:37,251 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.findClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,251 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,251 repast.simphony.batch.ssh.LocalSession - 	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,251 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,251 repast.simphony.batch.ssh.LocalSession - 	at java.lang.Class.getDeclaredMethods0(Native Method)
+INFO  [Thread-5] 2015-05-28 04:05:37,252 repast.simphony.batch.ssh.LocalSession - 	at java.lang.Class.privateGetDeclaredMethods(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,252 repast.simphony.batch.ssh.LocalSession - 	at java.lang.Class.privateGetPublicMethods(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,252 repast.simphony.batch.ssh.LocalSession - 	at java.lang.Class.getMethods(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,252 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.watcher.WatchAnnotationReader.findWatchAnnotation(WatchAnnotationReader.java:41)
+INFO  [Thread-5] 2015-05-28 04:05:37,252 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.watcher.WatchAnnotationReader.processClass(WatchAnnotationReader.java:30)
+INFO  [Thread-5] 2015-05-28 04:05:37,252 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.watcher.WatchAnnotationReader.processClasses(WatchAnnotationReader.java:36)
+INFO  [Thread-5] 2015-05-28 04:05:37,252 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.scenario.ScenarioLoader.load(ScenarioLoader.java:149)
+INFO  [Thread-5] 2015-05-28 04:05:37,252 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.OneRunBatchRunner.init(OneRunBatchRunner.java:53)
+INFO  [Thread-5] 2015-05-28 04:05:37,252 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.OneRunBatchRunner.<init>(OneRunBatchRunner.java:47)
+INFO  [Thread-5] 2015-05-28 04:05:37,252 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.configure(InstanceRunner.java:159)
+INFO  [Thread-5] 2015-05-28 04:05:37,253 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.main(InstanceRunner.java:216)
+INFO  [Thread-5] 2015-05-28 04:05:37,253 repast.simphony.batch.ssh.LocalSession - Caused by: java.lang.ClassNotFoundException: org.eclipse.emf.ecore.EObject
+INFO  [Thread-5] 2015-05-28 04:05:37,253 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,253 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,253 repast.simphony.batch.ssh.LocalSession - 	at java.security.AccessController.doPrivileged(Native Method)
+INFO  [Thread-5] 2015-05-28 04:05:37,253 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.findClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,253 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,253 repast.simphony.batch.ssh.LocalSession - 	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,253 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-5] 2015-05-28 04:05:37,254 repast.simphony.batch.ssh.LocalSession - 	... 48 more
+INFO  [Thread-4] 2015-05-28 04:05:38,467 repast.simphony.batch.ssh.LocalSession - ERROR [main] 04:05:38,464 repast.simphony.batch.InstanceRunner - Error while running model
+INFO  [Thread-4] 2015-05-28 04:05:38,467 repast.simphony.batch.ssh.LocalSession - java.lang.NoClassDefFoundError: org/eclipse/emf/ecore/EObject
+INFO  [Thread-4] 2015-05-28 04:05:38,467 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass1(Native Method)
+INFO  [Thread-4] 2015-05-28 04:05:38,467 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,467 repast.simphony.batch.ssh.LocalSession - 	at java.security.SecureClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,467 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,467 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.access$100(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,467 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,467 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,468 repast.simphony.batch.ssh.LocalSession - 	at java.security.AccessController.doPrivileged(Native Method)
+INFO  [Thread-4] 2015-05-28 04:05:38,468 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.findClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,468 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,468 repast.simphony.batch.ssh.LocalSession - 	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,468 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,468 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass1(Native Method)
+INFO  [Thread-4] 2015-05-28 04:05:38,468 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,469 repast.simphony.batch.ssh.LocalSession - 	at java.security.SecureClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,469 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,469 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.access$100(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,469 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,469 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,469 repast.simphony.batch.ssh.LocalSession - 	at java.security.AccessController.doPrivileged(Native Method)
+INFO  [Thread-4] 2015-05-28 04:05:38,469 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.findClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,469 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,469 repast.simphony.batch.ssh.LocalSession - 	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,469 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,469 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass1(Native Method)
+INFO  [Thread-4] 2015-05-28 04:05:38,470 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,470 repast.simphony.batch.ssh.LocalSession - 	at java.security.SecureClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,470 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.defineClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,470 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.access$100(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,470 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,470 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,470 repast.simphony.batch.ssh.LocalSession - 	at java.security.AccessController.doPrivileged(Native Method)
+INFO  [Thread-4] 2015-05-28 04:05:38,470 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.findClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,470 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,470 repast.simphony.batch.ssh.LocalSession - 	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,470 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,471 repast.simphony.batch.ssh.LocalSession - 	at java.lang.Class.getDeclaredMethods0(Native Method)
+INFO  [Thread-4] 2015-05-28 04:05:38,471 repast.simphony.batch.ssh.LocalSession - 	at java.lang.Class.privateGetDeclaredMethods(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,471 repast.simphony.batch.ssh.LocalSession - 	at java.lang.Class.privateGetPublicMethods(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,471 repast.simphony.batch.ssh.LocalSession - 	at java.lang.Class.getMethods(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,471 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.watcher.WatchAnnotationReader.findWatchAnnotation(WatchAnnotationReader.java:41)
+INFO  [Thread-4] 2015-05-28 04:05:38,471 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.watcher.WatchAnnotationReader.processClass(WatchAnnotationReader.java:30)
+INFO  [Thread-4] 2015-05-28 04:05:38,471 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.watcher.WatchAnnotationReader.processClasses(WatchAnnotationReader.java:36)
+INFO  [Thread-4] 2015-05-28 04:05:38,472 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.scenario.ScenarioLoader.load(ScenarioLoader.java:149)
+INFO  [Thread-4] 2015-05-28 04:05:38,472 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.OneRunBatchRunner.init(OneRunBatchRunner.java:53)
+INFO  [Thread-4] 2015-05-28 04:05:38,472 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.OneRunBatchRunner.<init>(OneRunBatchRunner.java:47)
+INFO  [Thread-4] 2015-05-28 04:05:38,473 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.configure(InstanceRunner.java:159)
+INFO  [Thread-4] 2015-05-28 04:05:38,473 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.main(InstanceRunner.java:216)
+INFO  [Thread-4] 2015-05-28 04:05:38,473 repast.simphony.batch.ssh.LocalSession - Caused by: java.lang.ClassNotFoundException: org.eclipse.emf.ecore.EObject
+INFO  [Thread-4] 2015-05-28 04:05:38,473 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,473 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader$1.run(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,473 repast.simphony.batch.ssh.LocalSession - 	at java.security.AccessController.doPrivileged(Native Method)
+INFO  [Thread-4] 2015-05-28 04:05:38,473 repast.simphony.batch.ssh.LocalSession - 	at java.net.URLClassLoader.findClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,473 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,473 repast.simphony.batch.ssh.LocalSession - 	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,473 repast.simphony.batch.ssh.LocalSession - 	at java.lang.ClassLoader.loadClass(Unknown Source)
+INFO  [Thread-4] 2015-05-28 04:05:38,473 repast.simphony.batch.ssh.LocalSession - 	... 48 more
+INFO  [pool-4-thread-1] 2015-05-28 04:05:41,999 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\DONBGH~1\AppData\Local\Temp\simphony_model_1432803808291 for DONE:  yes
+INFO  [SwingWorker-pool-2-thread-2] 2015-05-28 04:05:42,000 repast.simphony.batch.ssh.SessionsDriver - Run Time: 2.1287
+INFO  [SwingWorker-pool-2-thread-2] 2015-05-28 04:05:42,285 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in C:\Users\DONBGH~1\AppData\Local\Temp\simphony_model_1432803808291
+INFO  [SwingWorker-pool-2-thread-2] 2015-05-28 04:05:42,664 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into C:/Users/Donbghuang Li/desktop/KanbanSimulator
+INFO  [SwingWorker-pool-2-thread-2] 2015-05-28 04:05:42,665 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0110
+INFO  [SwingWorker-pool-2-thread-2] 2015-05-28 04:05:42,665 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 2.2396

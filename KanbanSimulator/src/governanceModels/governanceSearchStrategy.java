@@ -11,6 +11,7 @@ public class governanceSearchStrategy {
 	private wItemAcceptanceRule wItemAcceptance;
 	private wItemSelectionRule wItemSelection;
 	private wItemAssignmentRule wItemAssignment;
+	
 //	private resourceAssignmentRule resourceAssignment;
 //	private resourceOutsourcingRule resourceOutsourcing;
 		
@@ -28,6 +29,7 @@ public class governanceSearchStrategy {
 	public wItemAcceptanceRule getWItemAcceptanceRule(){
 		return this.wItemAcceptance;
 	}
+	
 	
 	public void setWItemSelectionRule(String ruleName){
 		this.wItemSelection = new wItemSelectionRule(ruleName);
@@ -47,5 +49,4 @@ public class governanceSearchStrategy {
 		return this.wItemAssignment;
 	}
 	
-
 }

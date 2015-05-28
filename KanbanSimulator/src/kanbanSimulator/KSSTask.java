@@ -117,24 +117,22 @@ public class KSSTask extends WorkItemImpl {
 	
 	@ScheduledMethod(start=1,interval=1)
 	public void step() {
-		Context context = ContextUtils.getContext(this);
-		Grid grid = (Grid)context.getProjection("Grid");
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
 		double timeNow = schedule.getTickCount();
 		
 		// ******************* Value Function: Update WI Value ***********************
-		double oldValue = this.value;
-		double newValue = oldValue;
-		if (this.cos.matches("Standard")) {
-			newValue = this.value*0.995;}
-		else if (this.cos.matches("Important")) {
-			newValue = this.value*0.975;}
-		else if (this.cos.matches("Expedite")) {
-			newValue = this.value*0.9;}
-		else if (this.cos.matches("DateCertain")) {
-			if (timeNow>this.dueDate){
-			newValue = 0;}}
-		this.value = newValue;
+//		double oldValue = this.value;
+//		double newValue = oldValue;
+//		if (this.cos.matches("Standard")) {
+//			newValue = this.value*0.995;}
+//		else if (this.cos.matches("Important")) {
+//			newValue = this.value*0.975;}
+//		else if (this.cos.matches("Expedite")) {
+//			newValue = this.value*0.9;}
+//		else if (this.cos.matches("DateCertain")) {
+//			if (timeNow>this.dueDate){
+//			newValue = 0;}}
+//		this.value = newValue;
 //		System.out.println(this.cos+": Value of "+this.getName()+" Diminished From "+oldValue+" to "+ newValue);
 		
 
@@ -167,6 +165,9 @@ public class KSSTask extends WorkItemImpl {
 				}
 			}			
 		}
+		// ---------------------------------------------------------
+		
+
 		
 		// ------------ Trigger Casuality --------------------------
 		if (this.isCauser()){
@@ -230,6 +231,23 @@ public class KSSTask extends WorkItemImpl {
     }
 	public void addKSSpredecessors(KSSTask e) {	
 		this.getKSSpredecessors().add(e);
+	}
+	public boolean precedencyCleared() {
+		if (this.isSuccessor()) {
+			boolean cleared = true;
+			for (int p=0;p<this.getKSSpredecessors().size();p++) {
+				KSSTask pTask = this.getKSSpredecessors().get(p);
+				if (pTask.isCompleted()) {
+					this.getKSSpredecessors().remove(p);
+				}
+				else if (!pTask.isCompleted()){
+					cleared = false;
+					break;
+				}
+			}
+			return cleared;
+		}
+		else {return true;}
 	}
     public LinkedList<KSSTrigger> getKSSTriggers() {
     	return this.causalTriggers;

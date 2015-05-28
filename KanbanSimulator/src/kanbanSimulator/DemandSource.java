@@ -47,9 +47,6 @@ public DemandSource(int id, WorkSource wSource) {
 	// and recurs at 1,2,3,...etc
 	@ScheduledMethod(start=1,interval=1)
 	public void step() {		
-		Context context = ContextUtils.getContext(this);
-		Grid grid = (Grid)context.getProjection("Grid");		
-
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
 		double timeNow = schedule.getTickCount();
 										

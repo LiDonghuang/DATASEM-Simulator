@@ -8,6 +8,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 import repast.simphony.context.Context;
+import repast.simphony.engine.environment.RunEnvironment;
+import repast.simphony.parameter.Parameters;
 import repast.simphony.random.RandomHelper;
 import repast.simphony.space.graph.Network;
 import repast.simphony.space.grid.Grid;
@@ -299,13 +301,16 @@ public class SimulationContextBuilder {
 					
 			
 			// ------------------------- WORK FLOW DATA MODELS -------------------------------------
+			Parameters p = RunEnvironment.getInstance().getParameters();
+			int interArrivalTime = (Integer)p.getValue("WI_interArrivalTime");
+			int replications = (Integer)p.getValue("WI_replications");		
+			
 			this.myWINetworks = new ArrayList<ArrayList<KSSTask>>(0);
 			int wItemID = 0;
 //			for (int wfd = 0; wfd < workItemNetworkList.getLength(); wfd++) {
-//			int interArrivalTime = 60;
-//			int replications = 10;
+
 			for (int rep = 0; rep < replications; rep++) {
-				System.out.println("\nGenerating WIN Replication: No."+rep+1);
+				System.out.println("\nGenerating WIN Replication: No."+(rep+1));
 //				Node WFlownode = workItemNetworkList.item(wfd);		
 				// ------------------------- WORK ITEMS FLOW -----------------------------------
 //				if (WFlownode.getNodeType() == Node.ELEMENT_NODE) {													
@@ -494,8 +499,8 @@ public class SimulationContextBuilder {
 	
 	// -------------------------- CONTEXT IMPLEMENTATION -------------------------------------
 	public void ContextImplementation(Context<Object> context) {
-		Grid<Object> grid = (Grid) context.getProjection("Grid");
-		Network<Object> net = (Network<Object>) context.getProjection("organization network");
+		Grid<Object> grid = (Grid<Object>) context.getProjection("3DGrid");
+		Network<Object> net = (Network<Object>) context.getProjection("WI_Hierarchy");
 		
 		// ?? ---------------------- Create Controller ----------------------------		
 		context.add(this.myGod);
