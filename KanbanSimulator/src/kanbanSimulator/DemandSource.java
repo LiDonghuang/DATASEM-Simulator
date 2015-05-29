@@ -19,7 +19,6 @@ import repast.simphony.util.ContextUtils;
 import repast.simphony.visualization.visualization3D.ShapeFactory;
 import repast.simphony.visualizationOGL2D.DefaultStyleOGL2D;
 import saf.v3d.ShapeFactory2D;
-
 import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.*;
 import governanceModels.governanceSearchStrategy;
@@ -45,15 +44,17 @@ public DemandSource(int id, WorkSource wSource) {
 //Schedule the step method for agents.  The method is scheduled starting at 
 	// tick one with an interval of 1 tick.  Specifically, the step starts at 0, and
 	// and recurs at 1,2,3,...etc
-	@ScheduledMethod(start=1,interval=1)
+	@ScheduledMethod(start=1,interval=1,priority=30)
 	public void step() {		
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
 		double timeNow = schedule.getTickCount();
-										
+		System.out.println("-- Demand Source "+this.getName()+" is now active --");
 		// ----------------- Assign WI to Target Units --------------------------------
+		System.out.println(this.getName()+" on-hand WIs: "+this.getAssignmentQ().size());
 		for (int w = 0; w < this.getAssignmentQ().size(); w++) {
-			// 1. What Service does this WI request?
-			KSSTask wItem = this.getAssignmentQ().get(w);	
+			KSSTask wItem = this.getAssignmentQ().get(w);
+			System.out.println(this.getName()+" is Assigning WI: "+wItem.getName()+" (id:"+wItem.getTaskId()+")");
+			// 1. What Service does this WI request?				
 			String wItem_reqService = wItem.getReqSpecialties().get(0).getName();
             // 2. What ServiceProviders can provide this Service for this WI?
 			ArrayList<ServiceProviderAgent> tU_candidates = new ArrayList<ServiceProviderAgent>(0);
@@ -68,19 +69,23 @@ public DemandSource(int id, WorkSource wSource) {
 						tU_candidates.add(tAgent);
 					}
 				}
-			}
-			
+			}			
 			// ONLY ASSIGN WIs WHICH ARE NOT AGGREGATION NODES!
 			if ( (tU_candidates.size() != 0) && (!wItem.isAggregationNode()) ) {
 				// ============== Apply WI Assignment Rule =========================
 				ServiceProviderAgent selectedSP = tU_candidates.get(RandomHelper.nextIntFromTo(0, tU_candidates.size()-1));
 				// ================================================================
 				// Assign WI to SP
-				selectedSP.assignTask(wItem);		
+				selectedSP.assignWI(wItem);		
 				// Set WI "Assigned"
 				wItem.setAssigned();
+				wItem.setServiceEfficiency(100); 
 				// Remove WI from AssignmentQ
 				this.getAssignmentQ().remove(wItem);
+				w--;
+			}
+			else {
+				System.out.println("Failed to Assign WI:"+wItem.getName()+" (id:"+wItem.getTaskId()+")");
 			}
 		}
 	}

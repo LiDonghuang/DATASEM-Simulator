@@ -29,14 +29,17 @@ public class KSSTask extends WorkItemImpl {
 	
 	private boolean aggregationNode;
 	private LinkedList<KSSTask> subTasks;
+	private boolean predecessor;
 	private boolean successor;
 	private LinkedList<KSSTask> predecessors;
+	private LinkedList<KSSTask> successors;
 	private boolean causer;
 	private LinkedList<KSSTrigger> causalTriggers;
 	
 	private int status; // 0: Not Created; 1: Not Started; 2: In Progress; 3: Suspended; 4: Completed
 	
 	public ServiceProviderAgent assignedTo;	
+	public double serviceEfficiency;
 	public double progress;	
 	public double arrTime; // Infinite if not triggered
 	public double dueDate; // Infinite if not defined
@@ -115,11 +118,11 @@ public class KSSTask extends WorkItemImpl {
 		
 	}
 	
-	@ScheduledMethod(start=1,interval=1)
+	@ScheduledMethod(start=1,interval=1,priority=10)
 	public void step() {
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
 		double timeNow = schedule.getTickCount();
-		
+		System.out.println("-- WI "+this.getName()+" updates --");		
 		// ******************* Value Function: Update WI Value ***********************
 //		double oldValue = this.value;
 //		double newValue = oldValue;
@@ -143,15 +146,16 @@ public class KSSTask extends WorkItemImpl {
 		// ------------ Compute WI Progress (percentage) -----------						
 		if (this.isStarted() && !this.isCompleted()) {
 			if (!this.isAggregationNode()) {
-				this.setProgress( (timeNow - this.startTime)/(this.getBefforts()) );
+				this.setProgress( (timeNow - this.startTime + 1)/
+						(this.getBefforts()/this.getServiceEfficiency()) );
 			}
 			if (this.getProgress() >= 1) {
 				this.setCompleted(timeNow);
 				this.setProgress(1.00);
 			}
+			System.out.println("Progress: "+this.progress);
 		}
-		// ------------ Aggregation WI Progress Check -------------
-		for (int i=0; i<3; i++) {			
+		// ------------ Aggregation WI Progress Check -------------	
 			if (this.isAggregationNode()) {
 				boolean cpl = true;
 				for (int st = 0; st < this.subTasks.size(); st++) {				
@@ -164,7 +168,6 @@ public class KSSTask extends WorkItemImpl {
 					this.setEnded(timeNow);
 				}
 			}			
-		}
 		// ---------------------------------------------------------
 		
 
@@ -297,15 +300,17 @@ public class KSSTask extends WorkItemImpl {
 	}
 	public void setCompleted(double tNow) {
 		this.completed=true;
+		System.out.println(this.getName()+" (id:"+this.getTaskId()+") is Completed");
 	}
 	
 	public boolean isEnded()  {
-		return this.completed;
+		return this.ended;		
 	}
 	public void setEnded(double tNow) {
 		this.ended=true;
 		this.endTime = tNow;
 		this.cycleTime = this.endTime - this.createdTime;
+		System.out.println(this.getName()+" (id:"+this.getTaskId()+") is Ended");
 	}
 	public double getEndTime() {
 		return this.endTime;
@@ -325,6 +330,7 @@ public class KSSTask extends WorkItemImpl {
 	public void setCreated(double tNow) {
 		this.created=true;
 		this.createdTime=tNow;
+		System.out.println(this.getName()+" (id:"+this.getTaskId()+") is Created");
 //		this.arrTime = this.createdTime;
 	}
 	public double getProgress() {
@@ -426,10 +432,34 @@ public class KSSTask extends WorkItemImpl {
 	}
 	
 	
-	public void assignTo(ServiceProviderAgent sp){
+	public void assignTo(ServiceProviderAgent sp) {
 		this.assignedTo = sp;
 	}
+	public ServiceProviderAgent getAssignedTo() {
+		return this.assignedTo;
+	}
 	
+	public double getServiceEfficiency() {		
+		return this.serviceEfficiency;		
+	}
+	public void setServiceEfficiency(double e) {
+		this.serviceEfficiency = e;
+	}
+	public double calculateServiceEfficiency() {
+		double sEfficiency = 0;
+		for (int s=0;s<this.getAssignedTo().getServices().size();s++){
+			Service service = this.getAssignedTo().getServices().get(s);
+			if (service.getServiceType().getName().
+					matches(this.getReqSpecialties().get(0).getName())){
+				Service currentService = service;
+				sEfficiency = (double)currentService.getEfficiency()/100;				
+				break;
+			}		
+		}		
+		System.out.println(this.getAssignedTo().getName()+" is Serving "+
+				this.getName() + " at Efficiency: "+sEfficiency);
+		return sEfficiency;
+	}
 	
 	public LinkedList<KSSTask> getTopologicalTasks() {
 		return this.topologicalList;

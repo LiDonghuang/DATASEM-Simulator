@@ -49,7 +49,7 @@ public God() {
 //Schedule the step method for agents.  The method is scheduled starting at 
 	// tick one with an interval of 1 tick.  Specifically, the step starts at 0, and
 	// and recurs at 1,2,3,...etc
-	@ScheduledMethod(start=0,interval=1)
+	@ScheduledMethod(start=0,interval=1,priority=40)
 	public void step() {		
 		Context<Object> context = ContextUtils.getContext(this);
 		Grid<Object> grid = (Grid<Object>)context.getProjection("3DGrid");	
@@ -57,8 +57,10 @@ public God() {
 		
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
 		
+		
 		double timeNow = schedule.getTickCount();
 		System.out.println("-------------- TIME NOW : " + timeNow + " --------------");
+		System.out.println("-- This is GOD's Turn --");
 
 		// ---------------- !! Remove Ended WIs From Context------------------------------		
 		for (int w=0; w<this.getEndedList().size(); w++) {
@@ -70,7 +72,8 @@ public God() {
 			}
 			this.getEndedList().remove(wItem);
 			// Remove WI from Context
-			context.remove(wItem);			
+			context.remove(wItem);	
+			w--;
 		}
 		System.out.println("Completed WIs: "+this.completedWIs);
 		
@@ -83,14 +86,11 @@ public God() {
 					wItem.setCreated(timeNow);					
 				}
 			}
-		}
-		
-		// --------------- Move Created WIs to Arrived List and go to Demand Source ------------
-		System.out.println("Waiting WIs: "+this.getWaitingList().size());
+		}		
+		// --------------- Move Created WIs to Arrived List and go to Demand Source ------------		
 		for (int w=0; w<this.getWaitingList().size();w++) {			
 			KSSTask wItem = this.getWaitingList().get(w);	
-			if (wItem.isCreated()) {					
-				System.out.println("Is Created: "+wItem.getName()+" id:"+wItem.getTaskId());
+			if (wItem.isCreated()) {									
 				// Add WI to WI's Demand Source
 				DemandSource dSource = this.getDemandSources().get(0);
 				dSource.getAssignmentQ().add(wItem);								
@@ -99,12 +99,13 @@ public God() {
 //				System.out.println("Arrived "+this.getArrivedList());
 				// Remove WI from Waiting List
 				this.getWaitingList().remove(wItem);
+				w--;
 //				System.out.println("Waiting "+this.getWaitingList());
 				// Add WI to Context
 				context.add(wItem);	
 			}
 		}
-						
+		System.out.println("Waiting WIs: "+this.getWaitingList().size());				
 		// ---------------- Check WIs already Ended and Move to Ended List ------------------------------
 		for (int w=0; w<this.getArrivedList().size(); w++) {
 			KSSTask wItem = this.getArrivedList().get(w);	
@@ -114,12 +115,14 @@ public God() {
 				this.getEndedList().add(wItem);		
 				// Remove WI from Arrived List
 				this.getArrivedList().remove(wItem);
+				w--;
 			}
 		}
 							
 		
-		// ---------------- Graphical Control ------------------------------
-//		net.removeEdges();
+		// ---------------- Visualization Control ------------------------------	
+//		net.removeEdges();		
+//		 *** WI Dependencies Visualization ***	
 		int c = 0;int r = 0;int t = 0;
 		for (int w=0; w<this.getArrivedList().size(); w++) {
 			KSSTask wItem = this.getArrivedList().get(w);		
@@ -139,10 +142,8 @@ public God() {
 					}
 //				}
 			}
-		}
-		
-//		 *** Visualization ***
-		
+		}		
+//		 *** SP Queues Visualization ***		
 		for (int s=0;s<this.organizationMembers.size();s++){
 			ServiceProviderAgent SP = this.organizationMembers.get(s);
 			for (int w=0;w<SP.getBacklogQ().size();w++){
@@ -156,9 +157,11 @@ public God() {
 				grid.moveTo(SP.getActiveQ().get(w), 11+w, 20-SP.getId()*4, 15);}
 			}
 		}
-		// *********************
 		
-
+		// ---------------- Termination Condition ------------------------------
+//		if (this.getWaitingList().size()==0){
+//			RunEnvironment.getInstance().endRun();
+//		}
 	// -------------------- END STEP --------------------------------						
 	}
 	

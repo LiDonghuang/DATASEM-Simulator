@@ -84,7 +84,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
   //Schedule the step method for agents.  The method is scheduled starting at 
 	// tick one with an interval of 1 tick.  Specifically, the step starts at 0, and
 	// and recurs at 1,2,3,...etc
-	@ScheduledMethod(start=1,interval=1)
+	@ScheduledMethod(start=1,interval=1,priority=20)
 	public void step() {		
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
 //		ScheduleParameters.
@@ -127,8 +127,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 				}
 			}
 			// ---------------------------------------------------------
-			
-			// ---------------------------------
+
 			
 			
 			// ------------ 3. Select WIs to Start
@@ -137,13 +136,17 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 //				KSSTask startedWI = this.readyQ.getFirst();
 				KSSTask startedWI = this.mySearchStrategy.selectWI(readyQ);				
 				// ========================================================
-				startedWI.setStarted(timeNow);		
+				startedWI.setStarted(timeNow);
+				// =========== Service Efficiency Algorithm ======================
+				double sEfficiency = startedWI.calculateServiceEfficiency();
+				startedWI.setServiceEfficiency(sEfficiency);				
 				// =========== Estimate Efforts ====================
-				double estimatedEfforts = startedWI.getBefforts();
+				double estimatedEfforts = startedWI.getBefforts()/startedWI.getServiceEfficiency();
 //				double estimationError = RandomHelper.nextIntFromTo(-1, 1);
 				// ========================================================					
-				double eCompletion= estimatedEfforts + timeNow;
-				System.out.println("WorkItem "+startedWI.getName()+"(id:"+startedWI.getTaskId()+")"+
+				double eCompletion= estimatedEfforts+ timeNow;
+				System.out.println("WorkItem "+startedWI.getName()+
+						"(id:"+startedWI.getTaskId()+")"+
 						" is expected to finish at "+eCompletion);
 				startedWI.setEstimatedCompletion(eCompletion);
 				
@@ -207,8 +210,6 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 			System.out.println("Agent "+this.name+" is Idle");}		
 		// --------------------------------------
 
-		System.out.println("-- Agent "+this.name+" has completed its activity --");	
-
 	
 
 	
@@ -245,7 +246,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 		}
 	}
 	
-	public void assignTask(KSSTask newWI) {
+	public void assignWI(KSSTask newWI) {
 //		LinkedList<DFAgentDescription> availableTeams=this.dfa.getSubscribers();
 //		DFAgentDescription aDescription=availableTeams.get(RandomHelper.nextIntFromTo(0, availableTeams.size()-1));
 //		TeamAgent SProvider=aDescription.getServiceProvider();
