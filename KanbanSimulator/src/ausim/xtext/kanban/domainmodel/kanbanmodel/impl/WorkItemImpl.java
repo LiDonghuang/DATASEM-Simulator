@@ -4,6 +4,7 @@ package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Causality;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.LocalValue;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceType;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType;
@@ -44,6 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getReqSpecialties <em>Req Specialties</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getBefforts <em>Befforts</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getBvalue <em>Bvalue</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getLvalue <em>Lvalue</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getCOS <em>COS</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getWItemSource <em>WItem Source</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getArrtime <em>Arrtime</em>}</li>
@@ -194,6 +196,16 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * @ordered
    */
   protected int bvalue = BVALUE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getLvalue() <em>Lvalue</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLvalue()
+   * @generated
+   * @ordered
+   */
+  protected EList<LocalValue> lvalue;
 
   /**
    * The default value of the '{@link #getCOS() <em>COS</em>}' attribute.
@@ -525,6 +537,20 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<LocalValue> getLvalue()
+  {
+    if (lvalue == null)
+    {
+      lvalue = new EObjectContainmentEList<LocalValue>(LocalValue.class, this, KanbanmodelPackage.WORK_ITEM__LVALUE);
+    }
+    return lvalue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getCOS()
   {
     return cos;
@@ -644,6 +670,8 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
     {
       case KanbanmodelPackage.WORK_ITEM__CAUSAL_TRIGGERS:
         return ((InternalEList<?>)getCausalTriggers()).basicRemove(otherEnd, msgs);
+      case KanbanmodelPackage.WORK_ITEM__LVALUE:
+        return ((InternalEList<?>)getLvalue()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -680,6 +708,8 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return getBefforts();
       case KanbanmodelPackage.WORK_ITEM__BVALUE:
         return getBvalue();
+      case KanbanmodelPackage.WORK_ITEM__LVALUE:
+        return getLvalue();
       case KanbanmodelPackage.WORK_ITEM__COS:
         return getCOS();
       case KanbanmodelPackage.WORK_ITEM__WITEM_SOURCE:
@@ -738,6 +768,10 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
       case KanbanmodelPackage.WORK_ITEM__BVALUE:
         setBvalue((Integer)newValue);
         return;
+      case KanbanmodelPackage.WORK_ITEM__LVALUE:
+        getLvalue().clear();
+        getLvalue().addAll((Collection<? extends LocalValue>)newValue);
+        return;
       case KanbanmodelPackage.WORK_ITEM__COS:
         setCOS((String)newValue);
         return;
@@ -794,6 +828,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
       case KanbanmodelPackage.WORK_ITEM__BVALUE:
         setBvalue(BVALUE_EDEFAULT);
         return;
+      case KanbanmodelPackage.WORK_ITEM__LVALUE:
+        getLvalue().clear();
+        return;
       case KanbanmodelPackage.WORK_ITEM__COS:
         setCOS(COS_EDEFAULT);
         return;
@@ -840,6 +877,8 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
         return befforts != BEFFORTS_EDEFAULT;
       case KanbanmodelPackage.WORK_ITEM__BVALUE:
         return bvalue != BVALUE_EDEFAULT;
+      case KanbanmodelPackage.WORK_ITEM__LVALUE:
+        return lvalue != null && !lvalue.isEmpty();
       case KanbanmodelPackage.WORK_ITEM__COS:
         return COS_EDEFAULT == null ? cos != null : !COS_EDEFAULT.equals(cos);
       case KanbanmodelPackage.WORK_ITEM__WITEM_SOURCE:

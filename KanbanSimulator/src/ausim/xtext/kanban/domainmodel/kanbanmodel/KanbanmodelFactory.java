@@ -149,6 +149,15 @@ public interface KanbanmodelFactory extends EFactory
   Causality createCausality();
 
   /**
+   * Returns a new object of class '<em>Local Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Local Value</em>'.
+   * @generated
+   */
+  LocalValue createLocalValue();
+
+  /**
    * Returns a new object of class '<em>Service Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -174,6 +183,15 @@ public interface KanbanmodelFactory extends EFactory
    * @generated
    */
   ServiceProvider createServiceProvider();
+
+  /**
+   * Returns a new object of class '<em>Resource</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Resource</em>'.
+   * @generated
+   */
+  Resource createResource();
 
   /**
    * Returns a new object of class '<em>Asset</em>'.

@@ -30,13 +30,15 @@ public class KanbanSimulatorModel implements ContextBuilder<Object>{
 		//root.setOrgName("test");
 		//System.out.println(root.getOrgName());
 		GridFactory gridFactory = GridFactoryFinder.createGridFactory(null);
-		Grid<Object> grid = gridFactory.createGrid("3DGrid", context, 
+		Grid<Object> grid3D = gridFactory.createGrid("3DGrid", context, 
 				new GridBuilderParameters<Object>(new WrapAroundBorders(), 
 						new SimpleGridAdder<Object>(), true, width, height, 50));
-//		GridFactoryFinder.createGridFactory(null).createGrid("Grid", context, 
-//				new GridBuilderParameters<Object>(new WrapAroundBorders(), 
-//						new SimpleGridAdder<Object>(), true, width, height, 50));
-		
+		Grid<Object> grid2D = gridFactory.createGrid("2DGrid", context, 
+				new GridBuilderParameters<Object>(new WrapAroundBorders(), 
+						new SimpleGridAdder<Object>(), true, width, height));
+		Grid<Object> gridWIN = gridFactory.createGrid("WINGrid", context, 
+				new GridBuilderParameters<Object>(new WrapAroundBorders(), 
+						new SimpleGridAdder<Object>(), true, width, height));
 		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>("WI_Hierarchy", context, true);
 		netBuilder.buildNetwork();
 //		Network<Object> net = (Network<Object>)context.getProjection("organization network");

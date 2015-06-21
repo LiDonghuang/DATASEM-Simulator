@@ -1,5 +1,5 @@
 <repast.simphony.visualization.engine.CartesianDisplayDescriptor>
-  <name>2D Display Organization Progress</name>
+  <name>Organization Display</name>
   <type>2D</type>
   <styles>
     <entry>
@@ -14,33 +14,31 @@
       <string>kanbanSimulator.KSSTask</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
+    <entry>
+      <string>kanbanSimulator.Visualization</string>
+      <string>repast.simphony.visualizationOGL2D.DefaultStyleOGL2D</string>
+    </entry>
   </styles>
   <editedStyles>
     <entry>
       <string>kanbanSimulator.DemandSource</string>
-      <string>kanbanSimulator.DemandSource.style_2.xml</string>
+      <string>kanbanSimulator.DemandSource.style_8.xml</string>
     </entry>
     <entry>
       <string>kanbanSimulator.ServiceProviderAgent</string>
-      <string>kanbanSimulator.ServiceProviderAgent.style_1.xml</string>
+      <string>kanbanSimulator.ServiceProviderAgent.style_5.xml</string>
     </entry>
     <entry>
       <string>kanbanSimulator.KSSTask</string>
-      <string>kanbanSimulator.KSSTask.style_4.xml</string>
+      <string>kanbanSimulator.KSSTask.style_8.xml</string>
+    </entry>
+    <entry>
+      <string>kanbanSimulator.Visualization</string>
+      <null/>
     </entry>
   </editedStyles>
-  <netStyles>
-    <entry>
-      <string>organization network</string>
-      <string>repast.simphony.visualization.editedStyle.EditedEdgeStyle2D</string>
-    </entry>
-  </netStyles>
-  <editedNetStyles>
-    <entry>
-      <string>organization network</string>
-      <string>organizationnetwork.style_5.xml</string>
-    </entry>
-  </editedNetStyles>
+  <netStyles/>
+  <editedNetStyles/>
   <frequency>ON_MOVE</frequency>
   <schedParams>
     <start>1.0</start>
@@ -49,15 +47,15 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>-2000170055</hashCode>
+    <hashCode>1757498463</hashCode>
   </schedParams>
   <layoutClassName>foo.bar.baz</layoutClassName>
-  <layoutProjection>3DGrid</layoutProjection>
+  <layoutProjection>2DGrid</layoutProjection>
   <layoutInterval>0</layoutInterval>
   <layerOrder>
     <entry>
       <string>kanbanSimulator.DemandSource</string>
-      <int>0</int>
+      <int>3</int>
     </entry>
     <entry>
       <string>kanbanSimulator.ServiceProviderAgent</string>
@@ -67,34 +65,33 @@
       <string>kanbanSimulator.KSSTask</string>
       <int>1</int>
     </entry>
+    <entry>
+      <string>kanbanSimulator.Visualization</string>
+      <int>0</int>
+    </entry>
   </layerOrder>
   <projections>
     <repast.simphony.scenario.data.ProjectionData>
-      <id>WI_Hierarchy</id>
-      <attributes/>
-      <type>network</type>
-    </repast.simphony.scenario.data.ProjectionData>
-    <repast.simphony.scenario.data.ProjectionData>
-      <id>3DGrid</id>
+      <id>2DGrid</id>
       <attributes/>
       <type>grid</type>
     </repast.simphony.scenario.data.ProjectionData>
   </projections>
   <visualizationProperties class="repast.simphony.visualization.UnitSizeLayoutProperties">
-    <unitSize>30.0</unitSize>
+    <unitSize>100.0</unitSize>
   </visualizationProperties>
   <projectionDescriptors>
     <entry>
-      <string>3DGrid</string>
+      <string>2DGrid</string>
       <repast.simphony.visualization.grid.GridProjectionDescriptor>
-        <proj reference="../../../../projections/repast.simphony.scenario.data.ProjectionData[2]"/>
+        <proj reference="../../../../projections/repast.simphony.scenario.data.ProjectionData"/>
         <props>
           <entry>
             <string>repast.simphony.visualization.grid.GridDecorator</string>
             <map>
               <entry>
                 <string>UNIT_SIZE</string>
-                <float>30.0</float>
+                <float>100.0</float>
               </entry>
               <entry>
                 <string>SHOW</string>
@@ -108,13 +105,6 @@
           </entry>
         </props>
       </repast.simphony.visualization.grid.GridProjectionDescriptor>
-    </entry>
-    <entry>
-      <string>organization network</string>
-      <repast.simphony.visualization.engine.DefaultProjectionDescriptor>
-        <proj reference="../../../../projections/repast.simphony.scenario.data.ProjectionData"/>
-        <props/>
-      </repast.simphony.visualization.engine.DefaultProjectionDescriptor>
     </entry>
   </projectionDescriptors>
   <props/>

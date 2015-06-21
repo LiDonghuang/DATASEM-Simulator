@@ -27,7 +27,7 @@ import governanceModels.governanceSearchStrategy;
 public class DemandSource extends WorkSourceImpl{
 	private int id;
 	private WorkSource workSource;
-	private LinkedList<ServiceProviderAgent> targetUnits;
+	private LinkedList<ServiceProviderAgent> targetTo;
 	private LinkedList<KSSTask> assignmentQ;
 //	private LinkedList<KSSTask> arrivedList;
 //	private LinkedList<KSSTask> completedList;
@@ -37,13 +37,10 @@ public DemandSource(int id, WorkSource wSource) {
 	this.name = wSource.getName();
 	this.description = wSource.getDescription();
 	this.workSource = wSource;
-	this.targetUnits = new LinkedList<ServiceProviderAgent>();	
+	this.targetTo = new LinkedList<ServiceProviderAgent>();	
 	this.assignmentQ = new LinkedList<KSSTask>();
 }
 
-//Schedule the step method for agents.  The method is scheduled starting at 
-	// tick one with an interval of 1 tick.  Specifically, the step starts at 0, and
-	// and recurs at 1,2,3,...etc
 	@ScheduledMethod(start=1,interval=1,priority=30)
 	public void step() {		
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
@@ -53,56 +50,57 @@ public DemandSource(int id, WorkSource wSource) {
 		System.out.println(this.getName()+" on-hand WIs: "+this.getAssignmentQ().size());
 		for (int w = 0; w < this.getAssignmentQ().size(); w++) {
 			KSSTask wItem = this.getAssignmentQ().get(w);
-			System.out.println(this.getName()+" is Assigning WI: "+wItem.getName()+" (id:"+wItem.getTaskId()+")");
-			// 1. What Service does this WI request?				
-			String wItem_reqService = wItem.getReqSpecialties().get(0).getName();
-            // 2. What ServiceProviders can provide this Service for this WI?
-			ArrayList<ServiceProviderAgent> tU_candidates = new ArrayList<ServiceProviderAgent>(0);
-			for (int c = 0; c < this.getTargetUnits().size(); c++) {
-				ServiceProviderAgent tAgent = this.getTargetUnits().get(c);	
-				// 2.1 List All Services of that ServiceProvider
-				for (int ts = 0; ts < tAgent.getServices().size(); ts++) {
-					String tAgent_Service = tAgent.getServices().get(ts).getServiceType().getName();	
-					// 2.2 Find if any matches the Service requested
-					if (wItem_reqService.matches(tAgent_Service)) {
-						// 2.3 If any, add the ServiceProvider to Candidates list
-						tU_candidates.add(tAgent);
+			System.out.println(this.getName()+" is Assigning WI: "
+					+wItem.getName()+" (id:"+wItem.getTaskId()+")");
+			ArrayList<ServiceProviderAgent>serviceProviderCandidates = 
+					this.findServiceProviders(wItem);					
+//			if (!wItem.isAggregationNode())  {
+				if	(serviceProviderCandidates.size()!=0) {
+					// ============== Apply WI Assignment Rule =========================
+					ServiceProviderAgent selectedSP = serviceProviderCandidates.get(RandomHelper.nextIntFromTo(0, serviceProviderCandidates.size()-1));
+					// ================================================================
+					// Assign WI to SP
+					selectedSP.assignWI(wItem);		
+					// Remove WI from AssignmentQ
+					this.getAssignmentQ().remove(wItem);
+					w--; }
+				else {
+					System.out.println("Failed to Assign WI:"
+							+wItem.getName()+" (id:"+wItem.getTaskId()+")"); 
 					}
 				}
-			}			
-			// ONLY ASSIGN WIs WHICH ARE NOT AGGREGATION NODES!
-			if ( (tU_candidates.size() != 0) && (!wItem.isAggregationNode()) ) {
-				// ============== Apply WI Assignment Rule =========================
-				ServiceProviderAgent selectedSP = tU_candidates.get(RandomHelper.nextIntFromTo(0, tU_candidates.size()-1));
-				// ================================================================
-				// Assign WI to SP
-				selectedSP.assignWI(wItem);		
-				// Set WI "Assigned"
-				wItem.setAssigned();
-				wItem.setServiceEfficiency(100); 
-				// Remove WI from AssignmentQ
-				this.getAssignmentQ().remove(wItem);
-				w--;
 			}
-			else {
-				System.out.println("Failed to Assign WI:"+wItem.getName()+" (id:"+wItem.getTaskId()+")");
-			}
-		}
-	}
+//		}
 	
 	
 	
-	public LinkedList<ServiceProviderAgent> getTargetUnits() {
-		return this.targetUnits;
+	public LinkedList<ServiceProviderAgent> getTargetTo() {
+		return this.targetTo;
 	}
 	public LinkedList<KSSTask> getAssignmentQ() {
 		return this.assignmentQ;
 	}
-//	public LinkedList<KSSTask> getArrivedList() {
-//		return this.arrivedList;
-//	}
-//	public LinkedList<KSSTask> getCompletedList() {
-//		return this.completedList;
-//	}
+	public ArrayList<ServiceProviderAgent> findServiceProviders(KSSTask wItem) {
+		// 1. What Service does this WI request?				
+		String wItem_reqService = wItem.getReqSpecialties().get(0).getName();
+		// 2. What ServiceProviders can provide this Service for this WI?
+		ArrayList<ServiceProviderAgent> serviceProviderCandidates = new ArrayList<ServiceProviderAgent>(0);
+		// Only Search From "Target Units"
+		for (int c = 0; c < this.getTargetTo().size(); c++) {
+			ServiceProviderAgent tAgent = this.getTargetTo().get(c);	
+			// 2.1 List All Services of that ServiceProvider
+			for (int ts = 0; ts < tAgent.getServices().size(); ts++) {
+				String tAgent_Service = tAgent.getServices().get(ts).getServiceType().getName();	
+				// 2.2 Find if any matches the Service requested
+				if (wItem_reqService.matches(tAgent_Service)) {
+					// 2.3 If any, add the ServiceProvider to Candidates list
+					serviceProviderCandidates.add(tAgent);
+				}
+			}
+		}	
+		System.out.println("# of candidate SPs: "+serviceProviderCandidates.size());
+		return serviceProviderCandidates;
+	}
+	
 
 }

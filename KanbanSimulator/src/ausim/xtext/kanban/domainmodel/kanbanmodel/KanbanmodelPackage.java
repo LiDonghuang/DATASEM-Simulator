@@ -672,13 +672,22 @@ public interface KanbanmodelPackage extends EPackage
   int WORK_SOURCE__DESCRIPTION = 1;
 
   /**
+   * The feature id for the '<em><b>Target Units</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_SOURCE__TARGET_UNITS = 2;
+
+  /**
    * The feature id for the '<em><b>Assignment Rule</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WORK_SOURCE__ASSIGNMENT_RULE = 2;
+  int WORK_SOURCE__ASSIGNMENT_RULE = 3;
 
   /**
    * The number of structural features of the '<em>Work Source</em>' class.
@@ -687,7 +696,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_SOURCE_FEATURE_COUNT = 3;
+  int WORK_SOURCE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl <em>Work Item</em>}' class.
@@ -790,13 +799,22 @@ public interface KanbanmodelPackage extends EPackage
   int WORK_ITEM__BVALUE = 9;
 
   /**
+   * The feature id for the '<em><b>Lvalue</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORK_ITEM__LVALUE = 10;
+
+  /**
    * The feature id for the '<em><b>COS</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WORK_ITEM__COS = 10;
+  int WORK_ITEM__COS = 11;
 
   /**
    * The feature id for the '<em><b>WItem Source</b></em>' reference.
@@ -805,7 +823,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__WITEM_SOURCE = 11;
+  int WORK_ITEM__WITEM_SOURCE = 12;
 
   /**
    * The feature id for the '<em><b>Arrtime</b></em>' attribute.
@@ -814,7 +832,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__ARRTIME = 12;
+  int WORK_ITEM__ARRTIME = 13;
 
   /**
    * The feature id for the '<em><b>Duedate</b></em>' attribute.
@@ -823,7 +841,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM__DUEDATE = 13;
+  int WORK_ITEM__DUEDATE = 14;
 
   /**
    * The number of structural features of the '<em>Work Item</em>' class.
@@ -832,7 +850,7 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WORK_ITEM_FEATURE_COUNT = 14;
+  int WORK_ITEM_FEATURE_COUNT = 15;
 
   /**
    * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.CausalityImpl <em>Causality</em>}' class.
@@ -881,6 +899,43 @@ public interface KanbanmodelPackage extends EPackage
   int CAUSALITY_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.LocalValueImpl <em>Local Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.LocalValueImpl
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getLocalValue()
+   * @generated
+   */
+  int LOCAL_VALUE = 14;
+
+  /**
+   * The feature id for the '<em><b>Owner</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCAL_VALUE__OWNER = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCAL_VALUE__VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Local Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCAL_VALUE_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceTypeImpl <em>Service Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -888,7 +943,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getServiceType()
    * @generated
    */
-  int SERVICE_TYPE = 14;
+  int SERVICE_TYPE = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -925,7 +980,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getService()
    * @generated
    */
-  int SERVICE = 15;
+  int SERVICE = 16;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -980,7 +1035,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getServiceProvider()
    * @generated
    */
-  int SERVICE_PROVIDER = 16;
+  int SERVICE_PROVIDER = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1109,6 +1164,52 @@ public interface KanbanmodelPackage extends EPackage
   int SERVICE_PROVIDER_FEATURE_COUNT = 13;
 
   /**
+   * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ResourceImpl <em>Resource</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ResourceImpl
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getResource()
+   * @generated
+   */
+  int RESOURCE = 18;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE__DESCRIPTION = 1;
+
+  /**
+   * The feature id for the '<em><b>Services</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE__SERVICES = 2;
+
+  /**
+   * The number of structural features of the '<em>Resource</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESOURCE_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl <em>Asset</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1116,7 +1217,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getAsset()
    * @generated
    */
-  int ASSET = 17;
+  int ASSET = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1162,7 +1263,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getSkill()
    * @generated
    */
-  int SKILL = 18;
+  int SKILL = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1199,7 +1300,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getKanbanTaskModel()
    * @generated
    */
-  int KANBAN_TASK_MODEL = 19;
+  int KANBAN_TASK_MODEL = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1236,7 +1337,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getCapability()
    * @generated
    */
-  int CAPABILITY = 20;
+  int CAPABILITY = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1282,7 +1383,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getRequirement()
    * @generated
    */
-  int REQUIREMENT = 21;
+  int REQUIREMENT = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1337,7 +1438,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getEntity()
    * @generated
    */
-  int ENTITY = 22;
+  int ENTITY = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1392,7 +1493,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getProvision()
    * @generated
    */
-  int PROVISION = 23;
+  int PROVISION = 25;
 
   /**
    * The feature id for the '<em><b>Service Name</b></em>' reference.
@@ -1429,7 +1530,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getStatemachine()
    * @generated
    */
-  int STATEMACHINE = 24;
+  int STATEMACHINE = 26;
 
   /**
    * The feature id for the '<em><b>Events</b></em>' containment reference list.
@@ -1475,7 +1576,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getEvent()
    * @generated
    */
-  int EVENT = 25;
+  int EVENT = 27;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1512,7 +1613,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getCommand()
    * @generated
    */
-  int COMMAND = 26;
+  int COMMAND = 28;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1549,7 +1650,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getState()
    * @generated
    */
-  int STATE = 27;
+  int STATE = 29;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1595,7 +1696,7 @@ public interface KanbanmodelPackage extends EPackage
    * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getTransition()
    * @generated
    */
-  int TRANSITION = 28;
+  int TRANSITION = 30;
 
   /**
    * The feature id for the '<em><b>Event</b></em>' reference.
@@ -2239,6 +2340,17 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getWorkSource_Description();
 
   /**
+   * Returns the meta object for the reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkSource#getTargetUnits <em>Target Units</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Target Units</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.WorkSource#getTargetUnits()
+   * @see #getWorkSource()
+   * @generated
+   */
+  EReference getWorkSource_TargetUnits();
+
+  /**
    * Returns the meta object for the containment reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkSource#getAssignmentRule <em>Assignment Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2370,6 +2482,17 @@ public interface KanbanmodelPackage extends EPackage
   EAttribute getWorkItem_Bvalue();
 
   /**
+   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getLvalue <em>Lvalue</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Lvalue</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getLvalue()
+   * @see #getWorkItem()
+   * @generated
+   */
+  EReference getWorkItem_Lvalue();
+
+  /**
    * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getCOS <em>COS</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2455,6 +2578,38 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EAttribute getCausality_TProbability();
+
+  /**
+   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.LocalValue <em>Local Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Local Value</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.LocalValue
+   * @generated
+   */
+  EClass getLocalValue();
+
+  /**
+   * Returns the meta object for the reference '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.LocalValue#getOwner <em>Owner</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Owner</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.LocalValue#getOwner()
+   * @see #getLocalValue()
+   * @generated
+   */
+  EReference getLocalValue_Owner();
+
+  /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.LocalValue#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.LocalValue#getValue()
+   * @see #getLocalValue()
+   * @generated
+   */
+  EAttribute getLocalValue_Value();
 
   /**
    * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceType <em>Service Type</em>}'.
@@ -2694,6 +2849,49 @@ public interface KanbanmodelPackage extends EPackage
    * @generated
    */
   EReference getServiceProvider_OutsourcingRule();
+
+  /**
+   * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Resource <em>Resource</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Resource</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Resource
+   * @generated
+   */
+  EClass getResource();
+
+  /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Resource#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Resource#getName()
+   * @see #getResource()
+   * @generated
+   */
+  EAttribute getResource_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Resource#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Resource#getDescription()
+   * @see #getResource()
+   * @generated
+   */
+  EAttribute getResource_Description();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Resource#getServices <em>Services</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Services</em>'.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.Resource#getServices()
+   * @see #getResource()
+   * @generated
+   */
+  EReference getResource_Services();
 
   /**
    * Returns the meta object for class '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.Asset <em>Asset</em>}'.
@@ -3674,6 +3872,14 @@ public interface KanbanmodelPackage extends EPackage
     EAttribute WORK_SOURCE__DESCRIPTION = eINSTANCE.getWorkSource_Description();
 
     /**
+     * The meta object literal for the '<em><b>Target Units</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORK_SOURCE__TARGET_UNITS = eINSTANCE.getWorkSource_TargetUnits();
+
+    /**
      * The meta object literal for the '<em><b>Assignment Rule</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3772,6 +3978,14 @@ public interface KanbanmodelPackage extends EPackage
     EAttribute WORK_ITEM__BVALUE = eINSTANCE.getWorkItem_Bvalue();
 
     /**
+     * The meta object literal for the '<em><b>Lvalue</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORK_ITEM__LVALUE = eINSTANCE.getWorkItem_Lvalue();
+
+    /**
      * The meta object literal for the '<em><b>COS</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3836,6 +4050,32 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EAttribute CAUSALITY__TPROBABILITY = eINSTANCE.getCausality_TProbability();
+
+    /**
+     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.LocalValueImpl <em>Local Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.LocalValueImpl
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getLocalValue()
+     * @generated
+     */
+    EClass LOCAL_VALUE = eINSTANCE.getLocalValue();
+
+    /**
+     * The meta object literal for the '<em><b>Owner</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOCAL_VALUE__OWNER = eINSTANCE.getLocalValue_Owner();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOCAL_VALUE__VALUE = eINSTANCE.getLocalValue_Value();
 
     /**
      * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceTypeImpl <em>Service Type</em>}' class.
@@ -4018,6 +4258,40 @@ public interface KanbanmodelPackage extends EPackage
      * @generated
      */
     EReference SERVICE_PROVIDER__OUTSOURCING_RULE = eINSTANCE.getServiceProvider_OutsourcingRule();
+
+    /**
+     * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ResourceImpl <em>Resource</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ResourceImpl
+     * @see ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanmodelPackageImpl#getResource()
+     * @generated
+     */
+    EClass RESOURCE = eINSTANCE.getResource();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESOURCE__NAME = eINSTANCE.getResource_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESOURCE__DESCRIPTION = eINSTANCE.getResource_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Services</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RESOURCE__SERVICES = eINSTANCE.getResource_Services();
 
     /**
      * The meta object literal for the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.AssetImpl <em>Asset</em>}' class.

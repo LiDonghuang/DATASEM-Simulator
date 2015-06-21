@@ -45,7 +45,8 @@ public class SimulationContextBuilder {
 	private ArrayList<ArrayList<KSSTask>> myWINetworks;
 	
 	// ?? ----------- Full Controller ----------------
-	private God myGod;
+	private SystemOfSystems mySoS;
+	private Visualization myVisualization;
 	// ?? --------------------------------------------
 	
 	// ------------- Experiment Settings -------------
@@ -56,7 +57,8 @@ public class SimulationContextBuilder {
 	// --------------------------- SIMULATION CONTEXT BUILDER -----------------------------------
 	public SimulationContextBuilder(String id) {
 		this.Id = new String(id);
-		this.myGod = new God();
+		this.mySoS = new SystemOfSystems();
+		this.myVisualization = new Visualization();
 	}
 
 	public void XMLtoEObjects() {
@@ -199,8 +201,13 @@ public class SimulationContextBuilder {
 				// Specify Service Provider
 				myServiceProvider.setName(tM_name);
 				myServiceProvider.setDescription(tM_description);
+				System.out.println("\n---ServiceProvider: "+myServiceProvider.getName());
+				// ------------------------------------------------
 				// Set ServiceProvider Service
-				NodeList tM_ServiceList = tM.getElementsByTagName("service");
+				Node ServicesNode = tM.getElementsByTagName("services").item(0);
+				Element Services = (Element)ServicesNode;
+				NodeList tM_ServiceList = Services.getElementsByTagName("service");
+				System.out.println("SP Services:");
 				for (int tm_sv = 0; tm_sv < tM_ServiceList.getLength(); tm_sv++) {
 					// Create Service
 					Service myService = KanbanmodelFactory.eINSTANCE.createService();	
@@ -224,7 +231,9 @@ public class SimulationContextBuilder {
 					myService.setEfficiency(tM_sV_efficiency);
 					// Add Service to ServiceProvider
 					myServiceProvider.getServices().add(myService);
-				}
+					System.out.println("Service: "+myService.getServiceType().getName());
+				}		
+				
 				// Set ServiceProvider Governance Strategies
 				Node tM_govStrategyNode = tM.getElementsByTagName("governanceSearchStrategy").item(0);
 				Element tM_govS = (Element) tM_govStrategyNode;							
@@ -260,9 +269,54 @@ public class SimulationContextBuilder {
 					myServiceProvider.setAssignmentRule(tM_assignment);}	
 //				else {myServiceProvider.setAssignmentRule(myServiceProvider.getDefaultStrategy().getWIAssignmentRule());}
 				//-------------------------------------------------------------------------------------------
+//				// Set Resources
+				Node ResourcesNode = tM.getElementsByTagName("resources").item(0);
+				Element Resources = (Element)ResourcesNode;
+				NodeList ResourceList = Resources.getElementsByTagName("resource");				
+				for (int r = 0; r < ResourceList.getLength(); r++) {
+					// Create Resource
+					Resource myResource = KanbanmodelFactory.eINSTANCE.createResource();
+					// Read XML
+					Node ResourceNode = ResourceList.item(r);
+					Element Resource = (Element) ResourceNode;				
+					String Resource_name = Resource.getElementsByTagName("name").item(0).getTextContent();
+					String Resource_description = Resource.getElementsByTagName("Description").item(0).getTextContent();
+					myResource.setName(Resource_name);
+					myResource.setDescription(Resource_description);
+					System.out.println("-Resource: "+myResource.getName());
+					// Resource Skills
+					NodeList r_ServiceList = Resource.getElementsByTagName("service");
+					for (int r_sv = 0; r_sv < r_ServiceList.getLength(); r_sv++) {
+						// Create Service
+						Service myService = KanbanmodelFactory.eINSTANCE.createService();	
+						// Read XML
+						Node r_ServiceNode = r_ServiceList.item(r_sv);
+						Element r_sV = (Element) r_ServiceNode;
+						String r_sV_name = r_sV.getElementsByTagName("name").item(0).getTextContent();
+						String r_sV_Description = r_sV.getElementsByTagName("Description").item(0).getTextContent();
+						String r_sV_Type = r_sV.getElementsByTagName("Type").item(0).getTextContent();
+						int r_sV_efficiency = Integer.parseInt(r_sV.getElementsByTagName("Efficiency").item(0).getTextContent());				
+						// Specify Service
+						myService.setName(r_sV_name);
+						myService.setDescription(r_sV_Description);
+						for (int st = 0; st < serviceTypeList.getLength(); st++) {
+							String stname = this.myServiceTypes.get(st).getName();
+							if (r_sV_Type.matches(stname)) {
+								myService.setServiceType(this.myServiceTypes.get(st));
+								break;
+							}
+						}
+						myService.setEfficiency(r_sV_efficiency);
+						// Add Service to Resource
+						myResource.getServices().add(myService);
+						System.out.println("Service: "+myService.getServiceType().getName());
+					}
+					myServiceProvider.getResources().add(myResource);
+				}
+				// ---------------------------------------------------
 				// Create ServiceProviderAgent Package for this ServiceProvider
-				ServiceProviderAgent mySPAgent = new ServiceProviderAgent(sProviderID, myServiceProvider, dfa);				
-				this.mySPAgents.add(mySPAgent);			
+				ServiceProviderAgent mySPAgent = new ServiceProviderAgent(sProviderID, myServiceProvider, dfa);	
+				this.mySPAgents.add(mySPAgent);				
 				sProviderID ++;
 //				System.out.println(myServiceProvider.getName());
 //				System.out.println(myServiceProvider.getDefaultStrategy().getWIAcceptanceRule());
@@ -273,7 +327,27 @@ public class SimulationContextBuilder {
 //				System.out.println(myServiceProvider.getAssignmentRule());
 			}
 			System.out.println("\nSoS ServiceProvider Agents :");
-			System.out.println(this.mySPAgents);
+			System.out.println(this.mySPAgents);	
+			
+			// ---------------------- Organizational Structure --------------------------------
+			for (int sp=0;sp<serviceProviderList.getLength();sp++) {
+				Node serviceProviderNode = serviceProviderList.item(sp);
+				Element sP = (Element) serviceProviderNode;
+				ServiceProviderAgent mainSP = this.mySPAgents.get(sp);
+				// target Units
+				NodeList tUnitList = sP.getElementsByTagName("targetUnit");
+				for (int tu = 0; tu < tUnitList.getLength(); tu++) {
+					Node sP_targetUnitNode = tUnitList.item(tu);
+					Element sP_tU = (Element) sP_targetUnitNode;
+					String sP_tU_name = sP_tU.getTextContent();
+					for (int sp1=0;sp1<this.mySPAgents.size();sp1++) {
+						String spname = this.mySPAgents.get(sp1).getName();
+						if (sP_tU_name.matches(spname)) {
+							mainSP.getTargetTo().add(this.mySPAgents.get(sp1));
+						}
+					}
+				}
+			}
 			
 //			 --------------------------- Demand Sources --------------------------------			
 			myDemandSources = new ArrayList<DemandSource>(0);
@@ -286,19 +360,31 @@ public class SimulationContextBuilder {
 				Element wSource = (Element) wSourceNode;	
 				String ws_name = wSource.getElementsByTagName("name").item(0).getTextContent();
 				String ws_description = wSource.getElementsByTagName("Description").item(0).getTextContent();
+				NodeList ws_targetUnits = wSource.getElementsByTagName("targetUnit");
 				// Specify
 				myWorkSource.setName(ws_name);
 				myWorkSource.setDescription(ws_description);
 				// Package
 				DemandSource myDemandSource = new DemandSource(dSourceID ++, myWorkSource);
 				
-				myDemandSource.getTargetUnits().addAll(this.mySPAgents);							
+			    // Target Units
+				for (int ws_tu = 0; ws_tu < ws_targetUnits.getLength(); ws_tu++) {
+					Node wS_targetUnitNode = ws_targetUnits.item(ws_tu);
+					Element wS_tU = (Element) wS_targetUnitNode;
+					String wS_tU_name = wS_tU.getTextContent();
+					for (int sp=0;sp<this.mySPAgents.size();sp++) {
+						String spname = this.mySPAgents.get(sp).getName();
+						if (wS_tU_name.matches(spname)) {
+							myDemandSource.getTargetTo().add(this.mySPAgents.get(sp));
+						}
+					}
+				}						
 				this.myDemandSources.add(myDemandSource);
 				dSourceID ++;
 			}
 			System.out.println("\nSoS Demand Sources :");
 			System.out.println(this.myDemandSources);
-					
+				
 			
 			// ------------------------- WORK FLOW DATA MODELS -------------------------------------
 			Parameters p = RunEnvironment.getInstance().getParameters();
@@ -375,22 +461,23 @@ public class SimulationContextBuilder {
 								WI.getReqSpecialties().add(WI_reqsv);
 								break;}
 						}												
-						// Set WorkSource
-						for (int wiws = 0; wiws < this.myDemandSources.size(); wiws++) {
-							String wiws_name = this.myDemandSources.get(wiws).getName();							
-							if (wi_wSource.matches(wiws_name)) {
-								WorkSource WI_wSource = this.myDemandSources.get(wiws);
-								WI.setWItemSource(WI_wSource);
-								break;}
-						}
+
 						//-------------------------------------------------------------------------------------------
 						// Create KSSTask Package for this WI
 						KSSTask myWItem=new KSSTask(wItemID, WI);
-						
+												
+						// Set DemandSource
+						for (int wiws = 0; wiws < this.myDemandSources.size(); wiws++) {
+							String wiws_name = this.myDemandSources.get(wiws).getName();							
+							if (wi_wSource.matches(wiws_name)) {
+								DemandSource WI_wSource = this.myDemandSources.get(wiws);
+								myWItem.setDemandSource(WI_wSource);	
+								myWItem.setDemanded(true);
+								break;}
+						}						
+						// -------------------------------------------------------------------------------------------
 						myWINetwork.add(myWItem);								
-						wItemID++;	
-						
-
+						wItemID++;							
 					// ------------------------ END WORK ITEM --------------------------------
 					} 									
 					// -------------------- WORK ITEM DEPENDENCIES ---------------------------
@@ -499,81 +586,35 @@ public class SimulationContextBuilder {
 	
 	// -------------------------- CONTEXT IMPLEMENTATION -------------------------------------
 	public void ContextImplementation(Context<Object> context) {
-		Grid<Object> grid = (Grid<Object>) context.getProjection("3DGrid");
+		Grid<Object> grid3D = (Grid<Object>) context.getProjection("3DGrid");
+		Grid<Object> grid2D = (Grid<Object>) context.getProjection("2DGrid");		
+		
 		Network<Object> net = (Network<Object>) context.getProjection("WI_Hierarchy");
 		
-		// ?? ---------------------- Create Controller ----------------------------		
-		context.add(this.myGod);
-		this.myGod.getOrganizationMembers().addAll(mySPAgents);
-		this.myGod.getDemandSources().addAll(myDemandSources);
+		// ?? ---------------------- Create Controller ----------------------------
+		context.add(this.myVisualization);
+		context.add(this.mySoS);
+		this.myVisualization.god = mySoS;
+		this.mySoS.getOrganizationMembers().addAll(mySPAgents);
+		this.mySoS.getDemandSources().addAll(myDemandSources);
 		
 		for (int wn=0;wn<this.myWINetworks.size();wn++) {
-			this.myGod.getWaitingList().addAll(this.myWINetworks.get(wn));
+			this.mySoS.getWaitingList().addAll(this.myWINetworks.get(wn));
 		}
 		// ?? ---------------------------------------------------------------------			
 		context.addAll(this.myDemandSources);	
-		grid.moveTo(myDemandSources.get(0), 10,29,4);
+		grid3D.moveTo(myDemandSources.get(0), 10,29,4);
+		grid2D.moveTo(myDemandSources.get(0), 10,29);
 		// ------------------------ Context Grid  ------------------------------
 		// ServiceProvider Agents to Context
 		for (int a = 0; a < this.mySPAgents.size(); a++) {
 			ServiceProviderAgent tAgent = this.mySPAgents.get(a);											
 			context.add(tAgent);
 			// Graphical Control
-			grid.moveTo(tAgent, 10, 20-tAgent.getId()*4, 15);
+			grid3D.moveTo(tAgent, 10, 20-tAgent.getId()*4, 15);
+			grid2D.moveTo(tAgent, 10, 20-tAgent.getId()*4);
 			// ------------------------------------
 		}		
-//		// KSS Tasks to Context
-//		for (int wf = 0; wf < myWINetworks.size(); wf++) {
-//			ArrayList<KSSTask> wItemFlow = myWINetworks.get(wf);
-//			int c = 0;int r = 0;int t = 0;	
-//			for (int w = 0; w < wItemFlow.size(); w++) {
-//				KSSTask wItem = wItemFlow.get(w);			
-//				god.getWaitingList().add(wItem);
-//				context.add(wItem);		
-//				// Graphical Control
-//				if (wItem.getPatternType().getName().matches("Capability")) {																															
-//					grid.moveTo(wItem,1+1*(c+wf),35,15); c++;}
-//				if (wItem.getPatternType().getName().matches("Requirement")) {
-//					grid.moveTo(wItem,1+1*(r+wf),30,10); r++;}
-//				if (wItem.getPatternType().getName().matches("Task")) {
-//					grid.moveTo(wItem,1+1*(t+wf),25,5); t++;}
-//			}
-			// Add KSSTask Dependency Edges
-//			for (int w = 0; w < wItemFlow.size(); w++) {
-//				KSSTask wItem = wItemFlow.get(w);
-//				for (int wst = 0; wst < wItem.getKSSsTasks().size(); wst++) {
-//					KSSTask wItemsTask = wItem.getKSSsTasks().get(wst);
-//					net.addEdge(wItem,wItemsTask);
-//				}
-//			}
-//			// Add KSSTask Assignment-to Edges
-//			for (int w = 0; w < wItemFlow.size(); w++) {
-//				// 1. What Service does this WI request?
-//				KSSTask wItem = wItemFlow.get(w);	
-//				String wItem_reqService = wItem.getReqSpecialties().get(0).getName();
-//                // 2. What ServiceProviders can provide this Service for this WI?
-//				ArrayList<ServiceProviderAgent> tAgent_candidates = new ArrayList<ServiceProviderAgent>(0);
-//				for (int a1 = 0; a1 < mySPAgents.size(); a1++) {
-//					ServiceProviderAgent tAgent = mySPAgents.get(a1);	
-//					// 2.1 List All Services of that ServiceProvider
-//					for (int ts = 0; ts < tAgent.getServices().size(); ts++) {
-//						String tAgent_Service = tAgent.getServices().get(ts).getServiceType().getName();	
-//						// 2.2 Find if any matches the Service requested
-//						if (wItem_reqService.matches(tAgent_Service)) {
-//							// 2.3 If any, add the ServiceProvider to Candidates list
-//							tAgent_candidates.add(tAgent);
-//							break;
-//						}
-//					}
-//				}
-                // 3. Pick one ServiceProvider RANDOMLY and assign the WI...
-//				if ( (tAgent_candidates.size() != 0) && (!wItem.isAggregationNode()) ) {
-//					ServiceProviderAgent sProvider1=tAgent_candidates.get(RandomHelper.nextIntFromTo(0, tAgent_candidates.size()-1));
-//					sProvider1.assignTask(wItem);
-////					net.addEdge(wItem,sProvider1);
-//				}				
-//			}
-//		}
 		// ---------------------- End Context Grid ----------------------------
 	}
 	// ------------------------- END CONTEXT IMPLEMENTATION -------------------------------

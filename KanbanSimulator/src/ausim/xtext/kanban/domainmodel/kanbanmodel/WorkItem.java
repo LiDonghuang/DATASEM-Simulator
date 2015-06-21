@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getReqSpecialties <em>Req Specialties</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getBefforts <em>Befforts</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getBvalue <em>Bvalue</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getLvalue <em>Lvalue</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getCOS <em>COS</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getWItemSource <em>WItem Source</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getArrtime <em>Arrtime</em>}</li>
@@ -256,6 +257,22 @@ public interface WorkItem extends EObject
    * @generated
    */
   void setBvalue(int value);
+
+  /**
+   * Returns the value of the '<em><b>Lvalue</b></em>' containment reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.LocalValue}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Lvalue</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Lvalue</em>' containment reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Lvalue()
+   * @model containment="true"
+   * @generated
+   */
+  EList<LocalValue> getLvalue();
 
   /**
    * Returns the value of the '<em><b>COS</b></em>' attribute.

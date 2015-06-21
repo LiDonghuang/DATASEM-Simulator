@@ -12,6 +12,12 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
+				<parameter name="WI_interArrivalTime" displayName="WI InterArrivalTime" type="int" 
+						defaultValue="10" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
 				<parameter name="worldWidth" displayName="World Width" type="int" 
 						defaultValue="50" 
 						isReadOnly="false" 

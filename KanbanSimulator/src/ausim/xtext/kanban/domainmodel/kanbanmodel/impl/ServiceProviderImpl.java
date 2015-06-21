@@ -2,8 +2,8 @@
  */
 package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 
-import ausim.xtext.kanban.domainmodel.kanbanmodel.Asset;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.Resource;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.ResourceAllocation;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.ResourceOutsourcing;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Service;
@@ -135,7 +135,7 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected EList<Asset> resources;
+  protected EList<Resource> resources;
 
   /**
    * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
@@ -321,11 +321,11 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Asset> getResources()
+  public EList<Resource> getResources()
   {
     if (resources == null)
     {
-      resources = new EObjectContainmentEList<Asset>(Asset.class, this, KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES);
+      resources = new EObjectContainmentEList<Resource>(Resource.class, this, KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES);
     }
     return resources;
   }
@@ -727,7 +727,7 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         return;
       case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
         getResources().clear();
-        getResources().addAll((Collection<? extends Asset>)newValue);
+        getResources().addAll((Collection<? extends Resource>)newValue);
         return;
       case KanbanmodelPackage.SERVICE_PROVIDER__SERVICES:
         getServices().clear();

@@ -1,4 +1,6 @@
 <context id="KanbanSimulator" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://repast.org/scenario/context">
   	<projection id="3DGrid" type="grid" ></projection>
+  	<projection id="2DGrid" type="grid" ></projection>
+  	<projection id="WINGrid" type="grid" ></projection>
   	<projection id="WI_Hierarchy" type="network"/>
 </context>

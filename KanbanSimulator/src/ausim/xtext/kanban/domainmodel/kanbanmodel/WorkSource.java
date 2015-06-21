@@ -2,6 +2,8 @@
  */
 package ausim.xtext.kanban.domainmodel.kanbanmodel;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkSource#getName <em>Name</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkSource#getDescription <em>Description</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkSource#getTargetUnits <em>Target Units</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkSource#getAssignmentRule <em>Assignment Rule</em>}</li>
  * </ul>
  * </p>
@@ -75,6 +78,22 @@ public interface WorkSource extends EObject
    * @generated
    */
   void setDescription(String value);
+
+  /**
+   * Returns the value of the '<em><b>Target Units</b></em>' reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Target Units</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Target Units</em>' reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkSource_TargetUnits()
+   * @model
+   * @generated
+   */
+  EList<ServiceProvider> getTargetUnits();
 
   /**
    * Returns the value of the '<em><b>Assignment Rule</b></em>' containment reference.

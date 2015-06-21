@@ -37,8 +37,8 @@ public class governanceSearchStrategy {
 	public wItemSelectionRule getWItemSelectionRule(){
 		return this.wItemSelection;
 	}
-	public KSSTask selectWI (LinkedList<KSSTask> queue) {
-		return this.wItemSelection.applyRule(queue);
+	public KSSTask selectWI (LinkedList<KSSTask> queue, double timeNow) {
+		return this.wItemSelection.applyRule(queue, timeNow);
 	}
 	
 	

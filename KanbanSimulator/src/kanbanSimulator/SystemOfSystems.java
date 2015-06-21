@@ -23,7 +23,7 @@ import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.*;
 
 
-public class God {
+public class SystemOfSystems {
 	private String name;
 	private String description;
 	private LinkedList<ServiceProviderAgent> organizationMembers;
@@ -36,7 +36,7 @@ public class God {
 	public int totalValueAdded;
 	
 
-public God() {
+public SystemOfSystems() {
 	this.name = "God";
 	this.description = "THE ONE WHO KNOWS EVERYTHING";
 	this.organizationMembers = new LinkedList<ServiceProviderAgent>();
@@ -51,49 +51,28 @@ public God() {
 	// and recurs at 1,2,3,...etc
 	@ScheduledMethod(start=0,interval=1,priority=40)
 	public void step() {		
-		Context<Object> context = ContextUtils.getContext(this);
-		Grid<Object> grid = (Grid<Object>)context.getProjection("3DGrid");	
-		Network<Object> net = (Network<Object>) context.getProjection("WI_Hierarchy");		
-		
+		Context<Object> context = ContextUtils.getContext(this);					
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
-		
-		
+
 		double timeNow = schedule.getTickCount();
 		System.out.println("-------------- TIME NOW : " + timeNow + " --------------");
 		System.out.println("-- This is GOD's Turn --");
-
-		// ---------------- !! Remove Ended WIs From Context------------------------------		
-		for (int w=0; w<this.getEndedList().size(); w++) {
-			KSSTask wItem = this.getEndedList().get(w);				
-			// Completed WI: Add Value to Total Value
-			if (wItem.isCompleted()){
-				this.completedWIs ++;
-				this.totalValueAdded += wItem.getCurrentValue(); 				
-			}
-			this.getEndedList().remove(wItem);
-			// Remove WI from Context
-			context.remove(wItem);	
-			w--;
-		}
-		System.out.println("Completed WIs: "+this.completedWIs);
-		
-		// ---------------- Check WIs to be Created ------------------------------
-		for (int w=0; w<this.getWaitingList().size(); w++) {
-			KSSTask wItem = this.getWaitingList().get(w);						
+				
+		for (int w=0; w<this.getWaitingList().size();w++) {			
+			KSSTask wItem = this.getWaitingList().get(w);	
+			// ---------------- Check WIs to be Created ------------------------------
 			if (!wItem.isCreated()) {
-				if( (wItem.arrTime<=timeNow)) {
+				if( (wItem.isDemanded()) && (wItem.getArrivalTime()<=timeNow)) {
 					// Create WI
 					wItem.setCreated(timeNow);					
 				}
 			}
-		}		
-		// --------------- Move Created WIs to Arrived List and go to Demand Source ------------		
-		for (int w=0; w<this.getWaitingList().size();w++) {			
-			KSSTask wItem = this.getWaitingList().get(w);	
-			if (wItem.isCreated()) {									
-				// Add WI to WI's Demand Source
+			// ------- Move Created WIs to Arrived List and go to Demand Source -------
+			if ((wItem.isCreated())) {									
+				// Add WI to WI's Demand Source 
+				if (wItem.isDemanded()) {
 				DemandSource dSource = this.getDemandSources().get(0);
-				dSource.getAssignmentQ().add(wItem);								
+				dSource.getAssignmentQ().add(wItem); }
 				// Add WI to Arrived List
 				this.getArrivedList().add(wItem);	
 //				System.out.println("Arrived "+this.getArrivedList());
@@ -105,13 +84,14 @@ public God() {
 				context.add(wItem);	
 			}
 		}
-		System.out.println("Waiting WIs: "+this.getWaitingList().size());				
-		// ---------------- Check WIs already Ended and Move to Ended List ------------------------------
+		System.out.println("Waiting WIs: "+this.getWaitingList().size());	
+		
+		// --------- Check Arrived WIs -------------
+		// Check WIs already Ended and Move to Ended List
 		for (int w=0; w<this.getArrivedList().size(); w++) {
 			KSSTask wItem = this.getArrivedList().get(w);	
 			if (wItem.isEnded()){					
-				System.out.println("Is Ended: "+wItem.getName()+" id:"+wItem.getTaskId());
-				// Add WI to Completed List
+				// Add WI to Ended List
 				this.getEndedList().add(wItem);		
 				// Remove WI from Arrived List
 				this.getArrivedList().remove(wItem);
@@ -119,50 +99,28 @@ public God() {
 			}
 		}
 							
-		
-		// ---------------- Visualization Control ------------------------------	
-//		net.removeEdges();		
-//		 *** WI Dependencies Visualization ***	
-		int c = 0;int r = 0;int t = 0;
-		for (int w=0; w<this.getArrivedList().size(); w++) {
-			KSSTask wItem = this.getArrivedList().get(w);		
-//			if (!wItem.isAssigned()) {
-				// Grid Locations
-//				int c = 0;int r = 0;int t = 0;
-				if (wItem.getPatternType().getName().matches("Capability")) {																															
-					grid.moveTo(wItem,12+2*c,29,4);c++;}
-				else if (wItem.getPatternType().getName().matches("Requirement")) {
-					grid.moveTo(wItem,11+2*r,26,8);r++;}
-				else  {grid.moveTo(wItem,11+t,23,12);t++;}
-				// Add KSSTask Dependency Edges
-				for (int wst = 0; wst < wItem.getKSSsTasks().size(); wst++) {
-					KSSTask wItemsTask = wItem.getKSSsTasks().get(wst);
-					if ( (this.getArrivedList().contains(wItemsTask)) && (!wItemsTask.isAssigned()) ){
-						net.addEdge(wItem,wItemsTask);
-					}
-//				}
+	
+		// ---------------- !! Remove Ended WIs From Context------------------------------		
+		for (int w=0; w<this.getEndedList().size(); w++) {
+			KSSTask wItem = this.getEndedList().get(w);				
+			// Completed WI: Add Value to Total Value
+			if (wItem.isCompleted()){
+				this.completedWIs ++;
+				this.totalValueAdded += wItem.getCurrentValue(); 				
 			}
-		}		
-//		 *** SP Queues Visualization ***		
-		for (int s=0;s<this.organizationMembers.size();s++){
-			ServiceProviderAgent SP = this.organizationMembers.get(s);
-			for (int w=0;w<SP.getBacklogQ().size();w++){
-				grid.moveTo(SP.getBacklogQ().get(w), 11+w, 18-SP.getId()*4, 15);
-			}
-			for (int w=0;w<SP.getReadyQ().size();w++){
-				grid.moveTo(SP.getReadyQ().get(w), 11+w, 19-SP.getId()*4, 15);
-			}
-			for (int w=0;w<SP.getActiveQ().size();w++){
-				if (!SP.getActiveQ().get(w).isEnded()){
-				grid.moveTo(SP.getActiveQ().get(w), 11+w, 20-SP.getId()*4, 15);}
-			}
+			this.getEndedList().remove(wItem);
+			// Remove WI from Context
+			System.out.println("Remove "+wItem.getName()+" id:"+wItem.getTaskId());
+			context.remove(wItem);	
+			w--;
 		}
-		
+		System.out.println("Completed WIs: "+this.completedWIs);
 		// ---------------- Termination Condition ------------------------------
-//		if (this.getWaitingList().size()==0){
-//			RunEnvironment.getInstance().endRun();
-//		}
-	// -------------------- END STEP --------------------------------						
+		if ((this.getWaitingList().size()==0)
+			&&(this.getArrivedList().size()==0)&&(this.getEndedList().size()==0)){
+			RunEnvironment.getInstance().endRun();
+		}
+	// ------------------- END STEP --------------------------------						
 	}
 	
 	public LinkedList<ServiceProviderAgent> getOrganizationMembers() {

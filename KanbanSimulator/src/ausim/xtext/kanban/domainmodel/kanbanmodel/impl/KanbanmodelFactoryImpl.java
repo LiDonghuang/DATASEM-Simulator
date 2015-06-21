@@ -78,9 +78,11 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
       case KanbanmodelPackage.WORK_SOURCE: return createWorkSource();
       case KanbanmodelPackage.WORK_ITEM: return createWorkItem();
       case KanbanmodelPackage.CAUSALITY: return createCausality();
+      case KanbanmodelPackage.LOCAL_VALUE: return createLocalValue();
       case KanbanmodelPackage.SERVICE_TYPE: return createServiceType();
       case KanbanmodelPackage.SERVICE: return createService();
       case KanbanmodelPackage.SERVICE_PROVIDER: return createServiceProvider();
+      case KanbanmodelPackage.RESOURCE: return createResource();
       case KanbanmodelPackage.ASSET: return createAsset();
       case KanbanmodelPackage.SKILL: return createSkill();
       case KanbanmodelPackage.KANBAN_TASK_MODEL: return createKanbanTaskModel();
@@ -257,6 +259,17 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
    * <!-- end-user-doc -->
    * @generated
    */
+  public LocalValue createLocalValue()
+  {
+    LocalValueImpl localValue = new LocalValueImpl();
+    return localValue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ServiceType createServiceType()
   {
     ServiceTypeImpl serviceType = new ServiceTypeImpl();
@@ -283,6 +296,17 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     ServiceProviderImpl serviceProvider = new ServiceProviderImpl();
     return serviceProvider;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Resource createResource()
+  {
+    ResourceImpl resource = new ResourceImpl();
+    return resource;
   }
 
   /**

@@ -68,7 +68,7 @@ public class SysEngTeam extends ServiceProviderImpl {
 			schedule = RunEnvironment.getInstance().getCurrentSchedule();
 			double cTime=RandomHelper.nextDoubleFromTo(10, 20)+schedule.getTickCount();
 			System.out.println("Task "+newTask.getTaskId()+" is sceduled to finish at"+cTime);
-			newTask.setEstimatedCompletion(cTime);
+			newTask.setEstimatedCompletionTime(cTime);
 			this.activeQ.add(newTask);
 		}
 		

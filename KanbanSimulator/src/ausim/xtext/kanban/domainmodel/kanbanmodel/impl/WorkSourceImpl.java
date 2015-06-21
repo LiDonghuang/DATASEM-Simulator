@@ -3,17 +3,24 @@
 package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.WIAssignment;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.WorkSource;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkSourceImpl#getName <em>Name</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkSourceImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkSourceImpl#getTargetUnits <em>Target Units</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkSourceImpl#getAssignmentRule <em>Assignment Rule</em>}</li>
  * </ul>
  * </p>
@@ -71,6 +79,16 @@ public class WorkSourceImpl extends MinimalEObjectImpl.Container implements Work
    * @ordered
    */
   protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getTargetUnits() <em>Target Units</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTargetUnits()
+   * @generated
+   * @ordered
+   */
+  protected EList<ServiceProvider> targetUnits;
 
   /**
    * The cached value of the '{@link #getAssignmentRule() <em>Assignment Rule</em>}' containment reference.
@@ -154,6 +172,20 @@ public class WorkSourceImpl extends MinimalEObjectImpl.Container implements Work
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<ServiceProvider> getTargetUnits()
+  {
+    if (targetUnits == null)
+    {
+      targetUnits = new EObjectResolvingEList<ServiceProvider>(ServiceProvider.class, this, KanbanmodelPackage.WORK_SOURCE__TARGET_UNITS);
+    }
+    return targetUnits;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public WIAssignment getAssignmentRule()
   {
     return assignmentRule;
@@ -227,6 +259,8 @@ public class WorkSourceImpl extends MinimalEObjectImpl.Container implements Work
         return getName();
       case KanbanmodelPackage.WORK_SOURCE__DESCRIPTION:
         return getDescription();
+      case KanbanmodelPackage.WORK_SOURCE__TARGET_UNITS:
+        return getTargetUnits();
       case KanbanmodelPackage.WORK_SOURCE__ASSIGNMENT_RULE:
         return getAssignmentRule();
     }
@@ -238,6 +272,7 @@ public class WorkSourceImpl extends MinimalEObjectImpl.Container implements Work
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -248,6 +283,10 @@ public class WorkSourceImpl extends MinimalEObjectImpl.Container implements Work
         return;
       case KanbanmodelPackage.WORK_SOURCE__DESCRIPTION:
         setDescription((String)newValue);
+        return;
+      case KanbanmodelPackage.WORK_SOURCE__TARGET_UNITS:
+        getTargetUnits().clear();
+        getTargetUnits().addAll((Collection<? extends ServiceProvider>)newValue);
         return;
       case KanbanmodelPackage.WORK_SOURCE__ASSIGNMENT_RULE:
         setAssignmentRule((WIAssignment)newValue);
@@ -272,6 +311,9 @@ public class WorkSourceImpl extends MinimalEObjectImpl.Container implements Work
       case KanbanmodelPackage.WORK_SOURCE__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
+      case KanbanmodelPackage.WORK_SOURCE__TARGET_UNITS:
+        getTargetUnits().clear();
+        return;
       case KanbanmodelPackage.WORK_SOURCE__ASSIGNMENT_RULE:
         setAssignmentRule((WIAssignment)null);
         return;
@@ -293,6 +335,8 @@ public class WorkSourceImpl extends MinimalEObjectImpl.Container implements Work
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case KanbanmodelPackage.WORK_SOURCE__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case KanbanmodelPackage.WORK_SOURCE__TARGET_UNITS:
+        return targetUnits != null && !targetUnits.isEmpty();
       case KanbanmodelPackage.WORK_SOURCE__ASSIGNMENT_RULE:
         return assignmentRule != null;
     }
