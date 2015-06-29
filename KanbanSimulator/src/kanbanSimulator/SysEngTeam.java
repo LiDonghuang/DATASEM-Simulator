@@ -64,7 +64,7 @@ public class SysEngTeam extends ServiceProviderImpl {
 		
 		if ((this.readyQ.size()!=0) && (this.activeQ.size()<this.workInprogressLimit)) {
 			KSSTask newTask=this.readyQ.remove();
-			newTask.setStarted(schedule.getTickCount());
+			newTask.setStarted();
 			schedule = RunEnvironment.getInstance().getCurrentSchedule();
 			double cTime=RandomHelper.nextDoubleFromTo(10, 20)+schedule.getTickCount();
 			System.out.println("Task "+newTask.getTaskId()+" is sceduled to finish at"+cTime);
@@ -78,7 +78,7 @@ public class SysEngTeam extends ServiceProviderImpl {
 		for(int i=0;i<activeQSize;i++) {
 			KSSTask nextTask=this.activeQ.get(i); 
 			if (schedule.getTickCount()>=nextTask.getEndTime()) {
-				nextTask.setCompleted(true);
+				nextTask.setCompleted();
 				this.completeQ.add(nextTask);
 			}
 		}
@@ -98,7 +98,7 @@ public class SysEngTeam extends ServiceProviderImpl {
 				KSSTask cTask=complexTask.pollCompletedTask();
 				if (cTask!=null) {complexTask.updateReadyTasks(cTask);}
 				if ((complexTask.getReadyTasks().size()==0) && (complexTask.isCompleted()!=true))
-					{complexTask.setCompleted(true);this.coordinateQ.remove(complexTask);}
+					{complexTask.setCompleted();this.coordinateQ.remove(complexTask);}
 				else this.strategy.assignResource(complexTask);
 			}
 		}

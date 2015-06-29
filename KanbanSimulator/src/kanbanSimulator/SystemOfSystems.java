@@ -34,6 +34,7 @@ public class SystemOfSystems {
 	
 	public int completedWIs;
 	public int totalValueAdded;
+	public double timeNow;
 	
 
 public SystemOfSystems() {
@@ -51,10 +52,10 @@ public SystemOfSystems() {
 	// and recurs at 1,2,3,...etc
 	@ScheduledMethod(start=0,interval=1,priority=40)
 	public void step() {		
-		Context<Object> context = ContextUtils.getContext(this);					
+		Context<Object> context = ContextUtils.getContext(this);
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
 
-		double timeNow = schedule.getTickCount();
+		timeNow = schedule.getTickCount();
 		System.out.println("-------------- TIME NOW : " + timeNow + " --------------");
 		System.out.println("-- This is GOD's Turn --");
 				
@@ -64,7 +65,7 @@ public SystemOfSystems() {
 			if (!wItem.isCreated()) {
 				if( (wItem.isDemanded()) && (wItem.getArrivalTime()<=timeNow)) {
 					// Create WI
-					wItem.setCreated(timeNow);					
+					wItem.setCreated();					
 				}
 			}
 			// ------- Move Created WIs to Arrived List and go to Demand Source -------

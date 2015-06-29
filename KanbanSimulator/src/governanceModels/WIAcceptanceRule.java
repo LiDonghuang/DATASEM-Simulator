@@ -2,11 +2,11 @@ package governanceModels;
 
 import kanbanSimulator.*;
 
-public class wItemAcceptanceRule {
+public class WIAcceptanceRule {
 	private int id;
 	private String name;
 	
-	public wItemAcceptanceRule(String ruleName) {
+	public WIAcceptanceRule(String ruleName) {
 		this.name = ruleName;
 	}
 	

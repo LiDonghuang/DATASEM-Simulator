@@ -21,16 +21,19 @@ import repast.simphony.visualizationOGL2D.DefaultStyleOGL2D;
 import saf.v3d.ShapeFactory2D;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.*;
-import governanceModels.governanceSearchStrategy;
+import governanceModels.GovernanceSearchStrategy;
 
 
 public class DemandSource extends WorkSourceImpl{
+	public SystemOfSystems SoS;
+	
 	private int id;
 	private WorkSource workSource;
 	private LinkedList<ServiceProviderAgent> targetTo;
 	private LinkedList<KSSTask> assignmentQ;
 //	private LinkedList<KSSTask> arrivedList;
 //	private LinkedList<KSSTask> completedList;
+	public Context<Object> context = ContextUtils.getContext(this); 
 
 public DemandSource(int id, WorkSource wSource) {
 	this.id = id;
@@ -43,8 +46,7 @@ public DemandSource(int id, WorkSource wSource) {
 
 	@ScheduledMethod(start=1,interval=1,priority=30)
 	public void step() {		
-		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
-		double timeNow = schedule.getTickCount();
+
 		System.out.println("-- Demand Source "+this.getName()+" is now active --");
 		// ----------------- Assign WI to Target Units --------------------------------
 		System.out.println(this.getName()+" on-hand WIs: "+this.getAssignmentQ().size());

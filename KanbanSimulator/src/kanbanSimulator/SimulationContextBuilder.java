@@ -1,7 +1,5 @@
 package kanbanSimulator;
 
-import governanceModels.valueFunction;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -316,6 +314,7 @@ public class SimulationContextBuilder {
 				// ---------------------------------------------------
 				// Create ServiceProviderAgent Package for this ServiceProvider
 				ServiceProviderAgent mySPAgent = new ServiceProviderAgent(sProviderID, myServiceProvider, dfa);	
+				mySPAgent.SoS = mySoS;
 				this.mySPAgents.add(mySPAgent);				
 				sProviderID ++;
 //				System.out.println(myServiceProvider.getName());
@@ -378,7 +377,8 @@ public class SimulationContextBuilder {
 							myDemandSource.getTargetTo().add(this.mySPAgents.get(sp));
 						}
 					}
-				}						
+				}
+				myDemandSource.SoS = mySoS;
 				this.myDemandSources.add(myDemandSource);
 				dSourceID ++;
 			}
@@ -476,6 +476,7 @@ public class SimulationContextBuilder {
 								break;}
 						}						
 						// -------------------------------------------------------------------------------------------
+						myWItem.SoS = mySoS;
 						myWINetwork.add(myWItem);								
 						wItemID++;							
 					// ------------------------ END WORK ITEM --------------------------------
@@ -495,9 +496,10 @@ public class SimulationContextBuilder {
 							Element sT = (Element) subTaskNode;														
 							String wItem_subTask = sT.getTextContent();					
 							for (int t1 = 0; t1 < myWINetwork.size(); t1++) {
-								KSSTask subTask = myWINetwork.get(t1);
+								KSSTask subTask = myWINetwork.get(t1);						
 								if ( wItem_subTask.matches(subTask.getName()) ) {
-									mainTask.addKSSsTasks(subTask);
+									mainTask.addSubTasks(subTask);	
+									subTask.addUpperTasks(mainTask);
 								}
 							}
 						}
@@ -513,7 +515,8 @@ public class SimulationContextBuilder {
 							for (int t2 = 0; t2 < myWINetwork.size(); t2++) {
 								KSSTask predecessor = myWINetwork.get(t2);
 								if ( wItem_predecessor.matches(predecessor.getName()) ) {
-									mainTask.addKSSpredecessors(predecessor);
+									mainTask.addPredecessorTasks(predecessor);
+									predecessor.addSuccessorTasks(mainTask);
 								}
 							}
 						}
@@ -591,15 +594,21 @@ public class SimulationContextBuilder {
 		
 		Network<Object> net = (Network<Object>) context.getProjection("WI_Hierarchy");
 		
-		// ?? ---------------------- Create Controller ----------------------------
-		context.add(this.myVisualization);
+		// ?? ---------------------- Create Controller ----------------------------		
 		context.add(this.mySoS);
-		this.myVisualization.god = mySoS;
+		this.myVisualization.SoS = mySoS;
+		context.add(this.myVisualization);
 		this.mySoS.getOrganizationMembers().addAll(mySPAgents);
 		this.mySoS.getDemandSources().addAll(myDemandSources);
 		
 		for (int wn=0;wn<this.myWINetworks.size();wn++) {
-			this.mySoS.getWaitingList().addAll(this.myWINetworks.get(wn));
+			ArrayList<KSSTask> myWINetwork = this.myWINetworks.get(wn);
+			for (int w=0;w<myWINetwork.size();w++) {
+				KSSTask myWI = myWINetwork.get(w);
+				if (myWI.getArrivalTime()>0) {
+					this.mySoS.getWaitingList().add(myWI);
+				}
+			}		
 		}
 		// ?? ---------------------------------------------------------------------			
 		context.addAll(this.myDemandSources);	

@@ -11,30 +11,30 @@ import java.util.LinkedList;
 import repast.simphony.random.RandomHelper;
 import repast.simphony.util.SimUtilities;
 
-public class wItemSelectionRule {
+public class WISelectionRule {
 	
 	private String name;	
 	public KSSTask selectedWI;
 	
-	public wItemSelectionRule(String ruleName) {
+	public WISelectionRule(String ruleName) {
 		this.name = ruleName;
 	}
 	
-	public KSSTask applyRule(LinkedList<KSSTask> queue, double timeNow) {
+	public KSSTask applyRule(ServiceProviderAgent SP, LinkedList<KSSTask> queue, double timeNow) {
 		// First-In-First-Out
 		if (this.name.matches("FIFO")){
 			this.selectedWI = queue.getFirst();
-			System.out.println("Applied FIFO");
+			System.out.println(SP.getName()+" Applied FIFO");
 			}
 		// Last-In-First-Out
 		else if (this.name.matches("LIFO")){
 			this.selectedWI = queue.getLast();
-			System.out.println("Applied LIFO");
+			System.out.println(SP.getName()+" Applied LIFO");
 			}
 		// Neutral Random Selection
 		else if (this.name.matches("Neutral")){
 			this.selectedWI = queue.get(RandomHelper.nextIntFromTo(0, queue.size()-1));
-			System.out.println("Applied Neutral");
+			System.out.println(SP.getName()+" Applied Neutral");
 			}
 		// Largest "Base Value" First
 		else if (this.name.matches("ValueBased")){
@@ -49,7 +49,7 @@ public class wItemSelectionRule {
 				candidates.remove(0);
 			}
 			this.selectedWI = selected;
-			System.out.println("Applied ValueBased");
+			System.out.println(SP.getName()+" Applied ValueBased");
 			System.out.println("Base Value:" + selected.getBvalue());
 		}
 		// Earliest Due Date First
@@ -65,7 +65,7 @@ public class wItemSelectionRule {
 				candidates.remove(0);
 			}
 			this.selectedWI = selected;
-			System.out.println("Applied EDD");
+			System.out.println(SP.getName()+" Applied EDD");
 			System.out.println("Duedate:" + selected.getDueDate());
 			}
 		// 	Smallest Processing Time First
@@ -82,7 +82,7 @@ public class wItemSelectionRule {
 				candidates.remove(0);
 			}
 			this.selectedWI = selected;
-			System.out.println("Applied SPT");
+			System.out.println(SP.getName()+" Applied SPT");
 			System.out.println("Estimated Efforts:" + selected.getEstimatedEfforts());
 			}
 		return this.selectedWI;			

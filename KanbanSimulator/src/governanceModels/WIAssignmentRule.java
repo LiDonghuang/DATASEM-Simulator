@@ -2,10 +2,10 @@ package governanceModels;
 
 import kanbanSimulator.*;
 
-public class wItemAssignmentRule {
+public class WIAssignmentRule {
 	private String name;
 	
-	public wItemAssignmentRule(String ruleName) {
+	public WIAssignmentRule(String ruleName) {
 		this.name = ruleName;
 	}
 }

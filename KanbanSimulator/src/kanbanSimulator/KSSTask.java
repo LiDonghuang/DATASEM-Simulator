@@ -22,6 +22,7 @@ import repast.simphony.util.ContextUtils;
 
 
 public class KSSTask extends WorkItemImpl {	
+	public SystemOfSystems SoS;
 	
 	private int id;
 	private WorkItem workItem;	
@@ -30,6 +31,7 @@ public class KSSTask extends WorkItemImpl {
 	
 	private boolean demanded;
 	private boolean aggregationNode;
+	private LinkedList<KSSTask> upperTasks;
 	private LinkedList<KSSTask> subTasks;
 	private boolean predecessor;
 	private boolean successor;
@@ -103,9 +105,11 @@ public class KSSTask extends WorkItemImpl {
 		this.bvalue = wi.getBvalue();
 		this.value = this.bvalue;
 		this.cos = wi.getCOS();
-		// Arrival Time = 0 = Infinity
-		if (!(wi.getArrtime()>0)) {this.setArrivalTime(Float.POSITIVE_INFINITY);}
-		else {this.setArrivalTime(wi.getArrtime());}
+//		// Arrival Time = 0 = Infinity
+//		if (!(wi.getArrtime()>0)) {this.setArrivalTime(Float.POSITIVE_INFINITY);}
+//		else {this.setArrivalTime(wi.getArrtime());}
+//		wi.getArrtime()>0)) {this.setArrivalTime(Float.POSITIVE_INFINITY);}
+		this.setArrivalTime(wi.getArrtime());
 		// Due Date = 0 = Infinity
 		if (!(wi.getDuedate()>0)) {this.setDueDate(Float.POSITIVE_INFINITY);}
 		else {this.setDueDate(wi.getDuedate());}
@@ -115,9 +119,11 @@ public class KSSTask extends WorkItemImpl {
 		this.serviceEfficiency = 0;
 		this.demanded = false;
 		this.aggregationNode = false;
+		this.upperTasks = new LinkedList<KSSTask>();
 		this.subTasks = new LinkedList<KSSTask>();
 		this.successor = false;
 		this.predecessors = new LinkedList<KSSTask>();
+		this.successors = new LinkedList<KSSTask>();
 		this.causer = false;
 		this.causalTriggers = new LinkedList<KSSTrigger>();
 		this.allocatedResources = new LinkedList<ServiceResource>();
@@ -132,10 +138,7 @@ public class KSSTask extends WorkItemImpl {
 	
 	@ScheduledMethod(start=1,interval=1,priority=10)
 	public void step() {	
-		Context<Object> context = ContextUtils.getContext(this);
-		
-		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
-		double timeNow = schedule.getTickCount();
+
 		// ********************* STEP *******************************
 		System.out.println("-- WI "+this.getName()+" updates --");	
 //		System.out.println("Requested By: "+this.getRequester().getName());
@@ -166,60 +169,33 @@ public class KSSTask extends WorkItemImpl {
 				// ------ Progress Completion Check
 				if (this.getProgress() >= 0.999999) {			
 					this.setProgress(1.00);
-					this.setCompleted(timeNow);					
-//					this.setEnded(timeNow);
-					}
+					this.setCompleted();
+				}
 				System.out.println("Progress: "+this.progress);
 			}
 		}
-			// ------------ Aggregation WI Progress Check -------------	
-		else if (this.isAggregationNode()) {
-			boolean cpl = true;
-			for (int st = 0; st < this.subTasks.size(); st++) {	
-				KSSTask subTask = this.subTasks.get(st);
-				// If any subTask not completed, the mainTask is not completed
-				if (!subTask.isCompleted()) {
-					cpl = false;
-					System.out.println(this.getName()+" subTask:"+
-							subTask.getName()+" is not Completed");
-					}
-				}
-			if (cpl == true) {
-				this.setCompleted(timeNow);
-//				this.setEnded(timeNow);
-				}
-			}		
-		// ---------------------------------------------------------
-		
-
-		
-		// ------------ Trigger Casuality --------------------------
-		if (this.isCauser()&&this.isAssigned()){
-			for (int c=0;c<this.getKSSTriggers().size();c++) {
-				KSSTrigger trigger = this.getKSSTriggers().get(c);
-				if (this.progress >= trigger.getAtProgress()) {
-					double rand = Math.random();
-					if (trigger.getOnProbability() >= rand) {
-						for (int t=0;t<trigger.getTriggered().size();t++) {
-							KSSTask triggeredWI = trigger.getTriggered().get(t);
-							if (!trigger.isRepetitive() && !triggeredWI.isCreated()){
-								// Create triggered WI
-//								context.add(triggeredWI);
-								System.out.println("triggered: "+triggeredWI.getName());
-								triggeredWI.setCreated(timeNow);
-								triggeredWI.setArrivalTime(timeNow);
-								// Put triggered WI to requestedQ of main WI								
-								this.getAssignedTo().assignWI(triggeredWI);										
-							}
-						}
-					}
-					if (!trigger.isRepetitive()) {
-						this.getKSSTriggers().remove(trigger);
-					}
+//		else if (this.isAggregationNode()) {
+//			double currentProgress = 0;
+//			double totalEfforts = 0;
+//			for (int s=0;s<this.getSubTasks().size();s++) {
+//				KSSTask subTask = this.getSubTasks().get(s);
+//				totalEfforts += subTask.getBefforts();
+//			}
+//		}
+		// ------------ Aggregation WI Progress Check -------------	
+		if (this.isCompleted()) {
+			for (int u=0;u<this.getUpperTasks().size();u++) {
+				KSSTask upperTask = this.getUpperTasks().get(u);
+				if (upperTask.isCreated() && !upperTask.isCompleted()) {
+					upperTask.checkSubTasksCompletion();
 				}
 			}
 		}
-		
+			
+		// ---------------------------------------------------------
+	
+		// ------------ Trigger Casuality --------------------------
+		this.checkCausalities();		
 
 	// ************************* END STEP ********************************
 	}
@@ -260,26 +236,37 @@ public class KSSTask extends WorkItemImpl {
 		this.causer = a;
 	}
 	///////////////////////////////////////////////////
-	
-    public LinkedList<KSSTask> getKSSsTasks() {
+    public LinkedList<KSSTask> getUpperTasks() {
+    	return this.upperTasks;
+    }
+	public void addUpperTasks(KSSTask e) {	
+		this.getUpperTasks().add(e);
+	}	
+	public LinkedList<KSSTask> getSubTasks() {
     	return this.subTasks;
     }
-	public void addKSSsTasks(KSSTask e) {	
-		this.getKSSsTasks().add(e);
+	public void addSubTasks(KSSTask e) {	
+		this.getSubTasks().add(e);
 	}
-    public LinkedList<KSSTask> getKSSpredecessors() {
+    public LinkedList<KSSTask> getPredecessorTasks() {
     	return this.predecessors;
     }
-	public void addKSSpredecessors(KSSTask e) {	
-		this.getKSSpredecessors().add(e);
+	public void addPredecessorTasks(KSSTask e) {	
+		this.getPredecessorTasks().add(e);
+	}
+    public LinkedList<KSSTask> getSuccessorTasks() {
+    	return this.successors;
+    }
+	public void addSuccessorTasks(KSSTask e) {	
+		this.getPredecessorTasks().add(e);
 	}
 	public boolean precedencyCleared() {
 		if (this.isSuccessor()) {
 			boolean cleared = true;
-			for (int p=0;p<this.getKSSpredecessors().size();p++) {
-				KSSTask pTask = this.getKSSpredecessors().get(p);
+			for (int p=0;p<this.getPredecessorTasks().size();p++) {
+				KSSTask pTask = this.getPredecessorTasks().get(p);
 				if (pTask.isCompleted()) {
-					this.getKSSpredecessors().remove(p);
+					this.getPredecessorTasks().remove(p);
 				}
 				else if (!pTask.isCompleted()){
 					cleared = false;
@@ -296,19 +283,40 @@ public class KSSTask extends WorkItemImpl {
 	public void addKSSTriggers(KSSTrigger e) {	
 		this.getKSSTriggers().add(e);
 	}
-	/////////////////////////////////////////////////
-	public void setCompleted(boolean isCompleted) {
-		this.completed=true;
-		System.out.print("*** WorkItem "+this.getName()+"(id:"+this.getTaskId()+")"+" is Completed ***\n");
-		/*if (this.complexTask==true) {
-			Iterator<KSSTask> completedTasks=this.completedList.iterator();
-			while (completedTasks.hasNext()) {
-				KSSTask nextCTask=completedTasks.next();
-				//nextCTask=null;
+	public void checkCausalities() {
+		if (this.isCauser()&&this.isAssigned()){
+			//-
+			Context<Object> context = ContextUtils.getContext(this);	
+			//-
+			for (int c=0;c<this.getKSSTriggers().size();c++) {
+				KSSTrigger trigger = this.getKSSTriggers().get(c);
+				if (this.progress >= trigger.getAtProgress()) {
+					double rand = Math.random();
+					if (trigger.getOnProbability() >= rand) {
+						for (int t=0;t<trigger.getTriggered().size();t++) {
+							KSSTask triggeredWI = trigger.getTriggered().get(t);
+							if (!trigger.isRepetitive() && !triggeredWI.isCreated()){
+								// Create triggered WI
+//								context.add(triggeredWI);
+								System.out.println(this.getName()+
+										" triggered "+triggeredWI.getName());
+								context.add(triggeredWI);
+								this.SoS.getArrivedList().add(triggeredWI);
+								triggeredWI.setCreated();
+								triggeredWI.setArrivalTime(this.SoS.timeNow);
+								// Put triggered WI to requestedQ of main WI's SP								
+								this.getAssignedTo().assignWI(triggeredWI);										
+							}
+						}
+					}
+					if (!trigger.isRepetitive()) {
+						this.getKSSTriggers().remove(trigger);
+					}
+				}
 			}
-		}*/
+		}
 	}
-	
+	/////////////////////////////////////////////////	
 	public boolean isComplex() {
 		return this.complexTask;
 	}
@@ -327,9 +335,9 @@ public class KSSTask extends WorkItemImpl {
 		this.dueDate = dDate;
 	}
 	
-	public void setStarted(double sTime) {
+	public void setStarted() {
 		this.started = true;
-		 this.startTime = sTime;	
+		 this.startTime = this.SoS.timeNow;;	
 		 System.out.println("WorkItem "+this.getName()+"(id:"+this.getTaskId()+")"+" is started");
 	}
 	public boolean isStarted() {
@@ -362,19 +370,21 @@ public class KSSTask extends WorkItemImpl {
 	public boolean isCompleted()  {
 		return this.completed;
 	}
-	public void setCompleted(double tNow) {
+	public void setCompleted() {
 		this.completed=true;
-		System.out.println(this.getName()+" (id:"+this.getTaskId()+") is Completed");
+		System.out.print("*** WorkItem "+this.getName()
+				+"(id:"+this.getTaskId()+")"+" is Completed ***\n");
 	}
 	
 	public boolean isEnded()  {
 		return this.ended;		
 	}
-	public void setEnded(double tNow) {
+	public void setEnded() {
 		this.ended=true;
-		this.endTime = tNow;
+		this.endTime = this.SoS.timeNow;
 		this.cycleTime = this.endTime - this.createdTime;
 		System.out.println(this.getName()+" (id:"+this.getTaskId()+") is Ended");
+		System.out.println("CycleTime: "+this.getCycleTime());
 	}
 	public double getEndTime() {
 		return this.endTime;
@@ -397,9 +407,9 @@ public class KSSTask extends WorkItemImpl {
 	public boolean isCreated() {
 		return this.created;
 	}	
-	public void setCreated(double tNow) {
+	public void setCreated() {
 		this.created=true;
-		this.createdTime=tNow;
+		this.createdTime=this.SoS.timeNow;
 		System.out.println(this.getName()+"(id:"+this.getTaskId()+") is Created");
 //		this.arrTime = this.createdTime;
 	}
@@ -411,6 +421,21 @@ public class KSSTask extends WorkItemImpl {
 	}
 	public double getProgressRate() {
 		return this.progressRate;
+	}
+	public void checkSubTasksCompletion() {
+		if (this.isAggregationNode()) {
+			boolean cpl = true;
+			for (int st = 0; st < this.getSubTasks().size(); st++) {	
+				KSSTask subTask = this.getSubTasks().get(st);
+				// If any subTask not completed, the mainTask is not completed
+				if (!subTask.isCompleted()) {
+					cpl = false;
+				}
+			}
+			if (cpl == true) {
+				this.setCompleted();
+			}
+		}
 	}
 	//////////////////////////////////////////////////////////////////////////
 	
@@ -515,6 +540,13 @@ public class KSSTask extends WorkItemImpl {
 	}
 	public void allocateResource(ServiceResource sR) {
 		this.getAllocatedResources().add(sR);
+		System.out.println("Resource "+sR.getName()+
+				" is Allocated to "+this.getName());
+	}
+	public void withdrawResource(ServiceResource sR) {
+		this.getAllocatedResources().remove(sR);
+		System.out.println("Resource "+sR.getName()+
+				" is Withdrawed from "+this.getName());
 	}
 	public LinkedList<ServiceResource> getAllocatedResources() {
 		return this.allocatedResources;
