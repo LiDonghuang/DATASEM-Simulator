@@ -1,0 +1,1288 @@
+<?xml version="1.0"?>
+<KSSModel>
+	<ExperimentSettings>
+		<Replications>200</Replications>
+		<InterArrivalTime>50</InterArrivalTime>
+	</ExperimentSettings>
+<GovernanceModel>
+	<GovernanceSearchStrategies>
+		<Strategy>
+			<name>GlobalDefaultStrategy</name>
+			<Description>Default Strategy for All Teams</Description>					
+			<acceptanceRule>FIFO</acceptanceRule>
+			<selectionRule>FIFO</selectionRule>
+			<assignmentRule>Neutral</assignmentRule>
+			<allocationRule>Neutral</allocationRule>
+			<outsourcingRule>Neutral</outsourcingRule>
+		</Strategy>
+		<Strategy>
+			<name>GlobalProductDevelopmentTeamStrategy</name>
+			<Description>Product/Development Teams Strategy</Description>					
+			<acceptanceRule>FIFO</acceptanceRule>
+			<selectionRule>FIFO</selectionRule>
+			<assignmentRule>Neutral</assignmentRule>
+			<allocationRule>Neutral</allocationRule>
+			<outsourcingRule>Neutral</outsourcingRule>
+		</Strategy>
+		<Strategy>
+			<name>GlobalSystemEngineeringTeamStrategy</name>
+			<Description>SE Teams Strategy</Description>					
+			<acceptanceRule>FIFO</acceptanceRule>
+			<selectionRule>FIFO</selectionRule>
+			<assignmentRule>Neutral</assignmentRule>
+			<allocationRule>Neutral</allocationRule>
+			<outsourcingRule>Neutral</outsourcingRule>
+		</Strategy>
+	</GovernanceSearchStrategies>
+	<TaskPatterns>
+		<TaskPattern>
+			<name>CRT</name>
+			<Description>CapabilityRequirementTaskModel</Description>
+			<Types>
+				<Type>
+				<name>Capability</name>
+				<Description>Capability</Description>
+				</Type>
+				<Type>
+				<name>Requirement</name>
+				<Description>Requirement</Description>
+				</Type>
+				<Type>
+				<name>Task</name>
+				<Description>Task</Description>
+				</Type>
+			</Types>	
+		</TaskPattern>
+	</TaskPatterns>
+	<ValueFunctions>
+		<ValueFunction>
+			<name>ClassOfService</name>
+			<Description>Class-of-Service Time-dependent Value Functions</Description>
+		</ValueFunction>
+	</ValueFunctions>
+</GovernanceModel>
+
+
+<OrganizationalModel>
+	<ServiceTypes>
+		<ServiceType>
+			<name>S0001</name>
+			<Description>CrossTeamCollaboration_EmergencyResponse</Description>
+		</ServiceType>	
+		<ServiceType>
+			<name>S0101</name>
+			<Description>SE_CapabilityDetermination</Description>
+		</ServiceType>	
+		<ServiceType>
+			<name>S0102</name>
+			<Description>SE_CapabilityAnalysis</Description>
+		</ServiceType>	
+		<ServiceType>
+			<name>S0103</name>
+			<Description>SE_RequirementAnalysis</Description>
+		</ServiceType>	
+		<ServiceType>
+			<name>S0201</name>
+			<Description>Network_Maintenance</Description>
+		</ServiceType>	
+		<ServiceType>
+			<name>S0202</name>
+			<Description>Network_Development</Description>
+		</ServiceType>	
+		<ServiceType>
+			<name>S0301</name>
+			<Description>PatientManagement_ProductDevelopment</Description>
+		</ServiceType>	
+		<ServiceType>
+			<name>S0302</name>
+			<Description>PatientManagement_UserSupport</Description>
+		</ServiceType>	
+		<ServiceType>
+			<name>S0401</name>
+			<Description>Database_Maintenance</Description>
+		</ServiceType>	
+		<ServiceType>
+			<name>S0402</name>
+			<Description>Database_Development</Description>
+		</ServiceType>	
+	</ServiceTypes>
+	<ServiceProvidersList>
+	<ServiceProvider>
+		<name>SE_Team</name>
+		<Description>System Engineering Team</Description>
+		<sourceUnits>
+		<sourceUnit>NW_Team</sourceUnit>
+		<sourceUnit>PM_Team_1</sourceUnit>
+		<sourceUnit>DB_Team</sourceUnit>
+		</sourceUnits>
+		<targetUnits>
+		<targetUnit>NW_Team</targetUnit>
+		<targetUnit>PM_Team_1</targetUnit>
+		<targetUnit>DB_Team</targetUnit>
+		</targetUnits>
+		<subordinateUnits>
+		</subordinateUnits>	
+		<services>
+		<service>
+			<name>SE_S0101</name>
+			<Description>SE_CapabilityDetermination</Description>
+			<Type>S0101</Type>
+			<Efficiency>1000</Efficiency>
+		</service>
+		<service>
+			<name>SE_S0102</name>
+			<Description>SE_SEAnalysis</Description>
+			<Type>S0102</Type>
+			<Efficiency>1000</Efficiency>
+		</service>
+		<service>
+			<name>SE_S0103</name>
+			<Description>SE_RequirementAnalysis</Description>
+			<Type>S0103</Type>
+			<Efficiency>1000</Efficiency>
+		</service>
+		</services>	
+		<governanceSearchStrategy>						
+			<default>GlobalDefaultStrategy</default>
+			<specified>
+			<acceptanceRule>null</acceptanceRule>
+			<selectionRule>null</selectionRule>
+			<assignmentRule>null</assignmentRule>
+			<allocationRule>null</allocationRule>
+			<outsourcingRule>null</outsourcingRule>
+			</specified>
+		</governanceSearchStrategy>	
+		<resources>
+		<resource>
+			<name>SE_Spec01</name>
+			<Description>SE_Specialist01</Description>
+			<services>
+			<service>
+				<name>SE_S0101</name>
+				<Description>SE_CapabilityDetermination</Description>
+				<Type>S0101</Type>
+				<Efficiency>500</Efficiency>
+			</service>
+			<service>
+				<name>SE_S0102</name>
+				<Description>SE_SEAnalysis</Description>
+				<Type>S0102</Type>
+				<Efficiency>500</Efficiency>
+			</service>
+			<service>
+				<name>SE_S0103</name>
+				<Description>SE_RequirementAnalysis</Description>
+				<Type>S0103</Type>
+				<Efficiency>500</Efficiency>
+			</service>
+			</services>	
+		</resource>	
+		<resource>
+			<name>SE_Spec02</name>
+			<Description>SE_Specialist02</Description>
+			<services>
+			<service>
+				<name>SE_S0101</name>
+				<Description>SE_CapabilityDetermination</Description>
+				<Type>S0101</Type>
+				<Efficiency>500</Efficiency>
+			</service>
+			<service>
+				<name>SE_S0102</name>
+				<Description>SE_SEAnalysis</Description>
+				<Type>S0102</Type>
+				<Efficiency>500</Efficiency>
+			</service>
+			<service>
+				<name>SE_S0103</name>
+				<Description>SE_RequirementAnalysis</Description>
+				<Type>S0103</Type>
+				<Efficiency>500</Efficiency>
+			</service>
+			</services>	
+		</resource>	
+		</resources>	
+	</ServiceProvider>
+	<ServiceProvider>
+		<name>NW_Team</name>
+		<Description>Network DomainTeam</Description>
+		<sourceUnits>
+		<sourceUnit>SE_Team</sourceUnit>
+		</sourceUnits>
+		<targetUnits>
+		<targetUnit>SE_Team</targetUnit>
+		</targetUnits>
+		<subordinateUnits>
+		</subordinateUnits>	
+		<services>
+		<service>
+			<name>NW_S0201</name>
+			<Description>Network_Maintenance</Description>
+			<Type>S0201</Type>
+			<Efficiency>500</Efficiency>
+		</service>
+		<service>
+			<name>NW_S0202</name>
+			<Description>Network_Development</Description>
+			<Type>S0202</Type>
+			<Efficiency>500</Efficiency>
+		</service>
+		</services>	
+		<governanceSearchStrategy>						
+			<default>GlobalDefaultStrategy</default>
+			<specified>
+			<acceptanceRule>null</acceptanceRule>
+			<selectionRule>FIFO</selectionRule>						
+			<assignmentRule>null</assignmentRule>
+			<allocationRule>null</allocationRule>
+			<outsourcingRule>null</outsourcingRule>
+			</specified>
+		</governanceSearchStrategy>	
+		<resources>
+		<resource>
+			<name>NW_Eng01</name>
+			<Description>NW_Engineer01</Description>
+			<services>
+			<service>
+				<name>NW_S0201</name>
+				<Description>Network_Maintenance</Description>
+				<Type>S0201</Type>
+				<Efficiency>500</Efficiency>
+			</service>
+			<service>
+				<name>NW_S0202</name>
+				<Description>Network_Development</Description>
+				<Type>S0202</Type>
+				<Efficiency>500</Efficiency>
+			</service>
+			</services>	
+		</resource>	
+		</resources>	
+	</ServiceProvider>
+	<ServiceProvider>
+		<name>PM_Team_1</name>
+		<Description>PatientManagement ProductTeam</Description>
+		<sourceUnits>
+		<sourceUnit>SE_Team</sourceUnit>
+		<sourceUnit>PM_Team_2</sourceUnit>
+		</sourceUnits>
+		<targetUnits>
+		<targetUnit>SE_Team</targetUnit>
+		<targetUnit>PM_Team_2</targetUnit>
+		</targetUnits>
+		<subordinateUnits>
+		</subordinateUnits>	
+		<services>
+		<service>
+			<name>PM1_S0301</name>
+			<Description>PatientManagement_ProductDevelopment</Description>
+			<Type>S0301</Type>
+			<Efficiency>500</Efficiency>
+		</service>
+		<service>
+			<name>PM1_S0302</name>
+			<Description>PatientManagement_UserSupport</Description>
+			<Type>S0302</Type>
+			<Efficiency>500</Efficiency>
+		</service>
+		</services>	
+		<governanceSearchStrategy>						
+			<default>GlobalDefaultStrategy</default>
+			<specified>
+			<acceptanceRule>ValueBased</acceptanceRule>						
+			<selectionRule>null</selectionRule>
+			<assignmentRule>null</assignmentRule>
+			<allocationRule>null</allocationRule>
+			<outsourcingRule>null</outsourcingRule>
+			</specified>
+		</governanceSearchStrategy>	
+		<resources>
+		<resource>
+			<name>PM1_Eng1</name>
+			<Description>SE_Specialist01</Description>
+			<services>
+			<service>
+				<name>PM_1_S0301</name>
+				<Description>PatientManagement_ProductDevelopment</Description>
+				<Type>S0301</Type>
+				<Efficiency>500</Efficiency>
+			</service>
+			<service>
+				<name>PM_1_S0302</name>
+				<Description>PatientManagement_UserSupport</Description>
+				<Type>S0302</Type>
+				<Efficiency>500</Efficiency>
+			</service>
+			</services>	
+		</resource>	
+		</resources>	
+	</ServiceProvider>
+	<ServiceProvider>
+		<name>PM_Team_2</name>
+		<Description>PatientManagement ProductTeam</Description>
+		<sourceUnits>
+		<sourceUnit>SE_Team</sourceUnit>
+		<sourceUnit>PM_Team_1</sourceUnit>
+		</sourceUnits>
+		<targetUnits>
+		<targetUnit>SE_Team</targetUnit>
+		<targetUnit>PM_Team_1</targetUnit>
+		</targetUnits>
+		<subordinateUnits>
+		</subordinateUnits>	
+		<services>
+		<service>
+			<name>PM2_S0301</name>
+			<Description>PatientManagement_ProductDevelopment</Description>
+			<Type>S0301</Type>
+			<Efficiency>1000</Efficiency>
+		</service>
+		</services>	
+		<governanceSearchStrategy>						
+			<default>GlobalDefaultStrategy</default>
+			<specified>
+			<acceptanceRule>ValueBased</acceptanceRule>						
+			<selectionRule>null</selectionRule>
+			<assignmentRule>null</assignmentRule>
+			<allocationRule>null</allocationRule>
+			<outsourcingRule>null</outsourcingRule>
+			</specified>
+		</governanceSearchStrategy>	
+		<resources>
+		<resource>
+			<name>PM2_Eng01</name>
+			<Description>PM_Engineer01</Description>
+			<services>
+			<service>
+				<name>PM2_S0301</name>
+				<Description>PatientManagement_ProductDevelopment</Description>
+				<Type>S0301</Type>
+				<Efficiency>1000</Efficiency>
+			</service>
+			</services>	
+		</resource>	
+		</resources>	
+	</ServiceProvider>
+	<ServiceProvider>
+		<name>DB_Team</name>
+		<Description>Database DomainTeam</Description>
+		<sourceUnits>
+		<sourceUnit>SE_Team</sourceUnit>
+		</sourceUnits>
+		<targetUnits>
+		<targetUnit>SE_Team</targetUnit>
+		</targetUnits>
+		<subordinateUnits>
+		</subordinateUnits>	
+		<services>
+		<service>
+			<name>DB_S0401</name>
+			<Description>Database_Maintenance</Description>
+			<Type>S0401</Type>
+			<Efficiency>500</Efficiency>
+		</service>
+		<service>
+			<name>DB_S0402</name>
+			<Description>Database_Development</Description>
+			<Type>S0402</Type>
+			<Efficiency>500</Efficiency>
+		</service>
+		</services>	
+		<governanceSearchStrategy>						
+			<default>GlobalDefaultStrategy</default>
+			<specified>
+			<acceptanceRule>null</acceptanceRule>
+			<selectionRule>Neutral</selectionRule>						
+			<assignmentRule>null</assignmentRule>
+			<allocationRule>null</allocationRule>
+			<outsourcingRule>null</outsourcingRule>
+			</specified>
+		</governanceSearchStrategy>	
+		<resources>
+		<resource>
+			<name>DB_Eng01</name>
+			<Description>DB_Engineer01</Description>
+			<services>
+			<service>
+				<name>DB_S0401</name>
+				<Description>Database_Maintenance</Description>
+				<Type>S0401</Type>
+				<Efficiency>500</Efficiency>
+			</service>
+			<service>
+				<name>DB_S0402</name>
+				<Description>Database_Development</Description>
+				<Type>S0402</Type>
+				<Efficiency>500</Efficiency>
+			</service>
+			</services>	
+		</resource>	
+		</resources>	
+	</ServiceProvider>
+	</ServiceProvidersList>
+</OrganizationalModel>
+
+<WorkItemNetworkModel>
+<workSource>
+	<name>ESM</name>
+	<Description>ExecutiveStakeholderManagement_Board</Description>
+	<targetUnits>
+	<targetUnit>SE_Team</targetUnit>
+	</targetUnits>
+	<assignmentRule>Neutral</assignmentRule>						
+</workSource>
+<workItem>
+	<name>C1</name>
+	<Description>New Database Software Deployment</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Capability</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>AC1</subtask>
+	<subtask>R1</subtask>
+	<subtask>R2</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AC1</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>500</baseValue>
+		<classOfService>Standard</classOfService>
+		<WorkSource>ESM</WorkSource>
+		<arrivalTime>1</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>C2</name>
+	<Description>Network Software Upgrade</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Capability</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>AC2</subtask>
+	<subtask>R2</subtask>
+	<subtask>R3</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AC2</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>600</baseValue>
+		<classOfService>Standard</classOfService>
+		<WorkSource>ESM</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>C3</name>
+	<Description>Telemetry Integration</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Capability</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>AC3</subtask>
+	<subtask>R3</subtask>
+	<subtask>R5</subtask>
+	<subtask>R6</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AC3</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>800</baseValue>
+		<classOfService>Important</classOfService>
+		<WorkSource>ESM</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>C4</name>
+	<Description>Performance Upgrade</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Capability</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>AC4</subtask>
+	<subtask>R4</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AC4</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>300</baseValue>
+		<classOfService>DateCertain</classOfService>
+		<WorkSource>ESM</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>100</dueDate>
+</workItem>
+<workItem>
+	<name>AC1</name>
+	<Description>Analysis Capability: New Database Software Deployment</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>R1</triggered>
+	<triggered>R2</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>30</baseEfforts>
+		<baseValue>5</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AC2</name>
+	<Description>Analysis Capability: Network Software Upgrade</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>R2</triggered>
+	<triggered>R3</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>30</baseEfforts>
+		<baseValue>8</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AC3</name>
+	<Description>Analysis Capability: Telemetry Integration</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>R3</triggered>
+	<triggered>R5</triggered>
+	<triggered>R6</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>30</baseEfforts>
+		<baseValue>6</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AC4</name>
+	<Description>Analysis Capability: Performance Upgrade</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>R4</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>30</baseEfforts>
+		<baseValue>3</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>R1</name>
+	<Description>Integration mdl.</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Requirement</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>AR1</subtask>
+	<subtask>T1</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AR1</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0103</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>50</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>R2</name>
+	<Description>NW data migration</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Requirement</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>AR2</subtask>
+	<subtask>T2</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AR2</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0103</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>130</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>R3</name>
+	<Description>Update NWSW</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Requirement</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>AR3</subtask>
+	<subtask>T3</subtask>
+	<subtask>T4</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AR3</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0103</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>140</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>R4</name>
+	<Description>Performance upgrade in related systems</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Requirement</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>AR4</subtask>
+	<subtask>T5</subtask>
+	<subtask>T6</subtask>
+	<subtask>T13</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AR4</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0103</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>30</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>R5</name>
+	<Description>Integration with Patient Management Sys.</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Requirement</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>AR5</subtask>
+	<subtask>T8</subtask>
+	<subtask>T10</subtask>
+	<subtask>T11</subtask>
+	<subtask>T12</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AR5</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0103</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>60</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>R6</name>
+	<Description>Data migration</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Requirement</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>AR6</subtask>
+	<subtask>T7</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AR6</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0103</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>60</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AR1</name>
+	<Description>Analysis Requirement: Integration mdl.</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>T1</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>20</baseEfforts>
+		<baseValue>5</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AR2</name>
+	<Description>Analysis Requirement: NW data migration</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>T2</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>20</baseEfforts>
+		<baseValue>13</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AR3</name>
+	<Description>Analysis Requirement: Update NWSW</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>T3</triggered>
+	<triggered>T4</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>20</baseEfforts>
+		<baseValue>14</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AR4</name>
+	<Description>Analysis Requirement: Performance upgrade in related systems</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>T5</triggered>
+	<triggered>T6</triggered>
+	<triggered>T13</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>20</baseEfforts>
+		<baseValue>3</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AR5</name>
+	<Description>Analysis Requirement: Integration with Patient Management Sys.</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>T8</triggered>
+	<triggered>T9</triggered>
+	<triggered>T10</triggered>
+	<triggered>T11</triggered>
+	<triggered>T12</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>20</baseEfforts>
+		<baseValue>6</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AR6</name>
+	<Description>Analysis Requirement: Data migration</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>T7</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>20</baseEfforts>
+		<baseValue>6</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T1</name>
+	<Description>DB Task</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+		<baseEfforts>100</baseEfforts>
+		<baseValue>30</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T2</name>
+	<Description>PM Task</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0302</servicesRequired>
+		<baseEfforts>150</baseEfforts>
+		<baseValue>50</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T3</name>
+	<Description>NW Task</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0201</servicesRequired>
+		<baseEfforts>150</baseEfforts>
+		<baseValue>40</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T4</name>
+	<Description>NW Task</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0202</servicesRequired>
+		<baseEfforts>150</baseEfforts>
+		<baseValue>0</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T5</name>
+	<Description>PM Task</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+		<baseEfforts>50</baseEfforts>
+		<baseValue>10</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T6</name>
+	<Description>DB Task</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+		<baseEfforts>100</baseEfforts>
+		<baseValue>30</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T7</name>
+	<Description>PM Task</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+		<baseEfforts>100</baseEfforts>
+		<baseValue>20</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T8</name>
+	<Description>DB Task</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+		<baseEfforts>100</baseEfforts>
+		<baseValue>40</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T9</name>
+	<Description>PM Task</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+		<baseEfforts>150</baseEfforts>
+		<baseValue>40</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T10</name>
+	<Description>DB Task</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0402</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>30</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T11</name>
+	<Description>PM Task</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+		<baseEfforts>100</baseEfforts>
+		<baseValue>20</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T12</name>
+	<Description>NW Task</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0202</servicesRequired>
+		<baseEfforts>100</baseEfforts>
+		<baseValue>20</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T13</name>
+	<Description>PM Task</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0402</servicesRequired>
+		<baseEfforts>100</baseEfforts>
+		<baseValue>10</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>PMT1</name>
+	<Description>PM Task</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+		<baseEfforts>100</baseEfforts>
+		<baseValue>50</baseValue>
+		<classOfService>DateCertain</classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>40</dueDate>
+</workItem>
+<workItem>
+	<name>PMT2</name>
+	<Description>PM Task</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>PMT3</triggered>
+		<atProgress>70</atProgress>
+		<onProbability>20</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+		<baseEfforts>50</baseEfforts>
+		<baseValue>50</baseValue>
+		<classOfService>DateCertain</classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>30</dueDate>
+</workItem>
+<workItem>
+	<name>PMT3</name>
+	<Description>PM Task</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+		<baseEfforts>100</baseEfforts>
+		<baseValue>300</baseValue>
+		<classOfService>Expedite</classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>TestWI</name>
+	<Description>for testing purpose</Description>
+	<Pattern>CRT</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>1</baseEfforts>
+		<baseValue>1</baseValue>
+		<classOfService>Standard</classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+</WorkItemNetworkModel>
+
+
+
+
+</KSSModel>

@@ -61,7 +61,7 @@ public class SimulationContextBuilder {
 
 	public void XMLtoEObjects() {
 
-		try {File fXmlFile = new File("/Users/Donbghuang Li/desktop/KSS-Scenario.xml");
+		try {File fXmlFile = new File("SimulationScenario/KSS-Scenario.xml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			dbFactory.setIgnoringElementContentWhitespace(true);

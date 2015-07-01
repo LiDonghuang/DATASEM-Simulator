@@ -1,38 +1,36 @@
 <repast.simphony.visualization.engine.CartesianDisplayDescriptor>
-  <name>WIN Display</name>
+  <name>Organization Model Display</name>
   <type>2D</type>
   <styles>
+    <entry>
+      <string>kanbanSimulator.DemandSource</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
+    </entry>
     <entry>
       <string>kanbanSimulator.KSSTask</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
     <entry>
-      <string>kanbanSimulator.Visualization</string>
-      <string>repast.simphony.visualizationOGL2D.DefaultStyleOGL2D</string>
+      <string>ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
   </styles>
   <editedStyles>
     <entry>
-      <string>kanbanSimulator.KSSTask</string>
-      <string>kanbanSimulator.KSSTask.style_7.xml</string>
+      <string>kanbanSimulator.DemandSource</string>
+      <string>kanbanSimulator.DemandSource.style_9.xml</string>
     </entry>
     <entry>
-      <string>kanbanSimulator.Visualization</string>
-      <null/>
+      <string>kanbanSimulator.KSSTask</string>
+      <string>kanbanSimulator.KSSTask.style_9.xml</string>
+    </entry>
+    <entry>
+      <string>ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider</string>
+      <string>ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider.style_0.xml</string>
     </entry>
   </editedStyles>
-  <netStyles>
-    <entry>
-      <string>WI_Hierarchy</string>
-      <string>repast.simphony.visualization.editedStyle.EditedEdgeStyle2D</string>
-    </entry>
-  </netStyles>
-  <editedNetStyles>
-    <entry>
-      <string>WI_Hierarchy</string>
-      <string>WI_Hierarchy.style_2.xml</string>
-    </entry>
-  </editedNetStyles>
+  <netStyles/>
+  <editedNetStyles/>
   <frequency>ON_MOVE</frequency>
   <schedParams>
     <start>1.0</start>
@@ -41,46 +39,38 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>-446147795</hashCode>
+    <hashCode>-1680607992</hashCode>
   </schedParams>
   <layoutClassName>foo.bar.baz</layoutClassName>
-  <layoutProjection>WINGrid</layoutProjection>
+  <layoutProjection>2DGrid</layoutProjection>
   <layoutInterval>0</layoutInterval>
   <layerOrder>
     <entry>
-      <string>kanbanSimulator.KSSTask</string>
+      <string>kanbanSimulator.DemandSource</string>
       <int>1</int>
     </entry>
     <entry>
-      <string>kanbanSimulator.Visualization</string>
+      <string>kanbanSimulator.KSSTask</string>
       <int>0</int>
+    </entry>
+    <entry>
+      <string>ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider</string>
+      <int>2</int>
     </entry>
   </layerOrder>
   <projections>
     <repast.simphony.scenario.data.ProjectionData>
-      <id>WINGrid</id>
+      <id>2DGrid</id>
       <attributes/>
       <type>grid</type>
     </repast.simphony.scenario.data.ProjectionData>
-    <repast.simphony.scenario.data.ProjectionData>
-      <id>WI_Hierarchy</id>
-      <attributes/>
-      <type>network</type>
-    </repast.simphony.scenario.data.ProjectionData>
   </projections>
   <visualizationProperties class="repast.simphony.visualization.UnitSizeLayoutProperties">
-    <unitSize>100.0</unitSize>
+    <unitSize>40.0</unitSize>
   </visualizationProperties>
   <projectionDescriptors>
     <entry>
-      <string>WI_Hierarchy</string>
-      <repast.simphony.visualization.engine.DefaultProjectionDescriptor>
-        <proj reference="../../../../projections/repast.simphony.scenario.data.ProjectionData[2]"/>
-        <props/>
-      </repast.simphony.visualization.engine.DefaultProjectionDescriptor>
-    </entry>
-    <entry>
-      <string>WINGrid</string>
+      <string>2DGrid</string>
       <repast.simphony.visualization.grid.GridProjectionDescriptor>
         <proj reference="../../../../projections/repast.simphony.scenario.data.ProjectionData"/>
         <props>
@@ -89,7 +79,7 @@
             <map>
               <entry>
                 <string>UNIT_SIZE</string>
-                <float>100.0</float>
+                <float>40.0</float>
               </entry>
               <entry>
                 <string>SHOW</string>

@@ -1,9 +1,9 @@
 <repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
-  <name>Value Added</name>
-  <dataSet>SoS Value</dataSet>
+  <name>Total Value Chart</name>
+  <dataSet>Total Value Data Set</dataSet>
   <xAxisLabel>Time</xAxisLabel>
   <yAxisLabel>Total Value</yAxisLabel>
-  <chartTitle>SoS Value Added</chartTitle>
+  <chartTitle>Value Added</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>

@@ -24,12 +24,6 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
-				<parameter name="InputFilePath" displayName="Input File Path" type="java.lang.String" 
-						defaultValue=""/Users/Donbghuang" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
-									
-		/>
 				<parameter name="WI_replications" displayName="WI Replications" type="int" 
 						defaultValue="1" 
 						isReadOnly="false" 
