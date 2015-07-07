@@ -26,13 +26,20 @@ public class ServiceResource extends ResourceImpl{
 	public void allocateTo(KSSTask t) {
 	    t.allocateResource(this);
 		this.activeQ.add(t);
+		this.setBusy();
 	}
 	public void withdrawFrom(KSSTask t) {
 		t.withdrawResource(this);
 		this.activeQ.remove(t);
+		if (this.activeQ.size()==0) {
+			this.setIdle();
+		}
 	}
 	public void setBusy () {
 		this.busy = true;
+	}
+	public void setIdle () {
+		this.busy = false;
 	}
 	public Boolean isBusy () {
 		return this.busy;

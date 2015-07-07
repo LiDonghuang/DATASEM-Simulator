@@ -23,7 +23,6 @@ import governanceModels.GovernanceSearchStrategy;
 
 public class ServiceProviderAgent extends ServiceProviderImpl {
 	public SystemOfSystems SoS;
-	public double timeNow;
 	
 	private int id;
 	private int type;	
@@ -35,12 +34,22 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 	private LinkedList<ServiceProviderAgent> sourceFrom;
 	private LinkedList<ServiceProviderAgent> targetTo;
 	
+	private int numResources;
+	private int numActiveResources;
+	private double resourceUtilization;
+	private int totalWorkLoad;
+	private int activeWorkLoad;
 	private KanbanBoard myKanbanBoard;
 	private LinkedList<ServiceProviderAgent> myServiceProviders;
 	private LinkedList<ServiceResource> myServiceResources;
 	private DirectoryFacilitatorAgent dfa=null;
 	
 	private GovernanceSearchStrategy mySearchStrategy;
+	private String WI_Acceptance_RuleName;
+	private String WI_Selection_RuleName;
+	private String WI_Assignment_RuleName;
+	private String Resource_Allocation_RuleName;
+	private String Resource_Outsourcing_RuleName;
 	private LinkedList<KSSTask> requestedQ;
 	private LinkedList<KSSTask> backlogQ;
 	private LinkedList<KSSTask> readyQ;
@@ -66,20 +75,27 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 		this.serviceProvider = sp;
 		
 		this.myServiceResources = new LinkedList<ServiceResource>();
+		this.numResources = this.getResources().size();
+		this.numActiveResources = 0;
+		this.resourceUtilization = 0.00;
 		for (int r=0;r<this.getResources().size();r++){
 			Resource myResource = this.getResources().get(r);
 			ServiceResource myServiceResource = new ServiceResource(myResource);
 			this.getServiceResources().add(myServiceResource);
 		}
 		
+				
 		this.state=0;
 		this.dfa=inDfa;
 		this.coordinator=true;		
 				
 		this.mySearchStrategy=strategyImplementation(sp);
 		
+		
+		this.totalWorkLoad = 0;
+		this.activeWorkLoad = 0;
 		this.readyQLimit=999999999;
-		this.activeQLimit=1;
+		this.activeQLimit=99999999;
 		this.backlogQ=new LinkedList<KSSTask>();
 		this.readyQ=new LinkedList<KSSTask>();
 		this.activeQ=new LinkedList<KSSTask>();
@@ -94,14 +110,26 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 	@ScheduledMethod(start=1,interval=1,priority=20)
 	public void step() {		
 		System.out.println("-- Agent "+this.name+" is now active --");
+		System.out.println("Active WorkLoad: "+this.getActiveWorkLoad());
+		System.out.println("Total WorkLoad: "+this.getTotalWorkLoad());
 		
 		boolean end_loop = false;
-		while (end_loop == false) {
+//		if (!  (requestedQ.size()!=0 
+////				|| (readyQ.size()<readyQLimit && backlogQ.size()>0)	
+//				|| (activeQ.size()<activeQLimit && readyQ.size()>0)		
+//				||  completeQ.size()!=0 
+//				)) {
+//				end_loop = true; }
+		
+		while (!end_loop) {
 			// ------------ 1. Select WIs to Accept
-			while (this.requestedQ.size()>0) {
+			if (!requestedQ.isEmpty()) {
+				this.requestedQ = this.mySearchStrategy.workPrioritization(this, requestedQ);
+			}
+			for (int w=0;w<this.requestedQ.size();w++) {
 				// =========== Apply WI Acceptance Rule ====================
 				KSSTask requestedWI = 
-				this.requestedQ.get(RandomHelper.nextIntFromTo(0, requestedQ.size()-1));
+				this.requestedQ.get(w);
 				requestedWI.checkCausalities();
 				// =========================================================
 				if (!requestedWI.isAggregationNode()){
@@ -119,11 +147,14 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 							// Assign WI to other SP
 							requestedWI.setRequester(this);		
 							selectedSP.assignWI(requestedWI);
+							// !
 							System.out.println(this.getName()+" invoked "+selectedSP.getName());
 							selectedSP.step();
 							System.out.println("back to "+this.getName()+"'s turn...");
+							// !
 							// Remove WI from AssignmentQ
 							this.requestedQ.remove(requestedWI);
+							w--;
 						}
 						else {
 							System.out.println("Failed to Assign WI:"
@@ -142,12 +173,14 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 					this.backlogQ.add(requestedWI);								
 					//(perform negotiation and decline if necessary)
 					this.requestedQ.remove(requestedWI);
+					w--;
 					}
 				}
 				else {
 					this.requirementsQ.add(requestedWI);								
 					//(perform negotiation and decline if necessary)
 					this.requestedQ.remove(requestedWI);
+					w--;
 				}
 			}
 			// -----------------------------------
@@ -180,29 +213,49 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 			
 			
 			// ------------ 3. Select WIs to Start
-			while ((this.readyQ.size()!=0) && (this.activeQ.size()<this.activeQLimit)) {			
+			if (!this.readyQ.isEmpty()) {
+				this.readyQ = this.mySearchStrategy.workPrioritization(this, readyQ);
+			}
+			for (int w=0;w<this.readyQ.size();w++) {			
 				// =========== Apply WI Selection Rule ====================
-				KSSTask startedWI = this.mySearchStrategy.selectWI(this, readyQ, timeNow);				
+				KSSTask startedWI = this.readyQ.get(w);				
 				// ========================================================
 				ArrayList<ServiceResource> serviceResourceCandidates = 
 						this.findServiceResources(startedWI);
 				// =========== Apply Resource Allocation Rule =============
-				ServiceResource selectedSR = serviceResourceCandidates
-						.get(RandomHelper.nextIntFromTo(0, serviceResourceCandidates.size()-1));
-				selectedSR.allocateTo(startedWI);				
+				ArrayList<ServiceResource> idleResources = new ArrayList<ServiceResource>();
+				for (int r=0;r<serviceResourceCandidates.size();r++) {
+					ServiceResource candidateSR = serviceResourceCandidates.get(r);
+					// only look at Idle Candidate Resources;
+					if (!candidateSR.isBusy()) {
+						idleResources.add(candidateSR);
+					}
+				}
+				if (!idleResources.isEmpty()) {
+					ServiceResource selectedSR = idleResources
+							.get(RandomHelper.nextIntFromTo(0, idleResources.size()-1));
+					selectedSR.allocateTo(startedWI);				
 				// ========================================================
-				startedWI.setStarted();					
-				double sEfficiency = startedWI.calculateServiceEfficiency();	
-				startedWI.setServiceEfficiency(sEfficiency);
+					startedWI.setStarted();					
+					double rEfficiency = startedWI.calculateResourceEfficiency();	
+					startedWI.setServiceEfficiency(rEfficiency);
 				// =========== Estimate Completion ====================				
-				double eCompletion= startedWI.getEstimatedEfforts() + timeNow;
-				System.out.println("WorkItem "+startedWI.getName()+
-						"(id:"+startedWI.getTaskId()+")"+
-						" is expected to finish at "+eCompletion);
-				startedWI.setEstimatedCompletionTime(eCompletion);
-				// ====================================================
-				this.readyQ.remove(startedWI);
-				this.activeQ.add(startedWI);						
+					double eEfforts = startedWI.getBefforts()
+							/rEfficiency;
+	//				double estimationError = RandomHelper.nextIntFromTo(-1, 1);
+	//				estimatedEfforts += estimationError;
+					startedWI.setEstimatedEfforts(eEfforts);
+					double eCompletion= startedWI.getEstimatedEfforts() + this.SoS.timeNow;
+					System.out.println("WorkItem "+startedWI.getName()+
+							"(id:"+startedWI.getTaskId()+")"+
+							" is expected to finish at "+eCompletion);
+					startedWI.setEstimatedCompletionTime(eCompletion);
+					// ====================================================
+					this.activeQ.add(startedWI);
+					this.readyQ.remove(startedWI);				
+					w--;
+				}
+				else {System.out.println("No Resources available for "+startedWI.getName()+" now!");}
 			}		
 			// -----------------------------------		
 			
@@ -235,7 +288,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 //			// ------------ 5. Disburse Completed WIs
 			Iterator<KSSTask> completeIterator=this.completeQ.iterator();
 			while (completeIterator.hasNext()) {
-				KSSTask completedWI=completeIterator.next();	
+				KSSTask completedWI=completeIterator.next();
 				completedWI.setEnded();				
 			}		
 			this.completeQ.clear();
@@ -260,20 +313,24 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 //				}
 //			}
 			// ---------------------------------
-			if (!  (requestedQ.size()!=0 
-//				|| (readyQ.size()<readyQLimit && backlogQ.size()>0)	
-				|| (activeQ.size()<activeQLimit && readyQ.size()>0)		
-				||  completeQ.size()!=0 
+			if (!( (requestedQ.size()!=0) 
+				|| (readyQ.size()>0 && this.hasIdleResources())	
+//				||  completeQ.size()!=0 
 				)) {
 				end_loop = true; }
+//			end_loop = true;
 		}					
+		
+		
         // ----------------- End of SP Activities -------------------------
 		
 		// ------------------------- SP State Summary
+		this.calculateWorkLoad();
+		this.calculateResourceUtilization();
 		if (this.activeQ.size()>0) {
 			this.state=1;
 			System.out.println("Agent "+this.name+" is Busy");	
-			if (this.activeQ.size()==this.activeQLimit) {
+			if (this.resourceUtilization==1.00) {
 				System.out.println("Agent "+this.name+" is at Full Capacity");} 
 			}
 		else {
@@ -364,11 +421,55 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 		this.myServiceProviders=new LinkedList<ServiceProviderAgent>();
 	}
 	
+	public void calculateWorkLoad() {
+		this.totalWorkLoad = 0;
+		this.activeWorkLoad = 0;
+		for (int i=0;i<this.backlogQ.size();i++) {
+			KSSTask workItem = this.backlogQ.get(i);
+			this.totalWorkLoad += workItem.getBefforts();
+		}
+		for (int i=0;i<this.readyQ.size();i++) {
+			KSSTask workItem = this.readyQ.get(i);
+			this.totalWorkLoad += workItem.getBefforts();
+		}
+		for (int i=0;i<this.activeQ.size();i++) {
+			KSSTask workItem = this.activeQ.get(i);
+			this.totalWorkLoad += workItem.getBefforts();
+			this.activeWorkLoad += workItem.getBefforts();
+		}
+	}
+	public int getTotalWorkLoad() {
+		return this.totalWorkLoad;
+	}
+	public int getActiveWorkLoad() {
+		return this.activeWorkLoad;
+	}
+	
 	public EList<Resource> getResources() {
 		return this.serviceProvider.getResources();
 	}
 	public LinkedList<ServiceResource> getServiceResources() {
 		return this.myServiceResources;
+	}
+	public int getNumResources() {
+		return this.numResources;
+	}
+	public int getNumActiveResources() {
+		return this.numActiveResources;
+	}
+	public double getResourceUtilization() {
+		return this.resourceUtilization;
+	}
+	public void calculateResourceUtilization() {
+		this.numResources = this.getServiceResources().size();
+		this.numActiveResources = 0;
+		for (int r=0;r<this.getServiceResources().size();r++) {
+			ServiceResource serviceResource = this.getServiceResources().get(r);
+			if (serviceResource.isBusy()) {
+				this.numActiveResources += 1;
+			}
+		}
+		this.resourceUtilization = (double)this.numActiveResources/(double)this.numResources;	
 	}
 	public ArrayList<ServiceResource> findServiceResources(KSSTask wItem) {
 		// 1. What Service does this WI request?				
@@ -388,8 +489,20 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 				}
 			}
 		}	
-		System.out.println("# of candidate SPs: "+serviceResourceCandidates.size());
+		System.out.println("# of candidate Resources: "+serviceResourceCandidates.size());
 		return serviceResourceCandidates;
+	}
+	public boolean hasIdleResources() {
+		boolean hasIdleResources = false;
+		for (int r=0;r<this.getServiceResources().size();r++) {
+			ServiceResource serviceResource = this.getServiceResources().get(r);
+			if (!serviceResource.isBusy()) {
+				hasIdleResources = true;
+				System.out.println("Idle Resources");
+				break;
+			}
+		}
+		return hasIdleResources;
 	}
     public EList<Service> getServices() {
     	return this.serviceProvider.getServices();
@@ -410,21 +523,41 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 		
 		String acceptanceRule=sp.getDefaultStrategy().getWIAcceptanceRule().getName();			
 		mySearchStrategy.setWItemAcceptanceRule(acceptanceRule);
+		this.WI_Acceptance_RuleName = acceptanceRule;
 		
 		String selectionRule=sp.getDefaultStrategy().getWISelectionRule().getName();			
 		mySearchStrategy.setWItemSelectionRule(selectionRule);
+		this.WI_Selection_RuleName = selectionRule;
 		
 		String assignmentRule=sp.getDefaultStrategy().getWIAssignmentRule().getName();			
 		mySearchStrategy.setWItemAssignmentRule(assignmentRule);
+		this.WI_Assignment_RuleName = assignmentRule;
 		
 		String allocationRule=sp.getDefaultStrategy().getResourceAllocationRule().getName();			
 		mySearchStrategy.setResourceAllocationRule(allocationRule);
+		this.Resource_Allocation_RuleName = allocationRule;
 		
 		String outsourcingRule=sp.getDefaultStrategy().getResourceOutsourcingRule().getName();			
 		mySearchStrategy.setResourceOutsourcingRule(outsourcingRule);
+		this.Resource_Outsourcing_RuleName = outsourcingRule;
 		
 		return this.mySearchStrategy;
 	}
+	public String getAcceptanceRuleName() {
+		return this.WI_Acceptance_RuleName;
+	}
+	public String getSelectionRuleName() {
+		return this.WI_Selection_RuleName;
+	}
+	public String getAssignmentRuleName() {
+		return this.WI_Assignment_RuleName;
+	}
+	public String getAllocationRuleName() {
+		return this.Resource_Allocation_RuleName;
+	}
+	public String getOutsourcingRuleName() {
+		return this.Resource_Outsourcing_RuleName;
+	}	
 	
 	
 }

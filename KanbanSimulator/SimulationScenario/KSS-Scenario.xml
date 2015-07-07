@@ -10,7 +10,7 @@
 			<name>GlobalDefaultStrategy</name>
 			<Description>Default Strategy for All Teams</Description>					
 			<acceptanceRule>FIFO</acceptanceRule>
-			<selectionRule>FIFO</selectionRule>
+			<selectionRule>ValueBased</selectionRule>
 			<assignmentRule>Neutral</assignmentRule>
 			<allocationRule>Neutral</allocationRule>
 			<outsourcingRule>Neutral</outsourcingRule>
@@ -219,13 +219,13 @@
 			<name>NW_S0201</name>
 			<Description>Network_Maintenance</Description>
 			<Type>S0201</Type>
-			<Efficiency>500</Efficiency>
+			<Efficiency>750</Efficiency>
 		</service>
 		<service>
 			<name>NW_S0202</name>
 			<Description>Network_Development</Description>
 			<Type>S0202</Type>
-			<Efficiency>500</Efficiency>
+			<Efficiency>750</Efficiency>
 		</service>
 		</services>	
 		<governanceSearchStrategy>						
@@ -254,6 +254,24 @@
 				<Description>Network_Development</Description>
 				<Type>S0202</Type>
 				<Efficiency>500</Efficiency>
+			</service>
+			</services>	
+		</resource>
+		<resource>
+			<name>NW_Eng02</name>
+			<Description>NW_Engineer01</Description>
+			<services>
+			<service>
+				<name>NW_S0201</name>
+				<Description>Network_Maintenance</Description>
+				<Type>S0201</Type>
+				<Efficiency>250</Efficiency>
+			</service>
+			<service>
+				<name>NW_S0202</name>
+				<Description>Network_Development</Description>
+				<Type>S0202</Type>
+				<Efficiency>250</Efficiency>
 			</service>
 			</services>	
 		</resource>	
@@ -335,7 +353,7 @@
 			<name>PM2_S0301</name>
 			<Description>PatientManagement_ProductDevelopment</Description>
 			<Type>S0301</Type>
-			<Efficiency>1000</Efficiency>
+			<Efficiency>200</Efficiency>
 		</service>
 		</services>	
 		<governanceSearchStrategy>						
@@ -357,7 +375,7 @@
 				<name>PM2_S0301</name>
 				<Description>PatientManagement_ProductDevelopment</Description>
 				<Type>S0301</Type>
-				<Efficiency>1000</Efficiency>
+				<Efficiency>200</Efficiency>
 			</service>
 			</services>	
 		</resource>	
@@ -439,7 +457,6 @@
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>AC1</subtask>
 	<subtask>R1</subtask>
 	<subtask>R2</subtask>
 	</subtasks>
@@ -466,7 +483,6 @@
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>AC2</subtask>
 	<subtask>R2</subtask>
 	<subtask>R3</subtask>
 	</subtasks>
@@ -482,7 +498,7 @@
 		<baseValue>600</baseValue>
 		<classOfService>Standard</classOfService>
 		<WorkSource>ESM</WorkSource>
-		<arrivalTime>0</arrivalTime>
+		<arrivalTime>1</arrivalTime>
 		<dueDate>0</dueDate>
 </workItem>
 <workItem>
@@ -493,7 +509,6 @@
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>AC3</subtask>
 	<subtask>R3</subtask>
 	<subtask>R5</subtask>
 	<subtask>R6</subtask>
@@ -510,7 +525,7 @@
 		<baseValue>800</baseValue>
 		<classOfService>Important</classOfService>
 		<WorkSource>ESM</WorkSource>
-		<arrivalTime>0</arrivalTime>
+		<arrivalTime>1</arrivalTime>
 		<dueDate>0</dueDate>
 </workItem>
 <workItem>
@@ -521,7 +536,6 @@
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>AC4</subtask>
 	<subtask>R4</subtask>
 	</subtasks>
 	<causalities>
@@ -536,7 +550,7 @@
 		<baseValue>300</baseValue>
 		<classOfService>DateCertain</classOfService>
 		<WorkSource>ESM</WorkSource>
-		<arrivalTime>0</arrivalTime>
+		<arrivalTime>1</arrivalTime>
 		<dueDate>100</dueDate>
 </workItem>
 <workItem>
@@ -647,7 +661,6 @@
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>AR1</subtask>
 	<subtask>T1</subtask>
 	</subtasks>
 	<causalities>
@@ -673,7 +686,6 @@
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>AR2</subtask>
 	<subtask>T2</subtask>
 	</subtasks>
 	<causalities>
@@ -699,7 +711,6 @@
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>AR3</subtask>
 	<subtask>T3</subtask>
 	<subtask>T4</subtask>
 	</subtasks>
@@ -726,7 +737,6 @@
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>AR4</subtask>
 	<subtask>T5</subtask>
 	<subtask>T6</subtask>
 	<subtask>T13</subtask>
@@ -754,8 +764,8 @@
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>AR5</subtask>
 	<subtask>T8</subtask>
+	<subtask>T9</subtask>
 	<subtask>T10</subtask>
 	<subtask>T11</subtask>
 	<subtask>T12</subtask>
@@ -783,7 +793,6 @@
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>AR6</subtask>
 	<subtask>T7</subtask>
 	</subtasks>
 	<causalities>

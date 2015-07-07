@@ -6,6 +6,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 import repast.simphony.random.RandomHelper;
@@ -20,7 +21,59 @@ public class WISelectionRule {
 		this.name = ruleName;
 	}
 	
-	public KSSTask applyRule(ServiceProviderAgent SP, LinkedList<KSSTask> queue, double timeNow) {
+	public LinkedList<KSSTask> applyRule(ServiceProviderAgent SP, LinkedList<KSSTask> queue) {
+		System.out.println(SP.getName()+" Applied "+this.name+" Prioritization");
+		if (this.name.matches("Neutral")) {
+			SimUtilities.shuffle(queue, RandomHelper.getUniform()); 
+		}
+		else if (this.name.matches("FIFO")) {
+			Collections.sort(queue, new SmallerAssignedTime());
+			for (int i=0;i<queue.size();i++) {
+				KSSTask wItem = queue.get(i);
+				System.out.println("No."+i+": "+wItem.getName()
+						+"(Perceived Value:"+wItem.getAssignedTime()+")");
+			}
+		}
+		else if (this.name.matches("LIFO")) {
+			Collections.sort(queue, new LargerAssignedTime());
+			for (int i=0;i<queue.size();i++) {
+				KSSTask wItem = queue.get(i);
+				System.out.println("No."+i+": "+wItem.getName()
+						+"(Perceived Value:"+wItem.getAssignedTime()+")");
+			}
+		}
+		else if (this.name.matches("ValueBased")){			
+			Collections.sort(queue, new LargerBaseValue());	
+			for (int i=0;i<queue.size();i++) {
+				KSSTask wItem = queue.get(i);
+				System.out.println("No."+i+": "+wItem.getName()
+						+"(Perceived Value:"+wItem.getBvalue()+")");
+			}
+		}
+		else if (this.name.matches("EDD")) {
+			Collections.sort(queue, new SmallerDueDate());
+			for (int i=0;i<queue.size();i++) {
+				KSSTask wItem = queue.get(i);
+				System.out.println("No."+i+": "+wItem.getName()
+						+"(Perceived Value:"+wItem.getDueDate()+")");
+			}
+		}
+		else if (this.name.matches("SPT")) {
+			Collections.sort(queue, new SmallerEstimatedEfforts());
+			for (int i=0;i<queue.size();i++) {
+				KSSTask wItem = queue.get(i);
+				System.out.println("No."+i+": "+wItem.getName()
+						+"(Perceived Value:"+wItem.getEstimatedEfforts()+")");
+			}
+		}
+		else {
+			System.out.println("Invalid WI_Prioritization Rule!") ;
+		}
+		
+		return queue;
+	}
+	
+	public KSSTask applyRule2(ServiceProviderAgent SP, LinkedList<KSSTask> queue) {
 		// First-In-First-Out
 		if (this.name.matches("FIFO")){
 			this.selectedWI = queue.getFirst();
@@ -87,7 +140,79 @@ public class WISelectionRule {
 			}
 		return this.selectedWI;			
 	}	
-
+	
+	
+	
+	class LargerAssignedTime implements Comparator<KSSTask> {
+		@Override
+		public int compare(KSSTask w1, KSSTask w2) {
+			if (w1.getAssignedTime()<w2.getAssignedTime()) {
+				return 1;
+			}
+			else if (w1.getAssignedTime()==w2.getAssignedTime()) {
+				return 0;
+			}
+			else {
+				return -1;
+			}
+		}
+	}
+	class SmallerAssignedTime implements Comparator<KSSTask> {
+		@Override
+		public int compare(KSSTask w1, KSSTask w2) {
+			if (w1.getAssignedTime()<w2.getAssignedTime()) {
+				return -1;
+			}
+			else if (w1.getAssignedTime()==w2.getAssignedTime()) {
+				return 0;
+			}
+			else {
+				return 1;
+			}
+		}
+	}
+	class LargerBaseValue implements Comparator<KSSTask> {
+		@Override
+		public int compare(KSSTask w1, KSSTask w2) {
+			if (w1.getBvalue()<w2.getBvalue()) {
+				return 1;
+			}
+			else if (w1.getBvalue()==w2.getBvalue()) {
+				return 0;
+			}
+			else {
+				return -1;
+			}
+		}
+	}
+	class SmallerDueDate implements Comparator<KSSTask> {
+		@Override
+		public int compare(KSSTask w1, KSSTask w2) {
+			if (w1.getDueDate()<w2.getDueDate()) {
+				return -1;
+			}
+			else if (w1.getDueDate()==w2.getDueDate()) {
+				return 0;
+			}
+			else {
+				return 1;
+			}
+		}
+	}
+	class SmallerEstimatedEfforts implements Comparator<KSSTask> {
+		@Override
+		public int compare(KSSTask w1, KSSTask w2) {
+			if (w1.getEstimatedEfforts()<w2.getEstimatedEfforts()) {
+				return -1;
+			}
+			else if (w1.getEstimatedEfforts()==w2.getEstimatedEfforts()) {
+				return 0;
+			}
+			else {
+				return 1;
+			}
+		}
+	}
 	
 }
 

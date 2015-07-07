@@ -35,7 +35,6 @@ public class SystemOfSystems {
 	public int completedWIs;
 	public int totalValueAdded;
 	public double timeNow;
-	
 
 public SystemOfSystems() {
 	this.name = "God";

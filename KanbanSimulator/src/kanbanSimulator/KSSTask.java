@@ -53,6 +53,7 @@ public class KSSTask extends WorkItemImpl {
 	private double dueDate; // Infinite if not defined
 		
 	private double createdTime; // True Creation Time
+	private double assignedTime; // Time Assigned to a SP
 	private double startTime; // Time Started Processing
 	private double estimatedEfforts;
 	private double estimatedCompletionTime; 
@@ -403,6 +404,10 @@ public class KSSTask extends WorkItemImpl {
 	}
 	public void setAssigned() {
 		this.assigned=true;
+		this.assignedTime = this.SoS.timeNow;
+	}
+	public double getAssignedTime() {
+		return this.assignedTime;
 	}
 	public boolean isCreated() {
 		return this.created;
@@ -573,7 +578,19 @@ public class KSSTask extends WorkItemImpl {
 		}		
 		return sEfficiency;
 	}
-	
+	public double calculateResourceEfficiency() {
+		double rEfficiency = 0;
+		for (int s=0;s<this.getAllocatedResources().get(0).getServices().size();s++){
+			Service service = this.getAllocatedResources().get(0).getServices().get(s);
+			if (service.getServiceType().getName().
+					matches(this.getReqSpecialties().get(0).getName())){
+				Service currentService = service;
+				rEfficiency = (double)currentService.getEfficiency()/100;				
+				break;
+			}		
+		}		
+		return rEfficiency;
+	}
 	public LinkedList<KSSTask> getTopologicalTasks() {
 		return this.topologicalList;
 	}
@@ -581,4 +598,5 @@ public class KSSTask extends WorkItemImpl {
 	public LinkedList<KSSTask> getReadyTasks() {
 		return this.readyList;
 	}
+
 }
