@@ -1,5 +1,5 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Total WorkLoad Data Set</name>
+  <name>Resource Utilization Data Set</name>
   <type>NON_AGGREGATE</type>
   <sourceType>kanbanSimulator.ServiceProviderAgent</sourceType>
   <inclTick>true</inclTick>
@@ -25,11 +25,11 @@
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>TotalWorkLoad</string>
+      <string>ResourceUtilization</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>TotalWorkLoad</id>
+        <id>ResourceUtilization</id>
         <className>kanbanSimulator.ServiceProviderAgent</className>
-        <methodName>getTotalWorkLoad</methodName>
+        <methodName>getResourceUtilization</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

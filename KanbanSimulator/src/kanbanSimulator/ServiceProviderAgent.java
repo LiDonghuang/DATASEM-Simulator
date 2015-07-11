@@ -264,11 +264,6 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 			for(int i=0;i<activeQ.size();i++) {
 				if (activeQ.get(i).isCompleted()) {
 					KSSTask completedWI=this.activeQ.get(i); 
-					LinkedList<ServiceResource> allocatedResources 
-					    = completedWI.getAllocatedResources();
-					for (int r=0;r<allocatedResources.size();r++) {
-						allocatedResources.get(r).withdrawFrom(completedWI);
-					}
 					this.activeQ.remove(completedWI);
 					this.completeQ.add(completedWI);
 					i--;
@@ -314,7 +309,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 //			}
 			// ---------------------------------
 			if (!( (requestedQ.size()!=0) 
-				|| (readyQ.size()>0 && this.hasIdleResources())	
+//				|| (readyQ.size()>0 && this.hasIdleResources())	
 //				||  completeQ.size()!=0 
 				)) {
 				end_loop = true; }

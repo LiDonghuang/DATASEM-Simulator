@@ -389,7 +389,9 @@ public class SimulationContextBuilder {
 			// ------------------------- WORK FLOW DATA MODELS -------------------------------------
 			Parameters p = RunEnvironment.getInstance().getParameters();
 			int interArrivalTime = (Integer)p.getValue("WI_interArrivalTime");
-			int replications = (Integer)p.getValue("WI_replications");		
+			int replications = (Integer)p.getValue("WI_replications");	
+			double effortsVolatility = (Double)p.getValue("WI_effortsVolatility");
+			double valueVolatility = (Double)p.getValue("WI_valueVolatility");
 			
 			this.myWINetworks = new ArrayList<ArrayList<KSSTask>>(0);
 			int wItemID = 0;
@@ -424,7 +426,9 @@ public class SimulationContextBuilder {
                         // Specify Work Item						
 						WI.setName(wi_name);
 						WI.setDescription(wi_description);
+						// Efforts Volatility...
 						WI.setBefforts(wi_befforts);
+						
 						WI.setBvalue(wi_bvalue);
 						WI.setCOS(wi_cos);			
 						// ********* Experiment Parameter ***********
@@ -612,16 +616,16 @@ public class SimulationContextBuilder {
 		}
 		// ?? ---------------------------------------------------------------------			
 		context.addAll(this.myDemandSources);	
-		grid3D.moveTo(myDemandSources.get(0), 10,29,4);
-		grid2D.moveTo(myDemandSources.get(0), 10,29);
+		grid3D.moveTo(myDemandSources.get(0), 10,99,4);
+		grid2D.moveTo(myDemandSources.get(0), 10,99);
 		// ------------------------ Context Grid  ------------------------------
 		// ServiceProvider Agents to Context
 		for (int a = 0; a < this.mySPAgents.size(); a++) {
 			ServiceProviderAgent tAgent = this.mySPAgents.get(a);											
 			context.add(tAgent);
 			// Graphical Control
-			grid3D.moveTo(tAgent, 10, 20-tAgent.getId()*4, 15);
-			grid2D.moveTo(tAgent, 10, 20-tAgent.getId()*4);
+			grid3D.moveTo(tAgent, 10, 90-tAgent.getId()*4, 15);
+			grid2D.moveTo(tAgent, 10, 90-tAgent.getId()*4);
 			// ------------------------------------
 		}		
 		// ---------------------- End Context Grid ----------------------------

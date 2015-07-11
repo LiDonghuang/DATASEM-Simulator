@@ -31,7 +31,7 @@ public class WISelectionRule {
 			for (int i=0;i<queue.size();i++) {
 				KSSTask wItem = queue.get(i);
 				System.out.println("No."+i+": "+wItem.getName()
-						+"(Perceived Value:"+wItem.getAssignedTime()+")");
+						+"(AssignedTime:"+wItem.getAssignedTime()+")");
 			}
 		}
 		else if (this.name.matches("LIFO")) {
@@ -39,7 +39,7 @@ public class WISelectionRule {
 			for (int i=0;i<queue.size();i++) {
 				KSSTask wItem = queue.get(i);
 				System.out.println("No."+i+": "+wItem.getName()
-						+"(Perceived Value:"+wItem.getAssignedTime()+")");
+						+"(AssignedTime:"+wItem.getAssignedTime()+")");
 			}
 		}
 		else if (this.name.matches("ValueBased")){			
@@ -47,7 +47,7 @@ public class WISelectionRule {
 			for (int i=0;i<queue.size();i++) {
 				KSSTask wItem = queue.get(i);
 				System.out.println("No."+i+": "+wItem.getName()
-						+"(Perceived Value:"+wItem.getBvalue()+")");
+						+"(BaseValue:"+wItem.getBvalue()+")");
 			}
 		}
 		else if (this.name.matches("EDD")) {
@@ -55,7 +55,7 @@ public class WISelectionRule {
 			for (int i=0;i<queue.size();i++) {
 				KSSTask wItem = queue.get(i);
 				System.out.println("No."+i+": "+wItem.getName()
-						+"(Perceived Value:"+wItem.getDueDate()+")");
+						+"(DueDate:"+wItem.getDueDate()+")");
 			}
 		}
 		else if (this.name.matches("SPT")) {
@@ -63,7 +63,7 @@ public class WISelectionRule {
 			for (int i=0;i<queue.size();i++) {
 				KSSTask wItem = queue.get(i);
 				System.out.println("No."+i+": "+wItem.getName()
-						+"(Perceived Value:"+wItem.getEstimatedEfforts()+")");
+						+"(EstimatedEfforts:"+wItem.getEstimatedEfforts()+")");
 			}
 		}
 		else {

@@ -1,5 +1,5 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Active WorkLoad Data Set</name>
+  <name>Total WorkLoad Data Set</name>
   <type>NON_AGGREGATE</type>
   <sourceType>kanbanSimulator.ServiceProviderAgent</sourceType>
   <inclTick>true</inclTick>
@@ -12,7 +12,7 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>1724698726</hashCode>
+    <hashCode>-444524963</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
@@ -25,11 +25,11 @@
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>ActiveWorkLoad</string>
+      <string>TotalWorkLoad</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>ActiveWorkLoad</id>
+        <id>TotalWorkLoad</id>
         <className>kanbanSimulator.ServiceProviderAgent</className>
-        <methodName>getActiveWorkLoad</methodName>
+        <methodName>getTotalWorkLoad</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

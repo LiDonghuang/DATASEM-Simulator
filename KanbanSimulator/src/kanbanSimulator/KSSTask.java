@@ -27,7 +27,7 @@ public class KSSTask extends WorkItemImpl {
 	private int id;
 	private WorkItem workItem;	
 	private DemandSource demandSource;
-	private double value;
+	private double perceivedValue;
 	
 	private boolean demanded;
 	private boolean aggregationNode;
@@ -104,7 +104,7 @@ public class KSSTask extends WorkItemImpl {
 		this.reqSpecialties = wi.getReqSpecialties();
 		this.befforts = wi.getBefforts();
 		this.bvalue = wi.getBvalue();
-		this.value = this.bvalue;
+		this.perceivedValue = this.bvalue;
 		this.cos = wi.getCOS();
 //		// Arrival Time = 0 = Infinity
 //		if (!(wi.getArrtime()>0)) {this.setArrivalTime(Float.POSITIVE_INFINITY);}
@@ -171,6 +171,11 @@ public class KSSTask extends WorkItemImpl {
 				if (this.getProgress() >= 0.999999) {			
 					this.setProgress(1.00);
 					this.setCompleted();
+					LinkedList<ServiceResource> allocatedResources 
+						= this.getAllocatedResources();
+					for (int r=0;r<allocatedResources.size();r++) {
+						allocatedResources.get(r).withdrawFrom(this);
+						}
 				}
 				System.out.println("Progress: "+this.progress);
 			}
@@ -191,13 +196,11 @@ public class KSSTask extends WorkItemImpl {
 					upperTask.checkSubTasksCompletion();
 				}
 			}
-		}
-			
+		}			
 		// ---------------------------------------------------------
-	
+	    this.updateUpperTasksCompletion();
 		// ------------ Trigger Casuality --------------------------
 		this.checkCausalities();		
-
 	// ************************* END STEP ********************************
 	}
 	
@@ -439,16 +442,27 @@ public class KSSTask extends WorkItemImpl {
 			}
 			if (cpl == true) {
 				this.setCompleted();
+				this.updateUpperTasksCompletion();
 			}
 		}
+	}
+	public void updateUpperTasksCompletion() {
+		if (this.isCompleted()) {
+			for (int u=0;u<this.getUpperTasks().size();u++) {
+				KSSTask upperTask = this.getUpperTasks().get(u);
+				if (upperTask.isCreated() && !upperTask.isCompleted()) {
+					upperTask.checkSubTasksCompletion();
+				}
+			}
+		}	
 	}
 	//////////////////////////////////////////////////////////////////////////
 	
 	public double getCurrentValue() {
-		return this.value;
+		return this.perceivedValue;
 	}
 	public void setCurrentValue(double v) {
-		this.value = v;
+		this.perceivedValue = v;
 	}
 	/////////////////////////////////////////////////////////////////////////
 	
