@@ -10,7 +10,7 @@
 			<name>GlobalDefaultStrategy</name>
 			<Description>Default Strategy for All Teams</Description>					
 			<acceptanceRule>Neutral</acceptanceRule>
-			<selectionRule>FIFO</selectionRule>
+			<selectionRule>ValueBased</selectionRule>
 			<assignmentRule>Neutral</assignmentRule>
 			<allocationRule>Neutral</allocationRule>
 			<outsourcingRule>Neutral</outsourcingRule>
@@ -27,9 +27,17 @@
 	</GovernanceSearchStrategies>
 	<TaskPatterns>
 		<TaskPattern>
-			<name>CRT</name>
-			<Description>CapabilityRequirementTaskModel</Description>
+			<name>DefaultTeminology</name>
+			<Description>Capability-Requirement-Task Teminology</Description>
 			<Types>
+				<Type>
+				<name>Mission</name>
+				<Description>Mission</Description>
+				</Type>
+				<Type>
+				<name>Stage</name>
+				<Description>Stage</Description>
+				</Type>
 				<Type>
 				<name>Capability</name>
 				<Description>Capability</Description>
@@ -41,6 +49,10 @@
 				<Type>
 				<name>Task</name>
 				<Description>Task</Description>
+				</Type>
+				<Type>
+				<name>Activity</name>
+				<Description>Activity</Description>
 				</Type>
 			</Types>	
 		</TaskPattern>
@@ -56,6 +68,10 @@
 
 <OrganizationalModel>
 	<ServiceTypes>
+		<ServiceType>
+			<name>S0000</name>
+			<Description>CrossTeamCollaboration_EmergencyResponse</Description>
+		</ServiceType>	
 		<ServiceType>
 			<name>S0001</name>
 			<Description>CrossTeamCollaboration_EmergencyResponse</Description>
@@ -82,11 +98,11 @@
 		</ServiceType>	
 		<ServiceType>
 			<name>S0301</name>
-			<Description>PatientManagement_ProductDevelopment</Description>
+			<Description>ProductManagement_ProductDevelopment</Description>
 		</ServiceType>	
 		<ServiceType>
 			<name>S0302</name>
-			<Description>PatientManagement_UserSupport</Description>
+			<Description>ProductManagement_UserSupport</Description>
 		</ServiceType>	
 		<ServiceType>
 			<name>S0401</name>
@@ -96,25 +112,22 @@
 			<name>S0402</name>
 			<Description>Database_Development</Description>
 		</ServiceType>	
+		<ServiceType>
+			<name>S0501</name>
+			<Description>Test</Description>
+		</ServiceType>	
 	</ServiceTypes>
 	<ServiceProvidersList>
 	<ServiceProvider>
-		<name>SE_Team_01</name>
-		<Description>System Engineering Team 01</Description>
+		<name>NorthrupGrumman</name>
+		<Description>Northrup Grumman Lead Team</Description>
 		<sourceUnits>
 		</sourceUnits>
 		<targetUnits>
-		<targetUnit>SE_Team_02</targetUnit>
-		<targetUnit>SE_Team_03</targetUnit>
-		<targetUnit>NW_Team_01</targetUnit>
-		<targetUnit>NW_Team_02</targetUnit>
-		<targetUnit>NW_Team_03</targetUnit>
-		<targetUnit>PM_Team_01</targetUnit>
-		<targetUnit>PM_Team_02</targetUnit>
-		<targetUnit>PM_Team_03</targetUnit>
-		<targetUnit>DB_Team_01</targetUnit>
-		<targetUnit>DB_Team_02</targetUnit>
-		<targetUnit>DB_Team_03</targetUnit>
+		<targetUnit>AgilePath</targetUnit>
+		<targetUnit>Capgemini</targetUnit>
+		<targetUnit>ZelTech</targetUnit>
+		<targetUnit>HanscomAFB</targetUnit>
 		</targetUnits>
 		<subordinateUnits>
 		</subordinateUnits>	
@@ -123,19 +136,19 @@
 			<name>SE_S0101</name>
 			<Description>SE_CapabilityDetermination</Description>
 			<Type>S0101</Type>
-			<Efficiency>100</Efficiency>
+			<Efficiency>300</Efficiency>
 		</service>
 		<service>
 			<name>SE_S0102</name>
 			<Description>SE_SEAnalysis</Description>
 			<Type>S0102</Type>
-			<Efficiency>100</Efficiency>
+			<Efficiency>300</Efficiency>
 		</service>
 		<service>
 			<name>SE_S0103</name>
 			<Description>SE_RequirementAnalysis</Description>
 			<Type>S0103</Type>
-			<Efficiency>100</Efficiency>
+			<Efficiency>300</Efficiency>
 		</service>
 		</services>	
 		<governanceSearchStrategy>						
@@ -173,59 +186,6 @@
 			</service>
 			</services>	
 		</resource>	
-		</resources>	
-	</ServiceProvider>
-	<ServiceProvider>
-		<name>SE_Team_02</name>
-		<Description>System Engineering Team 02</Description>
-		<sourceUnits>
-		</sourceUnits>
-		<targetUnits>
-		<targetUnit>SE_Team_01</targetUnit>
-		<targetUnit>SE_Team_03</targetUnit>
-		<targetUnit>NW_Team_01</targetUnit>
-		<targetUnit>NW_Team_02</targetUnit>
-		<targetUnit>NW_Team_03</targetUnit>
-		<targetUnit>PM_Team_01</targetUnit>
-		<targetUnit>PM_Team_02</targetUnit>
-		<targetUnit>PM_Team_03</targetUnit>
-		<targetUnit>DB_Team_01</targetUnit>
-		<targetUnit>DB_Team_02</targetUnit>
-		<targetUnit>DB_Team_03</targetUnit>
-		</targetUnits>
-		<subordinateUnits>
-		</subordinateUnits>	
-		<services>
-		<service>
-			<name>SE_S0101</name>
-			<Description>SE_CapabilityDetermination</Description>
-			<Type>S0101</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		<service>
-			<name>SE_S0102</name>
-			<Description>SE_SEAnalysis</Description>
-			<Type>S0102</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		<service>
-			<name>SE_S0103</name>
-			<Description>SE_RequirementAnalysis</Description>
-			<Type>S0103</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		</services>	
-		<governanceSearchStrategy>						
-			<default>GlobalDefaultStrategy</default>
-			<specified>
-			<acceptanceRule>null</acceptanceRule>
-			<selectionRule>null</selectionRule>
-			<assignmentRule>null</assignmentRule>
-			<allocationRule>null</allocationRule>
-			<outsourcingRule>null</outsourcingRule>
-			</specified>
-		</governanceSearchStrategy>	
-		<resources>
 		<resource>
 			<name>SE_Spec02</name>
 			<Description>SE_Specialist02</Description>
@@ -250,59 +210,6 @@
 			</service>
 			</services>	
 		</resource>	
-		</resources>	
-	</ServiceProvider>
-	<ServiceProvider>
-		<name>SE_Team_03</name>
-		<Description>System Engineering Team 03</Description>
-		<sourceUnits>
-		</sourceUnits>
-		<targetUnits>
-		<targetUnit>SE_Team_01</targetUnit>
-		<targetUnit>SE_Team_02</targetUnit>
-		<targetUnit>NW_Team_01</targetUnit>
-		<targetUnit>NW_Team_02</targetUnit>
-		<targetUnit>NW_Team_03</targetUnit>
-		<targetUnit>PM_Team_01</targetUnit>
-		<targetUnit>PM_Team_02</targetUnit>
-		<targetUnit>PM_Team_03</targetUnit>
-		<targetUnit>DB_Team_01</targetUnit>
-		<targetUnit>DB_Team_02</targetUnit>
-		<targetUnit>DB_Team_03</targetUnit>
-		</targetUnits>
-		<subordinateUnits>
-		</subordinateUnits>	
-		<services>
-		<service>
-			<name>SE_S0101</name>
-			<Description>SE_CapabilityDetermination</Description>
-			<Type>S0101</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		<service>
-			<name>SE_S0102</name>
-			<Description>SE_SEAnalysis</Description>
-			<Type>S0102</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		<service>
-			<name>SE_S0103</name>
-			<Description>SE_RequirementAnalysis</Description>
-			<Type>S0103</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		</services>	
-		<governanceSearchStrategy>						
-			<default>GlobalDefaultStrategy</default>
-			<specified>
-			<acceptanceRule>null</acceptanceRule>
-			<selectionRule>null</selectionRule>
-			<assignmentRule>null</assignmentRule>
-			<allocationRule>null</allocationRule>
-			<outsourcingRule>null</outsourcingRule>
-			</specified>
-		</governanceSearchStrategy>	
-		<resources>
 		<resource>
 			<name>SE_Spec03</name>
 			<Description>SE_Specialist03</Description>
@@ -330,22 +237,81 @@
 		</resources>	
 	</ServiceProvider>
 	<ServiceProvider>
-		<name>NW_Team_01</name>
-		<Description>Network Engineering Team 01</Description>
+		<name>HanscomAFB</name>
+		<Description>Hanscom Air Force Base</Description>
 		<sourceUnits>
+		<sourceUnit>NorthrupGrumman</sourceUnit>
 		</sourceUnits>
 		<targetUnits>
-		<targetUnit>SE_Team_01</targetUnit>
-		<targetUnit>SE_Team_02</targetUnit>
-		<targetUnit>SE_Team_03</targetUnit>
-		<targetUnit>NW_Team_02</targetUnit>
-		<targetUnit>NW_Team_03</targetUnit>
-		<targetUnit>PM_Team_01</targetUnit>
-		<targetUnit>PM_Team_02</targetUnit>
-		<targetUnit>PM_Team_03</targetUnit>
-		<targetUnit>DB_Team_01</targetUnit>
-		<targetUnit>DB_Team_02</targetUnit>
-		<targetUnit>DB_Team_03</targetUnit>
+		<targetUnit>NorthrupGrumman</targetUnit>
+		</targetUnits>
+		<subordinateUnits>
+		</subordinateUnits>	
+		<services>
+		<service>
+			<name>T_S0501</name>
+			<Description>Test</Description>
+			<Type>S0501</Type>
+			<Efficiency>300</Efficiency>
+		</service>
+		</services>	
+		<governanceSearchStrategy>						
+			<default>GlobalDefaultStrategy</default>
+			<specified>
+			<acceptanceRule>null</acceptanceRule>
+			<selectionRule>null</selectionRule>
+			<assignmentRule>null</assignmentRule>
+			<allocationRule>null</allocationRule>
+			<outsourcingRule>null</outsourcingRule>
+			</specified>
+		</governanceSearchStrategy>	
+		<resources>
+		<resource>
+			<name>Tester01</name>
+			<Description>Tester 01</Description>
+			<services>
+			<service>
+				<name>T_S0501</name>
+				<Description>Test</Description>
+				<Type>S0501</Type>
+				<Efficiency>100</Efficiency>
+			</service>
+			</services>	
+		</resource>	
+		<resource>
+			<name>Tester02</name>
+			<Description>Tester 02</Description>
+			<services>
+			<service>
+				<name>T_S0501</name>
+				<Description>Test</Description>
+				<Type>S0501</Type>
+				<Efficiency>100</Efficiency>
+			</service>
+			</services>	
+		</resource>	
+		<resource>
+			<name>Tester03</name>
+			<Description>Tester 03</Description>
+			<services>
+			<service>
+				<name>T_S0501</name>
+				<Description>Test</Description>
+				<Type>S0501</Type>
+				<Efficiency>100</Efficiency>
+			</service>
+			</services>	
+		</resource>	
+		</resources>	
+	</ServiceProvider>
+	<ServiceProvider>
+		<name>AgilePath</name>
+		<Description>Agile Path Corporation</Description>
+		<sourceUnits>
+		<sourceUnit>NorthrupGrumman</sourceUnit>
+		</sourceUnits>
+		<targetUnits>
+		<targetUnit>NorthrupGrumman</targetUnit>
 		</targetUnits>
 		<subordinateUnits>
 		</subordinateUnits>	
@@ -354,13 +320,13 @@
 			<name>NW_S0201</name>
 			<Description>Network_Maintenance</Description>
 			<Type>S0201</Type>
-			<Efficiency>100</Efficiency>
+			<Efficiency>300</Efficiency>
 		</service>
 		<service>
 			<name>NW_S0202</name>
 			<Description>Network_Development</Description>
 			<Type>S0202</Type>
-			<Efficiency>100</Efficiency>
+			<Efficiency>300</Efficiency>
 		</service>
 		</services>	
 		<governanceSearchStrategy>						
@@ -392,53 +358,6 @@
 			</service>
 			</services>	
 		</resource>	
-		</resources>	
-	</ServiceProvider>
-	<ServiceProvider>
-		<name>NW_Team_02</name>
-		<Description>Network Engineering Team 02</Description>
-		<sourceUnits>
-		</sourceUnits>
-		<targetUnits>
-		<targetUnit>SE_Team_01</targetUnit>
-		<targetUnit>SE_Team_02</targetUnit>
-		<targetUnit>SE_Team_03</targetUnit>
-		<targetUnit>NW_Team_01</targetUnit>
-		<targetUnit>NW_Team_03</targetUnit>
-		<targetUnit>PM_Team_01</targetUnit>
-		<targetUnit>PM_Team_02</targetUnit>
-		<targetUnit>PM_Team_03</targetUnit>
-		<targetUnit>DB_Team_01</targetUnit>
-		<targetUnit>DB_Team_02</targetUnit>
-		<targetUnit>DB_Team_03</targetUnit>
-		</targetUnits>
-		<subordinateUnits>
-		</subordinateUnits>	
-		<services>
-		<service>
-			<name>NW_S0201</name>
-			<Description>Network_Maintenance</Description>
-			<Type>S0201</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		<service>
-			<name>NW_S0202</name>
-			<Description>Network_Development</Description>
-			<Type>S0202</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		</services>	
-		<governanceSearchStrategy>						
-			<default>GlobalDefaultStrategy</default>
-			<specified>
-			<acceptanceRule>null</acceptanceRule>
-			<selectionRule>null</selectionRule>
-			<assignmentRule>null</assignmentRule>
-			<allocationRule>null</allocationRule>
-			<outsourcingRule>null</outsourcingRule>
-			</specified>
-		</governanceSearchStrategy>	
-		<resources>
 		<resource>
 			<name>NW_Eng02</name>
 			<Description>NW_Engineer02</Description>
@@ -457,53 +376,6 @@
 			</service>
 			</services>	
 		</resource>	
-		</resources>	
-	</ServiceProvider>
-	<ServiceProvider>
-		<name>NW_Team_03</name>
-		<Description>Network Engineering Team 03</Description>
-		<sourceUnits>
-		</sourceUnits>
-		<targetUnits>
-		<targetUnit>SE_Team_01</targetUnit>
-		<targetUnit>SE_Team_02</targetUnit>
-		<targetUnit>SE_Team_03</targetUnit>
-		<targetUnit>NW_Team_01</targetUnit>
-		<targetUnit>NW_Team_02</targetUnit>
-		<targetUnit>PM_Team_01</targetUnit>
-		<targetUnit>PM_Team_02</targetUnit>
-		<targetUnit>PM_Team_03</targetUnit>
-		<targetUnit>DB_Team_01</targetUnit>
-		<targetUnit>DB_Team_02</targetUnit>
-		<targetUnit>DB_Team_03</targetUnit>
-		</targetUnits>
-		<subordinateUnits>
-		</subordinateUnits>	
-		<services>
-		<service>
-			<name>NW_S0201</name>
-			<Description>Network_Maintenance</Description>
-			<Type>S0201</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		<service>
-			<name>NW_S0202</name>
-			<Description>Network_Development</Description>
-			<Type>S0202</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		</services>	
-		<governanceSearchStrategy>						
-			<default>GlobalDefaultStrategy</default>
-			<specified>
-			<acceptanceRule>null</acceptanceRule>
-			<selectionRule>null</selectionRule>
-			<assignmentRule>null</assignmentRule>
-			<allocationRule>null</allocationRule>
-			<outsourcingRule>null</outsourcingRule>
-			</specified>
-		</governanceSearchStrategy>	
-		<resources>
 		<resource>
 			<name>NW_Eng03</name>
 			<Description>NW_Engineer03</Description>
@@ -525,37 +397,28 @@
 		</resources>	
 	</ServiceProvider>
 	<ServiceProvider>
-		<name>PM_Team_01</name>
-		<Description>Product Management Team 01</Description>
+		<name>Capgemini</name>
+		<Description>Capgemini Government Solutions</Description>
 		<sourceUnits>
+		<sourceUnit>NorthrupGrumman</sourceUnit>
 		</sourceUnits>
 		<targetUnits>
-		<targetUnit>SE_Team_01</targetUnit>
-		<targetUnit>SE_Team_02</targetUnit>
-		<targetUnit>SE_Team_03</targetUnit>
-		<targetUnit>NW_Team_01</targetUnit>
-		<targetUnit>NW_Team_02</targetUnit>
-		<targetUnit>NW_Team_03</targetUnit>
-		<targetUnit>PM_Team_02</targetUnit>
-		<targetUnit>PM_Team_03</targetUnit>
-		<targetUnit>DB_Team_01</targetUnit>
-		<targetUnit>DB_Team_02</targetUnit>
-		<targetUnit>DB_Team_03</targetUnit>
+		<targetUnit>NorthrupGrumman</targetUnit>
 		</targetUnits>
 		<subordinateUnits>
 		</subordinateUnits>	
 		<services>
 		<service>
 			<name>PM1_S0301</name>
-			<Description>PatientManagement_ProductDevelopment</Description>
+			<Description>ProductManagement_ProductDevelopment</Description>
 			<Type>S0301</Type>
-			<Efficiency>100</Efficiency>
+			<Efficiency>300</Efficiency>
 		</service>
 		<service>
 			<name>PM1_S0302</name>
-			<Description>PatientManagement_UserSupport</Description>
+			<Description>ProductManagement_UserSupport</Description>
 			<Type>S0302</Type>
-			<Efficiency>100</Efficiency>
+			<Efficiency>300</Efficiency>
 		</service>
 		</services>	
 		<governanceSearchStrategy>						
@@ -570,148 +433,54 @@
 		</governanceSearchStrategy>	
 		<resources>
 		<resource>
-			<name>PM_Eng01</name>
+			<name>PM1_Eng1</name>
 			<Description>PM_Engineer01</Description>
 			<services>
 			<service>
-				<name>PM1_S0301</name>
-				<Description>PatientManagement_ProductDevelopment</Description>
+				<name>PM_1_S0301</name>
+				<Description>ProductManagement_ProductDevelopment</Description>
 				<Type>S0301</Type>
 				<Efficiency>100</Efficiency>
 			</service>
 			<service>
-				<name>PM1_S0302</name>
-				<Description>PatientManagement_UserSupport</Description>
+				<name>PM_1_S0302</name>
+				<Description>ProductManagement_UserSupport</Description>
 				<Type>S0302</Type>
 				<Efficiency>100</Efficiency>
 			</service>
 			</services>	
 		</resource>	
-		</resources>	
-	</ServiceProvider>
-	<ServiceProvider>
-		<name>PM_Team_02</name>
-		<Description>Product Management Team 02</Description>
-		<sourceUnits>
-		</sourceUnits>
-		<targetUnits>
-		<targetUnit>SE_Team_01</targetUnit>
-		<targetUnit>SE_Team_02</targetUnit>
-		<targetUnit>SE_Team_03</targetUnit>
-		<targetUnit>NW_Team_01</targetUnit>
-		<targetUnit>NW_Team_02</targetUnit>
-		<targetUnit>NW_Team_03</targetUnit>
-		<targetUnit>PM_Team_01</targetUnit>
-		<targetUnit>PM_Team_03</targetUnit>
-		<targetUnit>DB_Team_01</targetUnit>
-		<targetUnit>DB_Team_02</targetUnit>
-		<targetUnit>DB_Team_03</targetUnit>
-		</targetUnits>
-		<subordinateUnits>
-		</subordinateUnits>	
-		<services>
-		<service>
-			<name>PM1_S0301</name>
-			<Description>PatientManagement_ProductDevelopment</Description>
-			<Type>S0301</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		<service>
-			<name>PM1_S0302</name>
-			<Description>PatientManagement_UserSupport</Description>
-			<Type>S0302</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		</services>	
-		<governanceSearchStrategy>						
-			<default>GlobalDefaultStrategy</default>
-			<specified>
-			<acceptanceRule>null</acceptanceRule>
-			<selectionRule>null</selectionRule>
-			<assignmentRule>null</assignmentRule>
-			<allocationRule>null</allocationRule>
-			<outsourcingRule>null</outsourcingRule>
-			</specified>
-		</governanceSearchStrategy>	
-		<resources>
 		<resource>
-			<name>PM_Eng02</name>
+			<name>PM1_Eng2</name>
 			<Description>PM_Engineer02</Description>
 			<services>
 			<service>
-				<name>PM1_S0301</name>
-				<Description>PatientManagement_ProductDevelopment</Description>
+				<name>PM_1_S0301</name>
+				<Description>ProductManagement_ProductDevelopment</Description>
 				<Type>S0301</Type>
 				<Efficiency>100</Efficiency>
 			</service>
 			<service>
-				<name>PM1_S0302</name>
-				<Description>PatientManagement_UserSupport</Description>
+				<name>PM_1_S0302</name>
+				<Description>ProductManagement_UserSupport</Description>
 				<Type>S0302</Type>
 				<Efficiency>100</Efficiency>
 			</service>
 			</services>	
 		</resource>	
-		</resources>	
-	</ServiceProvider>
-	<ServiceProvider>
-		<name>PM_Team_03</name>
-		<Description>Product Management Team 03</Description>
-		<sourceUnits>
-		</sourceUnits>
-		<targetUnits>
-		<targetUnit>SE_Team_01</targetUnit>
-		<targetUnit>SE_Team_02</targetUnit>
-		<targetUnit>SE_Team_03</targetUnit>
-		<targetUnit>NW_Team_01</targetUnit>
-		<targetUnit>NW_Team_02</targetUnit>
-		<targetUnit>NW_Team_03</targetUnit>
-		<targetUnit>PM_Team_01</targetUnit>
-		<targetUnit>PM_Team_02</targetUnit>
-		<targetUnit>DB_Team_01</targetUnit>
-		<targetUnit>DB_Team_02</targetUnit>
-		<targetUnit>DB_Team_03</targetUnit>
-		</targetUnits>
-		<subordinateUnits>
-		</subordinateUnits>	
-		<services>
-		<service>
-			<name>PM1_S0301</name>
-			<Description>PatientManagement_ProductDevelopment</Description>
-			<Type>S0301</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		<service>
-			<name>PM1_S0302</name>
-			<Description>PatientManagement_UserSupport</Description>
-			<Type>S0302</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		</services>	
-		<governanceSearchStrategy>						
-			<default>GlobalDefaultStrategy</default>
-			<specified>
-			<acceptanceRule>null</acceptanceRule>
-			<selectionRule>null</selectionRule>
-			<assignmentRule>null</assignmentRule>
-			<allocationRule>null</allocationRule>
-			<outsourcingRule>null</outsourcingRule>
-			</specified>
-		</governanceSearchStrategy>	
-		<resources>
 		<resource>
-			<name>PM_Eng03</name>
+			<name>PM1_Eng3</name>
 			<Description>PM_Engineer03</Description>
 			<services>
 			<service>
-				<name>PM1_S0301</name>
-				<Description>PatientManagement_ProductDevelopment</Description>
+				<name>PM_1_S0301</name>
+				<Description>ProductManagement_ProductDevelopment</Description>
 				<Type>S0301</Type>
 				<Efficiency>100</Efficiency>
 			</service>
 			<service>
-				<name>PM1_S0302</name>
-				<Description>PatientManagement_UserSupport</Description>
+				<name>PM_1_S0302</name>
+				<Description>ProductManagement_UserSupport</Description>
 				<Type>S0302</Type>
 				<Efficiency>100</Efficiency>
 			</service>
@@ -720,22 +489,13 @@
 		</resources>	
 	</ServiceProvider>
 	<ServiceProvider>
-		<name>DB_Team_01</name>
-		<Description>Database Engineering Team 01</Description>
+		<name>ZelTech</name>
+		<Description>ZelTech Technologies</Description>
 		<sourceUnits>
+		<sourceUnit>NorthrupGrumman</sourceUnit>
 		</sourceUnits>
 		<targetUnits>
-		<targetUnit>SE_Team_01</targetUnit>
-		<targetUnit>SE_Team_02</targetUnit>
-		<targetUnit>SE_Team_03</targetUnit>
-		<targetUnit>NW_Team_01</targetUnit>
-		<targetUnit>NW_Team_02</targetUnit>
-		<targetUnit>NW_Team_03</targetUnit>
-		<targetUnit>PM_Team_01</targetUnit>
-		<targetUnit>PM_Team_02</targetUnit>
-		<targetUnit>PM_Team_03</targetUnit>
-		<targetUnit>DB_Team_02</targetUnit>
-		<targetUnit>DB_Team_03</targetUnit>
+		<targetUnit>NorthrupGrumman</targetUnit>
 		</targetUnits>
 		<subordinateUnits>
 		</subordinateUnits>	
@@ -744,13 +504,13 @@
 			<name>DB_S0401</name>
 			<Description>Database_Maintenance</Description>
 			<Type>S0401</Type>
-			<Efficiency>100</Efficiency>
+			<Efficiency>300</Efficiency>
 		</service>
 		<service>
 			<name>DB_S0402</name>
 			<Description>Database_Development</Description>
 			<Type>S0402</Type>
-			<Efficiency>100</Efficiency>
+			<Efficiency>300</Efficiency>
 		</service>
 		</services>	
 		<governanceSearchStrategy>						
@@ -782,53 +542,6 @@
 			</service>
 			</services>	
 		</resource>	
-		</resources>	
-	</ServiceProvider>
-	<ServiceProvider>
-		<name>DB_Team_02</name>
-		<Description>Database Engineering Team 02</Description>
-		<sourceUnits>
-		</sourceUnits>
-		<targetUnits>
-		<targetUnit>SE_Team_01</targetUnit>
-		<targetUnit>SE_Team_02</targetUnit>
-		<targetUnit>SE_Team_03</targetUnit>
-		<targetUnit>NW_Team_01</targetUnit>
-		<targetUnit>NW_Team_02</targetUnit>
-		<targetUnit>NW_Team_03</targetUnit>
-		<targetUnit>PM_Team_01</targetUnit>
-		<targetUnit>PM_Team_02</targetUnit>
-		<targetUnit>PM_Team_03</targetUnit>
-		<targetUnit>DB_Team_01</targetUnit>
-		<targetUnit>DB_Team_02</targetUnit>
-		</targetUnits>
-		<subordinateUnits>
-		</subordinateUnits>	
-		<services>
-		<service>
-			<name>DB_S0401</name>
-			<Description>Database_Maintenance</Description>
-			<Type>S0401</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		<service>
-			<name>DB_S0402</name>
-			<Description>Database_Development</Description>
-			<Type>S0402</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		</services>	
-		<governanceSearchStrategy>						
-			<default>GlobalDefaultStrategy</default>
-			<specified>
-			<acceptanceRule>null</acceptanceRule>
-			<selectionRule>null</selectionRule>
-			<assignmentRule>null</assignmentRule>
-			<allocationRule>null</allocationRule>
-			<outsourcingRule>null</outsourcingRule>
-			</specified>
-		</governanceSearchStrategy>	
-		<resources>
 		<resource>
 			<name>DB_Eng02</name>
 			<Description>DB_Engineer02</Description>
@@ -847,53 +560,6 @@
 			</service>
 			</services>	
 		</resource>	
-		</resources>	
-	</ServiceProvider>
-	<ServiceProvider>
-		<name>DB_Team_03</name>
-		<Description>Database Engineering Team 03</Description>
-		<sourceUnits>
-		</sourceUnits>
-		<targetUnits>
-		<targetUnit>SE_Team_01</targetUnit>
-		<targetUnit>SE_Team_02</targetUnit>
-		<targetUnit>SE_Team_03</targetUnit>
-		<targetUnit>NW_Team_01</targetUnit>
-		<targetUnit>NW_Team_02</targetUnit>
-		<targetUnit>NW_Team_03</targetUnit>
-		<targetUnit>PM_Team_01</targetUnit>
-		<targetUnit>PM_Team_02</targetUnit>
-		<targetUnit>PM_Team_03</targetUnit>
-		<targetUnit>DB_Team_01</targetUnit>
-		<targetUnit>DB_Team_02</targetUnit>
-		</targetUnits>
-		<subordinateUnits>
-		</subordinateUnits>	
-		<services>
-		<service>
-			<name>DB_S0401</name>
-			<Description>Database_Maintenance</Description>
-			<Type>S0401</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		<service>
-			<name>DB_S0402</name>
-			<Description>Database_Development</Description>
-			<Type>S0402</Type>
-			<Efficiency>100</Efficiency>
-		</service>
-		</services>	
-		<governanceSearchStrategy>						
-			<default>GlobalDefaultStrategy</default>
-			<specified>
-			<acceptanceRule>null</acceptanceRule>
-			<selectionRule>null</selectionRule>
-			<assignmentRule>null</assignmentRule>
-			<allocationRule>null</allocationRule>
-			<outsourcingRule>null</outsourcingRule>
-			</specified>
-		</governanceSearchStrategy>	
-		<resources>
 		<resource>
 			<name>DB_Eng03</name>
 			<Description>DB_Engineer03</Description>
@@ -919,19 +585,281 @@
 
 <WorkItemNetworkModel>
 <workSource>
-	<name>ESM</name>
+	<name>USAF</name>
 	<Description>ExecutiveStakeholderManagement_Board</Description>
 	<targetUnits>
-	<targetUnit>SE_Team_01</targetUnit>
-	<targetUnit>SE_Team_02</targetUnit>
-	<targetUnit>SE_Team_03</targetUnit>
+	<targetUnit>NorthrupGrumman</targetUnit>
 	</targetUnits>
 	<assignmentRule>Neutral</assignmentRule>						
 </workSource>
 <workItem>
+	<name>PEMD</name>
+	<Description>Pre-Engineering and Manufacturing Development</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Mission</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>SRR</subtask>
+	<subtask>IDR</subtask>
+	<subtask>PDR</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>SRR</triggered>
+	<triggered>PDR</triggered>
+	<triggered>IDR</triggered>
+	<triggered>MSB</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>1000000</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>USAF</WorkSource>
+		<arrivalTime>1</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>EMD</name>
+	<Description>Engineering and Manufacturing Development</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Mission</Type>					
+	<predecessors>
+	<predecessor>PEMD</predecessor>
+	</predecessors>
+	<subtasks>
+	<subtask>CDR</subtask>
+	<subtask>DT</subtask>
+	<subtask>OT</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>CDR</triggered>
+	<triggered>DT</triggered>
+	<triggered>OT</triggered>
+	<triggered>MSC</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>1000000</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>USAF</WorkSource>
+		<arrivalTime>1</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>SRR</name>
+	<Description>System Requirement Review</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Stage</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>C1</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>C1</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>100000</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>IDR</name>
+	<Description>Interim Design Review</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Stage</Type>					
+	<predecessors>
+	<predecessor>SRR</predecessor>
+	</predecessors>
+	<subtasks>
+	<subtask>C2</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>C2</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>100000</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>PDR</name>
+	<Description>delta Preliminary Design Review</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Stage</Type>					
+	<predecessors>
+	<predecessor>IDR</predecessor>
+	</predecessors>
+	<subtasks>
+	<subtask>C3</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>C3</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>100000</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>MSB</name>
+	<Description>Milestone B</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Stage</Type>					
+	<predecessors>
+	<predecessor>SRR</predecessor>
+	<predecessor>PDR</predecessor>
+	<predecessor>IDR</predecessor>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>EMD</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>1000000</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>CDR</name>
+	<Description>Critical Design Review</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Stage</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>C4</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>C4</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>100000</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>DT</name>
+	<Description>Development Test</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Stage</Type>					
+	<predecessors>
+	<predecessor>CDR</predecessor>
+	</predecessors>
+	<subtasks>
+	<subtask>C5</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>C5</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>100000</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>OT</name>
+	<Description>Operational Test</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Stage</Type>					
+	<predecessors>
+	<predecessor>DT</predecessor>
+	</predecessors>
+	<subtasks>
+	<subtask>C6</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>C6</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>100000</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>MSC</name>
+	<Description>Milestone C</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Stage</Type>					
+	<predecessors>
+	<predecessor>CDR</predecessor>
+	<predecessor>DT</predecessor>
+	<predecessor>OT</predecessor>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>1000000</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
 	<name>C1</name>
 	<Description>Capability 1</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Capability</Type>					
 	<predecessors>
 	</predecessors>
@@ -949,16 +877,16 @@
 	</causalities>
 	<servicesRequired>S0101</servicesRequired>
 		<baseEfforts>0</baseEfforts>
-		<baseValue>300</baseValue>
+		<baseValue>3000</baseValue>
 		<classOfService>Standard</classOfService>
-		<WorkSource>ESM</WorkSource>
-		<arrivalTime>1</arrivalTime>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
 		<dueDate>0</dueDate>
 </workItem>
 <workItem>
 	<name>C2</name>
 	<Description>Capability 2</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Capability</Type>					
 	<predecessors>
 	</predecessors>
@@ -976,16 +904,16 @@
 	</causalities>
 	<servicesRequired>S0101</servicesRequired>
 		<baseEfforts>0</baseEfforts>
-		<baseValue>600</baseValue>
+		<baseValue>6000</baseValue>
 		<classOfService>Standard</classOfService>
-		<WorkSource>ESM</WorkSource>
-		<arrivalTime>1</arrivalTime>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
 		<dueDate>0</dueDate>
 </workItem>
 <workItem>
 	<name>C3</name>
 	<Description>Capability 3</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Capability</Type>					
 	<predecessors>
 	</predecessors>
@@ -1003,16 +931,16 @@
 	</causalities>
 	<servicesRequired>S0101</servicesRequired>
 		<baseEfforts>0</baseEfforts>
-		<baseValue>900</baseValue>
+		<baseValue>9000</baseValue>
 		<classOfService>Standard</classOfService>
-		<WorkSource>ESM</WorkSource>
-		<arrivalTime>1</arrivalTime>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
 		<dueDate>0</dueDate>
 </workItem>
 <workItem>
 	<name>AC1</name>
 	<Description>Analysis Capability 1</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1029,7 +957,7 @@
 	</causalities>
 	<servicesRequired>S0102</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>3</baseValue>
+		<baseValue>300</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1038,7 +966,7 @@
 <workItem>
 	<name>AC2</name>
 	<Description>Analysis Capability 2</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1055,7 +983,7 @@
 	</causalities>
 	<servicesRequired>S0102</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>6</baseValue>
+		<baseValue>600</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1064,7 +992,7 @@
 <workItem>
 	<name>AC3</name>
 	<Description>Analysis Capability 3</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1081,7 +1009,7 @@
 	</causalities>
 	<servicesRequired>S0102</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>9</baseValue>
+		<baseValue>900</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1090,7 +1018,7 @@
 <workItem>
 	<name>R1</name>
 	<Description>Requirement 1</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
@@ -1108,7 +1036,7 @@
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 		<baseEfforts>0</baseEfforts>
-		<baseValue>3</baseValue>
+		<baseValue>300</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1117,7 +1045,7 @@
 <workItem>
 	<name>R2</name>
 	<Description>Requirement 2</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
@@ -1135,7 +1063,7 @@
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 		<baseEfforts>0</baseEfforts>
-		<baseValue>3</baseValue>
+		<baseValue>300</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1144,7 +1072,7 @@
 <workItem>
 	<name>R3</name>
 	<Description>Requirement 3</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
@@ -1162,7 +1090,7 @@
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 		<baseEfforts>0</baseEfforts>
-		<baseValue>3</baseValue>
+		<baseValue>300</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1171,7 +1099,7 @@
 <workItem>
 	<name>R4</name>
 	<Description>Requirement 4</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
@@ -1189,7 +1117,7 @@
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 		<baseEfforts>0</baseEfforts>
-		<baseValue>6</baseValue>
+		<baseValue>600</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1198,7 +1126,7 @@
 <workItem>
 	<name>R5</name>
 	<Description>Requirement 5</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
@@ -1216,7 +1144,7 @@
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 		<baseEfforts>0</baseEfforts>
-		<baseValue>6</baseValue>
+		<baseValue>600</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1225,7 +1153,7 @@
 <workItem>
 	<name>R6</name>
 	<Description>Requirement 6</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
@@ -1243,7 +1171,7 @@
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 		<baseEfforts>0</baseEfforts>
-		<baseValue>6</baseValue>
+		<baseValue>600</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1252,7 +1180,7 @@
 <workItem>
 	<name>R7</name>
 	<Description>Requirement 7</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
@@ -1270,7 +1198,7 @@
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 		<baseEfforts>0</baseEfforts>
-		<baseValue>9</baseValue>
+		<baseValue>900</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1279,7 +1207,7 @@
 <workItem>
 	<name>R8</name>
 	<Description>Requirement 8</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
@@ -1297,7 +1225,7 @@
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 		<baseEfforts>0</baseEfforts>
-		<baseValue>9</baseValue>
+		<baseValue>900</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1306,7 +1234,7 @@
 <workItem>
 	<name>R9</name>
 	<Description>Requirement 9</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
@@ -1324,7 +1252,7 @@
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 		<baseEfforts>0</baseEfforts>
-		<baseValue>9</baseValue>
+		<baseValue>900</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1333,7 +1261,7 @@
 <workItem>
 	<name>AR1</name>
 	<Description>Analysis Requirement 1</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1350,7 +1278,7 @@
 	</causalities>
 	<servicesRequired>S0102</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>3</baseValue>
+		<baseValue>30</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1359,7 +1287,7 @@
 <workItem>
 	<name>AR2</name>
 	<Description>Analysis Requirement 2</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1376,7 +1304,7 @@
 	</causalities>
 	<servicesRequired>S0102</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>3</baseValue>
+		<baseValue>30</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1385,7 +1313,7 @@
 <workItem>
 	<name>AR3</name>
 	<Description>Analysis Requirement 3</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1402,7 +1330,7 @@
 	</causalities>
 	<servicesRequired>S0102</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>3</baseValue>
+		<baseValue>30</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1411,7 +1339,7 @@
 <workItem>
 	<name>AR4</name>
 	<Description>Analysis Requirement 4</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1428,7 +1356,7 @@
 	</causalities>
 	<servicesRequired>S0102</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>6</baseValue>
+		<baseValue>60</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1437,7 +1365,7 @@
 <workItem>
 	<name>AR5</name>
 	<Description>Analysis Requirement 5</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1454,7 +1382,7 @@
 	</causalities>
 	<servicesRequired>S0102</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>6</baseValue>
+		<baseValue>60</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1463,7 +1391,7 @@
 <workItem>
 	<name>AR6</name>
 	<Description>Analysis Requirement 6</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1480,7 +1408,7 @@
 	</causalities>
 	<servicesRequired>S0102</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>6</baseValue>
+		<baseValue>60</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1489,7 +1417,7 @@
 <workItem>
 	<name>AR7</name>
 	<Description>Analysis Requirement 7</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1506,7 +1434,7 @@
 	</causalities>
 	<servicesRequired>S0102</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>9</baseValue>
+		<baseValue>90</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1515,7 +1443,7 @@
 <workItem>
 	<name>AR8</name>
 	<Description>Analysis Requirement 8</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1532,7 +1460,7 @@
 	</causalities>
 	<servicesRequired>S0102</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>9</baseValue>
+		<baseValue>90</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1541,7 +1469,7 @@
 <workItem>
 	<name>AR9</name>
 	<Description>Analysis Requirement 9</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1558,7 +1486,7 @@
 	</causalities>
 	<servicesRequired>S0102</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>9</baseValue>
+		<baseValue>90</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1567,7 +1495,7 @@
 <workItem>
 	<name>T1</name>
 	<Description>NW Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1577,7 +1505,7 @@
 	</causalities>
 	<servicesRequired>S0201</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>3</baseValue>
+		<baseValue>30</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1586,7 +1514,7 @@
 <workItem>
 	<name>T2</name>
 	<Description>PM Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1596,7 +1524,7 @@
 	</causalities>
 	<servicesRequired>S0301</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>3</baseValue>
+		<baseValue>30</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1605,7 +1533,7 @@
 <workItem>
 	<name>T3</name>
 	<Description>DB Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1615,7 +1543,7 @@
 	</causalities>
 	<servicesRequired>S0401</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>3</baseValue>
+		<baseValue>30</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1624,7 +1552,7 @@
 <workItem>
 	<name>T4</name>
 	<Description>NW Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1634,7 +1562,7 @@
 	</causalities>
 	<servicesRequired>S0201</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>3</baseValue>
+		<baseValue>30</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1643,7 +1571,7 @@
 <workItem>
 	<name>T5</name>
 	<Description>PM Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1653,7 +1581,7 @@
 	</causalities>
 	<servicesRequired>S0301</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>3</baseValue>
+		<baseValue>30</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1662,7 +1590,7 @@
 <workItem>
 	<name>T6</name>
 	<Description>DB Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1672,7 +1600,7 @@
 	</causalities>
 	<servicesRequired>S0401</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>3</baseValue>
+		<baseValue>30</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1681,7 +1609,7 @@
 <workItem>
 	<name>T7</name>
 	<Description>NW Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1691,7 +1619,7 @@
 	</causalities>
 	<servicesRequired>S0201</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>3</baseValue>
+		<baseValue>30</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1700,7 +1628,7 @@
 <workItem>
 	<name>T8</name>
 	<Description>PM Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1710,7 +1638,7 @@
 	</causalities>
 	<servicesRequired>S0301</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>3</baseValue>
+		<baseValue>30</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1719,7 +1647,7 @@
 <workItem>
 	<name>T9</name>
 	<Description>DB Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1729,7 +1657,7 @@
 	</causalities>
 	<servicesRequired>S0401</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>3</baseValue>
+		<baseValue>30</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1738,7 +1666,7 @@
 <workItem>
 	<name>T10</name>
 	<Description>NW Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1748,7 +1676,7 @@
 	</causalities>
 	<servicesRequired>S0201</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>6</baseValue>
+		<baseValue>60</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1757,7 +1685,7 @@
 <workItem>
 	<name>T11</name>
 	<Description>PM Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1767,7 +1695,7 @@
 	</causalities>
 	<servicesRequired>S0301</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>6</baseValue>
+		<baseValue>60</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1776,7 +1704,7 @@
 <workItem>
 	<name>T12</name>
 	<Description>DB Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1786,7 +1714,7 @@
 	</causalities>
 	<servicesRequired>S0401</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>6</baseValue>
+		<baseValue>60</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1795,7 +1723,7 @@
 <workItem>
 	<name>T13</name>
 	<Description>NW Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1805,7 +1733,7 @@
 	</causalities>
 	<servicesRequired>S0201</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>6</baseValue>
+		<baseValue>60</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1814,7 +1742,7 @@
 <workItem>
 	<name>T14</name>
 	<Description>PM Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1824,7 +1752,7 @@
 	</causalities>
 	<servicesRequired>S0301</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>6</baseValue>
+		<baseValue>60</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1833,7 +1761,7 @@
 <workItem>
 	<name>T15</name>
 	<Description>DB Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1843,7 +1771,7 @@
 	</causalities>
 	<servicesRequired>S0401</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>6</baseValue>
+		<baseValue>60</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1852,7 +1780,7 @@
 <workItem>
 	<name>T16</name>
 	<Description>NW Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1862,7 +1790,7 @@
 	</causalities>
 	<servicesRequired>S0201</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>6</baseValue>
+		<baseValue>60</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1871,7 +1799,7 @@
 <workItem>
 	<name>T17</name>
 	<Description>PM Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1881,7 +1809,7 @@
 	</causalities>
 	<servicesRequired>S0301</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>6</baseValue>
+		<baseValue>60</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1890,7 +1818,7 @@
 <workItem>
 	<name>T18</name>
 	<Description>DB Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1900,7 +1828,7 @@
 	</causalities>
 	<servicesRequired>S0401</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>6</baseValue>
+		<baseValue>60</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1909,7 +1837,7 @@
 <workItem>
 	<name>T19</name>
 	<Description>NW Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1919,7 +1847,7 @@
 	</causalities>
 	<servicesRequired>S0201</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>9</baseValue>
+		<baseValue>90</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1928,7 +1856,7 @@
 <workItem>
 	<name>T20</name>
 	<Description>PM Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1938,7 +1866,7 @@
 	</causalities>
 	<servicesRequired>S0301</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>9</baseValue>
+		<baseValue>90</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1947,7 +1875,7 @@
 <workItem>
 	<name>T21</name>
 	<Description>DB Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1957,7 +1885,7 @@
 	</causalities>
 	<servicesRequired>S0401</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>9</baseValue>
+		<baseValue>90</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1966,7 +1894,7 @@
 <workItem>
 	<name>T22</name>
 	<Description>NW Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1976,7 +1904,7 @@
 	</causalities>
 	<servicesRequired>S0201</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>9</baseValue>
+		<baseValue>90</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -1985,7 +1913,7 @@
 <workItem>
 	<name>T23</name>
 	<Description>PM Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -1995,7 +1923,7 @@
 	</causalities>
 	<servicesRequired>S0301</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>9</baseValue>
+		<baseValue>90</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -2004,7 +1932,7 @@
 <workItem>
 	<name>T24</name>
 	<Description>DB Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -2014,7 +1942,7 @@
 	</causalities>
 	<servicesRequired>S0401</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>9</baseValue>
+		<baseValue>90</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -2023,7 +1951,7 @@
 <workItem>
 	<name>T25</name>
 	<Description>NW Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -2033,7 +1961,7 @@
 	</causalities>
 	<servicesRequired>S0201</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>9</baseValue>
+		<baseValue>90</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -2042,7 +1970,7 @@
 <workItem>
 	<name>T26</name>
 	<Description>PM Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -2052,7 +1980,7 @@
 	</causalities>
 	<servicesRequired>S0301</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>9</baseValue>
+		<baseValue>90</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -2061,7 +1989,7 @@
 <workItem>
 	<name>T27</name>
 	<Description>DB Task</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>
@@ -2071,7 +1999,1156 @@
 	</causalities>
 	<servicesRequired>S0401</servicesRequired>
 		<baseEfforts>10</baseEfforts>
-		<baseValue>9</baseValue>
+		<baseValue>90</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>C4</name>
+	<Description>Capability 1</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Capability</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>R10</subtask>
+	<subtask>R11</subtask>
+	<subtask>R12</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AC4</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>3000</baseValue>
+		<classOfService>Standard</classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>C5</name>
+	<Description>Capability 2</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Capability</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>R13</subtask>
+	<subtask>R14</subtask>
+	<subtask>R15</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AC5</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>6000</baseValue>
+		<classOfService>Standard</classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>C6</name>
+	<Description>Capability 3</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Capability</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>R16</subtask>
+	<subtask>R17</subtask>
+	<subtask>R18</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AC6</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>9000</baseValue>
+		<classOfService>Standard</classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AC4</name>
+	<Description>Analysis Capability 1</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>R10</triggered>
+	<triggered>R11</triggered>
+	<triggered>R12</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>300</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AC5</name>
+	<Description>Analysis Capability 2</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>R13</triggered>
+	<triggered>R14</triggered>
+	<triggered>R15</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>600</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AC6</name>
+	<Description>Analysis Capability 3</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>R16</triggered>
+	<triggered>R17</triggered>
+	<triggered>R18</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>900</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>R10</name>
+	<Description>Requirement 1</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Requirement</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>T28</subtask>
+	<subtask>T29</subtask>
+	<subtask>T30</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AR10</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0103</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>300</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>R11</name>
+	<Description>Requirement 2</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Requirement</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>T31</subtask>
+	<subtask>T32</subtask>
+	<subtask>T33</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AR11</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0103</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>300</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>R12</name>
+	<Description>Requirement 3</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Requirement</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>T34</subtask>
+	<subtask>T35</subtask>
+	<subtask>T36</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AR12</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0103</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>300</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>R13</name>
+	<Description>Requirement 4</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Requirement</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>T37</subtask>
+	<subtask>T38</subtask>
+	<subtask>T39</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AR13</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0103</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>600</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>R14</name>
+	<Description>Requirement 5</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Requirement</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>T40</subtask>
+	<subtask>T41</subtask>
+	<subtask>T42</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AR14</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0103</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>600</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>R15</name>
+	<Description>Requirement 6</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Requirement</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>T43</subtask>
+	<subtask>T44</subtask>
+	<subtask>T45</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AR15</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0103</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>600</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>R16</name>
+	<Description>Requirement 7</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Requirement</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>T46</subtask>
+	<subtask>T47</subtask>
+	<subtask>T48</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AR16</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0103</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>900</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>R17</name>
+	<Description>Requirement 8</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Requirement</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>T49</subtask>
+	<subtask>T50</subtask>
+	<subtask>T51</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AR17</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0103</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>900</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>R18</name>
+	<Description>Requirement 9</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Requirement</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>T52</subtask>
+	<subtask>T53</subtask>
+	<subtask>T54</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>AR18</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0103</servicesRequired>
+		<baseEfforts>0</baseEfforts>
+		<baseValue>900</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AR10</name>
+	<Description>Analysis Requirement 1</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>T28</triggered>
+	<triggered>T29</triggered>
+	<triggered>T30</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>30</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AR11</name>
+	<Description>Analysis Requirement 2</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>T31</triggered>
+	<triggered>T32</triggered>
+	<triggered>T33</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>30</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AR12</name>
+	<Description>Analysis Requirement 3</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>T34</triggered>
+	<triggered>T35</triggered>
+	<triggered>T36</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>30</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AR13</name>
+	<Description>Analysis Requirement 4</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>T37</triggered>
+	<triggered>T38</triggered>
+	<triggered>T39</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>60</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AR14</name>
+	<Description>Analysis Requirement 5</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>T40</triggered>
+	<triggered>T41</triggered>
+	<triggered>T42</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>60</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AR15</name>
+	<Description>Analysis Requirement 6</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>T43</triggered>
+	<triggered>T44</triggered>
+	<triggered>T45</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>60</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AR16</name>
+	<Description>Analysis Requirement 7</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>T46</triggered>
+	<triggered>T47</triggered>
+	<triggered>T48</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>90</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AR17</name>
+	<Description>Analysis Requirement 8</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>T49</triggered>
+	<triggered>T50</triggered>
+	<triggered>T51</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>90</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>AR18</name>
+	<Description>Analysis Requirement 9</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>T52</triggered>
+	<triggered>T53</triggered>
+	<triggered>T54</triggered>
+		<atProgress>100</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0102</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>90</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T28</name>
+	<Description>Test Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0501</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>30</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T29</name>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>30</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T30</name>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>30</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T31</name>
+	<Description>Test Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0501</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>3</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T32</name>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>30</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T33</name>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>30</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T34</name>
+	<Description>Test Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0501</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>30</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T35</name>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>30</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T36</name>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>30</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T37</name>
+	<Description>Test Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0501</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>60</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T38</name>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>60</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T39</name>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>60</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T40</name>
+	<Description>Test Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0501</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>60</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T41</name>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>60</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T42</name>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>60</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T43</name>
+	<Description>Test Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0501</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>60</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T44</name>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>60</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T45</name>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>60</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T46</name>
+	<Description>Test Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0501</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>90</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T47</name>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>90</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T48</name>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>90</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T49</name>
+	<Description>Test Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0501</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>90</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T50</name>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>90</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T51</name>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>90</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T52</name>
+	<Description>Test Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0501</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>90</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T53</name>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>90</baseValue>
+		<classOfService></classOfService>
+		<WorkSource>null</WorkSource>
+		<arrivalTime>0</arrivalTime>
+		<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T54</name>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+		<baseEfforts>10</baseEfforts>
+		<baseValue>90</baseValue>
 		<classOfService></classOfService>
 		<WorkSource>null</WorkSource>
 		<arrivalTime>0</arrivalTime>
@@ -2080,7 +3157,7 @@
 <workItem>
 	<name>TestWI</name>
 	<Description>for testing purpose</Description>
-	<Pattern>CRT</Pattern>
+	<Pattern>DefaultTeminology</Pattern>
 		<Type>Task</Type>					
 	<predecessors>
 	</predecessors>

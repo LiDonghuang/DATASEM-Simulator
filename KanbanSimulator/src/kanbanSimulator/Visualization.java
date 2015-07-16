@@ -23,23 +23,36 @@ public class Visualization {
 			// ---------------- Visualization Control ------------------------------	
 //			net.removeEdges();		
 //			 *** WI Dependencies Visualization ***	
-			int c = 0;int r = 0;int t = 0;
+			int m = 0;int g =0 ;int c = 0;int r = 0;int t = 0;int a = 0;
 			for (int w=0; w<SoS.getArrivedList().size(); w++) {
 				KSSTask wItem = SoS.getArrivedList().get(w);		
 //				if (!wItem.isAssigned()) {
 					// Grid Locations
 //					int c = 0;int r = 0;int t = 0;
-					if (wItem.getPatternType().getName().matches("Capability")) {																															
-						grid3D.moveTo(wItem,12+2*c,99,4);
-						gridWIN.moveTo(wItem,12+2*c,99);
-						c++;}
+					if (wItem.getPatternType().getName().matches("Mission")) {																															
+							grid3D.moveTo(wItem,12+5*m,99,2);
+							gridWIN.moveTo(wItem,12+5*m,99);
+							m++;}
+					else if (wItem.getPatternType().getName().matches("Stage")) {																															
+							grid3D.moveTo(wItem,12+4*g,96,4);
+							gridWIN.moveTo(wItem,12+4*g,96);
+							g++;}
+					else if (wItem.getPatternType().getName().matches("Capability")) {																															
+							grid3D.moveTo(wItem,12+3*c,93,4);
+							gridWIN.moveTo(wItem,12+3*c,93);
+							c++;}
 					else if (wItem.getPatternType().getName().matches("Requirement")) {
-							grid3D.moveTo(wItem,11+2*r,96,8);
-							gridWIN.moveTo(wItem,11+2*r,96);
+							grid3D.moveTo(wItem,11+2*r,90,8);
+							gridWIN.moveTo(wItem,11+2*r,90);
 							r++;}
-					else   {grid3D.moveTo(wItem,11+1*t,93,12);
-							gridWIN.moveTo(wItem,11+1*t,93);
+					else if (wItem.getPatternType().getName().matches("Task")) {
+							grid3D.moveTo(wItem,11+2*t,87,12);
+							gridWIN.moveTo(wItem,11+2*t,87);
 							t++;}
+					else if (wItem.getPatternType().getName().matches("Activity")) {
+							grid3D.moveTo(wItem,11+1*a,84,12);
+							gridWIN.moveTo(wItem,11+1*a,84);
+							a++;}
 					// Add KSSTask Dependency Edges
 					for (int wst = 0; wst < wItem.getSubTasks().size(); wst++) {
 						KSSTask wItemsTask = wItem.getSubTasks().get(wst);
@@ -66,9 +79,9 @@ public class Visualization {
 					grid2D.moveTo(SP.getActiveQ().get(w), 11+w, 90-SP.getId()*4);
 					}
 				}
-				for (int w=0;w<SP.getRequirementsQ().size();w++){
-					grid3D.moveTo(SP.getRequirementsQ().get(w), 91+w, 21-SP.getId()*4, 15);
-					grid2D.moveTo(SP.getRequirementsQ().get(w), 91+w, 21-SP.getId()*4);
+				for (int w=0;w<SP.getComplexQ().size();w++){
+					grid3D.moveTo(SP.getComplexQ().get(w), 91+w, 21-SP.getId()*4, 15);
+					grid2D.moveTo(SP.getComplexQ().get(w), 91+w, 21-SP.getId()*4);
 				}
 			}
 		}

@@ -52,8 +52,8 @@ public DemandSource(int id, WorkSource wSource) {
 		System.out.println(this.getName()+" on-hand WIs: "+this.getAssignmentQ().size());
 		for (int w = 0; w < this.getAssignmentQ().size(); w++) {
 			KSSTask wItem = this.getAssignmentQ().get(w);
-			System.out.println(this.getName()+" is Assigning WI: "
-					+wItem.getName()+" (id:"+wItem.getTaskId()+")");
+			System.out.println(this.getName()+" is Assigning "+wItem.getPatternType().getName()
+					+": "+wItem.getName()+" (id:"+wItem.getTaskId()+")");
 			ArrayList<ServiceProviderAgent>serviceProviderCandidates = 
 					this.findServiceProviders(wItem);					
 //			if (!wItem.isAggregationNode())  {
@@ -67,8 +67,8 @@ public DemandSource(int id, WorkSource wSource) {
 					this.getAssignmentQ().remove(wItem);
 					w--; }
 				else {
-					System.out.println("Failed to Assign WI:"
-							+wItem.getName()+" (id:"+wItem.getTaskId()+")"); 
+					System.out.println("Failed to Assign "+wItem.getPatternType().getName()
+							+": "+wItem.getName()+" (id:"+wItem.getTaskId()+")"); 
 					}
 				}
 			}

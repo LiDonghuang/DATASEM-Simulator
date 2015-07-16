@@ -20,6 +20,7 @@ import repast.simphony.util.ContextUtils;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.*;
 import governanceModels.GovernanceSearchStrategy;
+import governanceModels.Contract;
 
 public class ServiceProviderAgent extends ServiceProviderImpl {
 	public SystemOfSystems SoS;
@@ -27,6 +28,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 	private int id;
 	private int type;	
 	private ServiceProvider serviceProvider;
+	private LinkedList<Contract> myContracts;
 	
 	private boolean group;
 	private boolean coordinator;
@@ -51,12 +53,13 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 	private String Resource_Allocation_RuleName;
 	private String Resource_Outsourcing_RuleName;
 	private LinkedList<KSSTask> requestedQ;
+	private LinkedList<KSSTask> assignmentQ;	
 	private LinkedList<KSSTask> backlogQ;
-	private LinkedList<KSSTask> readyQ;
-	private LinkedList<KSSTask> coordinateQ;
+	private LinkedList<KSSTask> readyQ;	
 	private LinkedList<KSSTask> activeQ;
-	private LinkedList<KSSTask> requirementsQ;
+	private LinkedList<KSSTask> complexQ;
 	private LinkedList<KSSTask> completeQ;
+	private LinkedList<KSSTask> coordinateQ;
 	private int readyQLimit;
 	private int activeQLimit;
 	private static final int DEFAULT_INITIAL_CAPACITY = 100;
@@ -76,6 +79,8 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 		
 		this.myServiceResources = new LinkedList<ServiceResource>();
 		this.numResources = this.getResources().size();
+		this.myContracts = new LinkedList<Contract>();
+		
 		this.numActiveResources = 0;
 		this.resourceUtilization = 0.00;
 		for (int r=0;r<this.getResources().size();r++){
@@ -96,12 +101,13 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 		this.activeWorkLoad = 0;
 		this.readyQLimit=999999999;
 		this.activeQLimit=99999999;
+		this.requestedQ=new LinkedList<KSSTask>();
+		this.assignmentQ=new LinkedList<KSSTask>();
 		this.backlogQ=new LinkedList<KSSTask>();
 		this.readyQ=new LinkedList<KSSTask>();
 		this.activeQ=new LinkedList<KSSTask>();
-		this.requirementsQ=new LinkedList<KSSTask>();
-		this.coordinateQ=new LinkedList<KSSTask>();
-		this.requestedQ=new LinkedList<KSSTask>();
+		this.complexQ=new LinkedList<KSSTask>();
+		this.coordinateQ=new LinkedList<KSSTask>();		
 		this.completeQ=new LinkedList<KSSTask>();	
 		
 	}
@@ -122,14 +128,11 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 //				end_loop = true; }
 		
 		while (!end_loop) {
-			// ------------ 1. Select WIs to Accept
-			if (!requestedQ.isEmpty()) {
-				this.requestedQ = this.mySearchStrategy.workPrioritization(this, requestedQ);
-			}
+			// ------------ 1. Select WIs to Accept			
+			this.requestedQ = this.mySearchStrategy.workPrioritization(this, requestedQ);
 			for (int w=0;w<this.requestedQ.size();w++) {
 				// =========== Apply WI Acceptance Rule ====================
-				KSSTask requestedWI = 
-				this.requestedQ.get(w);
+				KSSTask requestedWI = this.requestedQ.get(w);
 				requestedWI.checkCausalities();
 				// =========================================================
 				if (!requestedWI.isAggregationNode()){
@@ -137,6 +140,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 					double eEfficiency = requestedWI.calculateServiceEfficiency();	
 					//--
 					if (eEfficiency==0) {
+						// Find those SPs who can serve this WI
 						ArrayList<ServiceProviderAgent>serviceProviderCandidates = 
 								this.findServiceProviders(requestedWI);
 						if	(serviceProviderCandidates.size()!=0) {
@@ -157,8 +161,8 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 							w--;
 						}
 						else {
-							System.out.println("Failed to Assign WI:"
-									+requestedWI.getName()+" (id:"+requestedWI.getTaskId()+")"); 
+							System.out.println("Failed to Assign "+requestedWI.getPatternType().getName()
+									+": "+requestedWI.getName()+" (id:"+requestedWI.getTaskId()+")"); 
 						}
 					}
 					//--
@@ -177,7 +181,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 					}
 				}
 				else {
-					this.requirementsQ.add(requestedWI);								
+					this.complexQ.add(requestedWI);								
 					//(perform negotiation and decline if necessary)
 					this.requestedQ.remove(requestedWI);
 					w--;
@@ -246,7 +250,8 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 	//				estimatedEfforts += estimationError;
 					startedWI.setEstimatedEfforts(eEfforts);
 					double eCompletion= startedWI.getEstimatedEfforts() + this.SoS.timeNow;
-					System.out.println("WorkItem "+startedWI.getName()+
+					System.out.println(startedWI.getPatternType().getName()
+							+": "+startedWI.getName()+
 							"(id:"+startedWI.getTaskId()+")"+
 							" is expected to finish at "+eCompletion);
 					startedWI.setEstimatedCompletionTime(eCompletion);
@@ -255,7 +260,9 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 					this.readyQ.remove(startedWI);				
 					w--;
 				}
-				else {System.out.println("No Resources available for "+startedWI.getName()+" now!");}
+				else {System.out.println("No Resources available for "+
+				startedWI.getPatternType().getName()+": "+
+				startedWI.getName()+" now!");}
 			}		
 			// -----------------------------------		
 			
@@ -269,10 +276,10 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 					i--;
 				}
 			}
-			for(int i=0;i<requirementsQ.size();i++) {
-				if (requirementsQ.get(i).isCompleted()) {
-					KSSTask completedWI=this.requirementsQ.get(i); 
-					this.requirementsQ.remove(completedWI);
+			for(int i=0;i<complexQ.size();i++) {
+				if (complexQ.get(i).isCompleted()) {
+					KSSTask completedWI=this.complexQ.get(i); 
+					this.complexQ.remove(completedWI);
 					this.completeQ.add(completedWI);
 					i--;
 				}
@@ -338,6 +345,9 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 	public LinkedList<KSSTask> getRequestedQ() {
 		return this.requestedQ;
 	}
+	public LinkedList<KSSTask> getAssignmentQ() {
+		return this.assignmentQ;
+	}
 	public LinkedList<KSSTask> getBacklogQ() {
 		return this.backlogQ;
 	}	
@@ -347,8 +357,8 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 	public LinkedList<KSSTask> getActiveQ() {
 		return this.activeQ;
 	}	
-	public LinkedList<KSSTask> getRequirementsQ() {
-		return this.requirementsQ;
+	public LinkedList<KSSTask> getComplexQ() {
+		return this.complexQ;
 	}
 	public LinkedList<KSSTask> getCoordinateQ() {
 		return this.coordinateQ;
@@ -379,7 +389,8 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 		this.requestService(newWI);
 		newWI.setAssigned();
 		newWI.assignTo(this);
-		System.out.println("WorkItem "+newWI.getName()+"(id:"+newWI.getTaskId()+")"+" is assigned to Agent "+this.name);
+		System.out.println(newWI.getPatternType().getName()+": "
+				+newWI.getName()+"(id:"+newWI.getTaskId()+")"+" is assigned to Agent "+this.name);
 	}
 	
 	public void requestService(KSSTask newWI) {

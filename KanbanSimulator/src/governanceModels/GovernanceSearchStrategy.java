@@ -38,13 +38,15 @@ public class GovernanceSearchStrategy {
 	public WISelectionRule getWItemSelectionRule(){
 		return this.wItemSelection;
 	}
-	public KSSTask selectWI (ServiceProviderAgent SP, LinkedList<KSSTask> queue) {
-		return this.wItemSelection.applyRule2(SP, queue);
-	}
+//	public KSSTask selectWI (ServiceProviderAgent SP, LinkedList<KSSTask> queue) {
+//		return this.wItemSelection.applyRule2(SP, queue);
+//	}
 	public LinkedList<KSSTask> workPrioritization(ServiceProviderAgent SP, LinkedList<KSSTask> queue) {
 		return this.wItemSelection.applyRule(SP, queue);
 	}
-	
+	public LinkedList<KSSTask> workAcceptance(ServiceProviderAgent SP) {
+		return this.wItemAcceptance.applyRule(SP);
+	}
 	
 	public void setWItemAssignmentRule(String ruleName){
 		this.wItemAssignment = new WIAssignmentRule(ruleName);

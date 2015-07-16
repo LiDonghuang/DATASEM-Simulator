@@ -87,7 +87,6 @@ public class SimulationContextBuilder {
 			for (int stg = 0; stg < strategyList.getLength(); stg++) {
 				Node strategyNode = strategyList.item(stg);
 				Element sTg = (Element) strategyNode;
-				// ------------------------- Task Pattern ----------------------------------
 				// Read XML
 				String sTg_name = sTg.getElementsByTagName("name").item(0).getTextContent();
 				String sTg_description = sTg.getElementsByTagName("Description").item(0).getTextContent();
@@ -427,9 +426,25 @@ public class SimulationContextBuilder {
 						WI.setName(wi_name);
 						WI.setDescription(wi_description);
 						// Efforts Volatility...
-						WI.setBefforts(wi_befforts);
+						if (wi_befforts!=0){
+						    wi_befforts =
+								RandomHelper.createNormal
+								(wi_befforts, effortsVolatility*wi_befforts).nextInt();			
+							wi_befforts = Math.max(1, wi_befforts);
+						}	
+						//
+						WI.setBefforts(wi_befforts);						
 						
+						// Value Volatility...
+						if (wi_bvalue!=0){
+							wi_bvalue=
+								RandomHelper.createNormal
+								(wi_bvalue, valueVolatility*wi_bvalue).nextInt();
+							wi_bvalue = Math.max(1, wi_bvalue);
+						}
+						//
 						WI.setBvalue(wi_bvalue);
+						
 						WI.setCOS(wi_cos);			
 						// ********* Experiment Parameter ***********
 						if ( (rep>0) && (wi_arrTime>0) ) {			

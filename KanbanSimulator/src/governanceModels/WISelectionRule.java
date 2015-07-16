@@ -1,14 +1,12 @@
 package governanceModels;
 
 import kanbanSimulator.*;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.Comparator;
 import java.util.LinkedList;
-
 import repast.simphony.random.RandomHelper;
 import repast.simphony.util.SimUtilities;
 
@@ -22,7 +20,10 @@ public class WISelectionRule {
 	}
 	
 	public LinkedList<KSSTask> applyRule(ServiceProviderAgent SP, LinkedList<KSSTask> queue) {
-		System.out.println(SP.getName()+" Applied "+this.name+" Prioritization");
+		//
+		if (!queue.isEmpty()) {
+		//
+		System.out.println(SP.getName()+" Applied "+this.name+" Prioritization Rule");
 		if (this.name.matches("Neutral")) {
 			SimUtilities.shuffle(queue, RandomHelper.getUniform()); 
 		}
@@ -67,10 +68,12 @@ public class WISelectionRule {
 			}
 		}
 		else {
-			System.out.println("Invalid WI_Prioritization Rule!") ;
+			System.out.println("Invalid WI_Prioritization RuleName!") ;
 		}
-		
-		return queue;
+		//
+		return queue;}
+		//
+		else {return queue;}
 	}
 	
 	public KSSTask applyRule2(ServiceProviderAgent SP, LinkedList<KSSTask> queue) {
