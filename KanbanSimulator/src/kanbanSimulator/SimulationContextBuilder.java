@@ -412,6 +412,7 @@ public class SimulationContextBuilder {
 						Node wItemNode = wItemList.item(wi);
 						Element wItem = (Element) wItemNode;					    
 						String wi_name = wItem.getElementsByTagName("name").item(0).getTextContent();
+						String wi_profile = wItem.getElementsByTagName("Profile").item(0).getTextContent();
 						String wi_description = wItem.getElementsByTagName("Description").item(0).getTextContent();
 						String wi_pattern = wItem.getElementsByTagName("Pattern").item(0).getTextContent();
 						String wi_type = wItem.getElementsByTagName("Type").item(0).getTextContent();
@@ -484,6 +485,7 @@ public class SimulationContextBuilder {
 						//-------------------------------------------------------------------------------------------
 						// Create KSSTask Package for this WI
 						KSSTask myWItem=new KSSTask(wItemID, WI);
+						myWItem.setProfileName(wi_profile);
 												
 						// Set DemandSource
 						for (int wiws = 0; wiws < this.myDemandSources.size(); wiws++) {
@@ -619,6 +621,15 @@ public class SimulationContextBuilder {
 		context.add(this.myVisualization);
 		this.mySoS.getOrganizationMembers().addAll(mySPAgents);
 		this.mySoS.getDemandSources().addAll(myDemandSources);
+		
+		// ------------------------ Randomize WI -----------------------------
+		for (int wn=0;wn<this.myWINetworks.size();wn++) {
+			ArrayList<KSSTask> myWINetwork = this.myWINetworks.get(wn);
+			myWINetwork = new RandomWorkItemsNetworkGenerator().generateWIN(myWINetwork);
+			this.myWINetworks.set(wn, myWINetwork);
+		}
+		// ------------------------------------------------------------------
+		
 		
 		for (int wn=0;wn<this.myWINetworks.size();wn++) {
 			ArrayList<KSSTask> myWINetwork = this.myWINetworks.get(wn);

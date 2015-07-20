@@ -42,7 +42,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getSourceUnits <em>Source Units</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getTargetUnits <em>Target Units</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getSubordinateUnits <em>Subordinate Units</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getResources <em>Resources</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getServices <em>Services</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getDefaultStrategy <em>Default Strategy</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getAcceptanceRule <em>Acceptance Rule</em>}</li>
@@ -50,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getAssignmentRule <em>Assignment Rule</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getAllocationRule <em>Allocation Rule</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getOutsourcingRule <em>Outsourcing Rule</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl#getResources <em>Resources</em>}</li>
  * </ul>
  * </p>
  *
@@ -128,16 +128,6 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
   protected EList<ServiceProvider> subordinateUnits;
 
   /**
-   * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getResources()
-   * @generated
-   * @ordered
-   */
-  protected EList<Resource> resources;
-
-  /**
    * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -206,6 +196,16 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * @ordered
    */
   protected ResourceOutsourcing outsourcingRule;
+
+  /**
+   * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getResources()
+   * @generated
+   * @ordered
+   */
+  protected EList<Resource> resources;
 
   /**
    * <!-- begin-user-doc -->
@@ -314,20 +314,6 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
       subordinateUnits = new EObjectResolvingEList<ServiceProvider>(ServiceProvider.class, this, KanbanmodelPackage.SERVICE_PROVIDER__SUBORDINATE_UNITS);
     }
     return subordinateUnits;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Resource> getResources()
-  {
-    if (resources == null)
-    {
-      resources = new EObjectContainmentEList<Resource>(Resource.class, this, KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES);
-    }
-    return resources;
   }
 
   /**
@@ -632,13 +618,25 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Resource> getResources()
+  {
+    if (resources == null)
+    {
+      resources = new EObjectContainmentEList<Resource>(Resource.class, this, KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES);
+    }
+    return resources;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
-      case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
-        return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.SERVICE_PROVIDER__SERVICES:
         return ((InternalEList<?>)getServices()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.SERVICE_PROVIDER__ACCEPTANCE_RULE:
@@ -651,6 +649,8 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         return basicSetAllocationRule(null, msgs);
       case KanbanmodelPackage.SERVICE_PROVIDER__OUTSOURCING_RULE:
         return basicSetOutsourcingRule(null, msgs);
+      case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
+        return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -675,8 +675,6 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         return getTargetUnits();
       case KanbanmodelPackage.SERVICE_PROVIDER__SUBORDINATE_UNITS:
         return getSubordinateUnits();
-      case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
-        return getResources();
       case KanbanmodelPackage.SERVICE_PROVIDER__SERVICES:
         return getServices();
       case KanbanmodelPackage.SERVICE_PROVIDER__DEFAULT_STRATEGY:
@@ -692,6 +690,8 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         return getAllocationRule();
       case KanbanmodelPackage.SERVICE_PROVIDER__OUTSOURCING_RULE:
         return getOutsourcingRule();
+      case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
+        return getResources();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -725,10 +725,6 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         getSubordinateUnits().clear();
         getSubordinateUnits().addAll((Collection<? extends ServiceProvider>)newValue);
         return;
-      case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
-        getResources().clear();
-        getResources().addAll((Collection<? extends Resource>)newValue);
-        return;
       case KanbanmodelPackage.SERVICE_PROVIDER__SERVICES:
         getServices().clear();
         getServices().addAll((Collection<? extends Service>)newValue);
@@ -750,6 +746,10 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         return;
       case KanbanmodelPackage.SERVICE_PROVIDER__OUTSOURCING_RULE:
         setOutsourcingRule((ResourceOutsourcing)newValue);
+        return;
+      case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
+        getResources().clear();
+        getResources().addAll((Collection<? extends Resource>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -780,9 +780,6 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
       case KanbanmodelPackage.SERVICE_PROVIDER__SUBORDINATE_UNITS:
         getSubordinateUnits().clear();
         return;
-      case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
-        getResources().clear();
-        return;
       case KanbanmodelPackage.SERVICE_PROVIDER__SERVICES:
         getServices().clear();
         return;
@@ -803,6 +800,9 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         return;
       case KanbanmodelPackage.SERVICE_PROVIDER__OUTSOURCING_RULE:
         setOutsourcingRule((ResourceOutsourcing)null);
+        return;
+      case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
+        getResources().clear();
         return;
     }
     super.eUnset(featureID);
@@ -828,8 +828,6 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         return targetUnits != null && !targetUnits.isEmpty();
       case KanbanmodelPackage.SERVICE_PROVIDER__SUBORDINATE_UNITS:
         return subordinateUnits != null && !subordinateUnits.isEmpty();
-      case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
-        return resources != null && !resources.isEmpty();
       case KanbanmodelPackage.SERVICE_PROVIDER__SERVICES:
         return services != null && !services.isEmpty();
       case KanbanmodelPackage.SERVICE_PROVIDER__DEFAULT_STRATEGY:
@@ -844,6 +842,8 @@ public class ServiceProviderImpl extends MinimalEObjectImpl.Container implements
         return allocationRule != null;
       case KanbanmodelPackage.SERVICE_PROVIDER__OUTSOURCING_RULE:
         return outsourcingRule != null;
+      case KanbanmodelPackage.SERVICE_PROVIDER__RESOURCES:
+        return resources != null && !resources.isEmpty();
     }
     return super.eIsSet(featureID);
   }

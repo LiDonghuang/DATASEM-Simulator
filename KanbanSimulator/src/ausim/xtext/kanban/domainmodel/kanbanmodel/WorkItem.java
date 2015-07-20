@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getName <em>Name</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getProfile <em>Profile</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getDescription <em>Description</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getPattern <em>Pattern</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getPatternType <em>Pattern Type</em>}</li>
@@ -63,6 +64,32 @@ public interface WorkItem extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Profile</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Profile</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Profile</em>' reference.
+   * @see #setProfile(WorkItemProfile)
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getWorkItem_Profile()
+   * @model
+   * @generated
+   */
+  WorkItemProfile getProfile();
+
+  /**
+   * Sets the value of the '{@link ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem#getProfile <em>Profile</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Profile</em>' reference.
+   * @see #getProfile()
+   * @generated
+   */
+  void setProfile(WorkItemProfile value);
 
   /**
    * Returns the value of the '<em><b>Description</b></em>' attribute.

@@ -32,6 +32,78 @@ public interface KanbanmodelFactory extends EFactory
   KanbanSchedulingSystem createKanbanSchedulingSystem();
 
   /**
+   * Returns a new object of class '<em>Num Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Num Expression</em>'.
+   * @generated
+   */
+  NumExpression createNumExpression();
+
+  /**
+   * Returns a new object of class '<em>Distribution</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Distribution</em>'.
+   * @generated
+   */
+  Distribution createDistribution();
+
+  /**
+   * Returns a new object of class '<em>Repository</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Repository</em>'.
+   * @generated
+   */
+  Repository createRepository();
+
+  /**
+   * Returns a new object of class '<em>Work Item Profile</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Work Item Profile</em>'.
+   * @generated
+   */
+  WorkItemProfile createWorkItemProfile();
+
+  /**
+   * Returns a new object of class '<em>Work Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Work Reference</em>'.
+   * @generated
+   */
+  WorkReference createWorkReference();
+
+  /**
+   * Returns a new object of class '<em>Work Decomposition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Work Decomposition</em>'.
+   * @generated
+   */
+  WorkDecomposition createWorkDecomposition();
+
+  /**
+   * Returns a new object of class '<em>Work Precedency</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Work Precedency</em>'.
+   * @generated
+   */
+  WorkPrecedency createWorkPrecedency();
+
+  /**
+   * Returns a new object of class '<em>Work Causality</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Work Causality</em>'.
+   * @generated
+   */
+  WorkCausality createWorkCausality();
+
+  /**
    * Returns a new object of class '<em>Task Pattern</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

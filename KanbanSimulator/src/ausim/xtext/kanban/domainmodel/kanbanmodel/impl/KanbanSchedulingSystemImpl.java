@@ -5,6 +5,7 @@ package ausim.xtext.kanban.domainmodel.kanbanmodel.impl;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanSchedulingSystem;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Mechanism;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.Repository;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceType;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.Strategy;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -38,6 +40,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getTestItems <em>Test Items</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKSSRepositories <em>KSS Repositories</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getMechanisms <em>Mechanisms</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKSSSearchStrategies <em>KSS Search Strategies</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.KanbanSchedulingSystemImpl#getKSSTaskPatterns <em>KSS Task Patterns</em>}</li>
@@ -75,6 +79,26 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getTestItems() <em>Test Items</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTestItems()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> testItems;
+
+  /**
+   * The cached value of the '{@link #getKSSRepositories() <em>KSS Repositories</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKSSRepositories()
+   * @generated
+   * @ordered
+   */
+  protected EList<Repository> kssRepositories;
 
   /**
    * The cached value of the '{@link #getMechanisms() <em>Mechanisms</em>}' containment reference list.
@@ -248,6 +272,34 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getTestItems()
+  {
+    if (testItems == null)
+    {
+      testItems = new EDataTypeEList<String>(String.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TEST_ITEMS);
+    }
+    return testItems;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Repository> getKSSRepositories()
+  {
+    if (kssRepositories == null)
+    {
+      kssRepositories = new EObjectContainmentEList<Repository>(Repository.class, this, KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_REPOSITORIES);
+    }
+    return kssRepositories;
   }
 
   /**
@@ -432,6 +484,8 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_REPOSITORIES:
+        return ((InternalEList<?>)getKSSRepositories()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS:
         return ((InternalEList<?>)getMechanisms()).basicRemove(otherEnd, msgs);
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES:
@@ -466,6 +520,10 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
     {
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__NAME:
         return getName();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TEST_ITEMS:
+        return getTestItems();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_REPOSITORIES:
+        return getKSSRepositories();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS:
         return getMechanisms();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES:
@@ -505,6 +563,14 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
     {
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__NAME:
         setName((String)newValue);
+        return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TEST_ITEMS:
+        getTestItems().clear();
+        getTestItems().addAll((Collection<? extends String>)newValue);
+        return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_REPOSITORIES:
+        getKSSRepositories().clear();
+        getKSSRepositories().addAll((Collection<? extends Repository>)newValue);
         return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS:
         getMechanisms().clear();
@@ -565,6 +631,12 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TEST_ITEMS:
+        getTestItems().clear();
+        return;
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_REPOSITORIES:
+        getKSSRepositories().clear();
+        return;
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS:
         getMechanisms().clear();
         return;
@@ -614,6 +686,10 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
     {
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__TEST_ITEMS:
+        return testItems != null && !testItems.isEmpty();
+      case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_REPOSITORIES:
+        return kssRepositories != null && !kssRepositories.isEmpty();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__MECHANISMS:
         return mechanisms != null && !mechanisms.isEmpty();
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM__KSS_SEARCH_STRATEGIES:
@@ -653,6 +729,8 @@ public class KanbanSchedulingSystemImpl extends MinimalEObjectImpl.Container imp
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", TestItems: ");
+    result.append(testItems);
     result.append(", replications: ");
     result.append(replications);
     result.append(", interArrivalTime: ");

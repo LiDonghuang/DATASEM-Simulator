@@ -25,6 +25,7 @@ public class KSSTask extends WorkItemImpl {
 	public SystemOfSystems SoS;
 	
 	private int id;
+	private String profileName;
 	private WorkItem workItem;	
 	private DemandSource demandSource;
 	private double perceivedValue;
@@ -209,6 +210,12 @@ public class KSSTask extends WorkItemImpl {
 	
 	public int getTaskId() {
 		return this.id;
+	}
+	public String getProfileName() {
+		return this.profileName;
+	}
+	public void setProfileName(String s) {
+		this.profileName = s;
 	}
 	public boolean isDemanded () {
 		return this.demanded;

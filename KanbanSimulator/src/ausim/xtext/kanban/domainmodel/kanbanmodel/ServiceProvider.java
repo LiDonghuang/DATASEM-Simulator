@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getSourceUnits <em>Source Units</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getTargetUnits <em>Target Units</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getSubordinateUnits <em>Subordinate Units</em>}</li>
- *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getResources <em>Resources</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getServices <em>Services</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getDefaultStrategy <em>Default Strategy</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getAcceptanceRule <em>Acceptance Rule</em>}</li>
@@ -27,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getAssignmentRule <em>Assignment Rule</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getAllocationRule <em>Allocation Rule</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getOutsourcingRule <em>Outsourcing Rule</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider#getResources <em>Resources</em>}</li>
  * </ul>
  * </p>
  *
@@ -135,22 +135,6 @@ public interface ServiceProvider extends EObject
    * @generated
    */
   EList<ServiceProvider> getSubordinateUnits();
-
-  /**
-   * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
-   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Resource}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Resources</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Resources</em>' containment reference list.
-   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getServiceProvider_Resources()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Resource> getResources();
 
   /**
    * Returns the value of the '<em><b>Services</b></em>' containment reference list.
@@ -323,5 +307,21 @@ public interface ServiceProvider extends EObject
    * @generated
    */
   void setOutsourcingRule(ResourceOutsourcing value);
+
+  /**
+   * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
+   * The list contents are of type {@link ausim.xtext.kanban.domainmodel.kanbanmodel.Resource}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Resources</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Resources</em>' containment reference list.
+   * @see ausim.xtext.kanban.domainmodel.kanbanmodel.KanbanmodelPackage#getServiceProvider_Resources()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Resource> getResources();
 
 } // ServiceProvider

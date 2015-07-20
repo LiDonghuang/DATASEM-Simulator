@@ -80,8 +80,8 @@ public class Visualization {
 					}
 				}
 				for (int w=0;w<SP.getComplexQ().size();w++){
-					grid3D.moveTo(SP.getComplexQ().get(w), 91+w, 21-SP.getId()*4, 15);
-					grid2D.moveTo(SP.getComplexQ().get(w), 91+w, 21-SP.getId()*4);
+					grid3D.moveTo(SP.getComplexQ().get(w), 11+w, 91-SP.getId()*4, 15);
+					grid2D.moveTo(SP.getComplexQ().get(w), 11+w, 91-SP.getId()*4);
 				}
 			}
 		}

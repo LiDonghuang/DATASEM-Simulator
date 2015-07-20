@@ -9,6 +9,7 @@ import ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceType;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskPattern;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.TaskType;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItem;
+import ausim.xtext.kanban.domainmodel.kanbanmodel.WorkItemProfile;
 import ausim.xtext.kanban.domainmodel.kanbanmodel.WorkSource;
 
 import java.util.Collection;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getProfile <em>Profile</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link ausim.xtext.kanban.domainmodel.kanbanmodel.impl.WorkItemImpl#getPatternType <em>Pattern Type</em>}</li>
@@ -76,6 +78,16 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getProfile() <em>Profile</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProfile()
+   * @generated
+   * @ordered
+   */
+  protected WorkItemProfile profile;
 
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -319,6 +331,49 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WorkItemProfile getProfile()
+  {
+    if (profile != null && profile.eIsProxy())
+    {
+      InternalEObject oldProfile = (InternalEObject)profile;
+      profile = (WorkItemProfile)eResolveProxy(oldProfile);
+      if (profile != oldProfile)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, KanbanmodelPackage.WORK_ITEM__PROFILE, oldProfile, profile));
+      }
+    }
+    return profile;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WorkItemProfile basicGetProfile()
+  {
+    return profile;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setProfile(WorkItemProfile newProfile)
+  {
+    WorkItemProfile oldProfile = profile;
+    profile = newProfile;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KanbanmodelPackage.WORK_ITEM__PROFILE, oldProfile, profile));
   }
 
   /**
@@ -688,6 +743,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
     {
       case KanbanmodelPackage.WORK_ITEM__NAME:
         return getName();
+      case KanbanmodelPackage.WORK_ITEM__PROFILE:
+        if (resolve) return getProfile();
+        return basicGetProfile();
       case KanbanmodelPackage.WORK_ITEM__DESCRIPTION:
         return getDescription();
       case KanbanmodelPackage.WORK_ITEM__PATTERN:
@@ -736,6 +794,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
     {
       case KanbanmodelPackage.WORK_ITEM__NAME:
         setName((String)newValue);
+        return;
+      case KanbanmodelPackage.WORK_ITEM__PROFILE:
+        setProfile((WorkItemProfile)newValue);
         return;
       case KanbanmodelPackage.WORK_ITEM__DESCRIPTION:
         setDescription((String)newValue);
@@ -801,6 +862,9 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
       case KanbanmodelPackage.WORK_ITEM__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case KanbanmodelPackage.WORK_ITEM__PROFILE:
+        setProfile((WorkItemProfile)null);
+        return;
       case KanbanmodelPackage.WORK_ITEM__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
@@ -859,6 +923,8 @@ public class WorkItemImpl extends MinimalEObjectImpl.Container implements WorkIt
     {
       case KanbanmodelPackage.WORK_ITEM__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case KanbanmodelPackage.WORK_ITEM__PROFILE:
+        return profile != null;
       case KanbanmodelPackage.WORK_ITEM__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case KanbanmodelPackage.WORK_ITEM__PATTERN:

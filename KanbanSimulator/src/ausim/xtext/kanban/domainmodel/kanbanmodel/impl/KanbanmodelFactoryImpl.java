@@ -65,6 +65,14 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
     switch (eClass.getClassifierID())
     {
       case KanbanmodelPackage.KANBAN_SCHEDULING_SYSTEM: return createKanbanSchedulingSystem();
+      case KanbanmodelPackage.NUM_EXPRESSION: return createNumExpression();
+      case KanbanmodelPackage.DISTRIBUTION: return createDistribution();
+      case KanbanmodelPackage.REPOSITORY: return createRepository();
+      case KanbanmodelPackage.WORK_ITEM_PROFILE: return createWorkItemProfile();
+      case KanbanmodelPackage.WORK_REFERENCE: return createWorkReference();
+      case KanbanmodelPackage.WORK_DECOMPOSITION: return createWorkDecomposition();
+      case KanbanmodelPackage.WORK_PRECEDENCY: return createWorkPrecedency();
+      case KanbanmodelPackage.WORK_CAUSALITY: return createWorkCausality();
       case KanbanmodelPackage.TASK_PATTERN: return createTaskPattern();
       case KanbanmodelPackage.TASK_TYPE: return createTaskType();
       case KanbanmodelPackage.VALUE_FUNCTION: return createValueFunction();
@@ -109,6 +117,94 @@ public class KanbanmodelFactoryImpl extends EFactoryImpl implements KanbanmodelF
   {
     KanbanSchedulingSystemImpl kanbanSchedulingSystem = new KanbanSchedulingSystemImpl();
     return kanbanSchedulingSystem;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NumExpression createNumExpression()
+  {
+    NumExpressionImpl numExpression = new NumExpressionImpl();
+    return numExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Distribution createDistribution()
+  {
+    DistributionImpl distribution = new DistributionImpl();
+    return distribution;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Repository createRepository()
+  {
+    RepositoryImpl repository = new RepositoryImpl();
+    return repository;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WorkItemProfile createWorkItemProfile()
+  {
+    WorkItemProfileImpl workItemProfile = new WorkItemProfileImpl();
+    return workItemProfile;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WorkReference createWorkReference()
+  {
+    WorkReferenceImpl workReference = new WorkReferenceImpl();
+    return workReference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WorkDecomposition createWorkDecomposition()
+  {
+    WorkDecompositionImpl workDecomposition = new WorkDecompositionImpl();
+    return workDecomposition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WorkPrecedency createWorkPrecedency()
+  {
+    WorkPrecedencyImpl workPrecedency = new WorkPrecedencyImpl();
+    return workPrecedency;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WorkCausality createWorkCausality()
+  {
+    WorkCausalityImpl workCausality = new WorkCausalityImpl();
+    return workCausality;
   }
 
   /**

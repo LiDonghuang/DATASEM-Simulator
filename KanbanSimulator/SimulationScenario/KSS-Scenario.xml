@@ -10,16 +10,7 @@
 			<name>GlobalDefaultStrategy</name>
 			<Description>Default Strategy for All Teams</Description>					
 			<acceptanceRule>Neutral</acceptanceRule>
-			<selectionRule>ValueBased</selectionRule>
-			<assignmentRule>Neutral</assignmentRule>
-			<allocationRule>Neutral</allocationRule>
-			<outsourcingRule>Neutral</outsourcingRule>
-		</Strategy>
-		<Strategy>
-			<name>GlobalProductDevelopmentTeamStrategy</name>
-			<Description>Product/Development Teams Strategy</Description>					
-			<acceptanceRule>Neutral</acceptanceRule>
-			<selectionRule>Neutral</selectionRule>
+			<selectionRule>FIFO</selectionRule>
 			<assignmentRule>Neutral</assignmentRule>
 			<allocationRule>Neutral</allocationRule>
 			<outsourcingRule>Neutral</outsourcingRule>
@@ -58,10 +49,6 @@
 		</TaskPattern>
 	</TaskPatterns>
 	<ValueFunctions>
-		<ValueFunction>
-			<name>ClassOfService</name>
-			<Description>Class-of-Service Time-dependent Value Functions</Description>
-		</ValueFunction>
 	</ValueFunctions>
 </GovernanceModel>
 
@@ -87,6 +74,14 @@
 		<ServiceType>
 			<name>S0103</name>
 			<Description>SE_RequirementAnalysis</Description>
+		</ServiceType>	
+		<ServiceType>
+			<name>S0104</name>
+			<Description>SE_Integration</Description>
+		</ServiceType>	
+		<ServiceType>
+			<name>S0105</name>
+			<Description>SE_Test</Description>
 		</ServiceType>	
 		<ServiceType>
 			<name>S0201</name>
@@ -593,271 +588,8 @@
 	<assignmentRule>Neutral</assignmentRule>						
 </workSource>
 <workItem>
-	<name>PEMD</name>
-	<Description>Pre-Engineering and Manufacturing Development</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Mission</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	<subtask>SRR</subtask>
-	<subtask>IDR</subtask>
-	<subtask>PDR</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>SRR</triggered>
-	<triggered>PDR</triggered>
-	<triggered>IDR</triggered>
-	<triggered>MSB</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>1000000</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>USAF</WorkSource>
-		<arrivalTime>1</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>EMD</name>
-	<Description>Engineering and Manufacturing Development</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Mission</Type>					
-	<predecessors>
-	<predecessor>PEMD</predecessor>
-	</predecessors>
-	<subtasks>
-	<subtask>CDR</subtask>
-	<subtask>DT</subtask>
-	<subtask>OT</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>CDR</triggered>
-	<triggered>DT</triggered>
-	<triggered>OT</triggered>
-	<triggered>MSC</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>1000000</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>USAF</WorkSource>
-		<arrivalTime>1</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>SRR</name>
-	<Description>System Requirement Review</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Stage</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	<subtask>C1</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>C1</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>100000</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>IDR</name>
-	<Description>Interim Design Review</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Stage</Type>					
-	<predecessors>
-	<predecessor>SRR</predecessor>
-	</predecessors>
-	<subtasks>
-	<subtask>C2</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>C2</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>100000</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>PDR</name>
-	<Description>delta Preliminary Design Review</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Stage</Type>					
-	<predecessors>
-	<predecessor>IDR</predecessor>
-	</predecessors>
-	<subtasks>
-	<subtask>C3</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>C3</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>100000</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>MSB</name>
-	<Description>Milestone B</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Stage</Type>					
-	<predecessors>
-	<predecessor>SRR</predecessor>
-	<predecessor>PDR</predecessor>
-	<predecessor>IDR</predecessor>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>EMD</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>1000000</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>CDR</name>
-	<Description>Critical Design Review</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Stage</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	<subtask>C4</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>C4</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>100000</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>DT</name>
-	<Description>Development Test</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Stage</Type>					
-	<predecessors>
-	<predecessor>CDR</predecessor>
-	</predecessors>
-	<subtasks>
-	<subtask>C5</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>C5</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>100000</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>OT</name>
-	<Description>Operational Test</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Stage</Type>					
-	<predecessors>
-	<predecessor>DT</predecessor>
-	</predecessors>
-	<subtasks>
-	<subtask>C6</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>C6</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>100000</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>MSC</name>
-	<Description>Milestone C</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Stage</Type>					
-	<predecessors>
-	<predecessor>CDR</predecessor>
-	<predecessor>DT</predecessor>
-	<predecessor>OT</predecessor>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>1000000</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
 	<name>C1</name>
+	<Profile>Cp1</Profile>
 	<Description>Capability 1</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Capability</Type>					
@@ -867,2311 +599,267 @@
 	<subtask>R1</subtask>
 	<subtask>R2</subtask>
 	<subtask>R3</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>AC1</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>3000</baseValue>
-		<classOfService>Standard</classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>C2</name>
-	<Description>Capability 2</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Capability</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	<subtask>R4</subtask>
-	<subtask>R5</subtask>
-	<subtask>R6</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>AC2</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>6000</baseValue>
-		<classOfService>Standard</classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>C3</name>
-	<Description>Capability 3</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Capability</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	<subtask>R7</subtask>
 	<subtask>R8</subtask>
-	<subtask>R9</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>AC3</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>9000</baseValue>
-		<classOfService>Standard</classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AC1</name>
-	<Description>Analysis Capability 1</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
 	</subtasks>
 	<causalities>
 	<causality>
 	<triggered>R1</triggered>
 	<triggered>R2</triggered>
 	<triggered>R3</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>300</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AC2</name>
-	<Description>Analysis Capability 2</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>R4</triggered>
-	<triggered>R5</triggered>
-	<triggered>R6</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>600</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AC3</name>
-	<Description>Analysis Capability 3</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>R7</triggered>
 	<triggered>R8</triggered>
-	<triggered>R9</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>900</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>R1</name>
-	<Description>Requirement 1</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Requirement</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	<subtask>T1</subtask>
-	<subtask>T2</subtask>
-	<subtask>T3</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>AR1</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>300</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>R2</name>
-	<Description>Requirement 2</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Requirement</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	<subtask>T4</subtask>
-	<subtask>T5</subtask>
-	<subtask>T6</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>AR2</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>300</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>R3</name>
-	<Description>Requirement 3</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Requirement</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	<subtask>T7</subtask>
-	<subtask>T8</subtask>
-	<subtask>T9</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>AR3</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>300</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>R4</name>
-	<Description>Requirement 4</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Requirement</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	<subtask>T10</subtask>
-	<subtask>T11</subtask>
-	<subtask>T12</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>AR4</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>600</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>R5</name>
-	<Description>Requirement 5</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Requirement</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	<subtask>T13</subtask>
-	<subtask>T14</subtask>
-	<subtask>T15</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>AR5</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>600</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>R6</name>
-	<Description>Requirement 6</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Requirement</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	<subtask>T16</subtask>
-	<subtask>T17</subtask>
-	<subtask>T18</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>AR6</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>600</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>R7</name>
-	<Description>Requirement 7</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Requirement</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	<subtask>T19</subtask>
-	<subtask>T20</subtask>
-	<subtask>T21</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>AR7</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>900</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>R8</name>
-	<Description>Requirement 8</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Requirement</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	<subtask>T22</subtask>
-	<subtask>T23</subtask>
-	<subtask>T24</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>AR8</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>900</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>R9</name>
-	<Description>Requirement 9</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Requirement</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	<subtask>T25</subtask>
-	<subtask>T26</subtask>
-	<subtask>T27</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>AR9</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>900</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR1</name>
-	<Description>Analysis Requirement 1</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T1</triggered>
-	<triggered>T2</triggered>
-	<triggered>T3</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR2</name>
-	<Description>Analysis Requirement 2</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T4</triggered>
-	<triggered>T5</triggered>
-	<triggered>T6</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR3</name>
-	<Description>Analysis Requirement 3</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T7</triggered>
-	<triggered>T8</triggered>
-	<triggered>T9</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR4</name>
-	<Description>Analysis Requirement 4</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T10</triggered>
-	<triggered>T11</triggered>
-	<triggered>T12</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR5</name>
-	<Description>Analysis Requirement 5</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T13</triggered>
-	<triggered>T14</triggered>
-	<triggered>T15</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR6</name>
-	<Description>Analysis Requirement 6</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T16</triggered>
-	<triggered>T17</triggered>
-	<triggered>T18</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR7</name>
-	<Description>Analysis Requirement 7</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T19</triggered>
-	<triggered>T20</triggered>
-	<triggered>T21</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR8</name>
-	<Description>Analysis Requirement 8</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T22</triggered>
-	<triggered>T23</triggered>
-	<triggered>T24</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR9</name>
-	<Description>Analysis Requirement 9</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T25</triggered>
-	<triggered>T26</triggered>
-	<triggered>T27</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T1</name>
-	<Description>NW Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0201</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T2</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T3</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T4</name>
-	<Description>NW Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0201</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T5</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T6</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T7</name>
-	<Description>NW Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0201</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T8</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T9</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T10</name>
-	<Description>NW Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0201</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T11</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T12</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T13</name>
-	<Description>NW Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0201</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T14</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T15</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T16</name>
-	<Description>NW Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0201</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T17</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T18</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T19</name>
-	<Description>NW Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0201</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T20</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T21</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T22</name>
-	<Description>NW Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0201</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T23</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T24</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T25</name>
-	<Description>NW Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0201</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T26</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T27</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>C4</name>
-	<Description>Capability 1</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Capability</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	<subtask>R10</subtask>
-	<subtask>R11</subtask>
-	<subtask>R12</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>AC4</triggered>
 		<atProgress>0</atProgress>
 		<onProbability>100</onProbability>
 	</causality>
 	</causalities>
 	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>3000</baseValue>
-		<classOfService>Standard</classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>1000</baseValue>				
+	<classOfService>Standard</classOfService>
+	<WorkSource>USAF</WorkSource>
+	<arrivalTime>1</arrivalTime>
+	<dueDate>0</dueDate>
 </workItem>
 <workItem>
-	<name>C5</name>
+	<name>C2</name>
+	<Profile>Cp1</Profile>
 	<Description>Capability 2</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Capability</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>R13</subtask>
-	<subtask>R14</subtask>
-	<subtask>R15</subtask>
+	<subtask>R1</subtask>
+	<subtask>R4</subtask>
+	<subtask>R5</subtask>
+	<subtask>R7</subtask>
 	</subtasks>
 	<causalities>
 	<causality>
-	<triggered>AC5</triggered>
+	<triggered>R1</triggered>
+	<triggered>R4</triggered>
+	<triggered>R5</triggered>
+	<triggered>R7</triggered>
 		<atProgress>0</atProgress>
 		<onProbability>100</onProbability>
 	</causality>
 	</causalities>
 	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>6000</baseValue>
-		<classOfService>Standard</classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>1000</baseValue>				
+	<classOfService>Standard</classOfService>
+	<WorkSource>USAF</WorkSource>
+	<arrivalTime>1</arrivalTime>
+	<dueDate>0</dueDate>
 </workItem>
 <workItem>
-	<name>C6</name>
+	<name>C3</name>
+	<Profile>Cp2</Profile>
 	<Description>Capability 3</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Capability</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>R16</subtask>
-	<subtask>R17</subtask>
-	<subtask>R18</subtask>
+	<subtask>R6</subtask>
+	<subtask>R8</subtask>
+	<subtask>R9</subtask>
 	</subtasks>
 	<causalities>
 	<causality>
-	<triggered>AC6</triggered>
+	<triggered>R6</triggered>
+	<triggered>R8</triggered>
+	<triggered>R9</triggered>
 		<atProgress>0</atProgress>
 		<onProbability>100</onProbability>
 	</causality>
 	</causalities>
 	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>9000</baseValue>
-		<classOfService>Standard</classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>1000</baseValue>				
+	<classOfService>Standard</classOfService>
+	<WorkSource>USAF</WorkSource>
+	<arrivalTime>1</arrivalTime>
+	<dueDate>0</dueDate>
 </workItem>
 <workItem>
-	<name>AC4</name>
-	<Description>Analysis Capability 1</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>R10</triggered>
-	<triggered>R11</triggered>
-	<triggered>R12</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>300</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AC5</name>
-	<Description>Analysis Capability 2</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>R13</triggered>
-	<triggered>R14</triggered>
-	<triggered>R15</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>600</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AC6</name>
-	<Description>Analysis Capability 3</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>R16</triggered>
-	<triggered>R17</triggered>
-	<triggered>R18</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>900</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>R10</name>
+	<name>R1</name>
+	<Profile>Rp1</Profile>
 	<Description>Requirement 1</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>T28</subtask>
-	<subtask>T29</subtask>
-	<subtask>T30</subtask>
 	</subtasks>
 	<causalities>
-	<causality>
-	<triggered>AR10</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>300</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>300</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
 </workItem>
 <workItem>
-	<name>R11</name>
+	<name>R2</name>
+	<Profile>Rp1</Profile>
 	<Description>Requirement 2</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>T31</subtask>
-	<subtask>T32</subtask>
-	<subtask>T33</subtask>
 	</subtasks>
 	<causalities>
-	<causality>
-	<triggered>AR11</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>300</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>300</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
 </workItem>
 <workItem>
-	<name>R12</name>
+	<name>R3</name>
+	<Profile>Rp1</Profile>
 	<Description>Requirement 3</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>T34</subtask>
-	<subtask>T35</subtask>
-	<subtask>T36</subtask>
 	</subtasks>
 	<causalities>
-	<causality>
-	<triggered>AR12</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>300</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>300</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
 </workItem>
 <workItem>
-	<name>R13</name>
+	<name>R4</name>
+	<Profile>Rp1</Profile>
 	<Description>Requirement 4</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>T37</subtask>
-	<subtask>T38</subtask>
-	<subtask>T39</subtask>
 	</subtasks>
 	<causalities>
-	<causality>
-	<triggered>AR13</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>600</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>600</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
 </workItem>
 <workItem>
-	<name>R14</name>
+	<name>R5</name>
+	<Profile>Rp1</Profile>
 	<Description>Requirement 5</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>T40</subtask>
-	<subtask>T41</subtask>
-	<subtask>T42</subtask>
 	</subtasks>
 	<causalities>
-	<causality>
-	<triggered>AR14</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>600</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>600</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
 </workItem>
 <workItem>
-	<name>R15</name>
+	<name>R6</name>
+	<Profile>Rp1</Profile>
 	<Description>Requirement 6</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>T43</subtask>
-	<subtask>T44</subtask>
-	<subtask>T45</subtask>
 	</subtasks>
 	<causalities>
-	<causality>
-	<triggered>AR15</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>600</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>600</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
 </workItem>
 <workItem>
-	<name>R16</name>
+	<name>R7</name>
+	<Profile>Rp2</Profile>
 	<Description>Requirement 7</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>T46</subtask>
-	<subtask>T47</subtask>
-	<subtask>T48</subtask>
 	</subtasks>
 	<causalities>
-	<causality>
-	<triggered>AR16</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>900</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>900</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
 </workItem>
 <workItem>
-	<name>R17</name>
+	<name>R8</name>
+	<Profile>Rp2</Profile>
 	<Description>Requirement 8</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>T49</subtask>
-	<subtask>T50</subtask>
-	<subtask>T51</subtask>
 	</subtasks>
 	<causalities>
-	<causality>
-	<triggered>AR17</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>900</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>900</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
 </workItem>
 <workItem>
-	<name>R18</name>
+	<name>R9</name>
+	<Profile>Rp2</Profile>
 	<Description>Requirement 9</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
-	<subtask>T52</subtask>
-	<subtask>T53</subtask>
-	<subtask>T54</subtask>
 	</subtasks>
 	<causalities>
-	<causality>
-	<triggered>AR18</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
-		<baseEfforts>0</baseEfforts>
-		<baseValue>900</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR10</name>
-	<Description>Analysis Requirement 1</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T28</triggered>
-	<triggered>T29</triggered>
-	<triggered>T30</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR11</name>
-	<Description>Analysis Requirement 2</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T31</triggered>
-	<triggered>T32</triggered>
-	<triggered>T33</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR12</name>
-	<Description>Analysis Requirement 3</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T34</triggered>
-	<triggered>T35</triggered>
-	<triggered>T36</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR13</name>
-	<Description>Analysis Requirement 4</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T37</triggered>
-	<triggered>T38</triggered>
-	<triggered>T39</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR14</name>
-	<Description>Analysis Requirement 5</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T40</triggered>
-	<triggered>T41</triggered>
-	<triggered>T42</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR15</name>
-	<Description>Analysis Requirement 6</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T43</triggered>
-	<triggered>T44</triggered>
-	<triggered>T45</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR16</name>
-	<Description>Analysis Requirement 7</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T46</triggered>
-	<triggered>T47</triggered>
-	<triggered>T48</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR17</name>
-	<Description>Analysis Requirement 8</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T49</triggered>
-	<triggered>T50</triggered>
-	<triggered>T51</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>AR18</name>
-	<Description>Analysis Requirement 9</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>T52</triggered>
-	<triggered>T53</triggered>
-	<triggered>T54</triggered>
-		<atProgress>100</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0102</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T28</name>
-	<Description>Test Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0501</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T29</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T30</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T31</name>
-	<Description>Test Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0501</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>3</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T32</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T33</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T34</name>
-	<Description>Test Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0501</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T35</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T36</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>30</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T37</name>
-	<Description>Test Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0501</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T38</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T39</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T40</name>
-	<Description>Test Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0501</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T41</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T42</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T43</name>
-	<Description>Test Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0501</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T44</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T45</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>60</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T46</name>
-	<Description>Test Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0501</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T47</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T48</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T49</name>
-	<Description>Test Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0501</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T50</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T51</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T52</name>
-	<Description>Test Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0501</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T53</name>
-	<Description>PM Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0301</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>T54</name>
-	<Description>DB Task</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0401</servicesRequired>
-		<baseEfforts>10</baseEfforts>
-		<baseValue>90</baseValue>
-		<classOfService></classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
-</workItem>
-<workItem>
-	<name>TestWI</name>
-	<Description>for testing purpose</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Task</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	</subtasks>
-	<causalities>
-	</causalities>
-	<servicesRequired>S0101</servicesRequired>
-		<baseEfforts>1</baseEfforts>
-		<baseValue>1</baseValue>
-		<classOfService>Standard</classOfService>
-		<WorkSource>null</WorkSource>
-		<arrivalTime>0</arrivalTime>
-		<dueDate>0</dueDate>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>900</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
 </workItem>
 </WorkItemNetworkModel>
 
