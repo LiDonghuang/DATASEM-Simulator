@@ -26,7 +26,6 @@ public class KSSTask extends WorkItemImpl {
 	
 	private int id;
 	private String profileName;
-	private WorkItem workItem;	
 	private DemandSource demandSource;
 	private double perceivedValue;
 	
@@ -99,6 +98,7 @@ public class KSSTask extends WorkItemImpl {
 	
 	
 	public KSSTask(int id, WorkItem wi) {
+		this.id=id;	
 		this.name = wi.getName();
 		this.description = wi.getDescription();		
 		this.pattern = wi.getPattern();
@@ -108,15 +108,10 @@ public class KSSTask extends WorkItemImpl {
 		this.bvalue = wi.getBvalue();
 		this.perceivedValue = this.bvalue;
 		this.cos = wi.getCOS();
-//		// Arrival Time = 0 = Infinity
-//		if (!(wi.getArrtime()>0)) {this.setArrivalTime(Float.POSITIVE_INFINITY);}
-//		else {this.setArrivalTime(wi.getArrtime());}
-//		wi.getArrtime()>0)) {this.setArrivalTime(Float.POSITIVE_INFINITY);}
 		this.setArrivalTime(wi.getArrtime());
 		// Due Date = 0 = Infinity
 		if (!(wi.getDuedate()>0)) {this.setDueDate(Float.POSITIVE_INFINITY);}
 		else {this.setDueDate(wi.getDuedate());}
-		// Progress: 0.00 ~ 1.00
 		this.progress = 0;
 		this.progressRate = 0;
 		this.serviceEfficiency = 0;
@@ -129,21 +124,16 @@ public class KSSTask extends WorkItemImpl {
 		this.successors = new LinkedList<KSSTask>();
 		this.causer = false;
 		this.causalTriggers = new LinkedList<KSSTrigger>();
-		this.allocatedResources = new LinkedList<ServiceResource>();
-		
-		this.id=id;		
-		this.workItem=wi;
+		this.allocatedResources = new LinkedList<ServiceResource>();		
 		this.created=false;
 		this.assigned=false;
-		this.completed=false;
-		
+		this.completed=false;	
 	}
 	
 	@ScheduledMethod(start=1,interval=1,priority=10)
 	public void step() {	
-
 		// ********************* STEP *******************************
-		System.out.println(this.getPatternType().getName()+": "+this.getName()+" updates --");	
+		System.out.println(this.getPatternType().getName()+"(id:"+this.getID()+")"+this.getName()+" updates --");	
 //		System.out.println("Requested By: "+this.getRequester().getName());
 //		System.out.println("Currently Assigned to: "+this.getAssignedTo().getName());
 		// ******************* Value Function: Update WI Value ***********************
@@ -208,8 +198,11 @@ public class KSSTask extends WorkItemImpl {
 	
 	
 	
-	public int getTaskId() {
+	public int getID() {
 		return this.id;
+	}
+	public void setID(int id) {
+		this.id = id;
 	}
 	public String getProfileName() {
 		return this.profileName;
@@ -247,30 +240,78 @@ public class KSSTask extends WorkItemImpl {
 	public void setCauser (boolean a) {
 		this.causer = a;
 	}
-	///////////////////////////////////////////////////
+	///////////////////// Work Item Dependency ////////////////////////////
+	// Hierarchy
     public LinkedList<KSSTask> getUpperTasks() {
     	return this.upperTasks;
     }
-	public void addUpperTasks(KSSTask e) {	
-		this.getUpperTasks().add(e);
+	public void addUpperTask(KSSTask upperTask) {	
+		if (!this.getUpperTasks().contains(upperTask)){
+			this.getUpperTasks().add(upperTask);
+			upperTask.addSubTask(this);
+		}
 	}	
 	public LinkedList<KSSTask> getSubTasks() {
     	return this.subTasks;
     }
-	public void addSubTasks(KSSTask e) {	
-		this.getSubTasks().add(e);
+	public void addSubTask(KSSTask subTask) {	
+		if (!this.getSubTasks().contains(subTask)) {
+			this.getSubTasks().add(subTask);
+			subTask.addUpperTask(this);
+		}
 	}
+	public void removeUpperTask(KSSTask upperTask) {
+		if (this.getUpperTasks().contains(upperTask)) {
+			this.getUpperTasks().remove(upperTask);
+			upperTask.removeSubTask(this);
+		}
+	}
+	public void removeSubTask(KSSTask subTask) {
+		if (this.getSubTasks().contains(subTask)) {
+			this.getSubTasks().remove(subTask);
+			subTask.removeUpperTask(this);
+		}
+	}
+	public void checkSubTasksCompletion() {
+		if (this.isAggregationNode()) {
+			boolean cpl = true;
+			for (int st = 0; st < this.getSubTasks().size(); st++) {	
+				KSSTask subTask = this.getSubTasks().get(st);
+				// If any subTask not completed, the mainTask is not completed
+				if (!subTask.isCompleted()) {
+					cpl = false;
+				}
+			}
+			if (cpl == true) {
+				this.setCompleted();
+				this.updateUpperTasksCompletion();
+			}
+		}
+	}
+	public void updateUpperTasksCompletion() {
+		if (this.isCompleted()) {
+			for (int u=0;u<this.getUpperTasks().size();u++) {
+				KSSTask upperTask = this.getUpperTasks().get(u);
+				if (upperTask.isCreated() && !upperTask.isCompleted()) {
+					upperTask.checkSubTasksCompletion();
+				}
+			}
+		}	
+	}
+	// Precedency
     public LinkedList<KSSTask> getPredecessorTasks() {
     	return this.predecessors;
     }
-	public void addPredecessorTasks(KSSTask e) {	
-		this.getPredecessorTasks().add(e);
+	public void addPredecessorTask(KSSTask predecessor) {	
+		this.getPredecessorTasks().add(predecessor);
+		predecessor.addSuccessorTask(this);
 	}
     public LinkedList<KSSTask> getSuccessorTasks() {
     	return this.successors;
     }
-	public void addSuccessorTasks(KSSTask e) {	
-		this.getSuccessorTasks().add(e);
+	public void addSuccessorTask(KSSTask successor) {	
+		this.getSuccessorTasks().add(successor);
+		successor.addPredecessorTask(this);
 	}
 	public boolean precedencyCleared() {
 		if (this.isSuccessor()) {
@@ -299,6 +340,7 @@ public class KSSTask extends WorkItemImpl {
 			}
 		}
 	}
+	// Causality
     public LinkedList<KSSTrigger> getKSSTriggers() {
     	return this.causalTriggers;
     }
@@ -338,12 +380,13 @@ public class KSSTask extends WorkItemImpl {
 			}
 		}
 	}
-	/////////////////////////////////////////////////	
+	//////////////////// Work Item Status ////////////////////////////	
 	public boolean isComplex() {
 		return this.complexTask;
 	}
-	
-
+	public boolean isRequested() {
+		return this.requested;
+	}	
 	public double getArrivalTime() {
 		return this.arrivalTime;
 	}
@@ -356,11 +399,10 @@ public class KSSTask extends WorkItemImpl {
 	public void setDueDate(double dDate) {
 		this.dueDate = dDate;
 	}
-	
 	public void setStarted() {
 		this.started = true;
 		 this.startTime = this.SoS.timeNow;;	
-		 System.out.println("WorkItem "+this.getName()+"(id:"+this.getTaskId()+")"+" is started");
+		 System.out.println("WorkItem "+this.getName()+"(id:"+this.getID()+")"+" is started");
 	}
 	public boolean isStarted() {
 		return this.started;
@@ -368,38 +410,16 @@ public class KSSTask extends WorkItemImpl {
 	public double getStartTime() {
 		return this.startTime;
 	}
-	
-	
-	public void setEstimatedEfforts(double eEfforts) {
-		this.estimatedEfforts= eEfforts;
-	}
-	public double getEstimatedEfforts() {
-		return this.estimatedEfforts;
-	}
-	public void setEstimatedCompletionTime(double eCompletion) {
-		this.estimatedCompletionTime= eCompletion;
-	}
-	public double getEstimatedCompletionTime() {
-		return this.estimatedCompletionTime;
-	}
-	public void setEstimatedRemainingTime(double eRemaining) {
-		this.estimatedRemainingTime= eRemaining;
-	}
-	public double getEstimatedRemainingTime() {
-		return this.estimatedRemainingTime;
-	}
-	
 	public boolean isCompleted()  {
 		return this.completed;
 	}
 	public void setCompleted() {
 		this.completed=true;
 		System.out.print("*** WorkItem "+this.getName()
-				+"(id:"+this.getTaskId()+")"+" is Completed ***\n");
+				+"(id:"+this.getID()+")"+" is Completed ***\n");
 		this.updateUpperTasksCompletion();
 		this.updateSuccessorTasks();
 	}
-	
 	public boolean isEnded()  {
 		return this.ended;		
 	}
@@ -407,7 +427,7 @@ public class KSSTask extends WorkItemImpl {
 		this.ended=true;
 		this.endTime = this.SoS.timeNow;
 		this.cycleTime = this.endTime - this.createdTime;
-		System.out.println(this.getName()+" (id:"+this.getTaskId()+") is Ended");
+		System.out.println(this.getName()+" (id:"+this.getID()+") is Ended");
 		System.out.println("CycleTime: "+this.getCycleTime());
 	}
 	public double getEndTime() {
@@ -438,7 +458,7 @@ public class KSSTask extends WorkItemImpl {
 	public void setCreated() {
 		this.created=true;
 		this.createdTime=this.SoS.timeNow;
-		System.out.println(this.getName()+"(id:"+this.getTaskId()+") is Created");
+		System.out.println(this.getName()+"(id:"+this.getID()+") is Created");
 //		this.arrTime = this.createdTime;
 	}
 	public double getProgress() {
@@ -450,123 +470,24 @@ public class KSSTask extends WorkItemImpl {
 	public double getProgressRate() {
 		return this.progressRate;
 	}
-	public void checkSubTasksCompletion() {
-		if (this.isAggregationNode()) {
-			boolean cpl = true;
-			for (int st = 0; st < this.getSubTasks().size(); st++) {	
-				KSSTask subTask = this.getSubTasks().get(st);
-				// If any subTask not completed, the mainTask is not completed
-				if (!subTask.isCompleted()) {
-					cpl = false;
-				}
-			}
-			if (cpl == true) {
-				this.setCompleted();
-				this.updateUpperTasksCompletion();
-			}
-		}
+	//////////////////// Work Item Management ////////////////////////////
+	public void setEstimatedEfforts(double eEfforts) {
+		this.estimatedEfforts= eEfforts;
 	}
-	public void updateUpperTasksCompletion() {
-		if (this.isCompleted()) {
-			for (int u=0;u<this.getUpperTasks().size();u++) {
-				KSSTask upperTask = this.getUpperTasks().get(u);
-				if (upperTask.isCreated() && !upperTask.isCompleted()) {
-					upperTask.checkSubTasksCompletion();
-				}
-			}
-		}	
+	public double getEstimatedEfforts() {
+		return this.estimatedEfforts;
 	}
-	//////////////////////////////////////////////////////////////////////////
-	
-	public double getCurrentValue() {
-		return this.perceivedValue;
+	public void setEstimatedCompletionTime(double eCompletion) {
+		this.estimatedCompletionTime= eCompletion;
 	}
-	public void setCurrentValue(double v) {
-		this.perceivedValue = v;
+	public double getEstimatedCompletionTime() {
+		return this.estimatedCompletionTime;
 	}
-	/////////////////////////////////////////////////////////////////////////
-	
-	public void TaskTraversal() {
-		for(int i=0;i<this.requirement.getSubtasks().size();i++) {
-			KSSTask nextTask= (KSSTask) this.requirement.getSubtasks().get(i);
-			System.out.println("Task name: "+ nextTask.getName());
-			System.out.println("Task ID: "+ nextTask.getTaskId());
-			System.out.print("Successor tasks: ");
-			Iterator<KSSTask> taskIterator=this.requirement.getAdjList().get(nextTask).iterator();
-			if (taskIterator.hasNext()==false) System.out.println("no successors");
-			while (taskIterator.hasNext()) {
-				System.out.print("Task ID: "+taskIterator.next().getTaskId()+"  ");
-			}
-			System.out.println("  ");
-		}
+	public void setEstimatedRemainingTime(double eRemaining) {
+		this.estimatedRemainingTime= eRemaining;
 	}
-	
-	public void InitializeReadyTaskList() {
-
-		int numberofTasks=this.requirement.getSubtasks().size();
-		for(int i=0;i<numberofTasks;i++) {
-			KSSTask tempTask=(KSSTask) this.requirement.getSubtasks().get(i);
-			this.inDegree.put(tempTask, 0);
-		}
-		
-		for(int i=0;i<numberofTasks;i++) {
-			KSSTask nextTask= (KSSTask) this.requirement.getSubtasks().get(i);
-			Iterator<KSSTask> taskIterator=this.requirement.getAdjList().get(nextTask).iterator();
-			while (taskIterator.hasNext()) {
-				KSSTask tempTask=(KSSTask) taskIterator.next();
-				int nodeInDegree=this.inDegree.get(tempTask);
-				nodeInDegree++;
-				this.inDegree.put(tempTask, nodeInDegree);
-			}
-		}
-	
-		for (int i=0;i<numberofTasks; i++) {
-			KSSTask tempTask=(KSSTask)this.requirement.getSubtasks().get(i);
-			if ( (this.inDegree.get(tempTask) == 0)) {
-				this.readyList.add(tempTask);
-				System.out.println("Inserted Task "+tempTask.getTaskId()+" into readyList");
-			}
-			
-			
-		}
-	}
-	
-	public LinkedList<KSSTask> getCompleteList() {
-		return this.completedList;
-	}
-	
-	public KSSTask pollCompletedTask() {
-		KSSTask cTask=null;
-		KSSTask rTask=null;
-		for(int i=0;i<this.readyList.size();i++) {
-			rTask=this.readyList.get(i);
-			if (rTask.isCompleted()==true) {cTask=rTask; break;}
-		}	
-		return cTask;
-		
-	}
-	
-	
-	public void updateReadyTasks(KSSTask completedTask) {
-		this.readyList.remove(completedTask);
-		System.out.println("Removed Task "+completedTask.getTaskId()+" from readylist");
-		LinkedList<KSSTask> tList=this.requirement.getAdjList().get(completedTask);
-		for(int j=0;j<tList.size(); j++) {
-			KSSTask tempTask=tList.get(j);
-			int currentInDegree=this.inDegree.get(tempTask);
-			if (currentInDegree>0) {
-				currentInDegree=currentInDegree-1;	
-				this.inDegree.put(tempTask, currentInDegree);
-				if ((currentInDegree==0) && (tempTask.isCompleted()==false)) {
-					this.readyList.add(tempTask);
-					System.out.println("Task "+tempTask.getTaskId()+" is now in the ready list");
-				}
-			}
-		}
-	}
-	
-	public boolean isRequested() {
-		return this.requested;
+	public double getEstimatedRemainingTime() {
+		return this.estimatedRemainingTime;
 	}
 	public void setRequester(ServiceProviderAgent sp) {
 		this.requestedBy = sp;
@@ -628,6 +549,92 @@ public class KSSTask extends WorkItemImpl {
 			}		
 		}		
 		return rEfficiency;
+	}
+	//////////////////////////////////////////////////////////////////////////
+	
+	public double getCurrentValue() {
+		return this.perceivedValue;
+	}
+	public void setCurrentValue(double v) {
+		this.perceivedValue = v;
+	}
+	/////////////////////////////////////////////////////////////////////////
+	
+	public void TaskTraversal() {
+		for(int i=0;i<this.requirement.getSubtasks().size();i++) {
+			KSSTask nextTask= (KSSTask) this.requirement.getSubtasks().get(i);
+			System.out.println("Task name: "+ nextTask.getName());
+			System.out.println("Task ID: "+ nextTask.getID());
+			System.out.print("Successor tasks: ");
+			Iterator<KSSTask> taskIterator=this.requirement.getAdjList().get(nextTask).iterator();
+			if (taskIterator.hasNext()==false) System.out.println("no successors");
+			while (taskIterator.hasNext()) {
+				System.out.print("Task ID: "+taskIterator.next().getID()+"  ");
+			}
+			System.out.println("  ");
+		}
+	}
+	
+	public void InitializeReadyTaskList() {
+
+		int numberofTasks=this.requirement.getSubtasks().size();
+		for(int i=0;i<numberofTasks;i++) {
+			KSSTask tempTask=(KSSTask) this.requirement.getSubtasks().get(i);
+			this.inDegree.put(tempTask, 0);
+		}
+		
+		for(int i=0;i<numberofTasks;i++) {
+			KSSTask nextTask= (KSSTask) this.requirement.getSubtasks().get(i);
+			Iterator<KSSTask> taskIterator=this.requirement.getAdjList().get(nextTask).iterator();
+			while (taskIterator.hasNext()) {
+				KSSTask tempTask=(KSSTask) taskIterator.next();
+				int nodeInDegree=this.inDegree.get(tempTask);
+				nodeInDegree++;
+				this.inDegree.put(tempTask, nodeInDegree);
+			}
+		}
+	
+		for (int i=0;i<numberofTasks; i++) {
+			KSSTask tempTask=(KSSTask)this.requirement.getSubtasks().get(i);
+			if ( (this.inDegree.get(tempTask) == 0)) {
+				this.readyList.add(tempTask);
+				System.out.println("Inserted Task "+tempTask.getID()+" into readyList");
+			}
+			
+			
+		}
+	}
+	
+	public LinkedList<KSSTask> getCompleteList() {
+		return this.completedList;
+	}
+	
+	public KSSTask pollCompletedTask() {
+		KSSTask cTask=null;
+		KSSTask rTask=null;
+		for(int i=0;i<this.readyList.size();i++) {
+			rTask=this.readyList.get(i);
+			if (rTask.isCompleted()==true) {cTask=rTask; break;}
+		}	
+		return cTask;
+		
+	}
+	public void updateReadyTasks(KSSTask completedTask) {
+		this.readyList.remove(completedTask);
+		System.out.println("Removed Task "+completedTask.getID()+" from readylist");
+		LinkedList<KSSTask> tList=this.requirement.getAdjList().get(completedTask);
+		for(int j=0;j<tList.size(); j++) {
+			KSSTask tempTask=tList.get(j);
+			int currentInDegree=this.inDegree.get(tempTask);
+			if (currentInDegree>0) {
+				currentInDegree=currentInDegree-1;	
+				this.inDegree.put(tempTask, currentInDegree);
+				if ((currentInDegree==0) && (tempTask.isCompleted()==false)) {
+					this.readyList.add(tempTask);
+					System.out.println("Task "+tempTask.getID()+" is now in the ready list");
+				}
+			}
+		}
 	}
 	public LinkedList<KSSTask> getTopologicalTasks() {
 		return this.topologicalList;

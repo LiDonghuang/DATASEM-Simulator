@@ -27,6 +27,11 @@ public class KSSTrigger {
 		this.onProbability = ct.getTProbability()/100;
 	}
 
+	public KSSTrigger (LinkedList<KSSTask> triggered, double progress, double probability) {
+		this.triggered = triggered;
+		this.atProgress = progress;
+		this.onProbability = probability;
+	}
 
 	public void setExecuted() {
 		this.executed = true;

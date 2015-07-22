@@ -27,7 +27,6 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 	
 	private int id;
 	private int type;	
-	private ServiceProvider serviceProvider;
 	private LinkedList<Contract> myContracts;
 	
 	private boolean group;
@@ -36,6 +35,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 	private LinkedList<ServiceProviderAgent> sourceFrom;
 	private LinkedList<ServiceProviderAgent> targetTo;
 	
+	private EList<Service> services;
 	private int numResources;
 	private int numActiveResources;
 	private double resourceUtilization;
@@ -68,35 +68,25 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 	
 	
 	public ServiceProviderAgent(int id, ServiceProvider sp, DirectoryFacilitatorAgent inDfa) {	
+		this.id = id;
+		this.state=0;
+		this.dfa=inDfa;
+		this.coordinator=true;
 		this.name = sp.getName();
 		this.description = sp.getDescription();
 		this.targetTo = new LinkedList<ServiceProviderAgent>();
-		
 		this.services = sp.getServices();
-		
-		this.id = id;
-		this.serviceProvider = sp;
-		
 		this.myServiceResources = new LinkedList<ServiceResource>();
-		this.numResources = this.getResources().size();
 		this.myContracts = new LinkedList<Contract>();
-		
-		this.numActiveResources = 0;
-		this.resourceUtilization = 0.00;
-		for (int r=0;r<this.getResources().size();r++){
-			Resource myResource = this.getResources().get(r);
+		for (int r=0;r<sp.getResources().size();r++){
+			Resource myResource = sp.getResources().get(r);
 			ServiceResource myServiceResource = new ServiceResource(myResource);
 			this.getServiceResources().add(myServiceResource);
 		}
-		
-				
-		this.state=0;
-		this.dfa=inDfa;
-		this.coordinator=true;		
-				
+		this.numResources = this.getServiceResources().size();	
+		this.numActiveResources = 0;
+		this.resourceUtilization = 0.00;
 		this.mySearchStrategy=strategyImplementation(sp);
-		
-		
 		this.totalWorkLoad = 0;
 		this.activeWorkLoad = 0;
 		this.readyQLimit=999999999;
@@ -109,7 +99,6 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 		this.complexQ=new LinkedList<KSSTask>();
 		this.coordinateQ=new LinkedList<KSSTask>();		
 		this.completeQ=new LinkedList<KSSTask>();	
-		
 	}
 	
     
@@ -162,7 +151,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 						}
 						else {
 							System.out.println("Failed to Assign "+requestedWI.getPatternType().getName()
-									+": "+requestedWI.getName()+" (id:"+requestedWI.getTaskId()+")"); 
+									+": "+requestedWI.getName()+" (id:"+requestedWI.getID()+")"); 
 						}
 					}
 					//--
@@ -252,7 +241,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 					double eCompletion= startedWI.getEstimatedEfforts() + this.SoS.timeNow;
 					System.out.println(startedWI.getPatternType().getName()
 							+": "+startedWI.getName()+
-							"(id:"+startedWI.getTaskId()+")"+
+							"(id:"+startedWI.getID()+")"+
 							" is expected to finish at "+eCompletion);
 					startedWI.setEstimatedCompletionTime(eCompletion);
 					// ====================================================
@@ -390,7 +379,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 		newWI.setAssigned();
 		newWI.assignTo(this);
 		System.out.println(newWI.getPatternType().getName()+": "
-				+newWI.getName()+"(id:"+newWI.getTaskId()+")"+" is assigned to Agent "+this.name);
+				+newWI.getName()+"(id:"+newWI.getID()+")"+" is assigned to Agent "+this.name);
 	}
 	
 	public void requestService(KSSTask newWI) {
@@ -451,9 +440,9 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 		return this.activeWorkLoad;
 	}
 	
-	public EList<Resource> getResources() {
-		return this.serviceProvider.getResources();
-	}
+//	public EList<Resource> getResources() {
+//		return this.serviceProvider.getResources();
+//	}
 	public LinkedList<ServiceResource> getServiceResources() {
 		return this.myServiceResources;
 	}
@@ -511,16 +500,16 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 		return hasIdleResources;
 	}
     public EList<Service> getServices() {
-    	return this.serviceProvider.getServices();
+    	return this.services;
     }
 	public void addService(Service e) {		
 		this.getServices().add(e);
 	}	
 	public int getType() {
-		return type;
+		return this.type;
 	}
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	

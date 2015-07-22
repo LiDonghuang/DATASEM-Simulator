@@ -53,7 +53,7 @@ public DemandSource(int id, WorkSource wSource) {
 		for (int w = 0; w < this.getAssignmentQ().size(); w++) {
 			KSSTask wItem = this.getAssignmentQ().get(w);
 			System.out.println(this.getName()+" is Assigning "+wItem.getPatternType().getName()
-					+": "+wItem.getName()+" (id:"+wItem.getTaskId()+")");
+					+": "+wItem.getName()+" (id:"+wItem.getID()+")");
 			ArrayList<ServiceProviderAgent>serviceProviderCandidates = 
 					this.findServiceProviders(wItem);					
 //			if (!wItem.isAggregationNode())  {
@@ -68,7 +68,7 @@ public DemandSource(int id, WorkSource wSource) {
 					w--; }
 				else {
 					System.out.println("Failed to Assign "+wItem.getPatternType().getName()
-							+": "+wItem.getName()+" (id:"+wItem.getTaskId()+")"); 
+							+": "+wItem.getName()+" (id:"+wItem.getID()+")"); 
 					}
 				}
 			}

@@ -617,7 +617,7 @@
 	<classOfService>Standard</classOfService>
 	<WorkSource>USAF</WorkSource>
 	<arrivalTime>1</arrivalTime>
-	<dueDate>0</dueDate>
+	<dueDate>100</dueDate>
 </workItem>
 <workItem>
 	<name>C2</name>
@@ -649,7 +649,7 @@
 	<classOfService>Standard</classOfService>
 	<WorkSource>USAF</WorkSource>
 	<arrivalTime>1</arrivalTime>
-	<dueDate>0</dueDate>
+	<dueDate>100</dueDate>
 </workItem>
 <workItem>
 	<name>C3</name>
@@ -679,7 +679,7 @@
 	<classOfService>Standard</classOfService>
 	<WorkSource>USAF</WorkSource>
 	<arrivalTime>1</arrivalTime>
-	<dueDate>0</dueDate>
+	<dueDate>200</dueDate>
 </workItem>
 <workItem>
 	<name>R1</name>

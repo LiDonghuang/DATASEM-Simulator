@@ -434,8 +434,7 @@ public class SimulationContextBuilder {
 							wi_befforts = Math.max(1, wi_befforts);
 						}	
 						//
-						WI.setBefforts(wi_befforts);						
-						
+						WI.setBefforts(wi_befforts);										
 						// Value Volatility...
 						if (wi_bvalue!=0){
 							wi_bvalue=
@@ -447,7 +446,7 @@ public class SimulationContextBuilder {
 						WI.setBvalue(wi_bvalue);
 						
 						WI.setCOS(wi_cos);			
-						// ********* Experiment Parameter ***********
+						// Timing Volatility ...
 						if ( (rep>0) && (wi_arrTime>0) ) {			
 							int time_shift = rep*interArrivalTime + RandomHelper.nextIntFromTo(-interArrivalTime, 0);
 							wi_arrTime += time_shift;					
@@ -455,7 +454,6 @@ public class SimulationContextBuilder {
 								wi_dueDate += time_shift;			
 								}
 						}
-						// ******************************************
 						WI.setArrtime(wi_arrTime);
 						WI.setDuedate(wi_dueDate);
 						// Set WI Pattern and Type
@@ -481,7 +479,6 @@ public class SimulationContextBuilder {
 								WI.getReqSpecialties().add(WI_reqsv);
 								break;}
 						}												
-
 						//-------------------------------------------------------------------------------------------
 						// Create KSSTask Package for this WI
 						KSSTask myWItem=new KSSTask(wItemID, WI);
@@ -519,8 +516,7 @@ public class SimulationContextBuilder {
 							for (int t1 = 0; t1 < myWINetwork.size(); t1++) {
 								KSSTask subTask = myWINetwork.get(t1);						
 								if ( wItem_subTask.matches(subTask.getName()) ) {
-									mainTask.addSubTasks(subTask);	
-									subTask.addUpperTasks(mainTask);
+									mainTask.addSubTask(subTask);	
 								}
 							}
 						}
@@ -536,8 +532,7 @@ public class SimulationContextBuilder {
 							for (int t2 = 0; t2 < myWINetwork.size(); t2++) {
 								KSSTask predecessor = myWINetwork.get(t2);
 								if ( wItem_predecessor.matches(predecessor.getName()) ) {
-									mainTask.addPredecessorTasks(predecessor);
-									predecessor.addSuccessorTasks(mainTask);
+									mainTask.addPredecessorTask(predecessor);
 								}
 							}
 						}
@@ -557,10 +552,8 @@ public class SimulationContextBuilder {
 							// With Probability
 							int wIcausality_probability = Integer.parseInt(cS.getElementsByTagName("onProbability").item(0).getTextContent());
 							wIcausality.setTProbability(wIcausality_probability);
-							
 							// KSSTrigger Package
-							KSSTrigger myTrigger= new KSSTrigger(wIcausality);
-							
+							KSSTrigger myTrigger= new KSSTrigger(wIcausality);				
 							// Triggered Tasks
 							for (int tt = 0; tt < triggeredList.getLength(); tt++) {
 								Node triggeredNode = triggeredList.item(tt);

@@ -111,7 +111,7 @@ public SystemOfSystems() {
 			this.getEndedList().remove(wItem);
 			// Remove WI from Context
 			System.out.println("Remove "+wItem.getPatternType().getName()+": "
-					+wItem.getName()+" id:"+wItem.getTaskId());
+					+wItem.getName()+" id:"+wItem.getID());
 			context.remove(wItem);	
 			w--;
 		}
