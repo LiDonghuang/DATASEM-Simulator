@@ -122,6 +122,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 			for (int w=0;w<this.requestedQ.size();w++) {
 				// =========== Apply WI Acceptance Rule ====================
 				KSSTask requestedWI = this.requestedQ.get(w);
+				requestedWI.setPerceivedValue(requestedWI.getBvalue());
 				requestedWI.checkCausalities();
 				// =========================================================
 				if (!requestedWI.isAggregationNode()){

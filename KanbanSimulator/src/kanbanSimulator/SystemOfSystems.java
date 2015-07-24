@@ -106,7 +106,7 @@ public SystemOfSystems() {
 			// Completed WI: Add Value to Total Value
 			if (wItem.isCompleted()){
 				this.completedWIs ++;
-				this.totalValueAdded += wItem.getCurrentValue(); 				
+				this.totalValueAdded += wItem.getBvalue(); 				
 			}
 			this.getEndedList().remove(wItem);
 			// Remove WI from Context

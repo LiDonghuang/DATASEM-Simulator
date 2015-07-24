@@ -27,7 +27,9 @@ public class KSSTask extends WorkItemImpl {
 	private int id;
 	private String profileName;
 	private DemandSource demandSource;
+	private int bvalue;
 	private double perceivedValue;
+	private int befforts;
 	
 	private boolean demanded;
 	private boolean requested;
@@ -221,6 +223,18 @@ public class KSSTask extends WorkItemImpl {
 	}
 	public void setDemandSource (DemandSource ds) {
 		this.demandSource = ds;
+	}
+	public int getBvalue () {
+		return this.bvalue;
+	}
+	public void setBvalue (int v) {
+		this.bvalue = v;
+	}
+	public int getBefforts () {
+		return this.befforts;
+	}
+	public void setBefforts (int e) {
+		this.befforts = e;
 	}
 	public boolean isAggregationNode () {
 		return this.aggregationNode;
@@ -552,10 +566,10 @@ public class KSSTask extends WorkItemImpl {
 	}
 	//////////////////////////////////////////////////////////////////////////
 	
-	public double getCurrentValue() {
+	public double getPerceivedValue() {
 		return this.perceivedValue;
 	}
-	public void setCurrentValue(double v) {
+	public void setPerceivedValue(double v) {
 		this.perceivedValue = v;
 	}
 	/////////////////////////////////////////////////////////////////////////

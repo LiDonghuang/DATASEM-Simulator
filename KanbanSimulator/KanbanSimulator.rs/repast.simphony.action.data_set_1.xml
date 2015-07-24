@@ -1,5 +1,5 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Total Efforts Data Set</name>
+  <name>Total Value Data Set</name>
   <type>AGGREGATE</type>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
@@ -16,24 +16,16 @@
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>TotalBefforts</string>
+      <string>TotalValueAdded</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>TotalBefforts</id>
-        <className>kanbanSimulator.KSSTask</className>
-        <methodName>getBefforts</methodName>
+        <id>TotalValueAdded</id>
+        <className>kanbanSimulator.SystemOfSystems</className>
+        <methodName>getTotalValueAdded</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>
-  <countSources class="linked-hash-map">
-    <entry>
-      <string>WorkItemCount</string>
-      <repast.simphony.data2.engine.CountSourceDefinition>
-        <typeName>kanbanSimulator.KSSTask</typeName>
-        <id>WorkItemCount</id>
-      </repast.simphony.data2.engine.CountSourceDefinition>
-    </entry>
-  </countSources>
+  <countSources class="linked-hash-map"/>
   <customNADataSources class="linked-hash-map"/>
   <customAggDataSources class="linked-hash-map"/>
 </repast.simphony.data2.engine.DataSetDescriptor>

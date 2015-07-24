@@ -589,7 +589,7 @@
 </workSource>
 <workItem>
 	<name>C1</name>
-	<Profile>Cp1</Profile>
+	<Profile>SPA</Profile>
 	<Description>Capability 1</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Capability</Type>					
@@ -598,46 +598,12 @@
 	<subtasks>
 	<subtask>R1</subtask>
 	<subtask>R2</subtask>
-	<subtask>R3</subtask>
-	<subtask>R8</subtask>
-	</subtasks>
-	<causalities>
-	<causality>
-	<triggered>R1</triggered>
-	<triggered>R2</triggered>
-	<triggered>R3</triggered>
-	<triggered>R8</triggered>
-		<atProgress>0</atProgress>
-		<onProbability>100</onProbability>
-	</causality>
-	</causalities>
-	<servicesRequired>S0101</servicesRequired>
-	<baseEfforts>10</baseEfforts>
-	<baseValue>1000</baseValue>				
-	<classOfService>Standard</classOfService>
-	<WorkSource>USAF</WorkSource>
-	<arrivalTime>1</arrivalTime>
-	<dueDate>100</dueDate>
-</workItem>
-<workItem>
-	<name>C2</name>
-	<Profile>Cp1</Profile>
-	<Description>Capability 2</Description>
-	<Pattern>DefaultTeminology</Pattern>
-		<Type>Capability</Type>					
-	<predecessors>
-	</predecessors>
-	<subtasks>
-	<subtask>R1</subtask>
-	<subtask>R4</subtask>
-	<subtask>R5</subtask>
 	<subtask>R7</subtask>
 	</subtasks>
 	<causalities>
 	<causality>
 	<triggered>R1</triggered>
-	<triggered>R4</triggered>
-	<triggered>R5</triggered>
+	<triggered>R2</triggered>
 	<triggered>R7</triggered>
 		<atProgress>0</atProgress>
 		<onProbability>100</onProbability>
@@ -649,11 +615,41 @@
 	<classOfService>Standard</classOfService>
 	<WorkSource>USAF</WorkSource>
 	<arrivalTime>1</arrivalTime>
-	<dueDate>100</dueDate>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>C2</name>
+	<Profile>SPA</Profile>
+	<Description>Capability 2</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Capability</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	<subtask>R3</subtask>
+	<subtask>R4</subtask>
+	<subtask>R7</subtask>
+	</subtasks>
+	<causalities>
+	<causality>
+	<triggered>R3</triggered>
+	<triggered>R4</triggered>
+	<triggered>R7</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>1000</baseValue>				
+	<classOfService>Standard</classOfService>
+	<WorkSource>USAF</WorkSource>
+	<arrivalTime>1</arrivalTime>
+	<dueDate>0</dueDate>
 </workItem>
 <workItem>
 	<name>C3</name>
-	<Profile>Cp2</Profile>
+	<Profile>INF</Profile>
 	<Description>Capability 3</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Capability</Type>					
@@ -679,19 +675,29 @@
 	<classOfService>Standard</classOfService>
 	<WorkSource>USAF</WorkSource>
 	<arrivalTime>1</arrivalTime>
-	<dueDate>200</dueDate>
+	<dueDate>0</dueDate>
 </workItem>
 <workItem>
 	<name>R1</name>
-	<Profile>Rp1</Profile>
+	<Profile>Rq1</Profile>
 	<Description>Requirement 1</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
+	<subtask>T1</subtask>
+	<subtask>T2</subtask>
+	<subtask>T3</subtask>
 	</subtasks>
 	<causalities>
+	<causality>
+	<triggered>T1</triggered>
+	<triggered>T2</triggered>
+	<triggered>T3</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 	<baseEfforts>10</baseEfforts>
@@ -703,15 +709,25 @@
 </workItem>
 <workItem>
 	<name>R2</name>
-	<Profile>Rp1</Profile>
+	<Profile>Rq1</Profile>
 	<Description>Requirement 2</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
+	<subtask>T4</subtask>
+	<subtask>T5</subtask>
+	<subtask>T6</subtask>
 	</subtasks>
 	<causalities>
+	<causality>
+	<triggered>T4</triggered>
+	<triggered>T5</triggered>
+	<triggered>T6</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 	<baseEfforts>10</baseEfforts>
@@ -723,15 +739,25 @@
 </workItem>
 <workItem>
 	<name>R3</name>
-	<Profile>Rp1</Profile>
+	<Profile>Rq1</Profile>
 	<Description>Requirement 3</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
+	<subtask>T7</subtask>
+	<subtask>T8</subtask>
+	<subtask>T9</subtask>
 	</subtasks>
 	<causalities>
+	<causality>
+	<triggered>T7</triggered>
+	<triggered>T8</triggered>
+	<triggered>T9</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 	<baseEfforts>10</baseEfforts>
@@ -743,15 +769,25 @@
 </workItem>
 <workItem>
 	<name>R4</name>
-	<Profile>Rp1</Profile>
+	<Profile>Rq1</Profile>
 	<Description>Requirement 4</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
+	<subtask>T10</subtask>
+	<subtask>T11</subtask>
+	<subtask>T12</subtask>
 	</subtasks>
 	<causalities>
+	<causality>
+	<triggered>T10</triggered>
+	<triggered>T11</triggered>
+	<triggered>T12</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 	<baseEfforts>10</baseEfforts>
@@ -763,15 +799,25 @@
 </workItem>
 <workItem>
 	<name>R5</name>
-	<Profile>Rp1</Profile>
+	<Profile>Rq1</Profile>
 	<Description>Requirement 5</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
+	<subtask>T13</subtask>
+	<subtask>T14</subtask>
+	<subtask>T15</subtask>
 	</subtasks>
 	<causalities>
+	<causality>
+	<triggered>T13</triggered>
+	<triggered>T14</triggered>
+	<triggered>T15</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 	<baseEfforts>10</baseEfforts>
@@ -783,15 +829,25 @@
 </workItem>
 <workItem>
 	<name>R6</name>
-	<Profile>Rp1</Profile>
+	<Profile>Rq1</Profile>
 	<Description>Requirement 6</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
+	<subtask>T16</subtask>
+	<subtask>T17</subtask>
+	<subtask>T18</subtask>
 	</subtasks>
 	<causalities>
+	<causality>
+	<triggered>T16</triggered>
+	<triggered>T17</triggered>
+	<triggered>T18</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 	<baseEfforts>10</baseEfforts>
@@ -803,15 +859,25 @@
 </workItem>
 <workItem>
 	<name>R7</name>
-	<Profile>Rp2</Profile>
+	<Profile>Rq2</Profile>
 	<Description>Requirement 7</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
+	<subtask>T19</subtask>
+	<subtask>T20</subtask>
+	<subtask>T21</subtask>
 	</subtasks>
 	<causalities>
+	<causality>
+	<triggered>T19</triggered>
+	<triggered>T20</triggered>
+	<triggered>T21</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 	<baseEfforts>10</baseEfforts>
@@ -823,15 +889,25 @@
 </workItem>
 <workItem>
 	<name>R8</name>
-	<Profile>Rp2</Profile>
+	<Profile>Rq2</Profile>
 	<Description>Requirement 8</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
+	<subtask>T22</subtask>
+	<subtask>T23</subtask>
+	<subtask>T24</subtask>
 	</subtasks>
 	<causalities>
+	<causality>
+	<triggered>T22</triggered>
+	<triggered>T23</triggered>
+	<triggered>T24</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 	<baseEfforts>10</baseEfforts>
@@ -843,19 +919,569 @@
 </workItem>
 <workItem>
 	<name>R9</name>
-	<Profile>Rp2</Profile>
+	<Profile>Rq2</Profile>
 	<Description>Requirement 9</Description>
 	<Pattern>DefaultTeminology</Pattern>
 		<Type>Requirement</Type>					
 	<predecessors>
 	</predecessors>
 	<subtasks>
+	<subtask>T25</subtask>
+	<subtask>T26</subtask>
+	<subtask>T27</subtask>
 	</subtasks>
 	<causalities>
+	<causality>
+	<triggered>T25</triggered>
+	<triggered>T26</triggered>
+	<triggered>T27</triggered>
+		<atProgress>0</atProgress>
+		<onProbability>100</onProbability>
+	</causality>
 	</causalities>
 	<servicesRequired>S0103</servicesRequired>
 	<baseEfforts>10</baseEfforts>
 	<baseValue>900</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T1</name>
+	<Profile>Tk1</Profile>
+	<Description>NW Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0201</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>30</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T2</name>
+	<Profile>Tk2</Profile>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>30</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T3</name>
+	<Profile>Tk3</Profile>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>30</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T4</name>
+	<Profile>Tk1</Profile>
+	<Description>NW Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0201</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>30</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T5</name>
+	<Profile>Tk2</Profile>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>30</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T6</name>
+	<Profile>Tk3</Profile>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>30</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T7</name>
+	<Profile>Tk1</Profile>
+	<Description>NW Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0201</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>30</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T8</name>
+	<Profile>Tk2</Profile>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>30</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T9</name>
+	<Profile>Tk3</Profile>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>30</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T10</name>
+	<Profile>Tk1</Profile>
+	<Description>NW Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0201</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>60</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T11</name>
+	<Profile>Tk2</Profile>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>60</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T12</name>
+	<Profile>Tk3</Profile>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>60</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T13</name>
+	<Profile>Tk1</Profile>
+	<Description>NW Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0201</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>60</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T14</name>
+	<Profile>Tk2</Profile>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>60</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T15</name>
+	<Profile>Tk3</Profile>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>60</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T16</name>
+	<Profile>Tk1</Profile>
+	<Description>NW Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0201</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>60</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T17</name>
+	<Profile>Tk2</Profile>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>60</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T18</name>
+	<Profile>Tk3</Profile>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>60</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T19</name>
+	<Profile>Tk1</Profile>
+	<Description>NW Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0201</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>90</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T20</name>
+	<Profile>Tk2</Profile>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>90</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T21</name>
+	<Profile>Tk3</Profile>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>90</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T22</name>
+	<Profile>Tk1</Profile>
+	<Description>NW Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0201</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>90</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T23</name>
+	<Profile>Tk2</Profile>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>90</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T24</name>
+	<Profile>Tk3</Profile>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>90</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T25</name>
+	<Profile>Tk1</Profile>
+	<Description>NW Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0201</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>90</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T26</name>
+	<Profile>Tk2</Profile>
+	<Description>PM Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0301</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>90</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
+<workItem>
+	<name>T27</name>
+	<Profile>Tk3</Profile>
+	<Description>DB Task</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Task</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0401</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>90</baseValue>				
 	<classOfService></classOfService>
 	<WorkSource>null</WorkSource>
 	<arrivalTime>0</arrivalTime>

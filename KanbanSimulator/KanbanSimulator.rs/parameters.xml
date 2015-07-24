@@ -31,7 +31,7 @@
 									
 		/>
 				<parameter name="worldWidth" displayName="World Width" type="int" 
-						defaultValue="50" 
+						defaultValue="100" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									

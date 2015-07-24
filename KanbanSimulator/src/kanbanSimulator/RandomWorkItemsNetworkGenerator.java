@@ -68,7 +68,6 @@ public class RandomWorkItemsNetworkGenerator {
 				KSSTask subTask = myWorkItem.getSubTasks().get(d);
 				String profileName = subTask.getProfileName();
 				System.out.println(subTask.getName()+":"+profileName);
-				System.out.println(subTask);
 				int p = profileList.indexOf(profileName);
 				profileDecMatrix[w][p] +=1;
 			}
@@ -151,19 +150,25 @@ public class RandomWorkItemsNetworkGenerator {
 
 		// ----------------------- Generate New WIN ---------------------------------
 		ArrayList<KSSTask> newWIN = new ArrayList<KSSTask>(0);
-		int [] numProfileToCreate = {4,2,0,0};
+		int [] numProfileToCreate = {2,1,0,0};
+		int [] numProfileCreated = new int[lenProfile];
 		int [][] numDecCreated = new int[lenProfile][lenProfile];
 		int [][] numRefCreated = new int[lenProfile][lenProfile];
 		KSSTask cp1 = oldWIN.get(0);
 		KSSTask cp2 = oldWIN.get(2);
 		KSSTask rp1 = oldWIN.get(3);
-		KSSTask rp2 = oldWIN.get(10);
-		KSSTask [] profiles = {cp1,cp2,rp1,rp2};
+		KSSTask rp2 = oldWIN.get(9);
+		KSSTask tp1 = oldWIN.get(12);
+		KSSTask tp2 = oldWIN.get(13);
+		KSSTask tp3 = oldWIN.get(14);
+		KSSTask [] profiles = {cp1,cp2,rp1,rp2,tp1,tp2,tp3};
 		
 		
 		int totalWICount = 0;
 		int totalWICount_0 = 0;
 		int taskID = 0;	
+		
+//		boolean [] haveReferenced = new boolean [totalWICount_0]; 
 		
 		System.out.println("\nCreating Initial WorkItems...");
 		for (int p1=0;p1<numProfileToCreate.length;p1++) {
@@ -171,102 +176,98 @@ public class RandomWorkItemsNetworkGenerator {
 			KSSTask profileWI = profiles[p1];
 			System.out.println("\nCreate "+numProfileToCreate[p1]+" ProfileType: "+profileName);
 			for (int c=0;c<numProfileToCreate[p1];c++) {		
-//				System.out.println("\nCreating "+profileName);
-				taskID++;
-				String newName = profileName+"_"+taskID;
+				String newName = profileName+"."+ (numProfileCreated[p1]+1)%100;
 				KSSTask newKSSTask = this.createKSSTask(profileWI, newName, taskID);	
 				newWIN.add(newKSSTask);
-//				newWIN.addAll(newKSSTask.getSubTasks());
+				numProfileCreated[p1] ++;
+				taskID++;
 			}
 		}
-		
+			
 		boolean loopCondition = true;
 		int loopCount = 0;
-		while (loopCondition) {
-		totalWICount_0 = newWIN.size();	
-		System.out.println("WIN Size (old): "+totalWICount_0);
-		// Create Decompositions
-		System.out.println("\nCreating Decompositions...");
-		for (int w=0;w<newWIN.size();w++) {
-			KSSTask mainTask = newWIN.get(w);
-			String mainTaskProfileName = mainTask.getProfileName();
-			System.out.println("\n"+mainTask.getName()+"/"+mainTaskProfileName);			
-			int p1 = profileList.indexOf(mainTaskProfileName);
-			// Create Subtasks
-			for (int p2=0;p2<profileList.size();p2++) {
-				double mean = profileDecMatrixMean[p1][p2];
-				double std = profileDecMatrixStd[p1][p2];	
-				String decProfileName = profileList.get(p2);
-				System.out.println("\n");
-				int currentDecNum = countDecompositionsOfProfileName(mainTask, decProfileName);
-				System.out.println("to "+decProfileName+":");
-				System.out.println("Mean="+(mean-currentDecNum));
-				System.out.println("Stdev="+std);
-				int numToCreate = Math.max(0,RandomHelper.createNormal((mean-currentDecNum), std).nextInt());
-				KSSTask profileSubTask = profiles[p2];		
-				//
-				numDecCreated[p1][p2]+=numToCreate;
-				//
-				if (numToCreate>0) {
-					System.out.println("Create "+numToCreate+" SubTasks of ProfileType: "+decProfileName);
-				}
-				for (int n=0;n<numToCreate;n++) {
-					taskID++;
-					KSSTask newSubTask = createKSSTask(profileSubTask,(decProfileName+"_"+taskID),taskID);
-					mainTask.addSubTask(newSubTask);
-					// Create References
-					System.out.println(" Create References...");
-					double mean2 = profileRefMatrixMean[p2][p1];
-					double std2 = profileRefMatrixStd[p2][p1];
-					int numReferences = Math.max(0,RandomHelper.createNormal(mean2-1, std2).nextInt());
-					System.out.println(newSubTask.getName()+ " is referencing to "+numReferences+" other ProfileType: "+mainTaskProfileName+"...");
-					System.out.println(newSubTask.getName()+" referenced to "+mainTask.getName());
-					for (int ref=0;ref<numReferences;ref++) {
-						LinkedList<KSSTask> candidates = new LinkedList<KSSTask>();
-						for (int w1=0;w1<newWIN.size();w1++) {
-							KSSTask createdWI = newWIN.get(w1);
-//							double dec_judge = RandomHelper.createNormal(mean+std, std).nextDouble();
-//							double dec_judge = mean+2*std;
-							if ((createdWI.getProfileName().matches(mainTaskProfileName))
-								&&(createdWI!=mainTask)
-//								&&(countDecompositionsOfProfileName(createdWI, decProfileName)<dec_judge)
-								)
-							{
-								candidates.add(createdWI);
+		while (loopCondition) {	
+			totalWICount_0 = newWIN.size();	
+			System.out.println("WIN Size (old): "+totalWICount_0);
+			// Create Decompositions
+			System.out.println("\nCreating Decompositions...");
+			for (int w=0;w<newWIN.size();w++) {
+				KSSTask mainTask = newWIN.get(w);
+				String mainTaskProfileName = mainTask.getProfileName();
+				System.out.println("\n"+mainTask.getName()+"/"+mainTaskProfileName);			
+				int p1 = profileList.indexOf(mainTaskProfileName);
+				// Create Subtasks
+				for (int p2=0;p2<profileList.size();p2++) {
+					double decMean = profileDecMatrixMean[p1][p2];
+					double decStd = profileDecMatrixStd[p1][p2];	
+					String decProfileName = profileList.get(p2);	
+					int currentDecNum = countDecompositionsOfProfileName(mainTask, decProfileName);
+//					System.out.println("\n");
+//					System.out.println("to "+decProfileName+":");
+//					System.out.println("Mean="+(decMean-currentDecNum));
+//					System.out.println("Stdev="+decStd);
+					int numToCreate = Math.max(0,RandomHelper.createNormal((decMean-currentDecNum), decStd).nextInt());
+					KSSTask profileSubTask = profiles[p2];					
+					if (numToCreate>0) {
+						System.out.println("Create "+numToCreate+" SubTasks of ProfileType: "+decProfileName);
+					}
+					for (int n=0;n<numToCreate;n++) {
+						String newName = decProfileName+"."+ (numProfileCreated[p2]+1)%100;
+						KSSTask newSubTask = createKSSTask(profileSubTask,newName,taskID);
+						mainTask.addSubTask(newSubTask);
+						numDecCreated[p1][p2]+=1;
+						numRefCreated[p2][p1]+=1;
+						newWIN.add(newSubTask);
+						numProfileCreated[p2] ++;
+						taskID++;
+						// Create References
+						System.out.println(" Create References...");
+						double refMean = profileRefMatrixMean[p2][p1];
+						double refStd = profileRefMatrixStd[p2][p1];
+						
+						int numToReference = Math.max(0,RandomHelper.createNormal(refMean-1, refStd).nextInt());
+						if (numToReference>0) {
+							System.out.println(newSubTask.getName()+ " is referencing to "+numToReference
+									+" other ProfileType: "+mainTaskProfileName+"...");
+						}
+						for (int ref=0;ref<numToReference;ref++) {
+							LinkedList<KSSTask> candidates = new LinkedList<KSSTask>();
+							for (int w1=0;w1<newWIN.size();w1++) {
+								KSSTask createdWI = newWIN.get(w1);
+								double dec_judge = RandomHelper.createNormal(decMean, decStd).nextDouble();
+//								double dec_judge = decMean+2*decStd;
+								if ((createdWI.getProfileName().matches(mainTaskProfileName))
+									&&(createdWI!=mainTask)
+									&&(countDecompositionsOfProfileName(createdWI, decProfileName)<dec_judge)
+									)
+								{
+									candidates.add(createdWI);
+								}
+							}
+							if (candidates.size()>0) {
+								KSSTask upperTask = candidates.get(RandomHelper.nextIntFromTo(0, candidates.size()-1));
+								upperTask.addSubTask(newSubTask);					
+								System.out.println(newSubTask.getName()+" referenced to "+upperTask.getName());
+								numRefCreated[p2][p1]+=1;
 							}
 						}
-						if (candidates.size()>0) {
-							KSSTask upperTask = candidates.get(RandomHelper.nextIntFromTo(0, candidates.size()-1));
-							upperTask.addSubTask(newSubTask);
-							System.out.println(newSubTask.getName()+" referenced to "+upperTask.getName());
-						}
 					}
-					numRefCreated[p2][p1]+=numReferences;
-
 				}
 			}
-		}
-		for (int w=0;w<newWIN.size();w++) {
-			KSSTask myKSSTask = newWIN.get(w);
-			// Causality (test purpose)
-			myKSSTask.addKSSTriggers(new KSSTrigger(myKSSTask.getSubTasks(),0.0,1.0));	
-			for (int st=0;st<myKSSTask.getSubTasks().size();st++) {
-				KSSTask newSubTask = myKSSTask.getSubTasks().get(st);
-				if (!newWIN.contains(newSubTask)) {
-					newWIN.add(newSubTask);
-				}
+			for (int w=0;w<newWIN.size();w++) {
+				KSSTask myKSSTask = newWIN.get(w);
+				// Causality (test purpose)
+				myKSSTask.addKSSTriggers(new KSSTrigger(myKSSTask.getSubTasks(),0.0,1.0));	
 			}
-		}
-		
-		totalWICount = newWIN.size();
-		int numNewAdded = totalWICount - totalWICount_0;
-		System.out.println("WIN Size (new): "+totalWICount);
-		System.out.println("Added "+numNewAdded);
-		if ((numNewAdded==0)|(loopCount>3)) {
-			loopCondition = false;
-			System.out.println("Looped "+loopCount+" times.");
-		}
-		loopCondition = false;
+			totalWICount = newWIN.size();
+			int numNewAdded = totalWICount - totalWICount_0;
+			loopCount++;
+			System.out.println("WIN Size (new): "+totalWICount);
+			System.out.println("Added "+numNewAdded+" WIs");
+			System.out.println("--------------- Looped "+loopCount+" times -----------------");
+//			if ((numNewAdded==0)|(loopCount>9)) {
+				loopCondition = false;
+//			}
 		}
 		
 		System.out.println("\nnumDecCreated:");

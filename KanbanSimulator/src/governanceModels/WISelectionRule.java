@@ -43,7 +43,7 @@ public class WISelectionRule {
 						+"(AssignedTime:"+wItem.getAssignedTime()+")");
 			}
 		}
-		else if (this.name.matches("ValueBased")){			
+		else if (this.name.matches("BaseValue")){			
 			Collections.sort(queue, new LargerBaseValue());	
 			for (int i=0;i<queue.size();i++) {
 				KSSTask wItem = queue.get(i);
