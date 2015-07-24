@@ -150,7 +150,7 @@ public class RandomWorkItemsNetworkGenerator {
 
 		// ----------------------- Generate New WIN ---------------------------------
 		ArrayList<KSSTask> newWIN = new ArrayList<KSSTask>(0);
-		int [] numProfileToCreate = {2,1,0,0};
+		int [] numProfileToCreate = {3,2,0,0};
 		int [] numProfileCreated = new int[lenProfile];
 		int [][] numDecCreated = new int[lenProfile][lenProfile];
 		int [][] numRefCreated = new int[lenProfile][lenProfile];
