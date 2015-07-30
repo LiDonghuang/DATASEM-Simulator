@@ -1,8 +1,8 @@
 package kanbanSimulator;
 import java.util.LinkedList;
 
-import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.*;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.*;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.impl.*;
 import governanceModels.GovernanceSearchStrategy;
 
 public class ServiceResource extends ResourceImpl{

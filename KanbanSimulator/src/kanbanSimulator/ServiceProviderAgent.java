@@ -11,14 +11,14 @@ import java.awt.Color;
 import org.eclipse.emf.common.util.EList;
 import org.geotools.filter.expression.ThisPropertyAccessorFactory;
 
+import datasem.xtext.kanban.domainmodel.kanbanmodel.*;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.impl.*;
 import repast.simphony.context.Context;
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ISchedule;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.random.RandomHelper;
 import repast.simphony.util.ContextUtils;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.*;
 import governanceModels.GovernanceSearchStrategy;
 import governanceModels.Contract;
 

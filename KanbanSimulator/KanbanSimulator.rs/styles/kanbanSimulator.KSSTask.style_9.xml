@@ -9,7 +9,7 @@
   <labelPosition>top</labelPosition>
   <labelPrecision>3</labelPrecision>
   <labelOffset>5.0</labelOffset>
-  <labelFontSize>10</labelFontSize>
+  <labelFontSize>8</labelFontSize>
   <labelFontType>0</labelFontType>
   <labelFontFamily>Arial</labelFontFamily>
   <labelColor>

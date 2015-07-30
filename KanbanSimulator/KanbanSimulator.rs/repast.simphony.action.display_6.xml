@@ -11,7 +11,7 @@
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
     <entry>
-      <string>ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider</string>
+      <string>datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
   </styles>
@@ -25,8 +25,8 @@
       <string>kanbanSimulator.KSSTask.style_9.xml</string>
     </entry>
     <entry>
-      <string>ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider</string>
-      <string>ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider.style_0.xml</string>
+      <string>datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider</string>
+      <string>datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider.style_0.xml</string>
     </entry>
   </editedStyles>
   <netStyles/>
@@ -39,7 +39,7 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>-1680607992</hashCode>
+    <hashCode>-343175062</hashCode>
   </schedParams>
   <layoutClassName>foo.bar.baz</layoutClassName>
   <layoutProjection>2DGrid</layoutProjection>
@@ -54,7 +54,7 @@
       <int>0</int>
     </entry>
     <entry>
-      <string>ausim.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider</string>
+      <string>datasem.xtext.kanban.domainmodel.kanbanmodel.ServiceProvider</string>
       <int>2</int>
     </entry>
   </layerOrder>

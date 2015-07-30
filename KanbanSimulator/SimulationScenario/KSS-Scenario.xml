@@ -1487,6 +1487,26 @@
 	<arrivalTime>0</arrivalTime>
 	<dueDate>0</dueDate>
 </workItem>
+<workItem>
+	<name>T27</name>
+	<Profile>A</Profile>
+	<Description>Analysis</Description>
+	<Pattern>DefaultTeminology</Pattern>
+		<Type>Activity</Type>					
+	<predecessors>
+	</predecessors>
+	<subtasks>
+	</subtasks>
+	<causalities>
+	</causalities>
+	<servicesRequired>S0101</servicesRequired>
+	<baseEfforts>10</baseEfforts>
+	<baseValue>10</baseValue>				
+	<classOfService></classOfService>
+	<WorkSource>null</WorkSource>
+	<arrivalTime>0</arrivalTime>
+	<dueDate>0</dueDate>
+</workItem>
 </WorkItemNetworkModel>
 
 

@@ -20,8 +20,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.*;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.*;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.impl.*;
 
 
 

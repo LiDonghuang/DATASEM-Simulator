@@ -48,7 +48,7 @@ public class Visualization {
 							r++;}
 					else if (wItem.getPatternType().getName().matches("Task")) {
 //							grid3D.moveTo(wItem,11+2*t,87,12);
-							gridWIN.moveTo(wItem,11+2*t,87);
+							gridWIN.moveTo(wItem,11+1*t,87);
 							t++;}
 					else if (wItem.getPatternType().getName().matches("Activity")) {
 //							grid3D.moveTo(wItem,11+1*a,84,12);

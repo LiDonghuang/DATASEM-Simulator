@@ -6,10 +6,10 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.lang.Math;
-import bsh.This;
 
-import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.*;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.*;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.impl.*;
+import bsh.This;
 
 public class KSSTrigger {
 	

@@ -8,6 +8,8 @@ import java.awt.Color;
 
 import org.eclipse.emf.common.util.EList;
 
+import datasem.xtext.kanban.domainmodel.kanbanmodel.*;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.impl.*;
 import repast.simphony.context.Context;
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ISchedule;
@@ -19,8 +21,6 @@ import repast.simphony.util.ContextUtils;
 import repast.simphony.visualization.visualization3D.ShapeFactory;
 import repast.simphony.visualizationOGL2D.DefaultStyleOGL2D;
 import saf.v3d.ShapeFactory2D;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.*;
 import governanceModels.GovernanceSearchStrategy;
 
 

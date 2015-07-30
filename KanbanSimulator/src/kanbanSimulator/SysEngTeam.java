@@ -4,13 +4,13 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import datasem.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl;
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ISchedule;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.random.RandomHelper;
 import repast.simphony.space.graph.Network;
 import repast.simphony.space.grid.Grid;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.ServiceProviderImpl;
 
 public class SysEngTeam extends ServiceProviderImpl {
 

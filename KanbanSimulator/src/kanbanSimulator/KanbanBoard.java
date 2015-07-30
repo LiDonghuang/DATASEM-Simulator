@@ -3,8 +3,8 @@ package kanbanSimulator;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import ausim.xtext.kanban.domainmodel.kanbanmodel.*;
-import ausim.xtext.kanban.domainmodel.kanbanmodel.impl.*;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.*;
+import datasem.xtext.kanban.domainmodel.kanbanmodel.impl.*;
 
 public class KanbanBoard  {
 	private Queue<KSSTask> incomingQ;
