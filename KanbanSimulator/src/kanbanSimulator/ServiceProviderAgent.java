@@ -104,7 +104,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
     
 	@ScheduledMethod(start=1,interval=1,priority=20)
 	public void step() {		
-		System.out.println("\n------------ Agent "+this.name+" is now active ----------------");
+		System.out.println("\n------------ Agent "+this.name+" is now active ---------------");
 		System.out.println("Active WorkLoad: "+this.getActiveWorkLoad());
 		System.out.println("Total WorkLoad: "+this.getTotalWorkLoad());
 		
