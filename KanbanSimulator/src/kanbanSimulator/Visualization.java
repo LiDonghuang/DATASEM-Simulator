@@ -10,9 +10,16 @@ import repast.simphony.util.ContextUtils;
 
 public class Visualization {
 	public SystemOfSystems SoS;
-
+//	public Context<Object> context = ContextUtils.getContext(this);
+//	public Grid<Object> grid3D = (Grid<Object>)context.getProjection("3DGrid");	
+//	public Grid<Object> grid2D = (Grid<Object>)context.getProjection("2DGrid");
+//	public Grid<Object> gridWIN = (Grid<Object>)context.getProjection("WINGrid");
+//	public Network<Object> netWI_Hierarchy = (Network<Object>) context.getProjection("WI_Hierarchy");	
 		@ScheduledMethod(start=0,interval=1,priority=0)
 		public void step() {		
+//			for (int t=0;t<SoS.getOrganizationMembers().size();t++) {
+//				
+//			}
 			Context<Object> context = ContextUtils.getContext(this);	
 			Grid<Object> grid3D = (Grid<Object>)context.getProjection("3DGrid");	
 			Grid<Object> grid2D = (Grid<Object>)context.getProjection("2DGrid");

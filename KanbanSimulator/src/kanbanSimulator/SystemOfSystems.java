@@ -97,9 +97,7 @@ public SystemOfSystems() {
 				this.getArrivedList().remove(wItem);
 				w--;
 			}
-		}
-							
-	
+		}				
 		// ---------------- !! Remove Ended WIs From Context------------------------------		
 		for (int w=0; w<this.getEndedList().size(); w++) {
 			KSSTask wItem = this.getEndedList().get(w);				
@@ -121,7 +119,11 @@ public SystemOfSystems() {
 			&&(this.getArrivedList().size()==0)&&(this.getEndedList().size()==0)){
 			RunEnvironment.getInstance().endRun();
 		}
-	// ------------------- END STEP --------------------------------						
+	// ------------------- END STEP --------------------------------			
+//		for (int t=0;t<this.getOrganizationMembers().size();t++) {
+//			ServiceProviderAgent currentSP = this.getOrganizationMembers().get(t);
+//			currentSP.step();
+//		}
 	}
 	
 	public LinkedList<ServiceProviderAgent> getOrganizationMembers() {

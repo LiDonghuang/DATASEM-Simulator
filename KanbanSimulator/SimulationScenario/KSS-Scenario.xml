@@ -1985,7 +1985,7 @@
 </WorkItem>
 <WorkItem>
 	<Name>I01_1</Name>
-	<Description>Electrical Engineering Task</Description>
+	<Description>IT Engineering Task</Description>
 	<Type>Task</Type>					
 	<Predecessors>
 	</Predecessors>
@@ -2010,7 +2010,7 @@
 </WorkItem>
 <WorkItem>
 	<Name>I01_2</Name>
-	<Description>Electrical Engineering Task</Description>
+	<Description>ITEngineering Task</Description>
 	<Type>Task</Type>					
 	<Predecessors>
 	</Predecessors>
@@ -2030,7 +2030,7 @@
 </WorkItem>
 <WorkItem>
 	<Name>I01_3</Name>
-	<Description>Electrical Engineering Task</Description>
+	<Description>IT Engineering Task</Description>
 	<Type>Task</Type>					
 	<Predecessors>
 	</Predecessors>
@@ -2050,7 +2050,7 @@
 </WorkItem>
 <WorkItem>
 	<Name>I01_4</Name>
-	<Description>Electrical Engineering Task</Description>
+	<Description>IT Engineering Task</Description>
 	<Type>Task</Type>					
 	<Predecessors>
 	</Predecessors>
@@ -2070,7 +2070,7 @@
 </WorkItem>
 <WorkItem>
 	<Name>I01_5</Name>
-	<Description>Electrical Engineering Task</Description>
+	<Description>IT Engineering Task</Description>
 	<Type>Task</Type>					
 	<Predecessors>
 	</Predecessors>
@@ -2447,7 +2447,7 @@
 </WorkItem>
 <WorkItem>
 	<Name>I02_1</Name>
-	<Description>Electrical Engineering Task</Description>
+	<Description>IT Engineering Task</Description>
 	<Type>Task</Type>					
 	<Predecessors>
 	</Predecessors>
@@ -2472,7 +2472,7 @@
 </WorkItem>
 <WorkItem>
 	<Name>I02_2</Name>
-	<Description>Electrical Engineering Task</Description>
+	<Description>IT Engineering Task</Description>
 	<Type>Task</Type>					
 	<Predecessors>
 	</Predecessors>
@@ -2492,7 +2492,7 @@
 </WorkItem>
 <WorkItem>
 	<Name>I02_3</Name>
-	<Description>Electrical Engineering Task</Description>
+	<Description>IT Engineering Task</Description>
 	<Type>Task</Type>					
 	<Predecessors>
 	</Predecessors>
@@ -2512,7 +2512,7 @@
 </WorkItem>
 <WorkItem>
 	<Name>I02_4</Name>
-	<Description>Electrical Engineering Task</Description>
+	<Description>IT Engineering Task</Description>
 	<Type>Task</Type>					
 	<Predecessors>
 	</Predecessors>
@@ -2532,7 +2532,7 @@
 </WorkItem>
 <WorkItem>
 	<Name>I02_5</Name>
-	<Description>Electrical Engineering Task</Description>
+	<Description>IT Engineering Task</Description>
 	<Type>Task</Type>					
 	<Predecessors>
 	</Predecessors>
@@ -2552,7 +2552,7 @@
 </WorkItem>
 <WorkItem>
 	<Name>I02_SE</Name>
-	<Description>Mechanical Engineering SE Assistance</Description>
+	<Description>IT Engineering SE Assistance</Description>
 	<Type>Activity</Type>					
 	<Predecessors>
 	</Predecessors>

@@ -923,3 +923,74 @@ Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTa
 	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
 	at kanbanSimulator.Visualization.step(Visualization.java:75)
 	... 10 more
+ERROR [AWT-EventQueue-0] 2015-08-11 14:54:24,354 repast.simphony.ui.RSApplication - Error while initializing simulation
+java.lang.NullPointerException
+	at kanbanSimulator.Visualization.<init>(Visualization.java:14)
+	at kanbanSimulator.SimulationContextBuilder.<init>(SimulationContextBuilder.java:59)
+	at kanbanSimulator.KanbanSimulatorModel.build(KanbanSimulatorModel.java:47)
+	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
+	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
+	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
+	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
+	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
+	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
+	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
+	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
+	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
+	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
+	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
+	at repast.simphony.ui.RSApplication.start(RSApplication.java:189)
+	at repast.simphony.ui.action.StartRun.actionPerformed(StartRun.java:17)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+INFO  [AWT-EventQueue-0] 2015-08-11 15:01:47,136 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: C:\Users\dzl0023\git\DATASEM-Simulator\KanbanSimulator\output\config.props
+INFO  [AWT-EventQueue-0] 2015-08-11 15:01:47,791 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	C:\Users\dzl0023\git\DATASEM-Simulator\KanbanSimulator\batch\batch_params.xml to
+	C:\TEMP\unrolledParamFile.txt
+INFO  [SwingWorker-pool-2-thread-1] 2015-08-11 15:02:26,777 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally C:\TEMP\dzl0023_localhost6015198626221714662.zip to 
+C:\TEMP\simphony_model_1439323343001 ...
+INFO  [SwingWorker-pool-2-thread-1] 2015-08-11 15:02:26,870 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-2-thread-1] 2015-08-11 15:02:26,886 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0645
+INFO  [SwingWorker-pool-2-thread-1] 2015-08-11 15:02:26,886 repast.simphony.batch.ssh.LocalSession - Unzipping model C:\TEMP\simphony_model_1439323343001\dzl0023_localhost6015198626221714662.zip
+INFO  [SwingWorker-pool-2-thread-1] 2015-08-11 15:02:27,900 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [Thread-5] 2015-08-11 15:02:28,774 repast.simphony.batch.ssh.LocalSession - Error: Could not find or load main class ..lib.bsf.jar
+INFO  [AWT-EventQueue-0] 2015-08-11 15:02:48,525 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: C:\Users\dzl0023\git\DATASEM-Simulator\KanbanSimulator\output\config.props
+INFO  [AWT-EventQueue-0] 2015-08-11 15:02:48,540 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	C:\Users\dzl0023\git\DATASEM-Simulator\KanbanSimulator\batch\batch_params.xml to
+	C:\TEMP\unrolledParamFile.txt
