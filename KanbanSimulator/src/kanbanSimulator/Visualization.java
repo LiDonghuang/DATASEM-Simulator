@@ -18,7 +18,7 @@ public class Visualization {
 			Grid<Object> grid2D = (Grid<Object>)context.getProjection("2DGrid");
 			Grid<Object> gridWIN = (Grid<Object>)context.getProjection("WINGrid");
 			Network<Object> netWI_Hierarchy = (Network<Object>) context.getProjection("WI_Hierarchy");				
-			System.out.println("-- Finalize Visualization... --");
+			System.out.println("\n-- Finalize Visualization... --");
 			
 			// ---------------- Visualization Control ------------------------------	
 //			net.removeEdges();		

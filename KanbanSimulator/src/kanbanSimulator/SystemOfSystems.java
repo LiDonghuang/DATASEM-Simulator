@@ -55,8 +55,8 @@ public SystemOfSystems() {
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
 
 		timeNow = schedule.getTickCount();
-		System.out.println("-------------- TIME NOW : " + timeNow + " --------------");
-		System.out.println("-- This is GOD's Turn --");
+		System.out.println("\n\n============================== TIME NOW : " + timeNow + " ======================================");
+		System.out.println("\n------------- This is GOD's Turn ---------------");
 				
 		for (int w=0; w<this.getWaitingList().size();w++) {			
 			KSSTask wItem = this.getWaitingList().get(w);	

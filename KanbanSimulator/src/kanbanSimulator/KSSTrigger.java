@@ -23,8 +23,8 @@ public class KSSTrigger {
 		this.executed = false;
 		this.repetitive = false;
 		this.triggered = new LinkedList<KSSTask>();
-		this.atProgress = ct.getTProgress()/100;
-		this.onProbability = ct.getTProbability()/100;
+		this.atProgress = (double)ct.getTProgress()/100;
+		this.onProbability = (double)ct.getTProbability()/100;
 	}
 
 	public KSSTrigger (LinkedList<KSSTask> triggered, double progress, double probability) {

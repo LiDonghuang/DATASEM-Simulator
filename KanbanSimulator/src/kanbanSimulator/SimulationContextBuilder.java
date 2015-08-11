@@ -61,26 +61,27 @@ public class SimulationContextBuilder {
 
 	public void XMLtoEObjects() {
 
-		try {File fXmlFile = new File("SimulationScenario/KSS-Scenario.xml");
+		try {File scenarioXmlFile = new File("SimulationScenario/KSS-Scenario.xml");
+			 File libraryXmlFile = new File("UserLibraries/UserLibraries.xml");	 
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			dbFactory.setIgnoringElementContentWhitespace(true);
-
-			Document doc = dBuilder.parse(fXmlFile);
-
-			doc.getDocumentElement().normalize();
+			Document sce = dBuilder.parse(scenarioXmlFile);
+			Document lib = dBuilder.parse(libraryXmlFile);
+			sce.getDocumentElement().normalize();
+			lib.getDocumentElement().normalize();
 			
-			replications = Integer.parseInt(doc.getElementsByTagName("Replications").item(0).getTextContent());
-			interArrivalTime = Integer.parseInt(doc.getElementsByTagName("InterArrivalTime").item(0).getTextContent());
+//			replications = Integer.parseInt(doc.getElementsByTagName("Replications").item(0).getTextContent());
+//			interArrivalTime = Integer.parseInt(doc.getElementsByTagName("InterArrivalTime").item(0).getTextContent());
 			
-			NodeList strategyList = doc.getElementsByTagName("Strategy");	
-			NodeList valueFunctionList = doc.getElementsByTagName("ValueFunction");	
-			NodeList taskPatternList = doc.getElementsByTagName("TaskPattern");			
-			NodeList serviceTypeList = doc.getElementsByTagName("ServiceType");
-			NodeList serviceProviderList = doc.getElementsByTagName("ServiceProvider");
-			NodeList workSourceList = doc.getElementsByTagName("workSource");
+			NodeList strategyList = lib.getElementsByTagName("GovernanceStrategy");	
+			NodeList valueFunctionList = lib.getElementsByTagName("ValueFunction");	
+			NodeList taskPatternList = lib.getElementsByTagName("TaskHierarchy");			
+			NodeList serviceTypeList = lib.getElementsByTagName("ServiceType");
+			NodeList serviceProviderList = sce.getElementsByTagName("ServiceProvider");
+			NodeList workSourceList = sce.getElementsByTagName("WorkSource");
 //			NodeList workItemNetworkList = doc.getElementsByTagName("WorkItemNetworkModel");
-			NodeList wItemList = doc.getElementsByTagName("workItem");
+			NodeList wItemList = sce.getElementsByTagName("WorkItem");
 			
 			// ----------------------- Strategy Profiles ------------------------------
 			this.myStrategies = new ArrayList<Strategy>(0);
@@ -88,7 +89,7 @@ public class SimulationContextBuilder {
 				Node strategyNode = strategyList.item(stg);
 				Element sTg = (Element) strategyNode;
 				// Read XML
-				String sTg_name = sTg.getElementsByTagName("name").item(0).getTextContent();
+				String sTg_name = sTg.getElementsByTagName("Name").item(0).getTextContent();
 				String sTg_description = sTg.getElementsByTagName("Description").item(0).getTextContent();
 				// Create Strategy
 				Strategy myStrategy = KanbanmodelFactory.eINSTANCE.createStrategy();
@@ -96,27 +97,27 @@ public class SimulationContextBuilder {
 				myStrategy.setDescription(sTg_description);
 				// Add Rules
 				WIAcceptance strategyAcceptanceRule = KanbanmodelFactory.eINSTANCE.createWIAcceptance();
-				String sTg_acceptance = sTg.getElementsByTagName("acceptanceRule").item(0).getTextContent();
+				String sTg_acceptance = sTg.getElementsByTagName("AcceptanceRule").item(0).getTextContent();
 				strategyAcceptanceRule.setName(sTg_acceptance);
 				myStrategy.setWIAcceptanceRule(strategyAcceptanceRule);
 //				System.out.println(strategyAcceptanceRule);
 				WISelection strategySelectionRule = KanbanmodelFactory.eINSTANCE.createWISelection();
-				String sTg_selection = sTg.getElementsByTagName("selectionRule").item(0).getTextContent();
+				String sTg_selection = sTg.getElementsByTagName("SelectionRule").item(0).getTextContent();
 				strategySelectionRule.setName(sTg_selection);
 				myStrategy.setWISelectionRule(strategySelectionRule);
 //				System.out.println(strategySelectionRule);
 				WIAssignment strategyAssignmentRule = KanbanmodelFactory.eINSTANCE.createWIAssignment();
-				String sTg_assignment = sTg.getElementsByTagName("assignmentRule").item(0).getTextContent();
+				String sTg_assignment = sTg.getElementsByTagName("AssignmentRule").item(0).getTextContent();
 				strategyAssignmentRule.setName(sTg_assignment);
 				myStrategy.setWIAssignmentRule(strategyAssignmentRule);
 //				System.out.println(strategyAssignmentRule);
 				ResourceAllocation strategyAllocationRule = KanbanmodelFactory.eINSTANCE.createResourceAllocation();
-				String sTg_allocation = sTg.getElementsByTagName("allocationRule").item(0).getTextContent();
+				String sTg_allocation = sTg.getElementsByTagName("AllocationRule").item(0).getTextContent();
 				strategyAllocationRule.setName(sTg_allocation);
 				myStrategy.setResourceAllocationRule(strategyAllocationRule);
 //				System.out.println(strategyAllocationRule);
 				ResourceOutsourcing strategyOutsourcingRule = KanbanmodelFactory.eINSTANCE.createResourceOutsourcing();
-				String sTg_outsourcing = sTg.getElementsByTagName("outsourcingRule").item(0).getTextContent();
+				String sTg_outsourcing = sTg.getElementsByTagName("OutsourcingRule").item(0).getTextContent();
 				strategyOutsourcingRule.setName(sTg_outsourcing);
 				myStrategy.setResourceOutsourcingRule(strategyOutsourcingRule);
 //				System.out.println(strategyOutsourcingRule);
@@ -138,7 +139,7 @@ public class SimulationContextBuilder {
 				Element tP = (Element) taskpatternNode;
 				// ------------------------- Task Pattern ----------------------------------
 				// Read XML
-				String tP_name = tP.getElementsByTagName("name").item(0).getTextContent();
+				String tP_name = tP.getElementsByTagName("Name").item(0).getTextContent();
 				String tP_description = tP.getElementsByTagName("Description").item(0).getTextContent();
 				// Create TP
 				TaskPattern myTaskPattern = KanbanmodelFactory.eINSTANCE.createTaskPattern();
@@ -150,7 +151,7 @@ public class SimulationContextBuilder {
 					Node tasktypeNode = tasktypeList.item(tt);
 					Element tT = (Element) tasktypeNode;
 					// Read XML
-					String tT_name = tT.getElementsByTagName("name").item(0).getTextContent();
+					String tT_name = tT.getElementsByTagName("Name").item(0).getTextContent();
 					String tT_description = tT.getElementsByTagName("Description").item(0).getTextContent();
 					// Create TT
 					TaskType myTaskType = KanbanmodelFactory.eINSTANCE.createTaskType();
@@ -171,7 +172,7 @@ public class SimulationContextBuilder {
 				Node serviceNode = serviceTypeList.item(sv);
 				Element sV = (Element) serviceNode;
 				// Read XML
-				String sV_name = sV.getElementsByTagName("name").item(0).getTextContent();
+				String sV_name = sV.getElementsByTagName("Name").item(0).getTextContent();
 				String sV_description = sV.getElementsByTagName("Description").item(0).getTextContent();
 				//-------------------------------------------------------------------------------------------
 				// Create TT
@@ -193,7 +194,7 @@ public class SimulationContextBuilder {
 				// Read XML
 				Node serviceProviderNode = serviceProviderList.item(tm);
 				Element tM = (Element) serviceProviderNode;				
-				String tM_name = tM.getElementsByTagName("name").item(0).getTextContent();
+				String tM_name = tM.getElementsByTagName("Name").item(0).getTextContent();
 				String tM_description = tM.getElementsByTagName("Description").item(0).getTextContent();
 				// Specify Service Provider
 				myServiceProvider.setName(tM_name);
@@ -201,9 +202,9 @@ public class SimulationContextBuilder {
 				System.out.println("\n---ServiceProvider: "+myServiceProvider.getName());
 				// ------------------------------------------------
 				// Set ServiceProvider Service
-				Node ServicesNode = tM.getElementsByTagName("services").item(0);
+				Node ServicesNode = tM.getElementsByTagName("Services").item(0);
 				Element Services = (Element)ServicesNode;
-				NodeList tM_ServiceList = Services.getElementsByTagName("service");
+				NodeList tM_ServiceList = Services.getElementsByTagName("Service");
 				System.out.println("SP Services:");
 				for (int tm_sv = 0; tm_sv < tM_ServiceList.getLength(); tm_sv++) {
 					// Create Service
@@ -211,13 +212,13 @@ public class SimulationContextBuilder {
 					// Read XML
 					Node tM_ServiceNode = tM_ServiceList.item(tm_sv);
 					Element tM_sV = (Element) tM_ServiceNode;
-					String tM_sV_name = tM_sV.getElementsByTagName("name").item(0).getTextContent();
-					String tM_sV_Description = tM_sV.getElementsByTagName("Description").item(0).getTextContent();
+//					String tM_sV_name = tM_sV.getElementsByTagName("Name").item(0).getTextContent();
+//					String tM_sV_Description = tM_sV.getElementsByTagName("Description").item(0).getTextContent();
 					String tM_sV_Type = tM_sV.getElementsByTagName("Type").item(0).getTextContent();
 					int tM_sV_efficiency = Integer.parseInt(tM_sV.getElementsByTagName("Efficiency").item(0).getTextContent());				
 					// Specify Service
-					myService.setName(tM_sV_name);
-					myService.setDescription(tM_sV_Description);
+//					myService.setName(tM_sV_name);
+//					myService.setDescription(tM_sV_Description);
 					for (int st = 0; st < serviceTypeList.getLength(); st++) {
 						String stname = this.myServiceTypes.get(st).getName();
 						if (tM_sV_Type.matches(stname)) {
@@ -232,10 +233,10 @@ public class SimulationContextBuilder {
 				}		
 				
 				// Set ServiceProvider Governance Strategies
-				Node tM_govStrategyNode = tM.getElementsByTagName("governanceSearchStrategy").item(0);
+				Node tM_govStrategyNode = tM.getElementsByTagName("GovernanceStrategy").item(0);
 				Element tM_govS = (Element) tM_govStrategyNode;							
 				// 1. Default (Global) Strategy
-				String tM_dsTg = tM_govS.getElementsByTagName("default").item(0).getTextContent();	
+				String tM_dsTg = tM_govS.getElementsByTagName("Name").item(0).getTextContent();	
 				for (int dstg=0; dstg<myStrategies.size(); dstg++) {
 					if (tM_dsTg.matches(myStrategies.get(dstg).getName())) {
 						Strategy dStrategy = myStrategies.get(dstg);						
@@ -245,21 +246,21 @@ public class SimulationContextBuilder {
 				}				
 				// 2. Specified (Local) Strategy
 				// Acceptance Rule
-				String tM_acceptance_name = tM.getElementsByTagName("acceptanceRule").item(0).getTextContent();
+				String tM_acceptance_name = tM.getElementsByTagName("AcceptanceRule").item(0).getTextContent();
 				if (!tM_acceptance_name.matches("null")){
 					WIAcceptance tM_acceptance = KanbanmodelFactory.eINSTANCE.createWIAcceptance();				
 					tM_acceptance.setName(tM_acceptance_name);
 					myServiceProvider.setAcceptanceRule(tM_acceptance);}
 //				else {myServiceProvider.setAcceptanceRule(myServiceProvider.getDefaultStrategy().getWIAcceptanceRule());}
 				// Selection Rule
-				String tM_selection_name= tM.getElementsByTagName("selectionRule").item(0).getTextContent();
+				String tM_selection_name= tM.getElementsByTagName("SelectionRule").item(0).getTextContent();
 				if (!tM_selection_name.matches("null")){
 					WISelection tM_selection = KanbanmodelFactory.eINSTANCE.createWISelection();				
 					tM_selection.setName(tM_selection_name);
 					myServiceProvider.setSelectionRule(tM_selection);}
 //				else {myServiceProvider.setSelectionRule(myServiceProvider.getDefaultStrategy().getWISelectionRule());}
 				// Assignment Rule
-				String tM_assignment_name = tM.getElementsByTagName("assignmentRule").item(0).getTextContent();
+				String tM_assignment_name = tM.getElementsByTagName("AssignmentRule").item(0).getTextContent();
 				if (!tM_assignment_name.matches("null")){	
 					WIAssignment tM_assignment = KanbanmodelFactory.eINSTANCE.createWIAssignment();				
 					tM_assignment.setName(tM_assignment_name);
@@ -267,35 +268,35 @@ public class SimulationContextBuilder {
 //				else {myServiceProvider.setAssignmentRule(myServiceProvider.getDefaultStrategy().getWIAssignmentRule());}
 				//-------------------------------------------------------------------------------------------
 //				// Set Resources
-				Node ResourcesNode = tM.getElementsByTagName("resources").item(0);
+				Node ResourcesNode = tM.getElementsByTagName("Resources").item(0);
 				Element Resources = (Element)ResourcesNode;
-				NodeList ResourceList = Resources.getElementsByTagName("resource");				
+				NodeList ResourceList = Resources.getElementsByTagName("Resource");				
 				for (int r = 0; r < ResourceList.getLength(); r++) {
 					// Create Resource
 					Resource myResource = KanbanmodelFactory.eINSTANCE.createResource();
 					// Read XML
 					Node ResourceNode = ResourceList.item(r);
 					Element Resource = (Element) ResourceNode;				
-					String Resource_name = Resource.getElementsByTagName("name").item(0).getTextContent();
+					String Resource_name = Resource.getElementsByTagName("Name").item(0).getTextContent();
 					String Resource_description = Resource.getElementsByTagName("Description").item(0).getTextContent();
 					myResource.setName(Resource_name);
 					myResource.setDescription(Resource_description);
 					System.out.println("-Resource: "+myResource.getName());
 					// Resource Skills
-					NodeList r_ServiceList = Resource.getElementsByTagName("service");
+					NodeList r_ServiceList = Resource.getElementsByTagName("Service");
 					for (int r_sv = 0; r_sv < r_ServiceList.getLength(); r_sv++) {
 						// Create Service
 						Service myService = KanbanmodelFactory.eINSTANCE.createService();	
 						// Read XML
 						Node r_ServiceNode = r_ServiceList.item(r_sv);
 						Element r_sV = (Element) r_ServiceNode;
-						String r_sV_name = r_sV.getElementsByTagName("name").item(0).getTextContent();
-						String r_sV_Description = r_sV.getElementsByTagName("Description").item(0).getTextContent();
+//						String r_sV_name = r_sV.getElementsByTagName("Name").item(0).getTextContent();
+//						String r_sV_Description = r_sV.getElementsByTagName("Description").item(0).getTextContent();
 						String r_sV_Type = r_sV.getElementsByTagName("Type").item(0).getTextContent();
 						int r_sV_efficiency = Integer.parseInt(r_sV.getElementsByTagName("Efficiency").item(0).getTextContent());				
 						// Specify Service
-						myService.setName(r_sV_name);
-						myService.setDescription(r_sV_Description);
+//						myService.setName(r_sV_name);
+//						myService.setDescription(r_sV_Description);
 						for (int st = 0; st < serviceTypeList.getLength(); st++) {
 							String stname = this.myServiceTypes.get(st).getName();
 							if (r_sV_Type.matches(stname)) {
@@ -333,7 +334,7 @@ public class SimulationContextBuilder {
 				Element sP = (Element) serviceProviderNode;
 				ServiceProviderAgent mainSP = this.mySPAgents.get(sp);
 				// target Units
-				NodeList tUnitList = sP.getElementsByTagName("targetUnit");
+				NodeList tUnitList = sP.getElementsByTagName("TargetUnit");
 				for (int tu = 0; tu < tUnitList.getLength(); tu++) {
 					Node sP_targetUnitNode = tUnitList.item(tu);
 					Element sP_tU = (Element) sP_targetUnitNode;
@@ -356,9 +357,9 @@ public class SimulationContextBuilder {
 				// Read XML
 				Node wSourceNode = workSourceList.item(ws);
 				Element wSource = (Element) wSourceNode;	
-				String ws_name = wSource.getElementsByTagName("name").item(0).getTextContent();
+				String ws_name = wSource.getElementsByTagName("Name").item(0).getTextContent();			
 				String ws_description = wSource.getElementsByTagName("Description").item(0).getTextContent();
-				NodeList ws_targetUnits = wSource.getElementsByTagName("targetUnit");
+				NodeList ws_targetUnits = wSource.getElementsByTagName("TargetUnit");
 				// Specify
 				myWorkSource.setName(ws_name);
 				myWorkSource.setDescription(ws_description);
@@ -410,36 +411,31 @@ public class SimulationContextBuilder {
 						WorkItem WI = KanbanmodelFactory.eINSTANCE.createWorkItem();
 						// Read XML
 						Node wItemNode = wItemList.item(wi);
-						Element wItem = (Element) wItemNode;					    
-						String wi_name = wItem.getElementsByTagName("name").item(0).getTextContent();
-						String wi_profile = wItem.getElementsByTagName("Profile").item(0).getTextContent();
+						Element wItem = (Element) wItemNode;	
+						String wi_name = wItem.getElementsByTagName("Name").item(0).getTextContent();
+//						String wi_profile = wItem.getElementsByTagName("Profile").item(0).getTextContent();
 						String wi_description = wItem.getElementsByTagName("Description").item(0).getTextContent();
-						String wi_pattern = wItem.getElementsByTagName("Pattern").item(0).getTextContent();
-						String wi_type = wItem.getElementsByTagName("Type").item(0).getTextContent();
-						String wi_servicesReq = wItem.getElementsByTagName("servicesRequired").item(0).getTextContent();
-						int wi_befforts = Integer.parseInt(wItem.getElementsByTagName("baseEfforts").item(0).getTextContent());
-						int wi_bvalue = Integer.parseInt(wItem.getElementsByTagName("baseValue").item(0).getTextContent());
-						String wi_cos = wItem.getElementsByTagName("classOfService").item(0).getTextContent();
-						String wi_wSource = wItem.getElementsByTagName("WorkSource").item(0).getTextContent();
-						int wi_arrTime = Integer.parseInt(wItem.getElementsByTagName("arrivalTime").item(0).getTextContent());
-						int wi_dueDate = Integer.parseInt(wItem.getElementsByTagName("dueDate").item(0).getTextContent());
+						String wi_type = wItem.getElementsByTagName("Type").item(0).getTextContent();						
+						String wi_servicesReq = wItem.getElementsByTagName("ServiceType").item(0).getTextContent();
+						int wi_befforts = Integer.parseInt(wItem.getElementsByTagName("Efforts").item(0).getTextContent());
+						int wi_bvalue = Integer.parseInt(wItem.getElementsByTagName("Value").item(0).getTextContent());
+						String wi_cos = wItem.getElementsByTagName("ClassOfService").item(0).getTextContent();
+						String wi_wSource = wItem.getElementsByTagName("Source").item(0).getTextContent();
+						int wi_arrTime = Integer.parseInt(wItem.getElementsByTagName("ArrivalTime").item(0).getTextContent());
+						int wi_dueDate = Integer.parseInt(wItem.getElementsByTagName("DueDate").item(0).getTextContent());
                         // Specify Work Item						
 						WI.setName(wi_name);
 						WI.setDescription(wi_description);
 						// Efforts Volatility...
 						if (wi_befforts!=0){
-						    wi_befforts =
-								RandomHelper.createNormal
-								(wi_befforts, effortsVolatility*wi_befforts).nextInt();			
+						    wi_befforts = RandomHelper.createNormal(wi_befforts, effortsVolatility*wi_befforts).nextInt();			
 							wi_befforts = Math.max(1, wi_befforts);
 						}	
 						//
 						WI.setBefforts(wi_befforts);										
 						// Value Volatility...
 						if (wi_bvalue!=0){
-							wi_bvalue=
-								RandomHelper.createNormal
-								(wi_bvalue, valueVolatility*wi_bvalue).nextInt();
+							wi_bvalue = RandomHelper.createNormal(wi_bvalue, valueVolatility*wi_bvalue).nextInt();
 							wi_bvalue = Math.max(1, wi_bvalue);
 						}
 						//
@@ -456,20 +452,13 @@ public class SimulationContextBuilder {
 						}
 						WI.setArrtime(wi_arrTime);
 						WI.setDuedate(wi_dueDate);
-						// Set WI Pattern and Type
-						for (int tp = 0; tp < this.myTaskPatterns.size(); tp++) {
-							String tpname = this.myTaskPatterns.get(tp).getName();
-							if (wi_pattern.matches(tpname)) {
-								TaskPattern WI_Pattern = this.myTaskPatterns.get(tp);
-								WI.setPattern(WI_Pattern);								
+								TaskPattern WI_Pattern = this.myTaskPatterns.get(0);								
 								for (int tt = 0; tt < WI_Pattern.getTaskpatternTypes().size(); tt++) {
 									String ttname = WI_Pattern.getTaskpatternTypes().get(tt).getName();
 									if (wi_type.matches(ttname)) {
-										TaskType WI_type = WI_Pattern.getTaskpatternTypes().get(tt);
+										TaskType WI_type = WI_Pattern.getTaskpatternTypes().get(tt);										
 										WI.setPatternType(WI_type);
 										break;}
-								}	
-								break;}
 						}	
 						// Set WI Required Service
 						for (int reqsv = 0; reqsv < this.myServiceTypes.size(); reqsv++) {
@@ -482,7 +471,8 @@ public class SimulationContextBuilder {
 						//-------------------------------------------------------------------------------------------
 						// Create KSSTask Package for this WI
 						KSSTask myWItem=new KSSTask(wItemID, WI);
-						myWItem.setProfileName(wi_profile);
+
+//						myWItem.setProfileName(wi_profile);
 												
 						// Set DemandSource
 						for (int wiws = 0; wiws < this.myDemandSources.size(); wiws++) {
@@ -500,12 +490,12 @@ public class SimulationContextBuilder {
 					// ------------------------ END WORK ITEM --------------------------------
 					} 									
 					// -------------------- WORK ITEM DEPENDENCIES ---------------------------
-					for (int wi = 0; wi < wItemList.getLength(); wi++) {
+					for (int wi = 0; wi < wItemList.getLength(); wi++) {						
 						Node wItemNode = wItemList.item(wi);
 						Element wItem = (Element) wItemNode;
 						KSSTask mainTask = myWINetwork.get(wi);
 						// WI SubTasks
-						NodeList subTaskList = wItem.getElementsByTagName("subtask");
+						NodeList subTaskList = wItem.getElementsByTagName("Subtask");
 						if (subTaskList.getLength() > 0) {
 							mainTask.setAggregationNode(true);	//Set AggregationNode attribute	
 						}
@@ -521,7 +511,7 @@ public class SimulationContextBuilder {
 							}
 						}
 						// WI Predecessors
-						NodeList predecessorList = wItem.getElementsByTagName("predecessor");
+						NodeList predecessorList = wItem.getElementsByTagName("Predecessor");
 						if (predecessorList.getLength() > 0) {
 							mainTask.setSuccessor(true);	//Set Successor attribute	
 						}
@@ -537,7 +527,7 @@ public class SimulationContextBuilder {
 							}
 						}
 						// WI Causalities
-						NodeList causalityList = wItem.getElementsByTagName("causality");
+						NodeList causalityList = wItem.getElementsByTagName("CausalTrigger");
 						if (causalityList.getLength() > 0) {
 							mainTask.setCauser(true);	//Set Causer attribute	
 						}
@@ -545,12 +535,12 @@ public class SimulationContextBuilder {
 							Node causalityNode = causalityList.item(cs);
 							Element cS = (Element) causalityNode;																
 							Causality wIcausality = KanbanmodelFactory.eINSTANCE.createCausality();
-							NodeList triggeredList = cS.getElementsByTagName("triggered");
+							NodeList triggeredList = cS.getElementsByTagName("Triggered");
 							// At Progress
-							int wIcausality_progress = Integer.parseInt(cS.getElementsByTagName("atProgress").item(0).getTextContent());
+							int wIcausality_progress = Integer.parseInt(cS.getElementsByTagName("AtProgress").item(0).getTextContent());
 							wIcausality.setTProgress(wIcausality_progress);
 							// With Probability
-							int wIcausality_probability = Integer.parseInt(cS.getElementsByTagName("onProbability").item(0).getTextContent());
+							int wIcausality_probability = Integer.parseInt(cS.getElementsByTagName("OnProbability").item(0).getTextContent());
 							wIcausality.setTProbability(wIcausality_probability);
 							// KSSTrigger Package
 							KSSTrigger myTrigger= new KSSTrigger(wIcausality);				
@@ -618,8 +608,15 @@ public class SimulationContextBuilder {
 		// ------------------------ Randomize WI -----------------------------
 		for (int wn=0;wn<this.myWINetworks.size();wn++) {
 			ArrayList<KSSTask> myWINetwork = this.myWINetworks.get(wn);
-			myWINetwork = new RandomWorkItemsNetworkGenerator().generateWIN(myWINetwork);
-			this.myWINetworks.set(wn, myWINetwork);
+//			myWINetwork = new RandomWorkItemsNetworkGenerator().generateWIN(myWINetwork);
+//			this.myWINetworks.set(wn, myWINetwork);
+			for (int w=0;w<myWINetwork.size();w++) {
+				KSSTask myWorkItem = myWINetwork.get(w);
+				if (wn>0) {
+					String newName = myWorkItem.getName()+"."+wn;
+					myWorkItem.setName(newName);
+				}
+			}
 		}
 		// ------------------------------------------------------------------
 		

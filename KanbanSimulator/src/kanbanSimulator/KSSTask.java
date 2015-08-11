@@ -55,7 +55,7 @@ public class KSSTask extends WorkItemImpl {
 	private double arrivalTime; // Infinite if not triggered
 	private double dueDate; // Infinite if not defined
 		
-	private double createdTime; // True Creation Time
+	private double createdTime; // Actual Creation Time
 	private double assignedTime; // Time Assigned to a SP
 	private double startTime; // Time Started Processing
 	private double estimatedEfforts;
@@ -135,7 +135,7 @@ public class KSSTask extends WorkItemImpl {
 	@ScheduledMethod(start=1,interval=1,priority=10)
 	public void step() {	
 		// ********************* STEP *******************************
-		System.out.println(this.getPatternType().getName()+"(id:"+this.getID()+")"+this.getName()+" updates --");	
+		System.out.println("**** "+this.getPatternType().getName()+": "+this.getName()+"(id:"+this.getID()+")"+" updates ****");	
 //		System.out.println("Requested By: "+this.getRequester().getName());
 //		System.out.println("Currently Assigned to: "+this.getAssignedTo().getName());
 		// ******************* Value Function: Update WI Value ***********************
@@ -325,7 +325,7 @@ public class KSSTask extends WorkItemImpl {
     }
 	public void addSuccessorTask(KSSTask successor) {	
 		this.getSuccessorTasks().add(successor);
-		successor.addPredecessorTask(this);
+//		successor.addPredecessorTask(this);
 	}
 	public boolean precedencyCleared() {
 		if (this.isSuccessor()) {

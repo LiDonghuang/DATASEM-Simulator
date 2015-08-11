@@ -104,7 +104,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
     
 	@ScheduledMethod(start=1,interval=1,priority=20)
 	public void step() {		
-		System.out.println("-- Agent "+this.name+" is now active --");
+		System.out.println("\n------------ Agent "+this.name+" is now active ----------------");
 		System.out.println("Active WorkLoad: "+this.getActiveWorkLoad());
 		System.out.println("Total WorkLoad: "+this.getTotalWorkLoad());
 		
@@ -117,64 +117,69 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 //				end_loop = true; }
 		
 		while (!end_loop) {
-			// ------------ 1. Select WIs to Accept			
-			this.requestedQ = this.mySearchStrategy.workPrioritization(this, requestedQ);
-			for (int w=0;w<this.requestedQ.size();w++) {
+			// ------------ 1. Select WIs to Accept
+			while (!this.requestedQ.isEmpty()) {
+				this.requestedQ = this.mySearchStrategy.workPrioritization(this, this.requestedQ);
+//			for (int w=0;w<this.requestedQ.size();w++) {	
 				// =========== Apply WI Acceptance Rule ====================
-				KSSTask requestedWI = this.requestedQ.get(w);
+				KSSTask requestedWI = this.requestedQ.getFirst();
+				System.out.println("I have "+ requestedWI.getName() +" on hand...");
 				requestedWI.setPerceivedValue(requestedWI.getBvalue());
 				requestedWI.checkCausalities();
 				// =========================================================
-				if (!requestedWI.isAggregationNode()){
-					// =========== Service Efficiency Algorithm ==============
-					double eEfficiency = requestedWI.calculateServiceEfficiency();	
-					//--
-					if (eEfficiency==0) {
-						// Find those SPs who can serve this WI
-						ArrayList<ServiceProviderAgent>serviceProviderCandidates = 
-								this.findServiceProviders(requestedWI);
-						if	(serviceProviderCandidates.size()!=0) {
-							// ============== Apply WI Assignment Rule =========================
-							ServiceProviderAgent selectedSP = serviceProviderCandidates
-									.get(RandomHelper.nextIntFromTo(0, serviceProviderCandidates.size()-1));
-							// ================================================================
-							// Assign WI to other SP
-							requestedWI.setRequester(this);		
-							selectedSP.assignWI(requestedWI);
-							// !
-							System.out.println(this.getName()+" invoked "+selectedSP.getName());
-							selectedSP.step();
-							System.out.println("back to "+this.getName()+"'s turn...");
-							// !
-							// Remove WI from AssignmentQ
-							this.requestedQ.remove(requestedWI);
-							w--;
-						}
-						else {
-							System.out.println("Failed to Assign "+requestedWI.getPatternType().getName()
-									+": "+requestedWI.getName()+" (id:"+requestedWI.getID()+")"); 
-						}
+				// =========== Service Efficiency Algorithm ==============
+				double eEfficiency = requestedWI.calculateServiceEfficiency();	
+				//--
+				if (eEfficiency==0) {
+					System.out.println("...not able to solve "+ requestedWI.getName());
+					// Find those SPs who can serve this WI
+					ArrayList<ServiceProviderAgent>serviceProviderCandidates = 
+							this.findServiceProviders(requestedWI);
+					if	(serviceProviderCandidates.size()!=0) {
+						// ============== Apply WI Assignment Rule =========================
+						ServiceProviderAgent selectedSP = serviceProviderCandidates
+								.get(RandomHelper.nextIntFromTo(0, serviceProviderCandidates.size()-1));
+						// ================================================================
+						// Assign WI to other SP
+						requestedWI.setRequester(this);		
+						selectedSP.assignWI(requestedWI);
+						this.requestedQ.remove(requestedWI);
+						// !
+						System.out.println(this.getName()+" invoked "+selectedSP.getName());
+						selectedSP.step();
+						System.out.println("\n-------- back to "+this.getName()+"'s turn... --------");
+						// !
+						// Remove WI from AssignmentQ						
+//						w--;
 					}
-					//--
-					else {	
-					// =========== Estimate Efforts ====================
-					double eEfforts = requestedWI.getBefforts()
-							/eEfficiency;
-	//				double estimationError = RandomHelper.nextIntFromTo(-1, 1);
-	//				estimatedEfforts += estimationError;
-					requestedWI.setEstimatedEfforts(eEfforts);
-					// ========================================================
-					this.backlogQ.add(requestedWI);								
-					//(perform negotiation and decline if necessary)
-					this.requestedQ.remove(requestedWI);
-					w--;
+					else {
+						System.out.println("Failed to Assign "+requestedWI.getPatternType().getName()
+								+": "+requestedWI.getName()+" (id:"+requestedWI.getID()+")"); 
+						System.out.println("ERROR!");
+						RunEnvironment.getInstance().endRun();
 					}
 				}
-				else {
-					this.complexQ.add(requestedWI);								
-					//(perform negotiation and decline if necessary)
-					this.requestedQ.remove(requestedWI);
-					w--;
+					//--
+				else {	
+					if (!requestedWI.isAggregationNode()) {
+						// =========== Estimate Efforts ====================
+						double eEfforts = requestedWI.getBefforts()
+								/eEfficiency;
+		//				double estimationError = RandomHelper.nextIntFromTo(-1, 1);
+		//				estimatedEfforts += estimationError;
+						requestedWI.setEstimatedEfforts(eEfforts);
+						// ========================================================
+						this.backlogQ.add(requestedWI);								
+						//(perform negotiation and decline if necessary)
+						this.requestedQ.remove(requestedWI);
+//						w--;
+					}
+					else {
+						this.complexQ.add(requestedWI);								
+						//(perform negotiation and decline if necessary)
+						this.requestedQ.remove(requestedWI);
+//						w--;
+					}
 				}
 			}
 			// -----------------------------------
