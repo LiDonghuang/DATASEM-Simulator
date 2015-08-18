@@ -84,13 +84,22 @@
 			<Name>strategy1</Name>
 			<Description>My Strategy 1</Description>					
 			<AcceptanceRule>Neutral</AcceptanceRule>
-			<SelectionRule>Neutral</SelectionRule>
+			<SelectionRule>PerceivedValue</SelectionRule>
 			<AssignmentRule>Neutral</AssignmentRule>
 			<AllocationRule>Neutral</AllocationRule>
 			<OutsourcingRule>Neutral</OutsourcingRule>
 		</GovernanceStrategy>
 		<GovernanceStrategy>
 			<Name>strategy2</Name>
+			<Description>My Strategy 2</Description>					
+			<AcceptanceRule>Neutral</AcceptanceRule>
+			<SelectionRule>Neutral</SelectionRule>
+			<AssignmentRule>Neutral</AssignmentRule>
+			<AllocationRule>Neutral</AllocationRule>
+			<OutsourcingRule>Neutral</OutsourcingRule>
+		</GovernanceStrategy>
+		<GovernanceStrategy>
+			<Name>strategy3</Name>
 			<Description>My Strategy 2</Description>					
 			<AcceptanceRule>Neutral</AcceptanceRule>
 			<SelectionRule>FIFO</SelectionRule>

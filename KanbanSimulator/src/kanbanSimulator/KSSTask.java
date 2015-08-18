@@ -80,24 +80,6 @@ public class KSSTask extends WorkItemImpl {
 
 	private static final int DEFAULT_INITIAL_CAPACITY = 100;
 	
-
-	
-//	public KSSTask(int id, Task wi, TaskFlow rq){
-//		this.id=id;		
-//		this.workItem=wi;
-//		this.completed=false;
-//		this.complexTask=true;
-//		this.assigned=false;		
-//		this.requirement=rq;
-//		this.inDegree=new HashMap(DEFAULT_INITIAL_CAPACITY);
-//		this.readyList=new LinkedList<KSSTask>();
-//		this.completedList=new LinkedList<KSSTask>();
-//		this.topologicalList=new LinkedList<KSSTask>();
-//		int size=this.requirement.getSubtasks().size();
-//				
-//
-//	}
-	
 	
 	public KSSTask(int id, WorkItem wi) {
 		this.id=id;	
@@ -132,7 +114,7 @@ public class KSSTask extends WorkItemImpl {
 		this.completed=false;	
 	}
 	
-	@ScheduledMethod(start=1,interval=1,priority=10)
+//	@ScheduledMethod(start=1,interval=1,priority=10,shuffle=true)
 	public void step() {	
 		// ********************* STEP *******************************
 		System.out.println("**** "+this.getPatternType().getName()+": "+this.getName()+"(id:"+this.getID()+")"+" updates ****");	
@@ -190,9 +172,9 @@ public class KSSTask extends WorkItemImpl {
 					upperTask.checkSubTasksCompletion();
 				}
 			}
+			this.updateUpperTasksCompletion();
 		}			
-		// ---------------------------------------------------------
-	    this.updateUpperTasksCompletion();
+	    
 		// ------------ Trigger Casuality --------------------------
 		this.checkCausalities();		
 	// ************************* END STEP ********************************

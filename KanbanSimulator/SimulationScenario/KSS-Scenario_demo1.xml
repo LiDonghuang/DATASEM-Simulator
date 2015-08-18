@@ -19,23 +19,11 @@
 		<Type>SoSEng</Type>
 		<Efficiency>200</Efficiency>
 	</Service>
-	<Service>
-		<Type>SysEng_Elec</Type>
-		<Efficiency>200</Efficiency>
-	</Service>
-	<Service>
-		<Type>SysEng_Mech</Type>
-		<Efficiency>200</Efficiency>
-	</Service>
-	<Service>
-		<Type>SysEng_IT</Type>
-		<Efficiency>200</Efficiency>
-	</Service>
 	</Services>	
 	<GovernanceStrategy>
 		<Name>strategy1</Name>		
 		<AcceptanceRule>Neutral</AcceptanceRule>
-		<SelectionRule>PerceivedValue</SelectionRule>
+		<SelectionRule>FIFO</SelectionRule>
 		<AssignmentRule>Neutral</AssignmentRule>
 		<AllocationRule>Neutral</AllocationRule>
 		<OutsourcingRule>Neutral</OutsourcingRule>						
@@ -61,6 +49,32 @@
 		</Service>
 		</Services>	
 	</Resource>	
+	</Resources>	
+</ServiceProvider>
+<ServiceProvider>
+	<Name>Elec_Dept</Name>
+	<Description>Electrical Department</Description>
+	<TargetUnits>
+	<TargetUnit>SysEng_Dept</TargetUnit>
+	<TargetUnit>Elec_Team_1</TargetUnit>
+	<TargetUnit>Elec_Team_2</TargetUnit>
+	<TargetUnit>Elec_Team_3</TargetUnit>
+	</TargetUnits>
+	<Services>
+	<Service>
+		<Type>SysEng_Elec</Type>
+		<Efficiency>200</Efficiency>
+	</Service>
+	</Services>	
+	<GovernanceStrategy>
+		<Name>strategy1</Name>		
+		<AcceptanceRule>Neutral</AcceptanceRule>
+		<SelectionRule>FIFO</SelectionRule>
+		<AssignmentRule>Neutral</AssignmentRule>
+		<AllocationRule>Neutral</AllocationRule>
+		<OutsourcingRule>Neutral</OutsourcingRule>						
+	</GovernanceStrategy>	
+	<Resources>
 	<Resource>
 		<Name>Elec_SysEng01</Name>
 		<Description></Description>
@@ -81,6 +95,32 @@
 		</Service>
 		</Services>	
 	</Resource>	
+	</Resources>	
+</ServiceProvider>
+<ServiceProvider>
+	<Name>Mech_Dept</Name>
+	<Description>Mechanical Department</Description>
+	<TargetUnits>
+	<TargetUnit>SysEng_Dept</TargetUnit>
+	<TargetUnit>Mech_Team_1</TargetUnit>
+	<TargetUnit>Mech_Team_2</TargetUnit>
+	<TargetUnit>Mech_Team_3</TargetUnit>
+	</TargetUnits>
+	<Services>
+	<Service>
+		<Type>SysEng_Mech</Type>
+		<Efficiency>200</Efficiency>
+	</Service>
+	</Services>	
+	<GovernanceStrategy>
+		<Name>strategy1</Name>		
+		<AcceptanceRule>Neutral</AcceptanceRule>
+		<SelectionRule>FIFO</SelectionRule>
+		<AssignmentRule>Neutral</AssignmentRule>
+		<AllocationRule>Neutral</AllocationRule>
+		<OutsourcingRule>Neutral</OutsourcingRule>						
+	</GovernanceStrategy>	
+	<Resources>
 	<Resource>
 		<Name>Mech_SysEng01</Name>
 		<Description></Description>
@@ -101,6 +141,32 @@
 		</Service>
 		</Services>	
 	</Resource>	
+	</Resources>	
+</ServiceProvider>
+<ServiceProvider>
+	<Name>IT_Dept</Name>
+	<Description>IT Department</Description>
+	<TargetUnits>
+	<TargetUnit>SysEng_Dept</TargetUnit>
+	<TargetUnit>IT_Team_1</TargetUnit>
+	<TargetUnit>IT_Team_2</TargetUnit>
+	<TargetUnit>IT_Team_3</TargetUnit>
+	</TargetUnits>
+	<Services>
+	<Service>
+		<Type>SysEng_IT</Type>
+		<Efficiency>200</Efficiency>
+	</Service>
+	</Services>	
+	<GovernanceStrategy>
+		<Name>strategy1</Name>		
+		<AcceptanceRule>Neutral</AcceptanceRule>
+		<SelectionRule>FIFO</SelectionRule>
+		<AssignmentRule>Neutral</AssignmentRule>
+		<AllocationRule>Neutral</AllocationRule>
+		<OutsourcingRule>Neutral</OutsourcingRule>						
+	</GovernanceStrategy>	
+	<Resources>
 	<Resource>
 		<Name>IT_SysEng01</Name>
 		<Description></Description>
@@ -124,21 +190,21 @@
 	</Resources>	
 </ServiceProvider>
 <ServiceProvider>
-	<Name>Elec_Dept</Name>
-	<Description>Electrical Department</Description>
+	<Name>Elec_Team_1</Name>
+	<Description>Electrical Team 1</Description>
 	<TargetUnits>
-	<TargetUnit>SysEng_Dept</TargetUnit>
+	<TargetUnit>Elec_Dept</TargetUnit>
 	</TargetUnits>
 	<Services>
 	<Service>
 		<Type>Eng_Elec</Type>
-		<Efficiency>600</Efficiency>
+		<Efficiency>200</Efficiency>
 	</Service>
 	</Services>	
 	<GovernanceStrategy>
-		<Name>strategy1</Name>		
+		<Name>strategy2</Name>		
 		<AcceptanceRule>Neutral</AcceptanceRule>
-		<SelectionRule>PerceivedValue</SelectionRule>
+		<SelectionRule>LIFO</SelectionRule>
 		<AssignmentRule>Neutral</AssignmentRule>
 		<AllocationRule>Neutral</AllocationRule>
 		<OutsourcingRule>Neutral</OutsourcingRule>						
@@ -164,8 +230,41 @@
 		</Service>
 		</Services>	
 	</Resource>	
+	</Resources>	
+</ServiceProvider>
+<ServiceProvider>
+	<Name>Elec_Team_2</Name>
+	<Description>Electrical Team 2</Description>
+	<TargetUnits>
+	<TargetUnit>Elec_Dept</TargetUnit>
+	</TargetUnits>
+	<Services>
+	<Service>
+		<Type>Eng_Elec</Type>
+		<Efficiency>200</Efficiency>
+	</Service>
+	</Services>	
+	<GovernanceStrategy>
+		<Name>strategy2</Name>		
+		<AcceptanceRule>Neutral</AcceptanceRule>
+		<SelectionRule>LIFO</SelectionRule>
+		<AssignmentRule>Neutral</AssignmentRule>
+		<AllocationRule>Neutral</AllocationRule>
+		<OutsourcingRule>Neutral</OutsourcingRule>						
+	</GovernanceStrategy>	
+	<Resources>
 	<Resource>
 		<Name>Elec_Eng03</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_Elec</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>Elec_Eng04</Name>
 		<Description></Description>
 		<Services>
 		<Service>
@@ -177,21 +276,64 @@
 	</Resources>	
 </ServiceProvider>
 <ServiceProvider>
-	<Name>Mech_Dept</Name>
-	<Description>Mechanical Department</Description>
+	<Name>Elec_Team_3</Name>
+	<Description>Electrical Team 3</Description>
 	<TargetUnits>
-	<TargetUnit>SysEng_Dept</TargetUnit>
+	<TargetUnit>Elec_Dept</TargetUnit>
+	</TargetUnits>
+	<Services>
+	<Service>
+		<Type>Eng_Elec</Type>
+		<Efficiency>200</Efficiency>
+	</Service>
+	</Services>	
+	<GovernanceStrategy>
+		<Name>strategy2</Name>		
+		<AcceptanceRule>Neutral</AcceptanceRule>
+		<SelectionRule>LIFO</SelectionRule>
+		<AssignmentRule>Neutral</AssignmentRule>
+		<AllocationRule>Neutral</AllocationRule>
+		<OutsourcingRule>Neutral</OutsourcingRule>						
+	</GovernanceStrategy>	
+	<Resources>
+	<Resource>
+		<Name>Elec_Eng05</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_Elec</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>Elec_Eng06</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_Elec</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	</Resources>	
+</ServiceProvider>
+<ServiceProvider>
+	<Name>Mech_Team_1</Name>
+	<Description>Mechanical Team 1</Description>
+	<TargetUnits>
+	<TargetUnit>Mech_Dept</TargetUnit>
 	</TargetUnits>
 	<Services>
 	<Service>
 		<Type>Eng_Mech</Type>
-		<Efficiency>600</Efficiency>
+		<Efficiency>200</Efficiency>
 	</Service>
 	</Services>	
 	<GovernanceStrategy>
-		<Name>strategy1</Name>		
+		<Name>strategy2</Name>		
 		<AcceptanceRule>Neutral</AcceptanceRule>
-		<SelectionRule>PerceivedValue</SelectionRule>
+		<SelectionRule>LIFO</SelectionRule>
 		<AssignmentRule>Neutral</AssignmentRule>
 		<AllocationRule>Neutral</AllocationRule>
 		<OutsourcingRule>Neutral</OutsourcingRule>						
@@ -217,8 +359,41 @@
 		</Service>
 		</Services>	
 	</Resource>	
+	</Resources>	
+</ServiceProvider>
+<ServiceProvider>
+	<Name>Mech_Team_2</Name>
+	<Description>Mechanical Team 2</Description>
+	<TargetUnits>
+	<TargetUnit>Mech_Dept</TargetUnit>
+	</TargetUnits>
+	<Services>
+	<Service>
+		<Type>Eng_Mech</Type>
+		<Efficiency>200</Efficiency>
+	</Service>
+	</Services>	
+	<GovernanceStrategy>
+		<Name>strategy2</Name>		
+		<AcceptanceRule>Neutral</AcceptanceRule>
+		<SelectionRule>LIFO</SelectionRule>
+		<AssignmentRule>Neutral</AssignmentRule>
+		<AllocationRule>Neutral</AllocationRule>
+		<OutsourcingRule>Neutral</OutsourcingRule>						
+	</GovernanceStrategy>	
+	<Resources>
 	<Resource>
 		<Name>Mech_Eng03</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_Mech</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>Mech_Eng04</Name>
 		<Description></Description>
 		<Services>
 		<Service>
@@ -230,21 +405,64 @@
 	</Resources>	
 </ServiceProvider>
 <ServiceProvider>
-	<Name>IT_Dept</Name>
-	<Description>IT Department</Description>
+	<Name>Mech_Team_3</Name>
+	<Description>Mechanical Team 3</Description>
 	<TargetUnits>
-	<TargetUnit>SysEng_Dept</TargetUnit>
+	<TargetUnit>Mech_Dept</TargetUnit>
+	</TargetUnits>
+	<Services>
+	<Service>
+		<Type>Eng_Mech</Type>
+		<Efficiency>200</Efficiency>
+	</Service>
+	</Services>	
+	<GovernanceStrategy>
+		<Name>strategy2</Name>		
+		<AcceptanceRule>Neutral</AcceptanceRule>
+		<SelectionRule>LIFO</SelectionRule>
+		<AssignmentRule>Neutral</AssignmentRule>
+		<AllocationRule>Neutral</AllocationRule>
+		<OutsourcingRule>Neutral</OutsourcingRule>						
+	</GovernanceStrategy>	
+	<Resources>
+	<Resource>
+		<Name>Mech_Eng05</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_Mech</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>Mech_Eng06</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_Mech</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	</Resources>	
+</ServiceProvider>
+<ServiceProvider>
+	<Name>IT_Team_1</Name>
+	<Description>IT Team 1</Description>
+	<TargetUnits>
+	<TargetUnit>IT_Dept</TargetUnit>
 	</TargetUnits>
 	<Services>
 	<Service>
 		<Type>Eng_IT</Type>
-		<Efficiency>600</Efficiency>
+		<Efficiency>200</Efficiency>
 	</Service>
 	</Services>	
 	<GovernanceStrategy>
-		<Name>strategy1</Name>		
+		<Name>strategy2</Name>		
 		<AcceptanceRule>Neutral</AcceptanceRule>
-		<SelectionRule>PerceivedValue</SelectionRule>
+		<SelectionRule>LIFO</SelectionRule>
 		<AssignmentRule>Neutral</AssignmentRule>
 		<AllocationRule>Neutral</AllocationRule>
 		<OutsourcingRule>Neutral</OutsourcingRule>						
@@ -270,8 +488,84 @@
 		</Service>
 		</Services>	
 	</Resource>	
+	</Resources>	
+</ServiceProvider>
+<ServiceProvider>
+	<Name>IT_Team_2</Name>
+	<Description>IT Team 2</Description>
+	<TargetUnits>
+	<TargetUnit>IT_Dept</TargetUnit>
+	</TargetUnits>
+	<Services>
+	<Service>
+		<Type>Eng_IT</Type>
+		<Efficiency>200</Efficiency>
+	</Service>
+	</Services>	
+	<GovernanceStrategy>
+		<Name>strategy2</Name>		
+		<AcceptanceRule>Neutral</AcceptanceRule>
+		<SelectionRule>LIFO</SelectionRule>
+		<AssignmentRule>Neutral</AssignmentRule>
+		<AllocationRule>Neutral</AllocationRule>
+		<OutsourcingRule>Neutral</OutsourcingRule>						
+	</GovernanceStrategy>	
+	<Resources>
 	<Resource>
 		<Name>IT_Eng03</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_IT</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>IT_Eng04</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_IT</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	</Resources>	
+</ServiceProvider>
+<ServiceProvider>
+	<Name>IT_Team_3</Name>
+	<Description>IT Team 3</Description>
+	<TargetUnits>
+	<TargetUnit>IT_Dept</TargetUnit>
+	</TargetUnits>
+	<Services>
+	<Service>
+		<Type>Eng_IT</Type>
+		<Efficiency>200</Efficiency>
+	</Service>
+	</Services>	
+	<GovernanceStrategy>
+		<Name>strategy2</Name>		
+		<AcceptanceRule>Neutral</AcceptanceRule>
+		<SelectionRule>LIFO</SelectionRule>
+		<AssignmentRule>Neutral</AssignmentRule>
+		<AllocationRule>Neutral</AllocationRule>
+		<OutsourcingRule>Neutral</OutsourcingRule>						
+	</GovernanceStrategy>	
+	<Resources>
+	<Resource>
+		<Name>IT_Eng05</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_IT</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>IT_Eng06</Name>
 		<Description></Description>
 		<Services>
 		<Service>
@@ -304,7 +598,6 @@
 	<Predecessors>
 	</Predecessors>
 	<Subtasks>
-	<Subtask>A_HD1</Subtask>
 	<Subtask>E01</Subtask>
 	<Subtask>E02</Subtask>
 	<Subtask>M01</Subtask>
@@ -323,7 +616,7 @@
 	</RequiredServices>
 	<ClassOfService>Standard</ClassOfService>
 	<Efforts>0</Efforts>
-	<Value>500</Value>	
+	<Value>1000</Value>	
 	<Source>Stakeholder1</Source>
 	<ArrivalTime>1</ArrivalTime>
 	<DueDate>100</DueDate>
@@ -385,7 +678,6 @@
 	<Predecessors>
 	</Predecessors>
 	<Subtasks>
-	<Subtask>A_E01</Subtask>
 	<Subtask>E01_1</Subtask>
 	<Subtask>E01_2</Subtask>
 	<Subtask>E01_3</Subtask>
@@ -422,6 +714,10 @@
 	<Triggered>E01_1</Triggered>
 	<Triggered>E01_2</Triggered>
 	<Triggered>E01_3</Triggered>
+		<AtProgress>50</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	<CausalTrigger>
 	<Triggered>E01_4</Triggered>
 	<Triggered>E01_5</Triggered>
 		<AtProgress>100</AtProgress>
@@ -489,6 +785,11 @@
 	<Subtasks>
 	</Subtasks>
 	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>E01_SE</Triggered>
+		<AtProgress>50</AtProgress>
+		<OnProbability>50</OnProbability>
+	</CausalTrigger>
 	</CausalTriggers>
 	<RequiredServices>
 	<ServiceType>Eng_Elec</ServiceType>
@@ -543,6 +844,26 @@
 	<DueDate>0</DueDate>
 </WorkItem>
 <WorkItem>
+	<Name>E01_SE</Name>
+	<Description>Electrical Engineering SE Assistance</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
 	<Name>M01</Name>
 	<Description>Mechanical System Requirement 01</Description>
 	<Type>Requirement</Type>					
@@ -550,7 +871,6 @@
 	<Predecessor>E01</Predecessor>
 	</Predecessors>
 	<Subtasks>
-	<Subtask>A_M01</Subtask>
 	<Subtask>M01_1</Subtask>
 	<Subtask>M01_2</Subtask>
 	<Subtask>M01_3</Subtask>
@@ -587,8 +907,16 @@
 	<CausalTrigger>
 	<Triggered>M01_1</Triggered>
 	<Triggered>M01_2</Triggered>
+		<AtProgress>50</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	<CausalTrigger>
 	<Triggered>M01_3</Triggered>
 	<Triggered>M01_4</Triggered>
+		<AtProgress>75</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	<CausalTrigger>
 	<Triggered>M01_5</Triggered>
 	<Triggered>M01_6</Triggered>
 		<AtProgress>100</AtProgress>
@@ -719,9 +1047,34 @@
 	<Subtasks>
 	</Subtasks>
 	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>M01_SE</Triggered>
+		<AtProgress>50</AtProgress>
+		<OnProbability>50</OnProbability>
+	</CausalTrigger>
 	</CausalTriggers>
 	<RequiredServices>
 	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M01_SE</Name>
+	<Description>Mechanical Engineering SE Assistance</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Mech</ServiceType>
 	</RequiredServices>
 	<ClassOfService>Standard</ClassOfService>
 	<Efforts>10</Efforts>
@@ -737,7 +1090,6 @@
 	<Predecessors>
 	</Predecessors>
 	<Subtasks>
-	<Subtask>A_HD2</Subtask>
 	<Subtask>E02</Subtask>
 	<Subtask>M02</Subtask>
 	<Subtask>M03</Subtask>
@@ -756,7 +1108,7 @@
 	</RequiredServices>
 	<ClassOfService>Standard</ClassOfService>
 	<Efforts>0</Efforts>
-	<Value>1000</Value>	
+	<Value>1200</Value>	
 	<Source>Stakeholder1</Source>
 	<ArrivalTime>1</ArrivalTime>
 	<DueDate>100</DueDate>
@@ -818,13 +1170,11 @@
 	<Predecessors>
 	</Predecessors>
 	<Subtasks>
-	<Subtask>A_E02</Subtask>
 	<Subtask>E02_1</Subtask>
 	<Subtask>E02_2</Subtask>
 	<Subtask>E02_3</Subtask>
 	<Subtask>E02_4</Subtask>
 	<Subtask>E02_5</Subtask>
-	<Subtask>E02_6</Subtask>
 	</Subtasks>
 	<CausalTriggers>
 	<CausalTrigger>
@@ -855,6 +1205,10 @@
 	<CausalTrigger>
 	<Triggered>E02_1</Triggered>
 	<Triggered>E02_2</Triggered>
+		<AtProgress>50</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	<CausalTrigger>
 	<Triggered>E02_3</Triggered>
 	<Triggered>E02_4</Triggered>
 	<Triggered>E02_5</Triggered>
@@ -924,6 +1278,11 @@
 	<Subtasks>
 	</Subtasks>
 	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>E02_SE</Triggered>
+		<AtProgress>50</AtProgress>
+		<OnProbability>50</OnProbability>
+	</CausalTrigger>
 	</CausalTriggers>
 	<RequiredServices>
 	<ServiceType>Eng_Elec</ServiceType>
@@ -999,6 +1358,26 @@
 	<DueDate>0</DueDate>
 </WorkItem>
 <WorkItem>
+	<Name>E02_SE</Name>
+	<Description>Electrical Engineering SE Assistance</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
 	<Name>M02</Name>
 	<Description>Mechanical System Requirement 02</Description>
 	<Type>Requirement</Type>					
@@ -1006,7 +1385,6 @@
 	<Predecessor>E02</Predecessor>
 	</Predecessors>
 	<Subtasks>
-	<Subtask>A_M02</Subtask>
 	<Subtask>M02_1</Subtask>
 	<Subtask>M02_2</Subtask>
 	<Subtask>M02_3</Subtask>
@@ -1044,9 +1422,17 @@
 	<CausalTrigger>
 	<Triggered>M02_1</Triggered>
 	<Triggered>M02_2</Triggered>
+		<AtProgress>50</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	<CausalTrigger>
 	<Triggered>M02_3</Triggered>
 	<Triggered>M02_4</Triggered>
 	<Triggered>M02_5</Triggered>
+		<AtProgress>75</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	<CausalTrigger>
 	<Triggered>M02_6</Triggered>
 	<Triggered>M02_7</Triggered>
 		<AtProgress>100</AtProgress>
@@ -1198,9 +1584,34 @@
 	<Subtasks>
 	</Subtasks>
 	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>M02_SE</Triggered>
+		<AtProgress>50</AtProgress>
+		<OnProbability>50</OnProbability>
+	</CausalTrigger>
 	</CausalTriggers>
 	<RequiredServices>
 	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M02_SE</Name>
+	<Description>Mechanical Engineering SE Assistance</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Mech</ServiceType>
 	</RequiredServices>
 	<ClassOfService>Standard</ClassOfService>
 	<Efforts>10</Efforts>
@@ -1216,7 +1627,6 @@
 	<Predecessors>
 	</Predecessors>
 	<Subtasks>
-	<Subtask>A_M03</Subtask>
 	<Subtask>M03_1</Subtask>
 	<Subtask>M03_2</Subtask>
 	<Subtask>M03_3</Subtask>
@@ -1253,8 +1663,16 @@
 	<CausalTrigger>
 	<Triggered>M03_1</Triggered>
 	<Triggered>M03_2</Triggered>
+		<AtProgress>50</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	<CausalTrigger>
 	<Triggered>M03_3</Triggered>
 	<Triggered>M03_4</Triggered>
+		<AtProgress>75</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	<CausalTrigger>
 	<Triggered>M03_5</Triggered>
 	<Triggered>M03_6</Triggered>
 		<AtProgress>100</AtProgress>
@@ -1385,9 +1803,34 @@
 	<Subtasks>
 	</Subtasks>
 	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>M03_SE</Triggered>
+		<AtProgress>50</AtProgress>
+		<OnProbability>50</OnProbability>
+	</CausalTrigger>
 	</CausalTriggers>
 	<RequiredServices>
 	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M03_SE</Name>
+	<Description>Mechanical Engineering SE Assistance</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Mech</ServiceType>
 	</RequiredServices>
 	<ClassOfService>Standard</ClassOfService>
 	<Efforts>10</Efforts>
@@ -1403,7 +1846,6 @@
 	<Predecessors>
 	</Predecessors>
 	<Subtasks>
-	<Subtask>A_SD1</Subtask>
 	<Subtask>I01</Subtask>
 	<Subtask>E03</Subtask>
 	<Subtask>F_SD1</Subtask>
@@ -1481,7 +1923,6 @@
 	<Predecessors>
 	</Predecessors>
 	<Subtasks>
-	<Subtask>A_I01</Subtask>
 	<Subtask>I01_1</Subtask>
 	<Subtask>I01_2</Subtask>
 	<Subtask>I01_3</Subtask>
@@ -1516,8 +1957,16 @@
 	<CausalTriggers>
 	<CausalTrigger>
 	<Triggered>I01_1</Triggered>
+		<AtProgress>33</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	<CausalTrigger>
 	<Triggered>I01_2</Triggered>
 	<Triggered>I01_3</Triggered>
+		<AtProgress>66</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	<CausalTrigger>
 	<Triggered>I01_4</Triggered>
 	<Triggered>I01_5</Triggered>
 		<AtProgress>100</AtProgress>
@@ -1543,6 +1992,11 @@
 	<Subtasks>
 	</Subtasks>
 	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>I01_SE</Triggered>
+		<AtProgress>50</AtProgress>
+		<OnProbability>50</OnProbability>
+	</CausalTrigger>
 	</CausalTriggers>
 	<RequiredServices>
 	<ServiceType>Eng_IT</ServiceType>
@@ -1635,6 +2089,26 @@
 	<DueDate>0</DueDate>
 </WorkItem>
 <WorkItem>
+	<Name>I01_SE</Name>
+	<Description>Mechanical Engineering SE Assistance</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_IT</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
 	<Name>E03</Name>
 	<Description>Electrical System Requirement 02</Description>
 	<Type>Requirement</Type>					
@@ -1642,7 +2116,6 @@
 	<Predecessor>I01</Predecessor>
 	</Predecessors>
 	<Subtasks>
-	<Subtask>A_E03</Subtask>
 	<Subtask>E03_1</Subtask>
 	<Subtask>E03_2</Subtask>
 	<Subtask>E03_3</Subtask>
@@ -1678,6 +2151,10 @@
 	<CausalTrigger>
 	<Triggered>E03_1</Triggered>
 	<Triggered>E03_2</Triggered>
+		<AtProgress>50</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	<CausalTrigger>
 	<Triggered>E03_3</Triggered>
 	<Triggered>E03_4</Triggered>
 	<Triggered>E03_5</Triggered>
@@ -1746,6 +2223,11 @@
 	<Subtasks>
 	</Subtasks>
 	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>E03_SE</Triggered>
+		<AtProgress>50</AtProgress>
+		<OnProbability>50</OnProbability>
+	</CausalTrigger>
 	</CausalTriggers>
 	<RequiredServices>
 	<ServiceType>Eng_Elec</ServiceType>
@@ -1800,13 +2282,32 @@
 	<DueDate>0</DueDate>
 </WorkItem>
 <WorkItem>
+	<Name>E03_SE</Name>
+	<Description>Electrical Engineering SE Assistance</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
 	<Name>SD2</Name>
 	<Description>Software Development Capability 2</Description>
 	<Type>Capability</Type>					
 	<Predecessors>
 	</Predecessors>
 	<Subtasks>
-	<Subtask>A_SD2</Subtask>
 	<Subtask>I02</Subtask>
 	<Subtask>E03</Subtask>
 	<Subtask>F_SD2</Subtask>
@@ -1824,7 +2325,7 @@
 	</RequiredServices>
 	<ClassOfService>Standard</ClassOfService>
 	<Efforts>0</Efforts>
-	<Value>2000</Value>	
+	<Value>1000</Value>	
 	<Source>Stakeholder1</Source>
 	<ArrivalTime>1</ArrivalTime>
 	<DueDate>100</DueDate>
@@ -1884,7 +2385,6 @@
 	<Predecessors>
 	</Predecessors>
 	<Subtasks>
-	<Subtask>A_I02</Subtask>
 	<Subtask>I02_1</Subtask>
 	<Subtask>I02_2</Subtask>
 	<Subtask>I02_3</Subtask>
@@ -1919,8 +2419,16 @@
 	<CausalTriggers>
 	<CausalTrigger>
 	<Triggered>I02_1</Triggered>
+		<AtProgress>33</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	<CausalTrigger>
 	<Triggered>I02_2</Triggered>
 	<Triggered>I02_3</Triggered>
+		<AtProgress>66</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	<CausalTrigger>
 	<Triggered>I02_4</Triggered>
 	<Triggered>I02_5</Triggered>
 		<AtProgress>100</AtProgress>
@@ -1946,6 +2454,11 @@
 	<Subtasks>
 	</Subtasks>
 	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>I02_SE</Triggered>
+		<AtProgress>50</AtProgress>
+		<OnProbability>50</OnProbability>
+	</CausalTrigger>
 	</CausalTriggers>
 	<RequiredServices>
 	<ServiceType>Eng_IT</ServiceType>
@@ -2029,6 +2542,26 @@
 	</CausalTriggers>
 	<RequiredServices>
 	<ServiceType>Eng_IT</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>I02_SE</Name>
+	<Description>IT Engineering SE Assistance</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_IT</ServiceType>
 	</RequiredServices>
 	<ClassOfService>Standard</ClassOfService>
 	<Efforts>10</Efforts>

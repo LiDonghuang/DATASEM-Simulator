@@ -994,3 +994,45 @@ INFO  [AWT-EventQueue-0] 2015-08-11 15:02:48,525 repast.simphony.batch.gui.Batch
 INFO  [AWT-EventQueue-0] 2015-08-11 15:02:48,540 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
 	C:\Users\dzl0023\git\DATASEM-Simulator\KanbanSimulator\batch\batch_params.xml to
 	C:\TEMP\unrolledParamFile.txt
+FATAL [Thread-8] 2015-08-12 14:47:50,067 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (10.0)
+java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(Unknown Source)
+	at java.util.ArrayList$Itr.next(Unknown Source)
+	at repast.simphony.util.collections.DelegatedIterator.next(DelegatedIterator.java:44)
+	at org.apache.commons.collections15.iterators.IteratorChain.next(IteratorChain.java:271)
+	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:330)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Unknown Source)
+FATAL [Thread-8] 2015-08-13 15:02:31,885 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (10.0)
+java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(Unknown Source)
+	at java.util.ArrayList$Itr.next(Unknown Source)
+	at repast.simphony.util.collections.DelegatedIterator.next(DelegatedIterator.java:44)
+	at org.apache.commons.collections15.iterators.IteratorChain.next(IteratorChain.java:271)
+	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:330)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Unknown Source)
+FATAL [Thread-9] 2015-08-13 15:05:03,700 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (10.0)
+java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(Unknown Source)
+	at java.util.ArrayList$Itr.next(Unknown Source)
+	at repast.simphony.util.collections.DelegatedIterator.next(DelegatedIterator.java:44)
+	at org.apache.commons.collections15.iterators.IteratorChain.next(IteratorChain.java:271)
+	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:330)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Unknown Source)

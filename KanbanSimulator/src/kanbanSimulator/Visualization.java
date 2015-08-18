@@ -17,9 +17,14 @@ public class Visualization {
 //	public Network<Object> netWI_Hierarchy = (Network<Object>) context.getProjection("WI_Hierarchy");	
 		@ScheduledMethod(start=0,interval=1,priority=0)
 		public void step() {		
-//			for (int t=0;t<SoS.getOrganizationMembers().size();t++) {
-//				
-//			}
+			System.out.println("\n-- Progress WorkItems... --");
+			for (int s=0;s<SoS.getOrganizationMembers().size();s++) {
+				ServiceProviderAgent currentSP = SoS.getOrganizationMembers().get(s);
+				for (int w=0;w<currentSP.getActiveQ().size();w++) {
+					KSSTask currentWI = currentSP.getActiveQ().get(w);
+					currentWI.step();
+				}
+			}
 			Context<Object> context = ContextUtils.getContext(this);	
 			Grid<Object> grid3D = (Grid<Object>)context.getProjection("3DGrid");	
 			Grid<Object> grid2D = (Grid<Object>)context.getProjection("2DGrid");

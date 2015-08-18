@@ -4,7 +4,7 @@
   <sizeMax>15.0</sizeMax>
   <sizeMin>1.0</sizeMin>
   <sizeScale>1.0</sizeScale>
-  <label></label>
+  <label>getPerceivedValue+getName</label>
   <labelMethod>getName</labelMethod>
   <labelPosition>top</labelPosition>
   <labelPrecision>3</labelPrecision>
