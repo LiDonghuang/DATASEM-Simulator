@@ -106,12 +106,11 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 	
     
 	@ScheduledMethod(start=1,interval=1,priority=20,shuffle=false)
-	public void step() {		
+	public void stepAcceptance() {		
 		System.out.println("\n------------ Agent "+this.name+" is now active ---------------");
 		System.out.println("Active WorkLoad: "+this.getActiveWorkLoad());
 		System.out.println("Total WorkLoad: "+this.getTotalWorkLoad());
-		
-		
+	
 		this.requestedQ = this.mySearchStrategy.workPrioritization(this, this.requestedQ);	
 		for (int i=0;i<this.requestedQ.size();i++) {
 			KSSTask requestedWI = this.requestedQ.get(i);
@@ -139,7 +138,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 					this.requestedQ.remove(requestedWI);
 					// !
 					System.out.println(this.getName()+" invoked "+selectedSP.getName());
-					selectedSP.step();
+					selectedSP.stepAcceptance();
 					System.out.println("\n-------- back to "+this.getName()+"'s turn... --------");
 				}
 				else {
@@ -170,8 +169,10 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 			}
 		}
 		// -----------------------------------
-					
-		
+	}
+	
+	@ScheduledMethod(start=1,interval=1,priority=19,shuffle=false)
+	public void stepSelection() {
 		// ------------ 2. Select WIs Ready to Go		
 		// -------------- WI Precedency Check ----------------------
 		for (int w=0;w<this.backlogQ.size();w++) {
@@ -285,9 +286,10 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 //					else makeAssignment(complexTask);
 //				}
 //			}
-			
+		}	
 		
-		
+		@ScheduledMethod(start=1,interval=1,priority=11,shuffle=false)
+		public void stepFinalize() {
         // ----------------- End of SP Activities -------------------------
 		
 		// ------------------------- SP State Summary
@@ -295,17 +297,19 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 		this.calculateResourceUtilization();
 		if (this.activeQ.size()>0) {
 			this.state=1;
-			System.out.println("Agent "+this.name+" is Busy");	
+			System.out.println("Agent "+this.name+" is Fully Utilized");	
 			if (this.resourceUtilization==1.00) {
 				System.out.println("Agent "+this.name+" is at Full Capacity");} 
 			}
 		else {
 			this.state=0;
-			System.out.println("Agent "+this.name+" is Idle");}		
+			System.out.println("Agent "+this.name+" is Under Utilized");}		
 		// --------------------------------------
 		System.out.println("-- Agent "+this.name+" has finished its activities --");
 	}
-// ----------------------- END Step() -----------------------------	
+	// ----------------------- END Step() -----------------------------	
+		
+		
 	public LinkedList<KSSTask> getRequestedQ() {
 		return this.requestedQ;
 	}

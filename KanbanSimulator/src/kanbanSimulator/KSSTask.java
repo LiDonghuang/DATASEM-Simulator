@@ -361,6 +361,11 @@ public class KSSTask extends WorkItemImpl {
 								//
 								context.add(triggeredWI);
 								//
+								// ! Temporary !
+								if (triggeredWI.getCOS().matches("Important")) {
+									this.getUpperTasks().get(0).addSubTask(triggeredWI);
+								}
+								//
 								this.SoS.getArrivedList().add(triggeredWI);
 								triggeredWI.setCreated();
 								triggeredWI.setArrivalTime(this.SoS.timeNow);
