@@ -20,7 +20,7 @@ public class WIAcceptanceRule {
 		this.name = ruleName;
 	}
 	public LinkedList<KSSTask> applyRule(ServiceProviderAgent SP) {		
-		System.out.println(SP.getName()+" Applied "+this.name+" Acceptance Rule");
+		//System.out.println(SP.getName()+" Applied "+this.name+" Acceptance Rule");
 
 		return SP.getRequestedQ();
 	}

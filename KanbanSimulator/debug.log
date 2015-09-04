@@ -1,1038 +1,723 @@
-ERROR [AWT-EventQueue-0] 2015-08-09 19:44:28,637 repast.simphony.ui.RSApplication - Error while initializing simulation
-java.lang.NullPointerException
-	at java.util.LinkedList.addAll(Unknown Source)
-	at java.util.LinkedList.addAll(Unknown Source)
-	at kanbanSimulator.SimulationContextBuilder.ContextImplementation(SimulationContextBuilder.java:616)
-	at kanbanSimulator.KanbanSimulatorModel.build(KanbanSimulatorModel.java:50)
-	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
-	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
-	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
-	at java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
-	at java.awt.Component.processMouseEvent(Unknown Source)
-	at javax.swing.JComponent.processMouseEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$200(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-ERROR [AWT-EventQueue-0] 2015-08-09 20:38:26,336 repast.simphony.ui.RSApplication - Error while initializing simulation
-java.lang.NullPointerException
-	at java.util.LinkedList.addAll(Unknown Source)
-	at java.util.LinkedList.addAll(Unknown Source)
-	at kanbanSimulator.SimulationContextBuilder.ContextImplementation(SimulationContextBuilder.java:617)
-	at kanbanSimulator.KanbanSimulatorModel.build(KanbanSimulatorModel.java:50)
-	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
-	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
-	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
-	at java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
-	at java.awt.Component.processMouseEvent(Unknown Source)
-	at javax.swing.JComponent.processMouseEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$200(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-ERROR [AWT-EventQueue-0] 2015-08-09 20:42:58,412 repast.simphony.ui.RSApplication - Error while initializing simulation
-java.lang.NullPointerException
-	at java.util.LinkedList.addAll(Unknown Source)
-	at java.util.LinkedList.addAll(Unknown Source)
-	at kanbanSimulator.SimulationContextBuilder.ContextImplementation(SimulationContextBuilder.java:617)
-	at kanbanSimulator.KanbanSimulatorModel.build(KanbanSimulatorModel.java:50)
-	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
-	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
-	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
-	at java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
-	at java.awt.Component.processMouseEvent(Unknown Source)
-	at javax.swing.JComponent.processMouseEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$200(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-ERROR [AWT-EventQueue-0] 2015-08-09 20:49:12,524 repast.simphony.ui.RSApplication - Error while initializing simulation
-java.lang.NullPointerException
-	at kanbanSimulator.SimulationContextBuilder.ContextImplementation(SimulationContextBuilder.java:628)
-	at kanbanSimulator.KanbanSimulatorModel.build(KanbanSimulatorModel.java:50)
-	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
-	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
-	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
-	at java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
-	at java.awt.Component.processMouseEvent(Unknown Source)
-	at javax.swing.JComponent.processMouseEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$200(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-ERROR [AWT-EventQueue-0] 2015-08-09 21:02:19,964 repast.simphony.ui.RSApplication - Error while initializing simulation
-java.lang.NullPointerException
-	at kanbanSimulator.SimulationContextBuilder.ContextImplementation(SimulationContextBuilder.java:628)
-	at kanbanSimulator.KanbanSimulatorModel.build(KanbanSimulatorModel.java:50)
-	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
-	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
-	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
-	at java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
-	at java.awt.Component.processMouseEvent(Unknown Source)
-	at javax.swing.JComponent.processMouseEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$200(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-FATAL [Thread-8] 2015-08-09 21:21:48,597 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (1.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.DemandSource$$FastClassByCGLIB$$7f714427.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: org.eclipse.emf.common.util.BasicEList$BasicIndexOutOfBoundsException: index=0, size=0
-	at org.eclipse.emf.common.util.BasicEList.get(BasicEList.java:346)
-	at kanbanSimulator.DemandSource.findServiceProviders(DemandSource.java:87)
-	at kanbanSimulator.DemandSource.step(DemandSource.java:58)
-	... 10 more
-FATAL [Thread-8] 2015-08-09 21:28:33,793 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (1.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.ServiceProviderAgent$$FastClassByCGLIB$$5d7dcbc0.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.NullPointerException
-	at kanbanSimulator.ServiceProviderAgent.assignWI(ServiceProviderAgent.java:382)
-	at kanbanSimulator.KSSTask.checkCausalities(KSSTask.java:386)
-	at kanbanSimulator.ServiceProviderAgent.step(ServiceProviderAgent.java:126)
-	... 10 more
-FATAL [Thread-8] 2015-08-09 21:44:00,570 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (1.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.ServiceProviderAgent$$FastClassByCGLIB$$5d7dcbc0.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: java.lang.NullPointerException
-	at kanbanSimulator.ServiceProviderAgent.assignWI(ServiceProviderAgent.java:382)
-	at kanbanSimulator.KSSTask.checkCausalities(KSSTask.java:386)
-	at kanbanSimulator.ServiceProviderAgent.step(ServiceProviderAgent.java:126)
-	... 10 more
-ERROR [AWT-EventQueue-0] 2015-08-09 22:53:52,023 repast.simphony.ui.RSApplication - Error while initializing simulation
-java.lang.NullPointerException
-	at java.util.LinkedList.addAll(Unknown Source)
-	at java.util.LinkedList.addAll(Unknown Source)
-	at kanbanSimulator.SimulationContextBuilder.ContextImplementation(SimulationContextBuilder.java:619)
-	at kanbanSimulator.KanbanSimulatorModel.build(KanbanSimulatorModel.java:50)
-	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.RSApplication.start(RSApplication.java:189)
-	at repast.simphony.ui.action.StartRun.actionPerformed(StartRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
-	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
-	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
-	at java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
-	at java.awt.Component.processMouseEvent(Unknown Source)
-	at javax.swing.JComponent.processMouseEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$200(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-ERROR [AWT-EventQueue-0] 2015-08-09 22:57:55,021 repast.simphony.ui.RSApplication - Error while initializing simulation
-java.lang.NullPointerException
-	at java.util.LinkedList.addAll(Unknown Source)
-	at java.util.LinkedList.addAll(Unknown Source)
-	at kanbanSimulator.SimulationContextBuilder.ContextImplementation(SimulationContextBuilder.java:619)
-	at kanbanSimulator.KanbanSimulatorModel.build(KanbanSimulatorModel.java:50)
-	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
-	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
-	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
-	at java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
-	at java.awt.Component.processMouseEvent(Unknown Source)
-	at javax.swing.JComponent.processMouseEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$200(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-FATAL [Thread-8] 2015-08-11 10:21:36,016 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (32.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@21fdeb (name: E01_SE, description: Electrical Engineering SE Assistance, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-9] 2015-08-11 10:22:31,796 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (37.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@39abad02 (name: E02_3, description: Electrical Engineering Task, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-8] 2015-08-11 10:25:33,725 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (32.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@e56170f (name: E01_SE, description: Electrical Engineering SE Assistance, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-9] 2015-08-11 10:28:09,720 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (32.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@4f7b64e6 (name: E01_SE, description: Electrical Engineering SE Assistance, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-10] 2015-08-11 10:30:29,252 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (42.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@7e8bf1f6 (name: E01_SE, description: Electrical Engineering SE Assistance, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-8] 2015-08-11 10:51:47,497 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (32.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@27900320 (name: E01_SE, description: Electrical Engineering SE Assistance, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-12] 2015-08-11 11:07:39,570 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (67.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@481c87bf (name: E01_4.8, description: Electrical Engineering Task, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-13] 2015-08-11 11:08:45,723 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (77.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@76bac0ef (name: E01_4, description: Electrical Engineering Task, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-16] 2015-08-11 11:10:07,497 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (42.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@101aa4eb (name: E02_SE, description: Electrical Engineering SE Assistance, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-21] 2015-08-11 11:14:24,795 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (70.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@7113b490 (name: M01_3, description: Mechanical Engineering Task, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-28] 2015-08-11 11:14:42,498 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (62.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@41877104 (name: M03_SE, description: Mechanical Engineering SE Assistance, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-38] 2015-08-11 11:15:07,642 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (62.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@4ef5c395 (name: M02_2, description: Mechanical Engineering Task, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-9] 2015-08-11 11:25:19,404 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (57.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@4d8018a0 (name: E01_4, description: Electrical Engineering Task, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-9] 2015-08-11 11:32:50,567 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (77.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@251277bb (name: E03_4, description: Electrical Engineering Task, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-23] 2015-08-11 11:38:25,498 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (57.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@2ceb5e6f (name: E01_4, description: Electrical Engineering Task, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-9] 2015-08-11 11:39:30,667 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (52.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@77ac5579 (name: E02_SE, description: Electrical Engineering SE Assistance, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-9] 2015-08-11 11:47:00,144 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (65.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@13b260ea (name: M02_4, description: Mechanical Engineering Task, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-8] 2015-08-11 11:53:12,583 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (87.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@3b5fd922 (name: M01_SE, description: Mechanical Engineering SE Assistance, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-9] 2015-08-11 11:56:14,839 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (62.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@c71a663 (name: M02_1, description: Mechanical Engineering Task, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-13] 2015-08-11 12:08:56,632 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (77.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@6562eeae (name: E03_4, description: Electrical Engineering Task, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-35] 2015-08-11 12:17:09,888 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (42.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@12df1c65 (name: E02_SE.56, description: Electrical Engineering SE Assistance, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-62] 2015-08-11 12:18:15,038 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (67.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@5ed634e (name: M03_SE, description: Mechanical Engineering SE Assistance, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-68] 2015-08-11 12:18:30,893 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (62.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@7ebd6548 (name: M02_2, description: Mechanical Engineering Task, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-FATAL [Thread-20] 2015-08-11 12:23:16,963 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (42.0)
-java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:72)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:333)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.lang.reflect.InvocationTargetException
-	at kanbanSimulator.Visualization$$FastClassByCGLIB$$3ad2a763.invoke(<generated>)
-	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
-	at repast.simphony.engine.schedule.DynamicTargetAction.execute(DynamicTargetAction.java:69)
-	... 7 more
-Caused by: repast.simphony.space.SpatialException: Object 'kanbanSimulator.KSSTask@2efe5985 (name: E02_SE, description: Electrical Engineering SE Assistance, befforts: 0, bvalue: 0, COS: Standard, arrtime: 0, duedate: 0)' must be added to the grid's context before it can be moved
-	at repast.simphony.space.grid.AbstractGrid.moveTo(AbstractGrid.java:128)
-	at kanbanSimulator.Visualization.step(Visualization.java:75)
-	... 10 more
-ERROR [AWT-EventQueue-0] 2015-08-11 14:54:24,354 repast.simphony.ui.RSApplication - Error while initializing simulation
-java.lang.NullPointerException
-	at kanbanSimulator.Visualization.<init>(Visualization.java:14)
-	at kanbanSimulator.SimulationContextBuilder.<init>(SimulationContextBuilder.java:59)
-	at kanbanSimulator.KanbanSimulatorModel.build(KanbanSimulatorModel.java:47)
-	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
-	at repast.simphony.ui.RSApplication.start(RSApplication.java:189)
-	at repast.simphony.ui.action.StartRun.actionPerformed(StartRun.java:17)
-	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
-	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
-	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
-	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
-	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
-	at java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
-	at java.awt.Component.processMouseEvent(Unknown Source)
-	at javax.swing.JComponent.processMouseEvent(Unknown Source)
-	at java.awt.Component.processEvent(Unknown Source)
-	at java.awt.Container.processEvent(Unknown Source)
-	at java.awt.Component.dispatchEventImpl(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
-	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
-	at java.awt.Container.dispatchEventImpl(Unknown Source)
-	at java.awt.Window.dispatchEventImpl(Unknown Source)
-	at java.awt.Component.dispatchEvent(Unknown Source)
-	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
-	at java.awt.EventQueue.access$200(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.awt.EventQueue$3.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.awt.EventQueue$4.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
-	at java.awt.EventQueue.dispatchEvent(Unknown Source)
-	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
-	at java.awt.EventDispatchThread.run(Unknown Source)
-INFO  [AWT-EventQueue-0] 2015-08-11 15:01:47,136 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: C:\Users\dzl0023\git\DATASEM-Simulator\KanbanSimulator\output\config.props
-INFO  [AWT-EventQueue-0] 2015-08-11 15:01:47,791 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
-	C:\Users\dzl0023\git\DATASEM-Simulator\KanbanSimulator\batch\batch_params.xml to
-	C:\TEMP\unrolledParamFile.txt
-INFO  [SwingWorker-pool-2-thread-1] 2015-08-11 15:02:26,777 repast.simphony.batch.ssh.LocalSession - 
-	Copying locally C:\TEMP\dzl0023_localhost6015198626221714662.zip to 
-C:\TEMP\simphony_model_1439323343001 ...
-INFO  [SwingWorker-pool-2-thread-1] 2015-08-11 15:02:26,870 repast.simphony.batch.ssh.LocalSession - Copying Finished.
-INFO  [SwingWorker-pool-2-thread-1] 2015-08-11 15:02:26,886 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0645
-INFO  [SwingWorker-pool-2-thread-1] 2015-08-11 15:02:26,886 repast.simphony.batch.ssh.LocalSession - Unzipping model C:\TEMP\simphony_model_1439323343001\dzl0023_localhost6015198626221714662.zip
-INFO  [SwingWorker-pool-2-thread-1] 2015-08-11 15:02:27,900 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
-INFO  [Thread-5] 2015-08-11 15:02:28,774 repast.simphony.batch.ssh.LocalSession - Error: Could not find or load main class ..lib.bsf.jar
-INFO  [AWT-EventQueue-0] 2015-08-11 15:02:48,525 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: C:\Users\dzl0023\git\DATASEM-Simulator\KanbanSimulator\output\config.props
-INFO  [AWT-EventQueue-0] 2015-08-11 15:02:48,540 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
-	C:\Users\dzl0023\git\DATASEM-Simulator\KanbanSimulator\batch\batch_params.xml to
-	C:\TEMP\unrolledParamFile.txt
-FATAL [Thread-8] 2015-08-12 14:47:50,067 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (10.0)
-java.util.ConcurrentModificationException
-	at java.util.ArrayList$Itr.checkForComodification(Unknown Source)
-	at java.util.ArrayList$Itr.next(Unknown Source)
-	at repast.simphony.util.collections.DelegatedIterator.next(DelegatedIterator.java:44)
-	at org.apache.commons.collections15.iterators.IteratorChain.next(IteratorChain.java:271)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:330)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-FATAL [Thread-8] 2015-08-13 15:02:31,885 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (10.0)
-java.util.ConcurrentModificationException
-	at java.util.ArrayList$Itr.checkForComodification(Unknown Source)
-	at java.util.ArrayList$Itr.next(Unknown Source)
-	at repast.simphony.util.collections.DelegatedIterator.next(DelegatedIterator.java:44)
-	at org.apache.commons.collections15.iterators.IteratorChain.next(IteratorChain.java:271)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:330)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
-FATAL [Thread-9] 2015-08-13 15:05:03,700 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
-Current tick (10.0)
-java.util.ConcurrentModificationException
-	at java.util.ArrayList$Itr.checkForComodification(Unknown Source)
-	at java.util.ArrayList$Itr.next(Unknown Source)
-	at repast.simphony.util.collections.DelegatedIterator.next(DelegatedIterator.java:44)
-	at org.apache.commons.collections15.iterators.IteratorChain.next(IteratorChain.java:271)
-	at repast.simphony.engine.controller.ScheduledMethodControllerAction$ScheduleMethodAllAction.execute(ScheduledMethodControllerAction.java:330)
-	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
-	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
-	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
-	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
-	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
-	at java.lang.Thread.run(Unknown Source)
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1384.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1385.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1386.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1387.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1388.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1389.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1390.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1391.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1392.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1393.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1394.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1395.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1396.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1397.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1398.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1399.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1400.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1401.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1402.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1403.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1404.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1405.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1406.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1407.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1408.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1409.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1410.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1411.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1412.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1413.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1414.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1415.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1416.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1417.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1418.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1419.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1420.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1421.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1422.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1423.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1424.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1425.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1426.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1427.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1428.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1429.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1430.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1431.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1432.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1433.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1434.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1435.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1436.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1437.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1438.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1439.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1440.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1441.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1442.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1443.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1444.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1445.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1446.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1447.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1448.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1449.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1450.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1451.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1452.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1453.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1454.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1455.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1456.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1457.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1458.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1459.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1460.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1461.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1462.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1463.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1464.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1465.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1466.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1467.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1468.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1469.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1470.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1471.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1472.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1473.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1474.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1475.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1476.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1477.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1478.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1479.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1480.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1481.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1482.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1483.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1484.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1485.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1486.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1487.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1488.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1489.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1490.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1491.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1492.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1493.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1494.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1495.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1496.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1497.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1498.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1499.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1500.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1501.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1502.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1503.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1504.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1505.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1506.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1507.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1508.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1509.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1510.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1511.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1512.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1513.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1514.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1515.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1516.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1517.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1518.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1519.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1520.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1521.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,463 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1522.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1523.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1524.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1525.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1526.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1527.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1528.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1529.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1530.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1531.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1532.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1533.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1534.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1535.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1536.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1537.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1538.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1539.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1540.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1541.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1542.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1543.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1544.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1545.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1546.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1547.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1548.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1549.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1550.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1551.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1552.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1553.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1554.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1555.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1556.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1557.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1558.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1559.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1560.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1561.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1562.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1563.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1564.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1565.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1566.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1567.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1568.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1569.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1570.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1571.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1572.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1573.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1574.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1575.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1576.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1577.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1578.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1579.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1580.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1581.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1582.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1583.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1584.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1585.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1586.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1587.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1588.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1589.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1590.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1591.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1592.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1593.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1594.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1595.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1596.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1597.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1598.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1599.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1600.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1601.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1602.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1603.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1604.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1605.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1606.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1607.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1608.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1609.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1610.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1611.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1612.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1613.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1614.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1615.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1616.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1617.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1618.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1619.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1620.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1621.0 ======================================
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - 
+INFO  [Thread-4] 2015-09-02 17:45:32,479 repast.simphony.batch.ssh.LocalSession - ============================== TIME NOW : 1622.0 ======================================
+INFO  [pool-3-thread-1] 2015-09-02 17:45:59,499 repast.simphony.batch.ssh.LocalDonePoller - Polled C:\Users\DONBGH~1\AppData\Local\Temp\simphony_model_1441233894065 for DONE:  yes
+INFO  [SwingWorker-pool-2-thread-1] 2015-09-02 17:45:59,499 repast.simphony.batch.ssh.SessionsDriver - Run Time: 1.0149
+INFO  [SwingWorker-pool-2-thread-1] 2015-09-02 17:45:59,656 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in C:\Users\DONBGH~1\AppData\Local\Temp\simphony_model_1441233894065
+INFO  [SwingWorker-pool-2-thread-1] 2015-09-02 17:45:59,734 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into C:/Users/Donbghuang Li/desktop
+INFO  [SwingWorker-pool-2-thread-1] 2015-09-02 17:46:02,526 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0505
+INFO  [SwingWorker-pool-2-thread-1] 2015-09-02 17:46:02,526 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 1.1413

@@ -56,7 +56,7 @@ public SystemOfSystems() {
 
 		timeNow = schedule.getTickCount();
 		System.out.println("\n\n============================== TIME NOW : " + timeNow + " ======================================");
-		System.out.println("\n------------- This is GOD's Turn ---------------");
+//		System.out.println("\n------------- This is GOD's Turn ---------------");
 				
 		for (int w=0; w<this.getWaitingList().size();w++) {			
 			KSSTask wItem = this.getWaitingList().get(w);	
@@ -84,7 +84,7 @@ public SystemOfSystems() {
 				context.add(wItem);	
 			}
 		}
-		System.out.println("Waiting WIs: "+this.getWaitingList().size());	
+		//System.out.println("Waiting WIs: "+this.getWaitingList().size());	
 		
 		// --------- Check Arrived WIs -------------
 		// Check WIs already Ended and Move to Ended List
@@ -108,12 +108,11 @@ public SystemOfSystems() {
 			}
 			this.getEndedList().remove(wItem);
 			// Remove WI from Context
-			System.out.println("Remove "+wItem.getPatternType().getName()+": "
-					+wItem.getName()+" id:"+wItem.getID());
+//			System.out.println("Remove "+wItem.getPatternType().getName()+": "+wItem.getName()+" id:"+wItem.getID());
 			context.remove(wItem);	
 			w--;
 		}
-		System.out.println("Completed WIs: "+this.completedWIs);
+//		System.out.println("Completed WIs: "+this.completedWIs);
 		// ---------------- Termination Condition ------------------------------
 		if ((this.getWaitingList().size()==0)
 			&&(this.getArrivedList().size()==0)&&(this.getEndedList().size()==0)){

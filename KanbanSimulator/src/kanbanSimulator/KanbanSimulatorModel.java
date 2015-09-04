@@ -23,8 +23,8 @@ public class KanbanSimulatorModel implements ContextBuilder<Object>{
 		context.setId("KanbanSimulator");
 		
 		Parameters p = RunEnvironment.getInstance().getParameters();
-		int height = (Integer)p.getValue("worldHeight");
-		int width = (Integer)p.getValue("worldWidth");
+		int height = 100;
+		int width = 100;
 		
 		//Organization root = WorkFlowSimFactory.eINSTANCE.createOrganization();
 		//root.setOrgName("test");

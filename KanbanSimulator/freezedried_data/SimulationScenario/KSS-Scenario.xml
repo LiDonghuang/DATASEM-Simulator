@@ -1,0 +1,2043 @@
+
+
+<KSSModel>
+<FileName>DemoModel</FileName>
+<FilePath>donghuangli.Datasem.Models.demo_model</FilePath>
+	
+<OrganizationalModel>	
+<ServiceProviders>
+<ServiceProvider>
+	<Name>SysEng_Dept</Name>
+	<Description>Separate System Engineering Department handles SoS-level SE Tasks</Description>
+	<TargetUnits>
+	<TargetUnit>Elec_Dept</TargetUnit>
+	<TargetUnit>Mech_Dept</TargetUnit>
+	<TargetUnit>IT_Dept</TargetUnit>
+	</TargetUnits>
+	<Services>
+	<Service>
+		<Type>SoSEng</Type>
+		<Efficiency>200</Efficiency>
+	</Service>
+	<Service>
+		<Type>SysEng_Elec</Type>
+		<Efficiency>200</Efficiency>
+	</Service>
+	<Service>
+		<Type>SysEng_Mech</Type>
+		<Efficiency>200</Efficiency>
+	</Service>
+	<Service>
+		<Type>SysEng_IT</Type>
+		<Efficiency>200</Efficiency>
+	</Service>
+	</Services>	
+	<GovernanceStrategy>
+		<Name>strategy1</Name>		
+		<AcceptanceRule>Neutral</AcceptanceRule>
+		<SelectionRule>PerceivedValue</SelectionRule>
+		<AssignmentRule>Neutral</AssignmentRule>
+		<AllocationRule>Neutral</AllocationRule>
+		<OutsourcingRule>Neutral</OutsourcingRule>						
+	</GovernanceStrategy>	
+	<Resources>
+	<Resource>
+		<Name>SysEng01</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>SoSEng</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>SysEng02</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>SoSEng</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>Elec_SysEng01</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>SysEng_Elec</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>Elec_SysEng02</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>SysEng_Elec</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>Mech_SysEng01</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>SysEng_Mech</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>Mech_SysEng02</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>SysEng_Mech</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>IT_SysEng01</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>SysEng_IT</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>IT_SysEng02</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>SysEng_IT</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	</Resources>	
+</ServiceProvider>
+<ServiceProvider>
+	<Name>Elec_Dept</Name>
+	<Description>Electrical Department</Description>
+	<TargetUnits>
+	<TargetUnit>SysEng_Dept</TargetUnit>
+	</TargetUnits>
+	<Services>
+	<Service>
+		<Type>Eng_Elec</Type>
+		<Efficiency>600</Efficiency>
+	</Service>
+	</Services>	
+	<GovernanceStrategy>
+		<Name>strategy1</Name>		
+		<AcceptanceRule>Neutral</AcceptanceRule>
+		<SelectionRule>PerceivedValue</SelectionRule>
+		<AssignmentRule>Neutral</AssignmentRule>
+		<AllocationRule>Neutral</AllocationRule>
+		<OutsourcingRule>Neutral</OutsourcingRule>						
+	</GovernanceStrategy>	
+	<Resources>
+	<Resource>
+		<Name>Elec_Eng01</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_Elec</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>Elec_Eng02</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_Elec</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>Elec_Eng03</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_Elec</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	</Resources>	
+</ServiceProvider>
+<ServiceProvider>
+	<Name>Mech_Dept</Name>
+	<Description>Mechanical Department</Description>
+	<TargetUnits>
+	<TargetUnit>SysEng_Dept</TargetUnit>
+	</TargetUnits>
+	<Services>
+	<Service>
+		<Type>Eng_Mech</Type>
+		<Efficiency>600</Efficiency>
+	</Service>
+	</Services>	
+	<GovernanceStrategy>
+		<Name>strategy1</Name>		
+		<AcceptanceRule>Neutral</AcceptanceRule>
+		<SelectionRule>PerceivedValue</SelectionRule>
+		<AssignmentRule>Neutral</AssignmentRule>
+		<AllocationRule>Neutral</AllocationRule>
+		<OutsourcingRule>Neutral</OutsourcingRule>						
+	</GovernanceStrategy>	
+	<Resources>
+	<Resource>
+		<Name>Mech_Eng01</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_Mech</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>Mech_Eng02</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_Mech</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>Mech_Eng03</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_Mech</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	</Resources>	
+</ServiceProvider>
+<ServiceProvider>
+	<Name>IT_Dept</Name>
+	<Description>IT Department</Description>
+	<TargetUnits>
+	<TargetUnit>SysEng_Dept</TargetUnit>
+	</TargetUnits>
+	<Services>
+	<Service>
+		<Type>Eng_IT</Type>
+		<Efficiency>600</Efficiency>
+	</Service>
+	</Services>	
+	<GovernanceStrategy>
+		<Name>strategy1</Name>		
+		<AcceptanceRule>Neutral</AcceptanceRule>
+		<SelectionRule>PerceivedValue</SelectionRule>
+		<AssignmentRule>Neutral</AssignmentRule>
+		<AllocationRule>Neutral</AllocationRule>
+		<OutsourcingRule>Neutral</OutsourcingRule>						
+	</GovernanceStrategy>	
+	<Resources>
+	<Resource>
+		<Name>IT_Eng01</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_IT</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>IT_Eng02</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_IT</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	<Resource>
+		<Name>IT_Eng03</Name>
+		<Description></Description>
+		<Services>
+		<Service>
+			<Type>Eng_IT</Type>
+			<Efficiency>100</Efficiency>
+		</Service>
+		</Services>	
+	</Resource>	
+	</Resources>	
+</ServiceProvider>
+</ServiceProviders>
+</OrganizationalModel>
+
+<WorkItemNetworkModel>
+<WorkSources>
+<WorkSource>
+	<Name>Stakeholder1</Name>
+	<Description>Stakeholder 1</Description>
+	<TargetUnits>
+	<TargetUnit>SysEng_Dept</TargetUnit>
+	</TargetUnits>
+	<AssignmentRule>null</AssignmentRule>
+</WorkSource>
+</WorkSources>	
+<WorkItems>
+<WorkItem>
+	<Name>HD1</Name>
+	<Description>Hardware Development Capability 1</Description>
+	<Type>Capability</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	<Subtask>A_HD1</Subtask>
+	<Subtask>E01</Subtask>
+	<Subtask>E02</Subtask>
+	<Subtask>M01</Subtask>
+	<Subtask>F_HD1</Subtask>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>A_HD1</Triggered>
+	<Triggered>F_HD1</Triggered>
+		<AtProgress>0</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SoSEng</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>0</Efforts>
+	<Value>500</Value>	
+	<Source>Stakeholder1</Source>
+	<ArrivalTime>1</ArrivalTime>
+	<DueDate>100</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>A_HD1</Name>
+	<Description>Analysis HD1</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>E01</Triggered>
+	<Triggered>E02</Triggered>
+	<Triggered>M01</Triggered>
+		<AtProgress>100</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SoSEng</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>F_HD1</Name>
+	<Description>Final Integration HD1</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	<Predecessor>E01</Predecessor>
+	<Predecessor>E02</Predecessor>
+	<Predecessor>M01</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SoSEng</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E01</Name>
+	<Description>Electrical System Requirement 01</Description>
+	<Type>Requirement</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	<Subtask>A_E01</Subtask>
+	<Subtask>E01_1</Subtask>
+	<Subtask>E01_2</Subtask>
+	<Subtask>E01_3</Subtask>
+	<Subtask>E01_4</Subtask>
+	<Subtask>E01_5</Subtask>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>A_E01</Triggered>
+		<AtProgress>0</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>0</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>A_E01</Name>
+	<Description>Analysis: Electrical System Requirement 01</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>E01_1</Triggered>
+	<Triggered>E01_2</Triggered>
+	<Triggered>E01_3</Triggered>
+	<Triggered>E01_4</Triggered>
+	<Triggered>E01_5</Triggered>
+		<AtProgress>100</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E01_1</Name>
+	<Description>Electrical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E01_2</Name>
+	<Description>Electrical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E01_3</Name>
+	<Description>Electrical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	<Predecessor>E01_1</Predecessor>
+	<Predecessor>E01_2</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E01_4</Name>
+	<Description>Electrical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	<Predecessor>E01_3</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E01_5</Name>
+	<Description>Electrical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	<Predecessor>E01_3</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M01</Name>
+	<Description>Mechanical System Requirement 01</Description>
+	<Type>Requirement</Type>					
+	<Predecessors>
+	<Predecessor>E01</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	<Subtask>A_M01</Subtask>
+	<Subtask>M01_1</Subtask>
+	<Subtask>M01_2</Subtask>
+	<Subtask>M01_3</Subtask>
+	<Subtask>M01_4</Subtask>
+	<Subtask>M01_5</Subtask>
+	<Subtask>M01_6</Subtask>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>A_M01</Triggered>
+		<AtProgress>0</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>0</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>A_M01</Name>
+	<Description>Analysis: Mechanical System Requirement 01</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>M01_1</Triggered>
+	<Triggered>M01_2</Triggered>
+	<Triggered>M01_3</Triggered>
+	<Triggered>M01_4</Triggered>
+	<Triggered>M01_5</Triggered>
+	<Triggered>M01_6</Triggered>
+		<AtProgress>100</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M01_1</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M01_2</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M01_3</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M01_4</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M01_5</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M01_6</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	<Predecessor>M01_1</Predecessor>
+	<Predecessor>M01_2</Predecessor>
+	<Predecessor>M01_3</Predecessor>
+	<Predecessor>M01_4</Predecessor>
+	<Predecessor>M01_5</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>HD2</Name>
+	<Description>Hardware Development Capability 2</Description>
+	<Type>Capability</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	<Subtask>A_HD2</Subtask>
+	<Subtask>E02</Subtask>
+	<Subtask>M02</Subtask>
+	<Subtask>M03</Subtask>
+	<Subtask>F_HD2</Subtask>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>A_HD2</Triggered>
+	<Triggered>F_HD2</Triggered>
+		<AtProgress>0</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SoSEng</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>0</Efforts>
+	<Value>1000</Value>	
+	<Source>Stakeholder1</Source>
+	<ArrivalTime>1</ArrivalTime>
+	<DueDate>100</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>A_HD2</Name>
+	<Description>Analysis HD2</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>E02</Triggered>
+	<Triggered>M02</Triggered>
+	<Triggered>M03</Triggered>
+		<AtProgress>100</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SoSEng</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>F_HD2</Name>
+	<Description>Final Integration HD2</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	<Predecessor>E02</Predecessor>
+	<Predecessor>M02</Predecessor>
+	<Predecessor>M03</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SoSEng</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E02</Name>
+	<Description>Electrical System Requirement 02</Description>
+	<Type>Requirement</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	<Subtask>A_E02</Subtask>
+	<Subtask>E02_1</Subtask>
+	<Subtask>E02_2</Subtask>
+	<Subtask>E02_3</Subtask>
+	<Subtask>E02_4</Subtask>
+	<Subtask>E02_5</Subtask>
+	<Subtask>E02_6</Subtask>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>A_E02</Triggered>
+		<AtProgress>0</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>0</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>A_E02</Name>
+	<Description>Analysis: Electrical System Requirement 02</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>E02_1</Triggered>
+	<Triggered>E02_2</Triggered>
+	<Triggered>E02_3</Triggered>
+	<Triggered>E02_4</Triggered>
+	<Triggered>E02_5</Triggered>
+	<Triggered>E02_6</Triggered>
+		<AtProgress>100</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E02_1</Name>
+	<Description>Electrical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E02_2</Name>
+	<Description>Electrical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E02_3</Name>
+	<Description>Electrical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	<Predecessor>E02_1</Predecessor>
+	<Predecessor>E02_2</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E02_4</Name>
+	<Description>Electrical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	<Predecessor>E02_3</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E02_5</Name>
+	<Description>Electrical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	<Predecessor>E02_3</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E02_6</Name>
+	<Description>Electrical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	<Predecessor>E02_3</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M02</Name>
+	<Description>Mechanical System Requirement 02</Description>
+	<Type>Requirement</Type>					
+	<Predecessors>
+	<Predecessor>E02</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	<Subtask>A_M02</Subtask>
+	<Subtask>M02_1</Subtask>
+	<Subtask>M02_2</Subtask>
+	<Subtask>M02_3</Subtask>
+	<Subtask>M02_4</Subtask>
+	<Subtask>M02_5</Subtask>
+	<Subtask>M02_6</Subtask>
+	<Subtask>M02_7</Subtask>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>A_M02</Triggered>
+		<AtProgress>0</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>0</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>A_M02</Name>
+	<Description>Analysis: Mechanical System Requirement 02</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>M02_1</Triggered>
+	<Triggered>M02_2</Triggered>
+	<Triggered>M02_3</Triggered>
+	<Triggered>M02_4</Triggered>
+	<Triggered>M02_5</Triggered>
+	<Triggered>M02_6</Triggered>
+	<Triggered>M02_7</Triggered>
+		<AtProgress>100</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M02_1</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M02_2</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M02_3</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M02_4</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M02_5</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M02_6</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M02_7</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	<Predecessor>M02_1</Predecessor>
+	<Predecessor>M02_2</Predecessor>
+	<Predecessor>M02_3</Predecessor>
+	<Predecessor>M02_4</Predecessor>
+	<Predecessor>M02_5</Predecessor>
+	<Predecessor>M02_6</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M03</Name>
+	<Description>Mechanical System Requirement 03</Description>
+	<Type>Requirement</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	<Subtask>A_M03</Subtask>
+	<Subtask>M03_1</Subtask>
+	<Subtask>M03_2</Subtask>
+	<Subtask>M03_3</Subtask>
+	<Subtask>M03_4</Subtask>
+	<Subtask>M03_5</Subtask>
+	<Subtask>M03_6</Subtask>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>A_M03</Triggered>
+		<AtProgress>0</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>0</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>A_M03</Name>
+	<Description>Analysis: Mechanical System Requirement 03</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>M03_1</Triggered>
+	<Triggered>M03_2</Triggered>
+	<Triggered>M03_3</Triggered>
+	<Triggered>M03_4</Triggered>
+	<Triggered>M03_5</Triggered>
+	<Triggered>M03_6</Triggered>
+		<AtProgress>100</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M03_1</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M03_2</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M03_3</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M03_4</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M03_5</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>M03_6</Name>
+	<Description>Mechanical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	<Predecessor>M03_1</Predecessor>
+	<Predecessor>M03_2</Predecessor>
+	<Predecessor>M03_3</Predecessor>
+	<Predecessor>M03_4</Predecessor>
+	<Predecessor>M03_5</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Mech</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>SD1</Name>
+	<Description>Software Development Capability 1</Description>
+	<Type>Capability</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	<Subtask>A_SD1</Subtask>
+	<Subtask>I01</Subtask>
+	<Subtask>E03</Subtask>
+	<Subtask>F_SD1</Subtask>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>A_SD1</Triggered>
+	<Triggered>F_SD1</Triggered>
+		<AtProgress>0</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SoSEng</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>0</Efforts>
+	<Value>1500</Value>	
+	<Source>Stakeholder1</Source>
+	<ArrivalTime>1</ArrivalTime>
+	<DueDate>100</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>A_SD1</Name>
+	<Description>Analysis SD1</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>I01</Triggered>
+	<Triggered>E03</Triggered>
+		<AtProgress>100</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SoSEng</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>F_SD1</Name>
+	<Description>Final Integration SD1</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	<Predecessor>I01</Predecessor>
+	<Predecessor>E03</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SoSEng</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>I01</Name>
+	<Description>Electrical System Requirement 01</Description>
+	<Type>Requirement</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	<Subtask>A_I01</Subtask>
+	<Subtask>I01_1</Subtask>
+	<Subtask>I01_2</Subtask>
+	<Subtask>I01_3</Subtask>
+	<Subtask>I01_4</Subtask>
+	<Subtask>I01_5</Subtask>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>A_I01</Triggered>
+		<AtProgress>0</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_IT</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>0</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>A_I01</Name>
+	<Description>Analysis: Electrical System Requirement 01</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>I01_1</Triggered>
+	<Triggered>I01_2</Triggered>
+	<Triggered>I01_3</Triggered>
+	<Triggered>I01_4</Triggered>
+	<Triggered>I01_5</Triggered>
+		<AtProgress>100</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_IT</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>I01_1</Name>
+	<Description>IT Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_IT</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>I01_2</Name>
+	<Description>ITEngineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_IT</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>I01_3</Name>
+	<Description>IT Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_IT</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>I01_4</Name>
+	<Description>IT Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_IT</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>I01_5</Name>
+	<Description>IT Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_IT</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E03</Name>
+	<Description>Electrical System Requirement 02</Description>
+	<Type>Requirement</Type>					
+	<Predecessors>
+	<Predecessor>I01</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	<Subtask>A_E03</Subtask>
+	<Subtask>E03_1</Subtask>
+	<Subtask>E03_2</Subtask>
+	<Subtask>E03_3</Subtask>
+	<Subtask>E03_4</Subtask>
+	<Subtask>E03_5</Subtask>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>A_E03</Triggered>
+		<AtProgress>0</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>0</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>A_E03</Name>
+	<Description>Analysis: Electrical System Requirement 02</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>E03_1</Triggered>
+	<Triggered>E03_2</Triggered>
+	<Triggered>E03_3</Triggered>
+	<Triggered>E03_4</Triggered>
+	<Triggered>E03_5</Triggered>
+		<AtProgress>100</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E03_1</Name>
+	<Description>Electrical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E03_2</Name>
+	<Description>Electrical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E03_3</Name>
+	<Description>Electrical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	<Predecessor>E03_1</Predecessor>
+	<Predecessor>E03_2</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E03_4</Name>
+	<Description>Electrical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	<Predecessor>E03_3</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>E03_5</Name>
+	<Description>Electrical Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	<Predecessor>E03_3</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_Elec</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>SD2</Name>
+	<Description>Software Development Capability 2</Description>
+	<Type>Capability</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	<Subtask>A_SD2</Subtask>
+	<Subtask>I02</Subtask>
+	<Subtask>E03</Subtask>
+	<Subtask>F_SD2</Subtask>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>A_SD2</Triggered>
+	<Triggered>F_SD2</Triggered>
+		<AtProgress>0</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SoSEng</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>0</Efforts>
+	<Value>2000</Value>	
+	<Source>Stakeholder1</Source>
+	<ArrivalTime>1</ArrivalTime>
+	<DueDate>100</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>A_SD2</Name>
+	<Description>Analysis SD2</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>I02</Triggered>
+	<Triggered>E03</Triggered>
+		<AtProgress>100</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SoSEng</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>F_SD2</Name>
+	<Description>Final Integration SD2</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	<Predecessor>I02</Predecessor>
+	<Predecessor>E03</Predecessor>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SoSEng</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>I02</Name>
+	<Description>IT Requirement 02</Description>
+	<Type>Requirement</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	<Subtask>A_I02</Subtask>
+	<Subtask>I02_1</Subtask>
+	<Subtask>I02_2</Subtask>
+	<Subtask>I02_3</Subtask>
+	<Subtask>I02_4</Subtask>
+	<Subtask>I02_5</Subtask>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>A_I02</Triggered>
+		<AtProgress>0</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_IT</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>0</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>A_I02</Name>
+	<Description>IT Requirement 02</Description>
+	<Type>Activity</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	<CausalTrigger>
+	<Triggered>I02_1</Triggered>
+	<Triggered>I02_2</Triggered>
+	<Triggered>I02_3</Triggered>
+	<Triggered>I02_4</Triggered>
+	<Triggered>I02_5</Triggered>
+		<AtProgress>100</AtProgress>
+		<OnProbability>100</OnProbability>
+	</CausalTrigger>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>SysEng_IT</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>I02_1</Name>
+	<Description>IT Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_IT</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>I02_2</Name>
+	<Description>IT Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_IT</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>I02_3</Name>
+	<Description>IT Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_IT</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>I02_4</Name>
+	<Description>IT Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_IT</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+<WorkItem>
+	<Name>I02_5</Name>
+	<Description>IT Engineering Task</Description>
+	<Type>Task</Type>					
+	<Predecessors>
+	</Predecessors>
+	<Subtasks>
+	</Subtasks>
+	<CausalTriggers>
+	</CausalTriggers>
+	<RequiredServices>
+	<ServiceType>Eng_IT</ServiceType>
+	</RequiredServices>
+	<ClassOfService>Standard</ClassOfService>
+	<Efforts>10</Efforts>
+	<Value>0</Value>	
+	<Source>null</Source>
+	<ArrivalTime>0</ArrivalTime>
+	<DueDate>0</DueDate>
+</WorkItem>
+</WorkItems>
+</WorkItemNetworkModel>
+
+</KSSModel>

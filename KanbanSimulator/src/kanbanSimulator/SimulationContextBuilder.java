@@ -61,8 +61,8 @@ public class SimulationContextBuilder {
 
 	public void XMLtoEObjects() {
 
-		try {File scenarioXmlFile = new File("SimulationScenario/KSS-Scenario.xml");
-			 File libraryXmlFile = new File("UserLibraries/UserLibraries.xml");	 
+		try {File scenarioXmlFile = new File("C:/Users/Donbghuang Li/git/DATASEM-Simulator/KanbanSimulator/freezedried_data/SimulationScenario/KSS-Scenario.xml");
+			 File libraryXmlFile = new File("C:/Users/Donbghuang Li/git/DATASEM-Simulator/KanbanSimulator/freezedried_data/UserLibraries/UserLibraries.xml");	 
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			dbFactory.setIgnoringElementContentWhitespace(true);
@@ -100,32 +100,25 @@ public class SimulationContextBuilder {
 				String sTg_acceptance = sTg.getElementsByTagName("AcceptanceRule").item(0).getTextContent();
 				strategyAcceptanceRule.setName(sTg_acceptance);
 				myStrategy.setWIAcceptanceRule(strategyAcceptanceRule);
-//				System.out.println(strategyAcceptanceRule);
 				WISelection strategySelectionRule = KanbanmodelFactory.eINSTANCE.createWISelection();
 				String sTg_selection = sTg.getElementsByTagName("SelectionRule").item(0).getTextContent();
 				strategySelectionRule.setName(sTg_selection);
 				myStrategy.setWISelectionRule(strategySelectionRule);
-//				System.out.println(strategySelectionRule);
 				WIAssignment strategyAssignmentRule = KanbanmodelFactory.eINSTANCE.createWIAssignment();
 				String sTg_assignment = sTg.getElementsByTagName("AssignmentRule").item(0).getTextContent();
 				strategyAssignmentRule.setName(sTg_assignment);
 				myStrategy.setWIAssignmentRule(strategyAssignmentRule);
-//				System.out.println(strategyAssignmentRule);
 				ResourceAllocation strategyAllocationRule = KanbanmodelFactory.eINSTANCE.createResourceAllocation();
 				String sTg_allocation = sTg.getElementsByTagName("AllocationRule").item(0).getTextContent();
 				strategyAllocationRule.setName(sTg_allocation);
 				myStrategy.setResourceAllocationRule(strategyAllocationRule);
-//				System.out.println(strategyAllocationRule);
 				ResourceOutsourcing strategyOutsourcingRule = KanbanmodelFactory.eINSTANCE.createResourceOutsourcing();
 				String sTg_outsourcing = sTg.getElementsByTagName("OutsourcingRule").item(0).getTextContent();
 				strategyOutsourcingRule.setName(sTg_outsourcing);
 				myStrategy.setResourceOutsourcingRule(strategyOutsourcingRule);
-//				System.out.println(strategyOutsourcingRule);
 				//
 				this.myStrategies.add(myStrategy);
 			}
-			System.out.println("\nSoS Strategies :");
-			System.out.println(this.myStrategies);
 			
 			
 			// ----------------------- Value Function Profiles ------------------------------
@@ -161,8 +154,6 @@ public class SimulationContextBuilder {
 				}
 				this.myTaskPatterns.add(myTaskPattern);
 			}
-			System.out.println("\nSoS Task Patterns :");
-			System.out.println(this.myTaskPatterns);
 			
 
 			
@@ -181,8 +172,6 @@ public class SimulationContextBuilder {
 				myService.setDescription(sV_description);
 				this.myServiceTypes.add(myService);
 			}
-			System.out.println("\nSoS Services :");
-			System.out.println(this.myServiceTypes);
 			
 //			 --------------------------- ServiceProvider Agents --------------------------------
 			DirectoryFacilitatorAgent dfa=new DirectoryFacilitatorAgent();			
@@ -199,13 +188,11 @@ public class SimulationContextBuilder {
 				// Specify Service Provider
 				myServiceProvider.setName(tM_name);
 				myServiceProvider.setDescription(tM_description);
-				System.out.println("\n---ServiceProvider: "+myServiceProvider.getName());
 				// ------------------------------------------------
 				// Set ServiceProvider Service
 				Node ServicesNode = tM.getElementsByTagName("Services").item(0);
 				Element Services = (Element)ServicesNode;
 				NodeList tM_ServiceList = Services.getElementsByTagName("Service");
-				System.out.println("SP Services:");
 				for (int tm_sv = 0; tm_sv < tM_ServiceList.getLength(); tm_sv++) {
 					// Create Service
 					Service myService = KanbanmodelFactory.eINSTANCE.createService();	
@@ -229,7 +216,6 @@ public class SimulationContextBuilder {
 					myService.setEfficiency(tM_sV_efficiency);
 					// Add Service to ServiceProvider
 					myServiceProvider.getServices().add(myService);
-					System.out.println("Service: "+myService.getServiceType().getName());
 				}		
 				
 				// Set ServiceProvider Governance Strategies
@@ -281,7 +267,6 @@ public class SimulationContextBuilder {
 					String Resource_description = Resource.getElementsByTagName("Description").item(0).getTextContent();
 					myResource.setName(Resource_name);
 					myResource.setDescription(Resource_description);
-					System.out.println("-Resource: "+myResource.getName());
 					// Resource Skills
 					NodeList r_ServiceList = Resource.getElementsByTagName("Service");
 					for (int r_sv = 0; r_sv < r_ServiceList.getLength(); r_sv++) {
@@ -307,7 +292,6 @@ public class SimulationContextBuilder {
 						myService.setEfficiency(r_sV_efficiency);
 						// Add Service to Resource
 						myResource.getServices().add(myService);
-						System.out.println("Service: "+myService.getServiceType().getName());
 					}
 					myServiceProvider.getResources().add(myResource);
 				}
@@ -317,16 +301,7 @@ public class SimulationContextBuilder {
 				mySPAgent.SoS = mySoS;
 				this.mySPAgents.add(mySPAgent);				
 				sProviderID ++;
-//				System.out.println(myServiceProvider.getName());
-//				System.out.println(myServiceProvider.getDefaultStrategy().getWIAcceptanceRule());
-//				System.out.println(myServiceProvider.getDefaultStrategy().getWISelectionRule());
-//				System.out.println(myServiceProvider.getDefaultStrategy().getWIAssignmentRule());
-//				System.out.println(myServiceProvider.getAcceptanceRule());
-//				System.out.println(myServiceProvider.getSelectionRule());
-//				System.out.println(myServiceProvider.getAssignmentRule());
 			}
-			System.out.println("\nSoS ServiceProvider Agents :");
-			System.out.println(this.mySPAgents);	
 			
 			// ---------------------- Organizational Structure --------------------------------
 			for (int sp=0;sp<serviceProviderList.getLength();sp++) {
@@ -382,8 +357,6 @@ public class SimulationContextBuilder {
 				this.myDemandSources.add(myDemandSource);
 				dSourceID ++;
 			}
-			System.out.println("\nSoS Demand Sources :");
-			System.out.println(this.myDemandSources);
 				
 			
 			// ------------------------- WORK FLOW DATA MODELS -------------------------------------
@@ -398,7 +371,6 @@ public class SimulationContextBuilder {
 //			for (int wfd = 0; wfd < workItemNetworkList.getLength(); wfd++) {
 
 			for (int rep = 0; rep < replications; rep++) {
-				System.out.println("\nGenerating WIN Replication: No."+(rep+1));
 //				Node WFlownode = workItemNetworkList.item(wfd);		
 				// ------------------------- WORK ITEMS FLOW -----------------------------------
 //				if (WFlownode.getNodeType() == Node.ELEMENT_NODE) {													
@@ -562,10 +534,6 @@ public class SimulationContextBuilder {
 					// ------------------ END WORK ITEM DEPENDENCIES -------------------------					
 					this.myWINetworks.add(myWINetwork);					
 				}
-				System.out.println("\nSoS Work Item Networks: ");
-				System.out.println(this.myWINetworks.get(0));
-				System.out.println(this.myWINetworks.get(0).size()+" WIs");
-				System.out.println("Replicated: "+this.myWINetworks.size());
 				// ------------------------ END WORK ITEMS FLOW ----------------------------------
 //			}
 				
@@ -574,18 +542,6 @@ public class SimulationContextBuilder {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("\n------------------------------------------------------------: ");
-		
-//		god.getDemandSources().addAll(myDemandSources);
-//		god.getOrganizationMembers().addAll(mySPAgents);	
-//		for (int wf = 0; wf < myWINetworks.size(); wf++) {
-//			ArrayList<KSSTask> wItemFlow = myWINetworks.get(wf);
-//			int c = 0;int r = 0;int t = 0;	
-//			for (int w = 0; w < wItemFlow.size(); w++) {
-//				KSSTask wItem = wItemFlow.get(w);			
-//				god.getWaitingList().add(wItem);
-//			}
-//		}
 	}
 	
 	// -------------------------- END XML INSTANTIATION --------------------------------------

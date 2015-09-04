@@ -6,6 +6,11 @@
 	</projects>
 	<buildSpec>
 		<buildCommand>
+			<name>org.eclipse.xtext.ui.shared.xtextBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
 			<name>repast.simphony.systemdynamics.diagram.builder</name>
 			<arguments>
 			</arguments>
@@ -33,5 +38,6 @@
 		<nature>repast.simphony.flowchart.repast_simphony_flowchart_nature</nature>
 		<nature>repast.simphony.statecharts.diagram.repast_simphony_statechart_nature</nature>
 		<nature>repast.simphony.systemdynamics.diagram.repast_simphony_systemdynamics_nature</nature>
+		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 	</natures>
 </projectDescription>

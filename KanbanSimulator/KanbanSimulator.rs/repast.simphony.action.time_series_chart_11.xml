@@ -1,9 +1,9 @@
 <repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
-  <name>Total WorkLoad Chart</name>
-  <dataSet>Total WorkLoad Data Set</dataSet>
+  <name>Active WorkLoad Chart</name>
+  <dataSet>Active WorkLoad Data Set</dataSet>
   <xAxisLabel>Time</xAxisLabel>
-  <yAxisLabel>Total WorkLoad</yAxisLabel>
-  <chartTitle>Agents Total WorkLoad</chartTitle>
+  <yAxisLabel>Active Workload</yAxisLabel>
+  <chartTitle>Agents Active WorkLoad</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>0</red>
@@ -28,7 +28,7 @@
     </entry>
   </seriesIds>
   <dataValueIds>
-    <string>TotalWorkLoad</string>
+    <string>ActiveWorkLoad</string>
   </dataValueIds>
   <plotRangeLength>-1</plotRangeLength>
 </repast.simphony.chart2.engine.TimeSeriesChartDescriptor>

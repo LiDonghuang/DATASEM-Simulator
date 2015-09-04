@@ -42,13 +42,11 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 	private double resourceUtilization;
 	private int totalWorkLoad;
 	private int activeWorkLoad;
-	private KanbanBoard myKanbanBoard;
-	private LinkedList<ServiceProviderAgent> myServiceProviders;
+
 	private LinkedList<ServiceResource> myServiceResources;
-	private DirectoryFacilitatorAgent dfa=null;
-	
 	private GovernanceSearchStrategy mySearchStrategy;
 	private ValueManagement myValueManagement;
+	
 	private String WI_Acceptance_RuleName;
 	private String WI_Selection_RuleName;
 	private String WI_Assignment_RuleName;
@@ -66,8 +64,9 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 	private int activeQLimit;
 	private static final int DEFAULT_INITIAL_CAPACITY = 100;
 	private int state;
-	
-	
+	private KanbanBoard myKanbanBoard;
+	private LinkedList<ServiceProviderAgent> myServiceProviders;	
+	private DirectoryFacilitatorAgent dfa=null;	
 	
 	public ServiceProviderAgent(int id, ServiceProvider sp, DirectoryFacilitatorAgent inDfa) {	
 		this.id = id;
@@ -107,9 +106,9 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
     
 	@ScheduledMethod(start=1,interval=1,priority=20,shuffle=false)
 	public void step() {		
-		System.out.println("\n------------ Agent "+this.name+" is now active ---------------");
-		System.out.println("Active WorkLoad: "+this.getActiveWorkLoad());
-		System.out.println("Total WorkLoad: "+this.getTotalWorkLoad());
+		//System.out.println("\n------------ Agent "+this.name+" is now active ---------------");
+		//System.out.println("Active WorkLoad: "+this.getActiveWorkLoad());
+		//System.out.println("Total WorkLoad: "+this.getTotalWorkLoad());
 		
 		
 		this.requestedQ = this.mySearchStrategy.workPrioritization(this, this.requestedQ);	
@@ -124,7 +123,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 			// =========== Service Efficiency Algorithm ==============
 			double eEfficiency = requestedWI.calculateServiceEfficiency();	
 			if (eEfficiency==0) {
-				System.out.println("...not able to solve "+ requestedWI.getName());
+				//System.out.println("...not able to solve "+ requestedWI.getName());
 				// Find those SPs who can serve this WI
 				ArrayList<ServiceProviderAgent>serviceProviderCandidates = 
 						this.findServiceProviders(requestedWI);
@@ -138,14 +137,13 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 					selectedSP.assignWI(requestedWI);
 					this.requestedQ.remove(requestedWI);
 					// !
-					System.out.println(this.getName()+" invoked "+selectedSP.getName());
+					//System.out.println(this.getName()+" invoked "+selectedSP.getName());
 					selectedSP.step();
-					System.out.println("\n-------- back to "+this.getName()+"'s turn... --------");
+					//System.out.println("\n-------- back to "+this.getName()+"'s turn... --------");
 				}
 				else {
-					System.out.println("Failed to Assign "+requestedWI.getPatternType().getName()
-							+": "+requestedWI.getName()+" (id:"+requestedWI.getID()+")"); 
-					System.out.println("ERROR!");
+					//System.out.println("Failed to Assign "+requestedWI.getPatternType().getName()+": "+requestedWI.getName()+" (id:"+requestedWI.getID()+")"); 
+					//System.out.println("ERROR!");
 					RunEnvironment.getInstance().endRun();
 				}
 			}
@@ -221,19 +219,16 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 //				estimatedEfforts += estimationError;
 				startedWI.setEstimatedEfforts(eEfforts);
 				double eCompletion= startedWI.getEstimatedEfforts() + this.SoS.timeNow;
-				System.out.println(startedWI.getPatternType().getName()
-						+": "+startedWI.getName()+
-						"(id:"+startedWI.getID()+")"+
-						" is expected to finish at "+eCompletion);
+				//System.out.println(startedWI.getPatternType().getName()+": "+startedWI.getName()+"(id:"+startedWI.getID()+")"+" is expected to finish at "+eCompletion);
 				startedWI.setEstimatedCompletionTime(eCompletion);
 				// ====================================================
 				this.activeQ.add(startedWI);
 				this.readyQ.remove(startedWI);				
 				w--;
 			}
-			else {System.out.println("No Resources available for "+
-			startedWI.getPatternType().getName()+": "+
-			startedWI.getName()+" now!");}
+			else {
+				//System.out.println("No Resources available for "+startedWI.getPatternType().getName()+": "+startedWI.getName()+" now!");				
+			}
 		}		
 		// -----------------------------------		
 		
@@ -295,15 +290,17 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 		this.calculateResourceUtilization();
 		if (this.activeQ.size()>0) {
 			this.state=1;
-			System.out.println("Agent "+this.name+" is Busy");	
+			//System.out.println("Agent "+this.name+" is Busy");	
 			if (this.resourceUtilization==1.00) {
-				System.out.println("Agent "+this.name+" is at Full Capacity");} 
+				//System.out.println("Agent "+this.name+" is at Full Capacity");
+				} 
 			}
 		else {
 			this.state=0;
-			System.out.println("Agent "+this.name+" is Idle");}		
+			//System.out.println("Agent "+this.name+" is Idle");
+			}		
 		// --------------------------------------
-		System.out.println("-- Agent "+this.name+" has finished its activities --");
+		//System.out.println("-- Agent "+this.name+" has finished its activities --");
 	}
 // ----------------------- END Step() -----------------------------	
 	public LinkedList<KSSTask> getRequestedQ() {
@@ -355,8 +352,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 		newWI.assignTo(this);
 		newWI.checkCausalities();
 		myValueManagement.manageValue(this, newWI);
-		System.out.println(newWI.getPatternType().getName()+": "
-				+newWI.getName()+"(id:"+newWI.getID()+")"+" is assigned to Agent "+this.name);
+		//System.out.println(newWI.getPatternType().getName()+": "+newWI.getName()+"(id:"+newWI.getID()+")"+" is assigned to Agent "+this.name);
 	}
 	
 	public void requestService(KSSTask newWI) {
@@ -380,7 +376,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 				}
 			}
 		}	
-		System.out.println("# of candidate SPs: "+serviceProviderCandidates.size());
+		//System.out.println("# of candidate SPs: "+serviceProviderCandidates.size());
 		return serviceProviderCandidates;
 	}
 	
@@ -461,7 +457,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 				}
 			}
 		}	
-		System.out.println("# of candidate Resources: "+serviceResourceCandidates.size());
+		//System.out.println("# of candidate Resources: "+serviceResourceCandidates.size());
 		return serviceResourceCandidates;
 	}
 	public boolean hasIdleResources() {
@@ -470,7 +466,7 @@ public class ServiceProviderAgent extends ServiceProviderImpl {
 			ServiceResource serviceResource = this.getServiceResources().get(r);
 			if (!serviceResource.isBusy()) {
 				hasIdleResources = true;
-				System.out.println("Idle Resources");
+				//System.out.println("Idle Resources");
 				break;
 			}
 		}

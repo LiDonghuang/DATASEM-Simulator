@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <parameters>
-					<parameter name="worldHeight" displayName="World Height" type="int" 
-						defaultValue="100" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-									
-		/>
-				<parameter name="randomSeed" displayName="Default Random Seed" type="int" 
+					<parameter name="randomSeed" displayName="Default Random Seed" type="int" 
 						defaultValue="__NULL__"
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
@@ -28,12 +22,6 @@
 						defaultValue="0.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
-									
-		/>
-				<parameter name="worldWidth" displayName="World Width" type="int" 
-						defaultValue="100" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
 				<parameter name="WI_replications" displayName="WI Replications" type="int" 

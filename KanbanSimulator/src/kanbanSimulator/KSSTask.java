@@ -117,9 +117,9 @@ public class KSSTask extends WorkItemImpl {
 //	@ScheduledMethod(start=1,interval=1,priority=10,shuffle=true)
 	public void step() {	
 		// ********************* STEP *******************************
-		System.out.println("**** "+this.getPatternType().getName()+": "+this.getName()+"(id:"+this.getID()+")"+" updates ****");	
-//		System.out.println("Requested By: "+this.getRequester().getName());
-//		System.out.println("Currently Assigned to: "+this.getAssignedTo().getName());
+		//System.out.println("**** "+this.getPatternType().getName()+": "+this.getName()+"(id:"+this.getID()+")"+" updates ****");	
+//		//System.out.println("Requested By: "+this.getRequester().getName());
+//		//System.out.println("Currently Assigned to: "+this.getAssignedTo().getName());
 		// ******************* Value Function: Update WI Value ***********************
 //		double oldValue = this.value;
 //		double newValue = oldValue;
@@ -133,7 +133,7 @@ public class KSSTask extends WorkItemImpl {
 //			if (timeNow>this.getDueDate()){
 //			newValue = 0;}}
 //		this.value = newValue;
-//		System.out.println(this.cos+": Value of "+this.getName()+" Diminished From "+oldValue+" to "+ newValue);
+//		//System.out.println(this.cos+": Value of "+this.getName()+" Diminished From "+oldValue+" to "+ newValue);
 		
 	
 		// ------------ Non-Aggregation WI Progress Check -------------								
@@ -153,7 +153,7 @@ public class KSSTask extends WorkItemImpl {
 						allocatedResources.get(r).withdrawFrom(this);
 						}
 				}
-				System.out.println("Progress: "+this.progress);
+				//System.out.println("Progress: "+this.progress);
 			}
 		}
 //		else if (this.isAggregationNode()) {
@@ -356,10 +356,14 @@ public class KSSTask extends WorkItemImpl {
 						for (int t=0;t<trigger.getTriggered().size();t++) {
 							KSSTask triggeredWI = trigger.getTriggered().get(t);
 							if (!trigger.isRepetitive() && !triggeredWI.isCreated()){
-								System.out.println(this.getName()+
-										" triggered "+triggeredWI.getName());
+								//System.out.println(this.getName()+" triggered "+triggeredWI.getName());
 								//
 								context.add(triggeredWI);
+								//
+								// ! Temporary !
+								if (triggeredWI.getCOS().matches("Important")) {
+									this.getUpperTasks().get(0).addSubTask(triggeredWI);
+								}	
 								//
 								this.SoS.getArrivedList().add(triggeredWI);
 								triggeredWI.setCreated();
@@ -398,7 +402,7 @@ public class KSSTask extends WorkItemImpl {
 	public void setStarted() {
 		this.started = true;
 		 this.startTime = this.SoS.timeNow;;	
-		 System.out.println("WorkItem "+this.getName()+"(id:"+this.getID()+")"+" is started");
+		 //System.out.println("WorkItem "+this.getName()+"(id:"+this.getID()+")"+" is started");
 	}
 	public boolean isStarted() {
 		return this.started;
@@ -411,8 +415,7 @@ public class KSSTask extends WorkItemImpl {
 	}
 	public void setCompleted() {
 		this.completed=true;
-		System.out.print("*** WorkItem "+this.getName()
-				+"(id:"+this.getID()+")"+" is Completed ***\n");
+		//System.out.print("*** WorkItem "+this.getName()+"(id:"+this.getID()+")"+" is Completed ***\n");
 		this.updateUpperTasksCompletion();
 		this.updateSuccessorTasks();
 	}
@@ -423,8 +426,8 @@ public class KSSTask extends WorkItemImpl {
 		this.ended=true;
 		this.endTime = this.SoS.timeNow;
 		this.cycleTime = this.endTime - this.createdTime;
-		System.out.println(this.getName()+" (id:"+this.getID()+") is Ended");
-		System.out.println("CycleTime: "+this.getCycleTime());
+		//System.out.println(this.getName()+" (id:"+this.getID()+") is Ended");
+		//System.out.println("CycleTime: "+this.getCycleTime());
 	}
 	public double getEndTime() {
 		return this.endTime;
@@ -454,8 +457,7 @@ public class KSSTask extends WorkItemImpl {
 	public void setCreated() {
 		this.created=true;
 		this.createdTime=this.SoS.timeNow;
-		System.out.println(this.getName()+"(id:"+this.getID()+") is Created");
-//		this.arrTime = this.createdTime;
+		//System.out.println(this.getName()+"(id:"+this.getID()+") is Created");
 	}
 	public double getProgress() {
 		return this.progress;
@@ -500,13 +502,11 @@ public class KSSTask extends WorkItemImpl {
 	}
 	public void allocateResource(ServiceResource sR) {
 		this.getAllocatedResources().add(sR);
-		System.out.println("Resource "+sR.getName()+
-				" is Allocated to "+this.getName());
+		//System.out.println("Resource "+sR.getName()+" is Allocated to "+this.getName());
 	}
 	public void withdrawResource(ServiceResource sR) {
 		this.getAllocatedResources().remove(sR);
-		System.out.println("Resource "+sR.getName()+
-				" is Withdrawed from "+this.getName());
+		//System.out.println("Resource "+sR.getName()+" is Withdrawed from "+this.getName());
 	}
 	public LinkedList<ServiceResource> getAllocatedResources() {
 		return this.allocatedResources;
@@ -517,8 +517,7 @@ public class KSSTask extends WorkItemImpl {
 	}
 	public void setServiceEfficiency(double e) {
 		this.serviceEfficiency = e;
-		System.out.println(this.getAssignedTo().getName()+" is Serving "+
-				this.getName() + " at Efficiency: "+e);
+		//System.out.println(this.getAssignedTo().getName()+" is Serving "+this.getName() + " at Efficiency: "+e);
 	}
 	public double calculateServiceEfficiency() {
 		double sEfficiency = 0;
@@ -559,15 +558,15 @@ public class KSSTask extends WorkItemImpl {
 	public void TaskTraversal() {
 		for(int i=0;i<this.requirement.getSubtasks().size();i++) {
 			KSSTask nextTask= (KSSTask) this.requirement.getSubtasks().get(i);
-			System.out.println("Task name: "+ nextTask.getName());
-			System.out.println("Task ID: "+ nextTask.getID());
+			//System.out.println("Task name: "+ nextTask.getName());
+			//System.out.println("Task ID: "+ nextTask.getID());
 			System.out.print("Successor tasks: ");
 			Iterator<KSSTask> taskIterator=this.requirement.getAdjList().get(nextTask).iterator();
-			if (taskIterator.hasNext()==false) System.out.println("no successors");
+			if (taskIterator.hasNext()==false) //System.out.println("no successors");
 			while (taskIterator.hasNext()) {
 				System.out.print("Task ID: "+taskIterator.next().getID()+"  ");
 			}
-			System.out.println("  ");
+			//System.out.println("  ");
 		}
 	}
 	
@@ -594,7 +593,7 @@ public class KSSTask extends WorkItemImpl {
 			KSSTask tempTask=(KSSTask)this.requirement.getSubtasks().get(i);
 			if ( (this.inDegree.get(tempTask) == 0)) {
 				this.readyList.add(tempTask);
-				System.out.println("Inserted Task "+tempTask.getID()+" into readyList");
+				//System.out.println("Inserted Task "+tempTask.getID()+" into readyList");
 			}
 			
 			
@@ -617,7 +616,7 @@ public class KSSTask extends WorkItemImpl {
 	}
 	public void updateReadyTasks(KSSTask completedTask) {
 		this.readyList.remove(completedTask);
-		System.out.println("Removed Task "+completedTask.getID()+" from readylist");
+		//System.out.println("Removed Task "+completedTask.getID()+" from readylist");
 		LinkedList<KSSTask> tList=this.requirement.getAdjList().get(completedTask);
 		for(int j=0;j<tList.size(); j++) {
 			KSSTask tempTask=tList.get(j);
@@ -627,7 +626,7 @@ public class KSSTask extends WorkItemImpl {
 				this.inDegree.put(tempTask, currentInDegree);
 				if ((currentInDegree==0) && (tempTask.isCompleted()==false)) {
 					this.readyList.add(tempTask);
-					System.out.println("Task "+tempTask.getID()+" is now in the ready list");
+					//System.out.println("Task "+tempTask.getID()+" is now in the ready list");
 				}
 			}
 		}

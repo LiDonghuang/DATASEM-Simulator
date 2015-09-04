@@ -46,14 +46,11 @@ public DemandSource(int id, WorkSource wSource) {
 
 	@ScheduledMethod(start=1,interval=1,priority=30)
 	public void step() {		
-
-		System.out.println("-- Demand Source "+this.getName()+" is now active --");
 		// ----------------- Assign WI to Target Units --------------------------------
-		System.out.println(this.getName()+" on-hand WIs: "+this.getAssignmentQ().size());
+		//System.out.println(this.getName()+" on-hand WIs: "+this.getAssignmentQ().size());
 		for (int w = 0; w < this.getAssignmentQ().size(); w++) {
 			KSSTask wItem = this.getAssignmentQ().get(w);
-			System.out.println(this.getName()+" is Assigning "+wItem.getPatternType().getName()
-					+": "+wItem.getName()+" (id:"+wItem.getID()+")");
+			//System.out.println(this.getName()+" is Assigning "+wItem.getPatternType().getName()+": "+wItem.getName()+" (id:"+wItem.getID()+")");
 			ArrayList<ServiceProviderAgent>serviceProviderCandidates = 
 					this.findServiceProviders(wItem);					
 //			if (!wItem.isAggregationNode())  {
@@ -67,8 +64,7 @@ public DemandSource(int id, WorkSource wSource) {
 					this.getAssignmentQ().remove(wItem);
 					w--; }
 				else {
-					System.out.println("Failed to Assign "+wItem.getPatternType().getName()
-							+": "+wItem.getName()+" (id:"+wItem.getID()+")"); 
+					//System.out.println("Failed to Assign "+wItem.getPatternType().getName()+": "+wItem.getName()+" (id:"+wItem.getID()+")"); 
 					}
 				}
 			}
@@ -100,7 +96,7 @@ public DemandSource(int id, WorkSource wSource) {
 				}
 			}
 		}	
-		System.out.println("# of candidate SPs: "+serviceProviderCandidates.size());
+		//System.out.println("# of candidate SPs: "+serviceProviderCandidates.size());
 		return serviceProviderCandidates;
 	}
 	

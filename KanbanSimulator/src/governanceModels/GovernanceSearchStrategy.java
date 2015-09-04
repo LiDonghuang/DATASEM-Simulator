@@ -24,7 +24,7 @@ public class GovernanceSearchStrategy {
 	
 	public void setWItemAcceptanceRule(String ruleName){
 		this.wItemAcceptance = new WIAcceptanceRule(ruleName);
-		System.out.println("Set WItemAcceptanceRule: "+ruleName);
+		//System.out.println("Set WItemAcceptanceRule: "+ruleName);
 	}
 	public WIAcceptanceRule getWItemAcceptanceRule(){
 		return this.wItemAcceptance;
@@ -33,7 +33,7 @@ public class GovernanceSearchStrategy {
 	
 	public void setWItemSelectionRule(String ruleName){
 		this.wItemSelection = new WISelectionRule(ruleName);
-		System.out.println("Set WItemSelectionRule: "+ruleName);
+		//System.out.println("Set WItemSelectionRule: "+ruleName);
 	}
 	public WISelectionRule getWItemSelectionRule(){
 		return this.wItemSelection;
@@ -50,7 +50,7 @@ public class GovernanceSearchStrategy {
 	
 	public void setWItemAssignmentRule(String ruleName){
 		this.wItemAssignment = new WIAssignmentRule(ruleName);
-		System.out.println("Set WItemAssignmentRule: "+ruleName);
+		//System.out.println("Set WItemAssignmentRule: "+ruleName);
 	}
 	public WIAssignmentRule getWItemAssignment(){
 		return this.wItemAssignment;
@@ -58,7 +58,7 @@ public class GovernanceSearchStrategy {
 	
 	public void setResourceAllocationRule(String ruleName){
 		this.resourceAllocation = new ResourceAllocationRule(ruleName);
-		System.out.println("Set ResourceAllocationRule: "+ruleName);
+		//System.out.println("Set ResourceAllocationRule: "+ruleName);
 	}
 	public ResourceAllocationRule getResourceAllocation(){
 		return this.resourceAllocation;
@@ -66,7 +66,7 @@ public class GovernanceSearchStrategy {
 	
 	public void setResourceOutsourcingRule(String ruleName){
 		this.resourceOutsourcing = new ResourceOutsourcingRule(ruleName);
-		System.out.println("Set ResourceOutsourcingRule: "+ruleName);
+		//System.out.println("Set ResourceOutsourcingRule: "+ruleName);
 	}
 	public ResourceOutsourcingRule getResourceOutsourcing(){
 		return this.resourceOutsourcing;
