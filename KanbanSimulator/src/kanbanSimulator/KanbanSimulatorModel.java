@@ -32,7 +32,7 @@ public class KanbanSimulatorModel implements ContextBuilder<Object>{
 		GridFactory gridFactory = GridFactoryFinder.createGridFactory(null);
 		Grid<Object> grid3D = gridFactory.createGrid("3DGrid", context, 
 				new GridBuilderParameters<Object>(new WrapAroundBorders(), 
-						new SimpleGridAdder<Object>(), true, width, height, 50));
+						new SimpleGridAdder<Object>(), true, width, height, 20));
 		Grid<Object> grid2D = gridFactory.createGrid("2DGrid", context, 
 				new GridBuilderParameters<Object>(new WrapAroundBorders(), 
 						new SimpleGridAdder<Object>(), true, width, height));
