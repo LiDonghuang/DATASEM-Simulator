@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<parameters>
+					<parameter name="randomSeed" displayName="Default Random Seed" type="int" 
+						defaultValue="__NULL__"
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="WI_interArrivalTime" displayName="WI InterArrivalTime" type="int" 
+						defaultValue="0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="WI_effortsVolatility" displayName="WI Efforts Volatility" type="double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="WI_valueVolatility" displayName="WI Value Volatility" type="double" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="WI_replications" displayName="WI Replications" type="int" 
+						defaultValue="1" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+		</parameters>
+
+

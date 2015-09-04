@@ -1,0 +1,13 @@
+<repast.simphony.data2.engine.FileSinkDescriptor>
+  <name>Total Value File Sink</name>
+  <dataSet>Active WorkLoad Data Set</dataSet>
+  <delimiter>,</delimiter>
+  <format>TABULAR</format>
+  <sourceIds class="linked-hash-set">
+    <string>tick</string>
+    <string>Name</string>
+    <string>ActiveWorkLoad</string>
+  </sourceIds>
+  <fileName>ModelOutput.dat</fileName>
+  <addTimeStamp>false</addTimeStamp>
+</repast.simphony.data2.engine.FileSinkDescriptor>
